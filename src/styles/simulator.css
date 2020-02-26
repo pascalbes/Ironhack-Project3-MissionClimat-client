@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 1px solid red;
+}
+
+.sim-page{
+    width: 100%;
+}
+
+.sim-container-box{
+    width: 80%;
+}
+
+.sim-results-box{
+    width: 20%;
+}
+

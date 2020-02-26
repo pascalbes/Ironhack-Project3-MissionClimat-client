@@ -3,16 +3,15 @@ import "./../../styles/sim-nav.css";
 
 
 
-const simNavBar = () => {
+const simNavBar = (props) => {
 
-    
     return (
         <div className="sim-nav">
             <div className="sim-nav-scope">{props.data.scope}</div>
             <div className="sim-nav-categories">
-                {props.data.categories.map((cat, i) => {
-                <div key={i} className="sim-nav-categorie">{cat}</div>})}</div>
-            </div>
+                {props.data.categories.map((cat, i) => (
+            <div key={i} className="sim-nav-categorie">{cat}</div>))}</div>
+        </div>
     )
 }
 
