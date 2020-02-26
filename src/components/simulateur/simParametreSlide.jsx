@@ -2,7 +2,7 @@ import React from 'react'
 
 const simParametreSlide = (props) => {
 
-    console.log(props.data.max)
+    console.log((props.data.max - props.data.min)/20)
 
 
     const handleChange = (e) => {
