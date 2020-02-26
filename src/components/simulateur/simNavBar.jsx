@@ -10,7 +10,9 @@ const simNavBar = (props) => {
             <div className="sim-nav-scope">{props.data.scope}</div>
             <div className="sim-nav-categories">
                 {props.data.categories.map((cat, i) => (
-            <div key={i} className="sim-nav-categorie">{cat}</div>))}</div>
+                    <a href={"#"+cat.id} key={i} className="sim-nav-categorie">{cat.name}</a>
+                ))}
+            </div>
         </div>
     )
 }

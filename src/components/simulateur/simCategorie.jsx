@@ -4,7 +4,7 @@ import "./../../styles/sim-category.css"
 const simCategorie = (props) => {
 
     return (
-        <div className="sim-categorie">
+        <div className="sim-categorie" id={"cat"+props.data.index}>
             <h3 className="sim-categorie-name">{props.data.name}</h3>
             <p className="sim-categorie-description">{props.data.description}</p>
             {/* ajouter une jauge? un graphe?? */}
