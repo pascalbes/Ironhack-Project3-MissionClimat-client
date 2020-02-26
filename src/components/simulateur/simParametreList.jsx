@@ -1,6 +1,6 @@
 import React from 'react'
 
-const simParametreList = () => {
+const simParametreList = (props) => {
 
     return (
         <div>

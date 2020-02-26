@@ -1,6 +1,6 @@
 import React from 'react'
 
-const simParametreSlide = () => {
+const simParametreSlide = (props) => {
     return (
         <div>
             
