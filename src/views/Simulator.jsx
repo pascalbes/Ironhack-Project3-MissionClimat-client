@@ -10,6 +10,16 @@ import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 
 const Simulator = () => {
+
+    function handleParameterType(param, j) {
+        if (param.type.list) {
+            return <SimParamList key={j} data={param.data} />
+        }
+        else if (param.type.slider) {
+            return <SimParamSlider key={j} data={param.data} />
+        }
+        
+    }
     
     return (
         <div className="sim-page flex-item">
@@ -23,8 +33,7 @@ const Simulator = () => {
                         <>
                         <SimCat key={i} data={cat.data} results={cat.resultats} />
                        {cat.parameters.map((param, j) => (
-                            param.type.list && <SimParamList key={j} data={param.data} />,
-                            param.type.slider && <SimParamSlider key={j} data={param.data} />
+                            handleParameterType(param)
                         ))}
                         </>
                     ))}

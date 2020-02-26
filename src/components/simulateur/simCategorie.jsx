@@ -5,7 +5,8 @@ const simCategorie = (props) => {
 
     return (
         <div className="sim-categorie">
-            <div className="sim-categorie-name">{props.data.name}</div> <div className="sim-categorie-description">{props.description}</div>
+            <h3 className="sim-categorie-name">{props.data.name}</h3>
+            <p className="sim-categorie-description">{props.data.description}</p>
             {/* ajouter une jauge? un graphe?? */}
         </div>
     )
