@@ -8,9 +8,9 @@ const simNavBar = () => {
     
     return (
         <div className="sim-nav">
-            <div className="sim-nav-scope">{props.scope}</div>
+            <div className="sim-nav-scope">{props.data.scope}</div>
             <div className="sim-nav-categories">
-                {props.categories.map((cat, i) => {
+                {props.data.categories.map((cat, i) => {
                 <div key={i} className="sim-nav-categorie">{cat}</div>})}</div>
             </div>
     )
