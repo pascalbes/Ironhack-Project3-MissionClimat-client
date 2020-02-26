@@ -27,8 +27,8 @@ const Simulator = () => {
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init">
-                            <button>Initialiser</button>
-                            <button>Sauvegarder</button>
+                            <button className="init-button">Initialiser</button>
+                            <button className="init-button">Sauvegarder</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item">
@@ -40,14 +40,14 @@ const Simulator = () => {
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={i} data={cat.data} results={cat.resultats} />
-                       {cat.parameters.map((param, j) => (
+                        <div id={"param-box"+i} className="sim-param-box grid-item">{cat.parameters.map((param, j) => (
                             handleParameterType(param, j)
-                        ))}
+                        ))}</div>
                         </>
                     ))}
                 </div>
             </section>
-            <section className="sim-results-box">
+            <section className="sim-results-box flex-item flex-column">
                 <SimResultsAreaChart />
             </section>
         </div>

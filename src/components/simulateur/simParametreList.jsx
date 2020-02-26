@@ -8,7 +8,7 @@ const simParametreList = (props) => {
     console.log(possibleValues)
 
     return (
-        <div>
+        <div id={"param"+props.data.index}>
             <h5>{props.data.name}</h5>
             <p>{props.data.description}</p>
             <form >
