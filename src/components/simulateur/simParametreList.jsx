@@ -5,22 +5,23 @@ const simParametreList = (props) => {
     console.log(props)
 
     const possibleValues = props.data.possibleValues.split(', ')
+    console.log(possibleValues)
 
     return (
         <div>
             <h5>{props.data.name}</h5>
             <p>{props.data.description}</p>
-            {/* <form>
-            <div className="list"> 
+            <form >
+            <div className="list" /*onChange= callback function*/> 
                 {possibleValues.map((value, i) => (
                     <>
-                        <input type="radio" id={`${value}`} name={`${value}`} value={`${value}`} checked={(props.parameters.data.value === value) ?  true : false }/>
+                        <input type="radio" id={`${value}`} name="params" value={`${value}`} /*checked={(props.data.value === value) ?  true : false }*//>
                         <label htmlFor={`${value}`}>{value}</label>
                     </>
                 ))
                 }
 			</div>
-            </form> */}
+            </form>
         </div>
     )
 }
