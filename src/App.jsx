@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact.jsx";
-import Info from "./views/Info";
+import Concept from "./views/Concept";
 import Simulator from "./views/Simulator";
 import Results from "./views/Results";
 import Dashboard from "./views/Dashboard";
@@ -25,14 +25,14 @@ function App() {
   return (
     <Fragment>
       <Header />
-      <main id="content-main" className="flex-item flex-column">
+      <main id="content-main">
         <Switch>
           {/* BASIC */}
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} /> 
           {/* SIMULATOR */}
-          <Route path="/info" component={Info} />
+          <Route path="/concept" component={Concept} />
           <Route path="/simulator" component={Simulator} />
           <Route path="/results" component={Results} />
           {/* AUTH */}

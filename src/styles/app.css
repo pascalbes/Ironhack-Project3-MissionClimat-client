@@ -6,10 +6,36 @@ html, body{
     box-sizing: border-box;
 }
 
+*{
+    box-sizing: border-box;
+}
+
+main{
+    height: 90%;
+}
+
 .flex-item{
     display: flex;
 }
 
 .flex-column{
     flex-direction: column;
+}
+
+.grid-item{
+    display: grid;
+}
+
+h1{
+    font-size: 3em;
+    margin: 0;
+}
+
+h2{
+    font-size: 2em;
+    margin: 0;
+}
+
+p{
+    margin: 0;
 }

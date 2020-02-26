@@ -1,20 +1,21 @@
 /* DEBUG */
 *{
-    border: 1px solid red;
-    box-sizing: border-box;
-}
-
-/* SIMULATOR PAGE */
-.sim-page{
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    border: 1px solid darkblue;
 }
 
 /* SECTIONS */
+.sim-page{
+    height: 100%;
+    width: 100%;
+}
+
 .sim-container-box{
-    height: calc(100vh - 10vh);
-    width: 80%;
+    padding: 1.5%;
+    width: 70%;
+}
+
+.sim-nav-box{
+    height: 25%;
 }
 
 .sim-main-box{
@@ -22,19 +23,31 @@
     overflow-y: auto;
 }
 
-.sim-nav-box{
-    height: 25%;
-}
-
 .sim-results-box{
-    width: 20%;
+    padding: 1.5%;
+    width: 30%;
 }
 
+/* = = = = = = = = = = = = = = = = =  */
 /* SIM-NAV */
 .sim-nav-head{
-    align-items: baseline;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.sim-nav-bar{
-
+.init-button{
+    margin-left: 1em;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    border: 1px solid;
+    border-radius: 0.8em;
+    background: none;
 }
+
+/* MAIN-BOX */
+.sim-param-box{
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+}
+
+
+/* RESULTS */
