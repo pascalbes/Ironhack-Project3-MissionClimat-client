@@ -2,9 +2,7 @@ import React from 'react'
 
 const simParametreList = (props) => {
 
-    console.log(props)
-
-    
+    const possibleValues = props.data.possibleValues.split(', ')
 
     return (
         <div>
