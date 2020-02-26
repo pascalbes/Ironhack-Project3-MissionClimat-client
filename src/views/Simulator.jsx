@@ -8,6 +8,7 @@ import SimNav from "../components/simulateur/simNavBar"
 import SimCat from "../components/simulateur/simCategorie"
 import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
+import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 
 const Simulator = () => {
 
@@ -15,7 +16,7 @@ const Simulator = () => {
         return param.type.list ? <SimParamList key={j} data={param.data} />
         : <SimParamSlider key={j} data={param.data} />
     }
-    
+
     return (
         <div className="sim-page flex-item">
             <section className="sim-container-box">
@@ -47,7 +48,7 @@ const Simulator = () => {
                 </div>
             </section>
             <section className="sim-results-box">
-                <h1>RESULTS HERE</h1>
+                <SimResultsAreaChart />
             </section>
         </div>
     )

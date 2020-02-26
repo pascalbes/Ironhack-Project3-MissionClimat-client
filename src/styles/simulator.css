@@ -1,6 +1,7 @@
 /* DEBUG */
 *{
     border: 1px solid red;
+    box-sizing: border-box;
 }
 
 /* SIMULATOR PAGE */
@@ -12,12 +13,17 @@
 
 /* SECTIONS */
 .sim-container-box{
+    height: calc(100vh - 10vh);
     width: 80%;
 }
 
 .sim-main-box{
-    height: calc;
-    overflow: auto;
+    height: 75%;
+    overflow-y: auto;
+}
+
+.sim-nav-box{
+    height: 25%;
 }
 
 .sim-results-box{
