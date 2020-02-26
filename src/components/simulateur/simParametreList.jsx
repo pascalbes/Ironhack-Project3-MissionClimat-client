@@ -1,6 +1,7 @@
 import React from 'react'
 
 const simParametreList = () => {
+
     return (
         <div>
             

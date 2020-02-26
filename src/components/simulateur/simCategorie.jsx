@@ -1,7 +1,7 @@
 import React from 'react'
 import "./../../styles/sim-category.css"
 
-const simCategorie = () => {
+const simCategorie = (props) => {
 
     return (
         <div className="sim-categorie">
