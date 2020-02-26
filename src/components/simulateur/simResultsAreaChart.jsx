@@ -3,6 +3,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend
 } from 'recharts';
 
+
 const simResultsAreaChart = (props) => {
 
     
@@ -53,11 +54,12 @@ const data = [
         Logement: 151.2379692, 
         "Transport de personnes": 15.35498335, 
         "Transport de marchandises": 158.9377887,
-        Industrie: 16.02259132,
+        "Industrie": 16.02259132,
         "Agriculture et Alimentation": 45.39734208,
         "Consommation et service": 158.9377887
   }
 ];
+
 
 
 
@@ -84,6 +86,9 @@ const data = [
         <Area type="monotone" dataKey="Consommation et Service" stackId="1" stroke="#326684" fill="#326684" />
         <Legend/>
       </AreaChart>
+
+
+
         </div>
     )
 }
