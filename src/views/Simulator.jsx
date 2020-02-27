@@ -22,6 +22,14 @@ const Simulator = () => {
         setValues(jsonFile.options.vInit)
     })
 
+    // useEffect(() => {
+
+    //     setresultas
+    // }, [values])
+
+
+
+
     function setOneValue(value, index) {
         var newValues=[...values]
         newValues[index][0]=value

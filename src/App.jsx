@@ -1,5 +1,5 @@
 /// BASIC
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 /// PAGES
@@ -13,6 +13,8 @@ import Dashboard from "./views/Dashboard";
 import Signin from "./views/Signin";
 import Signup from "./views/Signup";
 import NotFound from "./views/NotFound";
+import api from "./api/APIHandler"
+import { Beforeunload , useBeforeunload } from 'react-beforeunload';
 
 /// SNIPPETS
 import Header from "./components/partials/Header";
@@ -22,6 +24,41 @@ import "./styles/app.css"
 
 
 function App() {
+
+  function createSheet() {
+    if (!localStorage.getItem('idSheet')) {
+      api.get("/sheet/")
+      .then(res => {
+        console.log("SHEET CREATED!", res)
+        localStorage.setItem('idSheet', res.data.id);
+      })
+      .catch(err=>console.log(err))
+    }
+    else {
+      console.log("SHEET ALREADY CREATED", localStorage.getItem('idSheet'))
+    }
+  }
+
+  function deleteSheet(e) {
+    //e.preventDefault();
+    console.log(localStorage.getItem('idSheet'))
+    if (localStorage.getItem('idSheet')) {
+      var idSheet=localStorage.getItem('idSheet')
+      localStorage.removeItem('idSheet')
+      api.delete("/sheet/delete", idSheet)
+      .then(res => {
+        console.log("SHEET DELETED!", res)
+      })
+      .catch(err=>console.log(err))
+    }
+    return "kikou";
+  }
+
+  useBeforeunload((e) => deleteSheet(e))
+  window.addEventListener ("beforeunload", (e) => deleteSheet(e));
+
+  createSheet();
+
   return (
     <Fragment>
       <Header />
