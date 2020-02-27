@@ -9,6 +9,8 @@ import GenLinearChart from './../components/resultats/resGenLinearChart'
 import SectorLinearChart from './../components/resultats/resSectorLinearChart'
 import BubbleChart from './../components/simulateur/simResultsRepartitionSecteur'
 
+import SimJauge from './../components/simulateur/simJauge'
+
 import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results-page.css'
@@ -90,8 +92,10 @@ const Results = () => {
                     <MondialLinearChart/>
 
             </div>
-
-
+            
+            <div className="sim-jauge">
+                <SimJauge/>
+            </div>
         </div>
     )
 }

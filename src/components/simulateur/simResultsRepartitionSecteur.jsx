@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-import { generateLibTree } from 'nivo-generators'
 import { Bubble } from 'nivo'
 
 

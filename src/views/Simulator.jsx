@@ -9,14 +9,14 @@ import SimNav from "../components/simulateur/simNavBar"
 import SimCat from "../components/simulateur/simCategorie"
 import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
-import SimResultsArea from "../components/simulateur/simResultsAreaChart"
+import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 import SimResultsSpread from "../components/simulateur/simResultsRepartitionSecteur"
 import api from '../api/APIHandler'
 
 const Simulator = () => {
 
     const [values, setValues] = useState(jsonFile.options.vInit)
-    const [results, setResults] =useState({})
+    const [results, setResults] =useState(jsonFile.results)
 
     //STUF
 
@@ -25,11 +25,6 @@ const Simulator = () => {
     function getValuesFormatted(vals, units) {
         console.log(vals)
         var valsFinal = vals.map((val, i) => {
-            // Get decimal values with commas before passing it to sheet
-            // if (!isNaN(v)) {
-            //     v = val.replace(".", ",")
-            // }
-            // Get value as percent before passing it to sheet
             if (units[i]==="%") {
                 val /= 100;
             }
@@ -45,12 +40,15 @@ const Simulator = () => {
         var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
         if (idSheet) {
             api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                setResults(res.data.results)
+            })
             .catch(err => console.log(err))
         }
     }, [values])
 
-
+    console.log(results)
 
 
     function setOneValue(value, index) {
@@ -99,7 +97,7 @@ const Simulator = () => {
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column">
-                <SimResultsArea/>
+                <SimResultsAreaChart datas={results.emiSecteur}/>
                 <SimResultsSpread />
                 <Link to="/results"><button className="sim-init-button green-background">Voir mes résultats</button></Link>
             </section>
