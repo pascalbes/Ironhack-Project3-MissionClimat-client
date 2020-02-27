@@ -11,6 +11,7 @@ import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 import SimResultsArea from "../components/simulateur/simResultsAreaChart"
 import SimResultsSpread from "../components/simulateur/simResultsRepartitionSecteur"
+import api from '../api/APIHandler'
 
 const Simulator = () => {
 
@@ -21,11 +22,33 @@ const Simulator = () => {
 
     console.log(values)
 
+    function getValuesFormatted(vals, units) {
+        console.log(vals)
+        var valsFinal = vals.map((val, i) => {
+            // Get decimal values with commas before passing it to sheet
+            // if (!isNaN(v)) {
+            //     v = val.replace(".", ",")
+            // }
+            // Get value as percent before passing it to sheet
+            if (units[i]==="%") {
+                val /= 100;
+            }
+            var valSt = val.toString()
+            var valStFinal = valSt.replace(".", ",")
+            return [valStFinal]
+        })
+        return valsFinal
+    }
 
-    // useEffect(() => {
-
-    //     setresultas
-    // }, [values])
+    useEffect(() => {
+        var idSheet = localStorage.getItem('idSheet')
+        var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
+        if (idSheet) {
+            api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+        }
+    }, [values])
 
 
 
