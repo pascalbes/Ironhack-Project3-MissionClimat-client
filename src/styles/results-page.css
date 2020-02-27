@@ -1,0 +1,49 @@
+.parameter-main-container {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.parameter-main-container > h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.parameter-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.emissions-fr-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.emissions-fr-main-container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emissions-fr-main-container h2,.emissions-fr-main-container h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.sector-linear-charts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.emissions-mondiales-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

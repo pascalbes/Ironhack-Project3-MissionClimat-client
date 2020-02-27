@@ -14,13 +14,21 @@ import SimResultsSpread from "../components/simulateur/simResultsRepartitionSect
 
 const Simulator = () => {
 
-    const [values, setValues] = useState([])
+    const [values, setValues] = useState(jsonFile.options.vInit)
+    const [results, setResults] =useState({})
+
+    //STUF
 
     console.log(values)
 
-    useEffect(() => {
-        setValues(jsonFile.options.vInit)
-    })
+
+    // useEffect(() => {
+
+    //     setresultas
+    // }, [values])
+
+
+
 
     function setOneValue(value, index) {
         var newValues=[...values]
