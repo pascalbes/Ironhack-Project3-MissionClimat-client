@@ -1,20 +1,17 @@
 import React from 'react'
 
-const simParametreSlide = (props) => {
-
-    console.log((props.data.max - props.data.min)/20)
-
+const simParametreSlide = ({data, value, setOneValue}) => {
 
     const handleChange = (e) => {
-        console.log(e.target.value)
+        setOneValue(e.target.value, data.index)
     }
 
     return (
-        <div id={"param"+props.data.index}>
-            <h5>{props.data.name}</h5>
-            <p>{props.data.description}</p>
+        <div id={"param"+data.index}>
+            <h5>{data.name}</h5>
+            <p>{data.description}</p>
             <form onChange={handleChange}>
-                <input type="range" id="param" name="param" min={props.data.min} max={props.data.max} defaultValue={`${props.data.value}`} step={(props.data.max - props.data.min)/20}/>
+                <input type="range" id="param" name="param" min={data.min} max={data.max} defaultValue={`${value}`} step={(data.max - data.min)/20}/>
             </form>
         </div>
     )

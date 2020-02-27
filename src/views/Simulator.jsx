@@ -13,9 +13,27 @@ import SimResultsSpread from "../components/simulateur/simResultsRepartitionSect
 
 const Simulator = () => {
 
-    function handleParameterType(param, j) {
-        return param.type.list ? <SimParamList key={j} data={param.data} />
-        : <SimParamSlider key={j} data={param.data} />
+    const [values, setValues] = useState([])
+
+    console.log(values)
+
+    useEffect(() => {
+        setValues(jsonFile.options.vInit)
+    })
+
+    function setOneValue(value, index) {
+        var newValues=[...values]
+        newValues[index][0]=value
+        setValues(newValues)
+    }
+
+    function handleParameterType(param, j, values, setValues) {
+        if (param.type.list) {
+            return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
+        }
+        else if (param.type.slider) {
+            return <SimParamSlider key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue}/>
+        }
     }
 
     return (
@@ -42,7 +60,7 @@ const Simulator = () => {
                         <>
                         <SimCat key={i} data={cat.data} results={cat.resultats} />
                         <div id={"param-box"+i} className="sim-param-box grid-item">{cat.parameters.map((param, j) => (
-                            handleParameterType(param, j)
+                            handleParameterType(param, j, values, setValues)
                         ))}</div>
                         </>
                     ))}
