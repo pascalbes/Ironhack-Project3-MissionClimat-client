@@ -1,10 +1,11 @@
-/* *{
-    border: 1px solid #ff00ff
-} */
+*{
+    /* border: 1px solid #ff00ff */
+}
 
 .home-page{
     justify-content: flex-start;
     align-items: center;
+    justify-content: center;
 }
 
 .hero-landing{
@@ -14,7 +15,7 @@
 }
 
 .hero-box{
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -35,6 +36,8 @@
 }
 
 .next-landing{
+    align-items: center;
+    justify-content: space-between;
     height: 90vh;
 }
 
@@ -44,7 +47,6 @@ footer{
 
 .hero-prev-btn{
     position: relative;
-    top: 0;
     cursor: pointer;
 }
 
@@ -57,4 +59,16 @@ footer{
     justify-content: space-evenly;
     align-items: center;
     height: 90vh;
+}
+
+.home-white-box{
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.home-white-item{
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
