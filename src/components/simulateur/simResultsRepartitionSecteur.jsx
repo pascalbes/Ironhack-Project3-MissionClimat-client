@@ -14,36 +14,36 @@ const simResultsRepartitionSecteur = () => {
         root:
             {
                 "name": "total",
-                "color": "hsl(299, 28%, 43%)",
+                "color": "#0d95c4",
                 "children": [
                     {
                         "name": "Energie : Intensité carbone de l'énergie",
-                        "color": "blue",
+                        "color": "#0d95c4",
                         "loc": 17,
                     },
                     {
                         "name": "Logement",
-                        "color": "blue",
+                        "color": "#0d95c4",
                         "loc": 150,
                         "children": [
                             {
                                 "name": "Rénovation de logement",
-                                "color": "green",
+                                "color": "#0d95c4",
                                 "loc": 20
                             },
                             {
                                 "name": "Conversion chauffage au gaz",
-                                "color": "green",
+                                "color": "#0d95c4",
                                 "loc": 30
                             },
                             {
                                 "name": "% de gaz renouvelable",
-                                "color": "green",
+                                "color": "#0d95c4",
                                 "loc": 15
                             },
                             {
                                 "name": "Conversion chauffage au fioul",
-                                "color": "green",
+                                "color": "#0d95c4",
                                 "loc": 40
                             },
                             {
