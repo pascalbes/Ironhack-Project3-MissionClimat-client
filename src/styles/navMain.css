@@ -8,13 +8,13 @@
     font-weight: bold;
 }
 
-.green-button{
+.green-background{
     background: linear-gradient(135deg, #5a80ef, #34d5b0);
     background-size: 110%;
     background-position: center;
     border: 2px solid transparent;
 }
 
-.border-button{
+.border-background{
     border: 2px solid #88F2B6;
 }
