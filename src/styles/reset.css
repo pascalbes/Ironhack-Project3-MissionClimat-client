@@ -1,0 +1,9 @@
+*,*::before,*::after,div{box-sizing:border-box;margin:0;padding:0}
+h1,h2,h3{padding-bottom: 0.2em}
+body{min-height:100vh;min-width:100vw;scroll-behavior:smooth;text-rendering:optimizeSpeed;line-height:1.5}
+ul[class],ol[class]{list-style:none}
+input,button,textarea,select{font:inherit;outline:none}
+button{cursor:pointer;}
+a{text-decoration:none;color:inherit;}
+
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}

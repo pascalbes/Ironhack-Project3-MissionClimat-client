@@ -87,7 +87,7 @@ const Simulator = () => {
                         <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     </div>
                 </div>
-                <div className="sim-main-box light-color">
+                <div className="sim-main-box light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={i} data={cat.data} results={cat.resultats} />

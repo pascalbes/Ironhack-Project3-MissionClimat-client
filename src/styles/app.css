@@ -1,22 +1,32 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    background-image: linear-gradient(315deg,rgb(69, 46, 90) 0%, #271d46 50%, #001438 100%);
+@import "./reset.css";
+
+/* /// DEBUG */
+*{
+    /* border: 1px solid blue; */
+}
+
+/* /// COLORS */
+:root{
+    --backpurple: linear-gradient(315deg,rgb(69, 46, 90) 0%, #271d46 50%, #001438 100%);
+    --backgreen: linear-gradient(135deg, #5a80ef, #34d5b0);
+    --backwhite: rgb(250, 255, 250, 0.8);
+
+    --darkblue: #012340;
+    --darkpurple: #312559;
+    --purple: #8B4F8C;
+    --green: #77D9B5;
+    --lightgreen: #88F2B6;
+}
+
+body{
+    background-image: var(--backpurple);
     background-attachment: fixed;
     color: white;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-main{
-    height: 93%;
+.light{
+    background: var(--backwhite);
+    color: var(--darkblue);
 }
 
 .flex-item{
@@ -31,38 +41,25 @@ main{
     display: grid;
 }
 
-.light-color{
-    background: rgb(250, 255, 250, 0.8);
-    color: #012340;
-}
-
 h1{
-    font-size: 5em;
-    margin: 0;
+    font-size: 5rem;
     margin-bottom: 0.2em;
-}
-
-.hero-mon{
-    /* font-family: cursive; */
-    font-size: 0.7em;
-    margin: 0;
-}
-
-.hero-climat{
-    font-size: 1.2em;
-    background: -webkit-linear-gradient(135deg, #5a80ef, #34d5b0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #ffffff;
-    margin: 0;
+    line-height: 5rem;
 }
 
 h2{
-    font-size: 3em;
-    margin: 0;
+    font-size: 3rem;
     margin-bottom: 0.2em;
+    line-height: 3rem;
 }
 
-p{
-    margin: 0;
+h3{
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+    line-height: 2rem;
 }
+
+main{
+    height: 90vh;
+}
+

@@ -1,6 +1,6 @@
 header{
-    padding: 0 2%;
-    height: 7%;
+    padding: 0 2rem;
+    height: 10vh;
     justify-content: space-between;
     align-items: center;
 }
