@@ -1,5 +1,4 @@
 import React from 'react'
-import "./../../styles/sim-category.css"
 
 const simCategorie = (props) => {
 
