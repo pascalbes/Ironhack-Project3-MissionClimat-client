@@ -2,6 +2,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import "./../styles/simulator.css"
 import jsonFile from "../ressources/initialDatas.json"
+import { Link } from "react-router-dom"
 
 /// COMPONENTS
 import SimNav from "../components/simulateur/simNavBar"
@@ -46,8 +47,8 @@ const Simulator = () => {
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init">
-                            <button className="init-button">Initialiser</button>
-                            <button className="init-button">Sauvegarder</button>
+                            <button className="sim-init-button">Initialiser</button>
+                            <button className="sim-init-button">Sauvegarder</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item">
@@ -67,8 +68,9 @@ const Simulator = () => {
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column">
-                <SimResultsArea />
+                <SimResultsArea/>
                 <SimResultsSpread />
+                <Link to="/results"><button className="sim-results-button">Résultats</button></Link>
             </section>
         </div>
     )
