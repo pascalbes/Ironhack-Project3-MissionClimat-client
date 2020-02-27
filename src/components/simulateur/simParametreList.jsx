@@ -1,16 +1,13 @@
 import React from 'react'
 
-const simParametreList = (props) => {
+const simParametreList = ({data, value, setValues}) => {
 
-    console.log(props)
-
-    const possibleValues = props.data.possibleValues.split(', ')
-    console.log(possibleValues)
+    const possibleValues = data.possibleValues.split(', ')
 
     return (
-        <div id={"param"+props.data.index}>
-            <h5>{props.data.name}</h5>
-            <p>{props.data.description}</p>
+        <div id={"param"+data.index}>
+            <h5>{data.name}</h5>
+            <p>{data.description}</p>
             <form >
             <div /*onChange= callback function*/ className="flex-item"> 
                 {possibleValues.map((value, i) => (
