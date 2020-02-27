@@ -39,6 +39,8 @@ function App() {
     }
   }
 
+  createSheet();
+
   function deleteSheet(e) {
     //e.preventDefault();
     console.log(localStorage.getItem('idSheet'))
@@ -56,8 +58,6 @@ function App() {
 
   // useBeforeunload((e) => deleteSheet(e))
   // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
-
-  createSheet();
 
   return (
     <Fragment>
