@@ -18,10 +18,22 @@ const Home = () => {
             </article>
             <article id="next-landing" className="next-landing flex-item flex-column">
                 <button className="hero-prev-btn sim-init-button border-background"><a href="#hero-landing">UP</a></button>
-                <div className="home-white-box">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div className="home-white-box flex-item light-color">
+                    <div className="home-white-item flex-item flex-column">
+                        <img src="" alt=""/>
+                        <h3>blabla</h3>
+                        <p>blablablabla blabla bla bjhzd dhziwnha dhziuehf w</p>
+                    </div>
+                    <div className="home-white-item flex-item flex-column">
+                        <img src="" alt=""/>
+                        <h3>blabla</h3>
+                        <p>blablablabla blabla bla bjhzd dhziwnha dhziuehf w</p>
+                    </div>
+                    <div className="home-white-item flex-item flex-column">
+                        <img src="" alt=""/>
+                        <h3>blabla</h3>
+                        <p>blablablabla blabla bla bjhzd dhziwnha dhziuehf w</p>
+                    </div>
                 </div>
             </article>
             <Footer />
