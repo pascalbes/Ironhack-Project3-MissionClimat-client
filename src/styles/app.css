@@ -4,6 +4,8 @@ html, body{
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
+    background-image: linear-gradient(315deg,rgb(69, 46, 90) 0%, #271d46 50%, #001438 100%);
+    color: white;
 }
 
 *{
@@ -24,6 +26,11 @@ main{
 
 .grid-item{
     display: grid;
+}
+
+.light-color{
+    background: rgb(250, 255, 250);
+    color: #012340;
 }
 
 h1{

@@ -20,7 +20,7 @@ const Simulator = () => {
     }
 
     return (
-        <div className="sim-page flex-item">
+        <div className="sim-page flex-item light-color">
             <section className="sim-container-box">
                 <div className="sim-nav-box flex-item flex-column">
                     <div className="sim-nav-head flex-item">
@@ -29,8 +29,8 @@ const Simulator = () => {
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init">
-                            <button className="sim-init-button">Initialiser</button>
-                            <button className="sim-init-button">Sauvegarder</button>
+                            <button className="sim-init-button border-button">Initialiser</button>
+                            <button className="sim-init-button border-button">Sauvegarder</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item">
