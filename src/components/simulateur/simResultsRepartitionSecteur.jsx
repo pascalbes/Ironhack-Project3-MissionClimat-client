@@ -9,8 +9,8 @@ const simResultsRepartitionSecteur = () => {
 
 
     const commonProperties = {
-        width: 500,
-        height: 400,
+        width: 300,
+        height: 300,
         root:
             {
                 "name": "total",

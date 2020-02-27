@@ -74,12 +74,12 @@ const Simulator = () => {
                 <div className="sim-nav-box flex-item flex-column">
                     <div className="sim-nav-head flex-item">
                         <div className="sim-nav-head-title">
-                            <h1>Mon scénario climat</h1>
+                            <h2 className="h1-border">Mon scénario climat</h2>
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init">
-                            <button className="sim-init-button">Initialiser</button>
-                            <button className="sim-init-button">Sauvegarder</button>
+                            <button className="sim-init-button border-background"> > Initialiser</button>
+                            <button className="sim-init-button border-background"> > Sauvegarder</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item">
@@ -87,7 +87,7 @@ const Simulator = () => {
                         <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     </div>
                 </div>
-                <div className="sim-main-box">
+                <div className="sim-main-box light-color">
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={i} data={cat.data} results={cat.resultats} />
@@ -101,7 +101,7 @@ const Simulator = () => {
             <section className="sim-results-box flex-item flex-column">
                 <SimResultsArea/>
                 <SimResultsSpread />
-                <Link to="/results"><button className="sim-results-button">Résultats</button></Link>
+                <Link to="/results"><button className="sim-init-button green-background">Voir mes résultats</button></Link>
             </section>
         </div>
     )

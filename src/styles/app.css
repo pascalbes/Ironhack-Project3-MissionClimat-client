@@ -4,6 +4,9 @@ html, body{
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
+    background-image: linear-gradient(315deg,rgb(69, 46, 90) 0%, #271d46 50%, #001438 100%);
+    background-attachment: fixed;
+    color: white;
 }
 
 *{
@@ -26,14 +29,36 @@ main{
     display: grid;
 }
 
+.light-color{
+    background: rgb(250, 255, 250, 0.8);
+    color: #012340;
+}
+
 h1{
-    font-size: 3em;
+    font-size: 5em;
+    margin: 0;
+    margin-bottom: 0.2em;
+}
+
+.hero-mon{
+    /* font-family: cursive; */
+    font-size: 0.7em;
+    margin: 0;
+}
+
+.hero-climat{
+    font-size: 1.2em;
+    background: -webkit-linear-gradient(135deg, #5a80ef, #34d5b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     margin: 0;
 }
 
 h2{
-    font-size: 2em;
+    font-size: 3em;
     margin: 0;
+    margin-bottom: 0.2em;
 }
 
 p{

@@ -1,14 +1,11 @@
 import React from 'react'
-import "./../../styles/sim-nav.css";
-
-
 
 const simNavBar = (props) => {
 
     return (
-        <div className="sim-nav">
+        <div className="sim-nav flex-item flex-column">
             <div className="sim-nav-scope">{props.data.scope}</div>
-            <div className="sim-nav-categories">
+            <div className="sim-nav-categories flex-item border-background">
                 {props.data.categories.map((cat, i) => (
                     <a href={"#"+cat.id} key={i} className="sim-nav-categorie">{cat.name}</a>
                 ))}
