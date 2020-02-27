@@ -12,12 +12,12 @@ const simParametreList = (props) => {
             <h5>{props.data.name}</h5>
             <p>{props.data.description}</p>
             <form >
-            <div className="list" /*onChange= callback function*/> 
+            <div /*onChange= callback function*/ className="flex-item"> 
                 {possibleValues.map((value, i) => (
-                    <>
+                    <div className="sim-param-radio">
                         <input type="radio" id={`${value}`} name="params" value={`${value}`} /*checked={(props.data.value === value) ?  true : false }*//>
                         <label htmlFor={`${value}`}>{value}</label>
-                    </>
+                    </div>
                 ))
                 }
 			</div>

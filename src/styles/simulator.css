@@ -1,6 +1,6 @@
 /* DEBUG */
 *{
-    border: 1px solid darkblue;
+    /* border: 1px solid darkblue; */
 }
 
 /* SECTIONS */
@@ -33,9 +33,10 @@
 .sim-nav-head{
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2em;
 }
 
-.init-button{
+.sim-init-button{
     margin-left: 1em;
     padding: 0.5em 1em;
     font-size: 1.2em;
@@ -44,10 +45,38 @@
     background: none;
 }
 
+.sim-nav-bar{
+    align-items: flex-start;
+}
+
+.sim-nav-scope{
+    margin-bottom: 0.5em;
+}
+
+.sim-nav-categories{
+    height: 3em;
+    background: darkblue;
+    border-radius: 3em;
+    margin: 0 0.5em;
+}
+
+.sim-nav-categories a{
+    color: white;
+    margin: 0 0.5em;
+    text-align: center;
+}
+
 /* MAIN-BOX */
 .sim-param-box{
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
 }
 
+.sim-param-radio{
+    margin-right: 1em;
+}
+
+.sim-param-radio input{
+    margin-right: 1em;
+}
 
 /* RESULTS */
