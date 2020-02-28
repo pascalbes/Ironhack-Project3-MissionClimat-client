@@ -1,11 +1,15 @@
 import React from 'react'
 import Jauge from "./simJauge"
 
-const simCategorie = (props) => {
+const simCategorie = ({data, results}) => {
+
+    console.log(results)
 
     return (
         <div className="sim-categorie flex-item" id={"cat"+props.data.index}>
-            <h4 className="sim-categorie-name">{props.data.name}</h4><Jauge data={props.data.index}/>
+            <h3 className="sim-categorie-name">{data.name}</h3>
+            {results && <Jauge results={results}/>}
+            <p className="sim-categorie-description">{data.description}</p>
         </div>
     )
 }

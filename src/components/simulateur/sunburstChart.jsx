@@ -42,9 +42,11 @@ import {
 
 
   export default class Example extends Component {
+
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/w6wsrc52/';
   
     render() {
+      
       return (
         <PieChart width={230} height={210}>
           <Pie data={data01} dataKey="value" cx={110} cy={100} outerRadius={60} label={renderCustomizedLabel}>

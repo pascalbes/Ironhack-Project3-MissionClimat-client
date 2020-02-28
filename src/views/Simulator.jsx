@@ -74,8 +74,7 @@ const Simulator = () => {
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init nopad">
-                            <button className="border-btn left-btn"> > Initialiser</button>
-                            <button className="border-btn left-btn"> > Sauvegarder</button>
+                            <button className="border-btn left-btn"> > Options</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item nopad nomarge">
@@ -87,7 +86,7 @@ const Simulator = () => {
                 <div className="sim-main-box light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
-                        <SimCat key={i} data={cat.data} results={cat.resultats} />
+                        <SimCat key={i} data={cat.data} results={results.jaugeDatas[i]}  />
                         <div id={"param-box"+i} className="sim-param-box grid-item">{cat.parameters.map((param, j) => (
                             handleParameterType(param, j, values, setValues)
                         ))}</div>
@@ -100,9 +99,16 @@ const Simulator = () => {
                 <div>
                     TEMP HERE
                 </div>
-                <SimResultsAreaChart datas={results.emiSecteur}/>
-                <Sunburst/>
-                <Link to="/results"><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
+                <div>
+                    <SimResultsAreaChart datas={results.emiSecteur}/>
+                    <Sunburst/>
+                </div>
+                <Link to={{
+                    pathname: "/results",
+                    state: {
+                        fullDatas: results
+                    }}}> 
+                    <button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
     )
