@@ -11,6 +11,9 @@ import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 import SimResultsSpread from "../components/simulateur/simResultsRepartitionSecteur"
+import SunburstNivo from './../components/simulateur/sunburstChartNivo'
+import Sunburst from './../components/simulateur/sunburstChart'
+
 import api from '../api/APIHandler'
 
 const Simulator = () => {
@@ -93,8 +96,8 @@ const Simulator = () => {
             </section>
             <section className="sim-results-box flex-item flex-column">
                 <SimResultsAreaChart datas={results.emiSecteur}/>
-                <SimResultsSpread />
-                <Link to="/results"><button className="green">Voir mes résultats</button></Link>
+                <Sunburst/>
+                <Link to="/results"><button className="sim-init-button green-background">Voir mes résultats</button></Link>
             </section>
         </div>
     )
