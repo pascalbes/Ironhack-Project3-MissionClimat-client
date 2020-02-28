@@ -52,6 +52,7 @@
 .home-white-box{
     justify-content: space-evenly;
     align-items: baseline;
+    width: 80%;
 }
 
 .home-white-item{

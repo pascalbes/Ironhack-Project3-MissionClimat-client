@@ -15,7 +15,8 @@ import Sunburst from './../components/simulateur/sunburstChart'
 
 import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
-import './../styles/results-page.css'
+import './../styles/results.css'
+import { Link } from 'react-router-dom'
 
 
 const Results = () => {
@@ -32,9 +33,47 @@ const Results = () => {
     // travailler sur paramètre et les données à lui envoyer
 
     return (
-        <div>
-            <ResultsNav/>
-            <div>Résumé des résultats</div>
+        <div className="results-page flex-item flex-column">
+            <article className="hero-results flex-item flex-column">
+                <div className="hidden"></div>
+                <div className="results-box light grid-item">
+                    <div className="results-head flex-item">
+                        <h3>Mes résultats</h3>
+                        <div>Temp</div>
+                    </div>
+                    <div className="results-data flex-item">
+                        <div className="results-data-emissions">
+                            <h4>Emissions</h4>
+                            <p>2030 : blabla CO2</p>
+                            <p>2100 : blabla CO2</p>
+                        </div>
+                        <div className="results-data-sunburst">
+
+                        </div>
+                        <div className="results-data-area">
+
+                        </div>
+                    </div>
+                    <div className="results-text flex-item flex-column">
+                        <p>Blabla la mer monte</p>
+                        <p>Blabla il fait trop chaud tout le temps</p>
+                        <p>Blabla le coronavirus c'est du pipi à côté de ça</p>
+                    </div>
+                </div>
+                <div className="results-btns flex-item">
+                    <Link to="/simulator"><button className="green-btn left-btn">Retour</button></Link>
+                    <button className="green-btn left-btn">Sauvegarder</button>
+                    <button className="green-btn left-btn">Partager</button>
+                    <button className="green-btn left-btn">Télécharger</button>
+                </div>
+                <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
+            </article>
+
+            <article id="detail-results" className="detail-results">
+                <button className="border-btn up-btn"><a href="#scroll-top">Resultats globaux</a></button>
+                <ResultsNav/>
+            </article>
+            
             <div className="parameter-main-container">
                 <h2>Paramètres</h2>
                 <div className="parameter-container">
@@ -54,7 +93,7 @@ const Results = () => {
                 <h3>Evolution des émissions par secteur entre 2010 et 2030</h3>
                 
 
-                <AreaChart/>
+                {/* <AreaChart/> */}
              
                 <h3>Historique des émissions en comparaison avec les objectifs</h3>
 

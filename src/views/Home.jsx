@@ -19,8 +19,9 @@ const Home = () => {
                 </div>
                 <button className="border-btn down-btn"><a href="#next-landing">Plus...</a></button>
             </article>
+            
             <article id="next-landing" className="next-landing flex-item flex-column">
-                <button className="border-btn up-btn"><a href="#scroll-top">UP</a></button>
+                <button className="border-btn up-btn"><a href="#scroll-top">Accueil</a></button>
                 <div className="home-white-box flex-item light">
                     <div className="home-white-item flex-item flex-column">
                         <img src="" alt=""/>
