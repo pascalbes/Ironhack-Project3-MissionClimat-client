@@ -7,8 +7,8 @@ import {
 const simResultsAreaChart = ({datas}) => {
 
     console.log(datas)
-    console.log("''''''''''''''''''''datas''''''''''''''''''''")
-    console.log(datas.data)
+    // console.log("''''''''''''''''''''datas''''''''''''''''''''")
+    // console.log(datas.data)
 
     const data = datas.data.data
 // const data = [
