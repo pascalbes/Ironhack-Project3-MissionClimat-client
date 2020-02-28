@@ -74,8 +74,7 @@ const Simulator = () => {
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init nopad">
-                            <button className="border-btn left-btn"> > Initialiser</button>
-                            <button className="border-btn left-btn"> > Sauvegarder</button>
+                            <button className="border-btn left-btn"> > Options</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item nopad nomarge">
