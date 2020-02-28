@@ -1,5 +1,5 @@
 /// BASIC
-import React, { Fragment, useState, useEffect } from 'react'
+import React, {  useState, useEffect } from 'react'
 import "./../styles/simulator.css"
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
@@ -10,8 +10,6 @@ import SimCat from "../components/simulateur/simCategorie"
 import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
-import SimResultsSpread from "../components/simulateur/simResultsRepartitionSecteur"
-import SunburstNivo from './../components/simulateur/sunburstChartNivo'
 import Sunburst from './../components/simulateur/sunburstChart'
 
 import api from '../api/APIHandler'
@@ -21,9 +19,7 @@ const Simulator = () => {
     const [values, setValues] = useState(jsonFile.options.vInit)
     const [results, setResults] = useState(jsonFile.results)
 
-    //STUF
-
-    console.log(values)
+    //LOADER ?
 
     function getValuesFormatted(vals, units) {
         var valsFinal = vals.map((val, i) => {
@@ -86,10 +82,12 @@ const Simulator = () => {
                 <div className="sim-main-box light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
-                        <SimCat key={i} data={cat.data} results={results.jaugeDatas[i]}  />
-                        <div id={"param-box"+i} className="sim-param-box grid-item">{cat.parameters.map((param, j) => (
+                        <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
+                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
+                            {cat.parameters.map((param, j) => (
                             handleParameterType(param, j, values, setValues)
-                        ))}</div>
+                            ))}
+                        </div>
                         <hr className="border" style={{borderWidth:"1px"}} />
                         </>
                     ))}

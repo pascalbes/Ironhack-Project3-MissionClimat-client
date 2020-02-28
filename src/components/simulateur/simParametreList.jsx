@@ -19,10 +19,9 @@ const SimParametreList = ({data, value, setOneValue}) => {
             <form >
             <div className="flex-item"> 
                 {possibleValues.map((val, i) => (
-                    <div className="sim-param-radio">
-                    <input type="radio" key={i} id={val} name={i} onChange={e => setDefaultValue(e.target.id)} checked={val == defaultValue}/>
-                        {/* {handleLine(val, value, i)} */}
-                        <label for={val}>{val}</label>
+                    <div key={i} className="sim-param-radio">
+                        <input type="radio" key={i} id={val} name={i} onChange={e => setDefaultValue(e.target.id)} checked={val === defaultValue}/>
+                        <label key={"lab"+i} htmlFor={val}>{val}</label>
                     </div>
                 ))
                 }
