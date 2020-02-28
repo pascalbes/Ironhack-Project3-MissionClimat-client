@@ -22,6 +22,10 @@ button{
     margin-left: 1em;
 }
 
+.right-btn{
+    margin-right: 1em;
+}
+
 .down-btn{
     margin-bottom: 3em;
 }
