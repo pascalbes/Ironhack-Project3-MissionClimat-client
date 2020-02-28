@@ -11,6 +11,9 @@ import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 import SimResultsSpread from "../components/simulateur/simResultsRepartitionSecteur"
+import SunburstNivo from './../components/simulateur/sunburstChartNivo'
+import Sunburst from './../components/simulateur/sunburstChart'
+
 import api from '../api/APIHandler'
 
 const Simulator = () => {
@@ -71,8 +74,8 @@ const Simulator = () => {
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init">
-                            <button className="sim-init-button border-background"> > Initialiser</button>
-                            <button className="sim-init-button border-background"> > Sauvegarder</button>
+                            <button className="border-btn left-btn"> > Initialiser</button>
+                            <button className="border-btn left-btn"> > Sauvegarder</button>
                         </div>
                     </div>
                     <div className="sim-nav-bar flex-item">
@@ -93,7 +96,7 @@ const Simulator = () => {
             </section>
             <section className="sim-results-box flex-item flex-column">
                 <SimResultsAreaChart datas={results.emiSecteur}/>
-                <SimResultsSpread />
+                <Sunburst/>
                 <Link to="/results"><button className="sim-init-button green-background">Voir mes résultats</button></Link>
             </section>
         </div>

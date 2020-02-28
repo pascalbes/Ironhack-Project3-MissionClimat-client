@@ -11,6 +11,8 @@ import BubbleChart from './../components/simulateur/simResultsRepartitionSecteur
 
 import SimJauge from './../components/simulateur/simJauge'
 
+import Sunburst from './../components/simulateur/sunburstChart'
+
 import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results-page.css'
@@ -94,7 +96,7 @@ const Results = () => {
             </div>
             
             <div className="sim-jauge">
-                <SimJauge/>
+                <Sunburst/>
             </div>
         </div>
     )

@@ -51,16 +51,7 @@
     margin: 0;
 }
 
-.sim-init-button{
-    margin-left: 1em;
-    padding: 0.5em 1em;
-    font-size: 0.8em;
-    border: 1px solid;
-    border-radius: 2em;
-    background: none;
-    font-weight: bold;
-    color: white;
-}
+
 
 .sim-nav-bar{
     align-items: flex-start;
@@ -76,7 +67,7 @@
 }
 
 .sim-nav-categories{
-    height: 2em;
+    height: 2.5em;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 1em;
     margin: 0 0.5em;
