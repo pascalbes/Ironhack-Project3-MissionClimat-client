@@ -53,7 +53,7 @@ import {
           <Pie data={data01} dataKey="value" cx={150} cy={100} outerRadius={60} label={renderCustomizedLabel}>
             {data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
           </Pie>
-          <Pie data={data02} dataKey="value" cx={150} cy={100} innerRadius={70} outerRadius={90} fill="#82ca9d">
+          <Pie data={data02} dataKey="value" cx={110} cy={100} innerRadius={65} outerRadius={100} fill="#82ca9d">
             {data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
             <Label dataKey="value" position="outside"/>
           </Pie>

@@ -11,7 +11,7 @@ const Home = () => {
                 <div className="hidden"></div>
                 <div className="hero-box flex-item">
                     <div className="hero-left">
-                        <h1 className="h1-border"><span className="hero-mission">mission</span><br/><span className="hero-temp">1.5°C</span></h1>
+                        <h1 className="border"><span className="hero-mission">mission</span><br/><span className="hero-temp">1.5°C</span></h1>
                         <p className="hero-text">Envie de sauver la planète ? Créez le plan climat de demain !</p>
                         <Link to="/simulator"><button className="green-btn">Je me lance !</button></Link>
                     </div>
@@ -19,7 +19,7 @@ const Home = () => {
                 </div>
                 <button className="border-btn down-btn"><a href="#next-landing">Plus...</a></button>
             </article>
-            
+
             <article id="next-landing" className="next-landing flex-item flex-column">
                 <button className="border-btn up-btn"><a href="#scroll-top">Accueil</a></button>
                 <div className="home-white-box flex-item light">
