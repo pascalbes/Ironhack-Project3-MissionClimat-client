@@ -102,7 +102,12 @@ const Simulator = () => {
                     <SimResultsAreaChart datas={results.emiSecteur}/>
                     <Sunburst/>
                 </div>
-                <Link datas={results} to="/results"><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
+                <Link to={{
+                    pathname: "/results",
+                    state: {
+                        fullDatas: results
+                    }}}> 
+                    <button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
     )

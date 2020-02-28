@@ -19,7 +19,9 @@ import './../styles/results.css'
 import { Link } from 'react-router-dom'
 
 
-const Results = () => {
+const Results = (props) => {
+
+    const fullDatas=props.location.state.fullDatas
 
     const checkScope = (categories) => {
         var frenchCategories = [];
@@ -93,7 +95,7 @@ const Results = () => {
                 <h3>Evolution des émissions par secteur entre 2010 et 2030</h3>
                 
 
-                {/* <AreaChart/> */}
+                <AreaChart datas={fullDatas.emiSecteur}/>
              
                 <h3>Historique des émissions en comparaison avec les objectifs</h3>
 
