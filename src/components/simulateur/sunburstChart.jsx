@@ -46,18 +46,13 @@ import {
   
     render() {
       return (
-        <PieChart width={500} height={500}>
-          <Pie data={data01} dataKey="value" cx={200} cy={200} outerRadius={60} label={renderCustomizedLabel}>
-          {
-            data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-          }
+        <PieChart width={400} height={200}>
+          <Pie data={data01} dataKey="value" cx={150} cy={100} outerRadius={60} label={renderCustomizedLabel}>
+            {data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
           </Pie>
-          <Pie data={data02} dataKey="value" cx={200} cy={200} innerRadius={70} outerRadius={90} fill="#82ca9d">
-          {
-            data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-          }
-          <Label dataKey="value" position="outside"/>
-          
+          <Pie data={data02} dataKey="value" cx={150} cy={100} innerRadius={70} outerRadius={90} fill="#82ca9d">
+            {data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
+            <Label dataKey="value" position="outside"/>
           </Pie>
           <Tooltip/>
         </PieChart>

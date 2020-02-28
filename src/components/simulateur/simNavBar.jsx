@@ -3,7 +3,7 @@ import React from 'react'
 const simNavBar = (props) => {
 
     return (
-        <div className="sim-nav flex-item flex-column">
+        <div className="sim-nav flex-item flex-column nopad">
             <div className="sim-nav-scope">{props.data.scope}</div>
             <div className="sim-nav-categories flex-item border-btn">
                 {props.data.categories.map((cat, i) => (
