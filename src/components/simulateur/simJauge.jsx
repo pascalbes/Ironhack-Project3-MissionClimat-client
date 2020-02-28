@@ -4,32 +4,33 @@ import { Bullet } from '@nivo/bullet'
 
 
 
-const MyBullet = () => {
+const MyBullet = ({results}) => {
 
-    const data = [
-        {
-          "id": "MGT de CO2",
-          "ranges": [
-            58,
-            82,
-            100
-          ],
-          "measures": [
-            75
-          ],
-          "markers": [
-            58,
-            82
-          ]
-        }
-      ]
 
- 
+    // const data = [
+    //     {
+    //       "id": "MGT de CO2",
+    //       "ranges": [
+    //         58,
+    //         82,
+    //         100
+    //       ],
+    //       "measures": [
+    //         75
+    //       ],
+    //       "markers": [
+    //         58,
+    //         82
+    //       ]
+    //     }
+    //   ]
+
+  
 
     return (
         <div>
     <Bullet
-        data={data}
+        data={results}
         height= {30}
         width= {400}
         // margin={{ top: 50, right: 90, bottom: 50, left: 90 }}

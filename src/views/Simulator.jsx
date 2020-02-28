@@ -85,7 +85,7 @@ const Simulator = () => {
                 <div className="sim-main-box light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
-                        <SimCat key={i} data={cat.data} results={cat.resultats} />
+                        <SimCat key={i} data={cat.data} results={results.jaugeDatas[i]}  />
                         <div id={"param-box"+i} className="sim-param-box grid-item">{cat.parameters.map((param, j) => (
                             handleParameterType(param, j, values, setValues)
                         ))}</div>
