@@ -1,35 +1,25 @@
-/* DEBUG */
-/* *{
-    border: 1px solid darkblue;
-} */
-
 /* SECTIONS */
 .sim-page{
-    height: 100%;
-    width: 100%;
+    height: 90vh;
+    padding: 0 1.5% 1.5%;
 }
 
 .sim-container-box{
-    padding: 1.5%;
-    width: 70%;
-}
-
-.sim-nav-box{
-    height: 30vh;
+    grid-template-rows: 2(1fr, auto);
 }
 
 .sim-main-box{
-    height: 65vh;
     overflow-y: auto;
     border-radius: 1em;
     padding: 1em 2em;
 }
 
 .sim-results-box{
-    justify-content: space-between;
-    align-items: center;
+    height: 90vh;
     padding: 1.5%;
     width: 30%;
+    grid-template-rows: 3(1fr, auto, auto);
+    text-align: center;
 }
 
 /* = = = = = = = = = = = = = = = = =  */
@@ -46,12 +36,6 @@
     padding: 0 1em;
     margin: 0;
 }
-
-.sim-nav-head-title{
-    margin: 0;
-}
-
-
 
 .sim-nav-bar{
     align-items: flex-start;
