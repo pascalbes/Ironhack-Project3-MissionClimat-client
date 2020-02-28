@@ -13,7 +13,10 @@ const simResultsAreaChart = ({datas}) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip />
+        <Tooltip 
+          allowEscapeViewBox={{x:true, y: true}}
+          offSet={5000}
+          />
         {datas.areaDatas.map((area, i) => (
           <Area type="monotone" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color} />
         ))}
