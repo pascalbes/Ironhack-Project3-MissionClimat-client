@@ -3,6 +3,7 @@ header{
     height: 10vh;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
 }
 
 .header-logo{

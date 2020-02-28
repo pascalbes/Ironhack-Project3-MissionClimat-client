@@ -1,20 +1,31 @@
-.nav-button{
-    padding: 7px 15px;
-    margin-right: 1em;
-    border-radius: 1.5em;
+button{
+    padding: 0.5em 1em;
+    border-radius: 2em;
     font-size: 0.8em;
     background: none;
     color: white;
     font-weight: bold;
 }
 
-.green-background{
+.green-btn{
     background: linear-gradient(135deg, #5a80ef, #34d5b0);
     background-size: 110%;
     background-position: center;
     border: 2px solid transparent;
 }
 
-.border-background{
+.border-btn{
     border: 2px solid #88F2B6;
+}
+
+.left-btn{
+    margin-left: 1em;
+}
+
+.down-btn{
+    margin-bottom: 3em;
+}
+
+.up-btn{
+    margin-top: 3em;
 }

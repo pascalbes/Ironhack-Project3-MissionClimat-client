@@ -1,4 +1,5 @@
 @import "./reset.css";
+@import "./button.css";
 
 /* /// DEBUG */
 *{
@@ -18,15 +19,30 @@
     --lightgreen: #88F2B6;
 }
 
+/* /// APP SETUP */
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background-image: var(--backpurple);
     background-attachment: fixed;
     color: white;
 }
 
+main{
+    height: 90vh;
+    margin: 0;
+}
+
 .light{
     background: var(--backwhite);
     color: var(--darkblue);
+}
+
+/* /// GLOBAL */
+.hidden{
+    visibility: hidden;
 }
 
 .flex-item{
@@ -58,8 +74,3 @@ h3{
     margin-bottom: 0.2em;
     line-height: 2rem;
 }
-
-main{
-    height: 90vh;
-}
-

@@ -1,17 +1,17 @@
-*{
-    /* border: 1px solid #ff00ff */
-}
-
 .home-page{
     justify-content: flex-start;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
+/* /// HERO LANDING */
 .hero-landing{
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 90vh;
+    margin: 0;
 }
 
 .hero-box{
@@ -19,46 +19,34 @@
     align-items: center;
 }
 
+.hero-mission{
+    font-size: 5rem;
+    line-height: 5rem;
+}
+
+.hero-temp{
+    font-size: 7rem;
+    line-height: 7rem;
+    background: var(--backgreen);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text{
+    margin-bottom: 2em;
+}
+
 .hero-img{
     width: 40%;
     height: auto;
 }
 
-.hero-next-btn{
-    position: relative;
-    bottom: 0;
-    cursor: pointer;
-}
-
-.hero-next-btn a{
-    text-decoration: none;
-    color: white;
-}
-
+/* /// NEXT LANDING */
 .next-landing{
-    align-items: center;
     justify-content: space-between;
-    height: 90vh;
-}
-
-footer{
-    height: 10vh;
-}
-
-.hero-prev-btn{
-    position: relative;
-    cursor: pointer;
-}
-
-.hero-prev-btn a{
-    text-decoration: none;
-    color: white;
-}
-
-.next-landing{
-    justify-content: space-evenly;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
+    margin: 0;
 }
 
 .home-white-box{
@@ -74,15 +62,3 @@ footer{
 }
 
 
-.hero-mon{
-    font-size: 4rem;
-    line-height: 4rem;
-}
-
-.hero-climat{
-    font-size: 6rem;
-    line-height: 6rem;
-    background: var(--backgreen);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
