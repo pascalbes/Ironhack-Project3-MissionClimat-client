@@ -6,13 +6,6 @@ import {
 
 const simResultsAreaChart = ({datas}) => {
 
-<<<<<<< HEAD
-    console.log(datas)
-    // console.log("''''''''''''''''''''datas''''''''''''''''''''")
-    // console.log(datas.data)
-
-=======
->>>>>>> 96829723f69096196f5c8c8ac4e17009400c5b83
     const data = datas.data.data
 
     return (
