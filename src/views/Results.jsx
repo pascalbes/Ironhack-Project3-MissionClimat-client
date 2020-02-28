@@ -7,7 +7,6 @@ import Parametres from './../components/resultats/parametres'
 import AreaChart from './../components/simulateur/simResultsAreaChart'
 import GenLinearChart from './../components/resultats/resGenLinearChart'
 import SectorLinearChart from './../components/resultats/resSectorLinearChart'
-import BubbleChart from './../components/simulateur/simResultsRepartitionSecteur'
 
 import SimJauge from './../components/simulateur/simJauge'
 
@@ -37,18 +36,18 @@ const Results = () => {
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
                 <div className="results-box light grid-item">
-                    <div className="results-head flex-item">
-                        <h3>Mes résultats</h3>
-                        <div>Temp</div>
+                    <div className="results-head flex-item nopad">
+                        <h3 className="nomarge nopad">Mes résultats</h3>
+                        <div className="results-temp nomarge">Temp</div>
                     </div>
-                    <div className="results-data flex-item">
+                    <div className="results-data grid-item">
                         <div className="results-data-emissions">
-                            <h4>Emissions</h4>
-                            <p>2030 : blabla CO2</p>
-                            <p>2100 : blabla CO2</p>
+                            <h4>Emissions carbone :</h4>
+                            <p className="nomarge">2030 : blabla CO2</p>
+                            <p className="nomarge">2100 : blabla CO2</p>
                         </div>
                         <div className="results-data-sunburst">
-
+                            <Sunburst/>
                         </div>
                         <div className="results-data-area">
 
@@ -69,23 +68,30 @@ const Results = () => {
                 <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
             </article>
 
-            <article id="detail-results" className="detail-results">
+            <article id="detail-results" className="detail-results flex-item flex-column">
                 <button className="border-btn up-btn"><a href="#scroll-top">Resultats globaux</a></button>
                 <ResultsNav/>
+                
+                
+
+                <div className="detail-parameters flex-item flex-column">
+                    <h3>Paramètres</h3>
+                    <div className="detail-parameters-box">
+                        {jsonFile.categories.map((categorie, i) => {
+                            return <Parametres 
+                                scope={categorie.data.scope} 
+                                categorie={categorie}
+                                />
+                            {/* pour accéder aux résultats individuels: .data.value */}
+                        })}
+                    </div>
+                </div>
             </article>
             
-            <div className="parameter-main-container">
-                <h2>Paramètres</h2>
-                <div className="parameter-container">
-                    {jsonFile.categories.map((categorie, i) => {
-                        return <Parametres 
-                            scope={categorie.data.scope} 
-                            categorie={categorie}
-                            />
-                        {/* pour accéder aux résultats individuels: .data.value */}
-                    })}
-                </div>
-            </div>
+            
+
+
+            
             <div className="emissions-fr-main-container">
                 <h2>Emissions françaises</h2>
 
@@ -98,13 +104,8 @@ const Results = () => {
                 <h3>Historique des émissions en comparaison avec les objectifs</h3>
 
                 <div>
-                    
-                    
                     <h4>Résultat des émissions générales</h4>
-                    
-
                     <GenLinearChart/>
-
                     <h3>Résultat des émissions par secteur</h3>
 
                     <div className="sector-linear-charts-container">
@@ -115,27 +116,18 @@ const Results = () => {
                         return <SectorLinearChart data={categorie}/>
                     })
                     }
-
                     </div>
-
                 </div>
+            </div>
 
-                <h3>Part de chaque secteur dans l'émission de CO2</h3>
-                    
-                <BubbleChart/> 
-                
+            <h3>Part de chaque secteur dans l'émission de CO2</h3>     
+            <div className="sim-jauge">
+                <Sunburst/>
             </div>
 
             <div className="emissions-mondiales-main-container">
-
                     <h2>Emissions mondiales</h2>
-
                     <MondialLinearChart/>
-
-            </div>
-            
-            <div className="sim-jauge">
-                <Sunburst/>
             </div>
         </div>
     )

@@ -70,7 +70,7 @@ const Simulator = () => {
                 <div className="sim-nav-box flex-item flex-column nopad">
                     <div className="sim-nav-head flex-item">
                         <div className="sim-nav-head-title nopad nomarge">
-                            <h2 className="h1-border">Mon scénario climat</h2>
+                            <h2 className="border">Mon scénario climat</h2>
                             <p>Paramétrez votre scénario pour la France d'ici 2030</p>
                         </div>
                         <div className="sim-nav-head-init nopad">
@@ -80,6 +80,7 @@ const Simulator = () => {
                     </div>
                     <div className="sim-nav-bar flex-item nopad nomarge">
                         <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
+                        <div className="hidden">||</div>
                         <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     </div>
                 </div>
@@ -90,18 +91,17 @@ const Simulator = () => {
                         <div id={"param-box"+i} className="sim-param-box grid-item">{cat.parameters.map((param, j) => (
                             handleParameterType(param, j, values, setValues)
                         ))}</div>
+                        <hr className="border" style={{borderWidth:"1px"}} />
                         </>
                     ))}
                 </div>
             </section>
-            <section className="sim-results-box grid-item nomarge">
+            <section className="sim-results-box flex-item flex-column nomarge">
                 <div>
                     TEMP HERE
                 </div>
-                <div>
-                    <SimResultsAreaChart datas={results.emiSecteur}/>
-                    <Sunburst/>
-                </div>
+                <SimResultsAreaChart datas={results.emiSecteur}/>
+                <Sunburst/>
                 <Link to="/results"><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
