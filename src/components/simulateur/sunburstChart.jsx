@@ -1,9 +1,15 @@
-import React, { Component} from 'react'
 
-import {
-    PieChart, Pie, Sector, Cell, Legend, Label, Tooltip
-  } from 'recharts';
+  import React from 'react'
+
   
+import {
+  PieChart, Pie, Sector, Cell, Legend, Label, Tooltip
+} from 'recharts';
+
+  
+  const sunburstChart = () => {
+
+    
   const data01 = [
     { name: 'Group A', value: 400 }, { name: 'Group B', value: 300 },
     { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
@@ -41,14 +47,9 @@ import {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 
-  export default class Example extends Component {
 
-    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/w6wsrc52/';
-  
-    render() {
-      
-      return (
-        <PieChart width={400} height={200}>
+    return (
+      <PieChart width={400} height={200}>
           <Pie data={data01} dataKey="value" cx={150} cy={100} outerRadius={60} label={renderCustomizedLabel}>
             {data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
           </Pie>
@@ -58,7 +59,8 @@ import {
           </Pie>
           <Tooltip/>
         </PieChart>
-      );
-    }
+    )
   }
+  
+  export default sunburstChart
   
