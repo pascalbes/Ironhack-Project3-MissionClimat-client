@@ -16,14 +16,13 @@ import api from '../api/APIHandler'
 const Simulator = () => {
 
     const [values, setValues] = useState(jsonFile.options.vInit)
-    const [results, setResults] =useState(jsonFile.results)
+    const [results, setResults] = useState(jsonFile.results)
 
     //STUF
 
     console.log(values)
 
     function getValuesFormatted(vals, units) {
-        console.log(vals)
         var valsFinal = vals.map((val, i) => {
             if (units[i]==="%") {
                 val /= 100;
@@ -41,15 +40,11 @@ const Simulator = () => {
         if (idSheet) {
             api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
             .then(res => {
-                console.log(res)
                 setResults(res.data.results)
             })
             .catch(err => console.log(err))
         }
     }, [values])
-
-    console.log(results)
-
 
     function setOneValue(value, index) {
         var newValues=[...values]
@@ -85,7 +80,7 @@ const Simulator = () => {
                         <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     </div>
                 </div>
-                <div className="sim-main-box light-color">
+                <div className="sim-main-box light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={i} data={cat.data} results={cat.resultats} />

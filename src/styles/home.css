@@ -72,3 +72,17 @@ footer{
     align-items: center;
     text-align: center;
 }
+
+
+.hero-mon{
+    font-size: 4rem;
+    line-height: 4rem;
+}
+
+.hero-climat{
+    font-size: 6rem;
+    line-height: 6rem;
+    background: var(--backgreen);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

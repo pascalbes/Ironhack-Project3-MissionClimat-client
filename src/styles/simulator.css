@@ -15,11 +15,11 @@
 }
 
 .sim-nav-box{
-    height: 30%;
+    height: 30vh;
 }
 
 .sim-main-box{
-    height: 70%;
+    height: 65vh;
     overflow-y: auto;
     border-radius: 1em;
     padding: 1em 2em;
@@ -43,8 +43,12 @@
 .sim-nav-head{
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2em;
     padding: 0 1em;
+    margin: 0;
+}
+
+.sim-nav-head-title{
+    margin: 0;
 }
 
 .sim-init-button{
@@ -72,10 +76,10 @@
 }
 
 .sim-nav-categories{
-    height: 3em;
+    height: 2em;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 1em;
-    margin: 0 0.5em 0.5em;
+    margin: 0 0.5em;
     padding: 0 0.5em;
     justify-content: space-evenly;
     align-items: center;
