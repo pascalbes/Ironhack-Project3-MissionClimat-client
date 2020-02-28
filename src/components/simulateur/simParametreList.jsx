@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
 
-const SimParametreList = ({data, value, setValues}) => {
+const SimParametreList = ({data, value, setOneValue}) => {
 
-    const [defaultValues, setDefaultValues] = useState(value[0])
+    const [defaultValue, setDefaultValue] = useState(value[0])
 
     const possibleValues = data.possibleValues.split(', ')
 
-    console.log(data)
 
-    const handleChange = e => {
-        console.log(e.target.id)
-        
-    }
-
-    // function handleLine(val, value, i) {
-    //     return val == value[0]val == value[0] ? <input type="radio" key={i} id={val} name={i} onChange={e => handleChange(e)} checked="checked"/> : <input type="radio" name={data.index} id={val} onChange={e => handleChange(e)}/>
-    // }
+    useEffect(() => {
+        setOneValue(defaultValue, data.index)
+    }, [defaultValue])
 
     return (
         <div id={"param"+data.index}>
@@ -26,7 +20,7 @@ const SimParametreList = ({data, value, setValues}) => {
             <div className="flex-item"> 
                 {possibleValues.map((val, i) => (
                     <div className="sim-param-radio">
-                    <input type="radio" key={i} id={val} name={i} onChange={e => setDefaultValues(e.target.id)} checked={val == defaultValues}/>
+                    <input type="radio" key={i} id={val} name={i} onChange={e => setDefaultValue(e.target.id)} checked={val == defaultValue}/>
                         {/* {handleLine(val, value, i)} */}
                         <label for={val}>{val}</label>
                     </div>

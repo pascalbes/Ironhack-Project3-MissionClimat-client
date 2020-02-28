@@ -102,7 +102,7 @@ const Simulator = () => {
                     <SimResultsAreaChart datas={results.emiSecteur}/>
                     <Sunburst/>
                 </div>
-                <Link to="/results"><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
+                <Link datas={results} to="/results"><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
     )
