@@ -6,6 +6,10 @@ import { Bullet } from '@nivo/bullet'
 
 const MyBullet = ({results}) => {
 
+
+    console.log(results)
+    console.log(results[0].name)
+    console.log(results[0].ranges)
     return (
         <div>
     <Bullet

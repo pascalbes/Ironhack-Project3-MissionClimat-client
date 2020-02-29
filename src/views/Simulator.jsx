@@ -99,7 +99,7 @@ const Simulator = () => {
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
-                    <Sunburst/>
+                    <Sunburst datas={results.emiSecteurPie}/>
                 </div>
                 <Link to={{
                     pathname: "/results",
