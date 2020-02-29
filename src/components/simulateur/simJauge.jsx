@@ -6,27 +6,6 @@ import { Bullet } from '@nivo/bullet'
 
 const MyBullet = ({results}) => {
 
-
-    // const data = [
-    //     {
-    //       "id": "MGT de CO2",
-    //       "ranges": [
-    //         58,
-    //         82,
-    //         100
-    //       ],
-    //       "measures": [
-    //         75
-    //       ],
-    //       "markers": [
-    //         58,
-    //         82
-    //       ]
-    //     }
-    //   ]
-
-  
-
     return (
         <div>
     <Bullet
@@ -47,7 +26,7 @@ const MyBullet = ({results}) => {
         markerSize={1}
         reverse={true}
     />
-    <ul style={{display: "flex", alignItems: "center", marginLeft: "10px"}}>
+    {/* <ul style={{display: "flex", alignItems: "center", marginLeft: "10px"}}>
         <li style={{display: "flex", alignItems: "center", marginLeft: "10px"}}>
             <div style={{backgroundColor:"#D95F02", width: "5px", height: "13px", marginRight: "5px"}}></div>Business as usual
         </li>
@@ -57,7 +36,7 @@ const MyBullet = ({results}) => {
         <li style={{display: "flex", alignItems: "center", marginLeft: "10px"}}>
             <div style={{backgroundColor:"blue", width: "13px", height: "13px", marginRight: "5px"}}></div>Votre paramètre
         </li>
-    </ul>
+    </ul> */}
     </div>
     )
 }
