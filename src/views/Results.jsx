@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom'
 const Results = (props) => {
     console.log(props)
 
-    const results=props.location.state.fullDatas
+    const results=props.location.state.results
 
     const checkScope = (categories) => {
         var frenchCategories = [];
