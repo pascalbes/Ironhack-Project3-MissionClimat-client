@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState} from 'react'
 
 import jsonFile from "../ressources/initialDatas.json"
 
@@ -19,12 +19,16 @@ import { Link } from 'react-router-dom'
 
 
 const Results = (props) => {
-    
 
-    const results=props.location.state.results
+    var results={}
 
-    console.log(results)
-    console.log(results.emiSecteurPie)
+    if (localStorage.getItem('results')) {
+        results = JSON.parse(localStorage.getItem('results'))
+    }
+    else {
+        results = props.location.state.results
+        localStorage.setItem('results', JSON.stringify(results))
+    }
 
     const checkScope = (categories) => {
         var frenchCategories = [];
@@ -71,6 +75,7 @@ const Results = (props) => {
                     <button className="green-btn left-btn">Partager</button>
                     <button className="green-btn left-btn">Télécharger</button>
                 </div>
+                {/* <Link to={{pathname: "/results#detail-results",state: {results: results}}}><button className="border-btn down-btn">Résultats détaillés</button></Link> */}
                 <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
             </article>
 
