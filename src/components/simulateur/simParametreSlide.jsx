@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 const SimParametreSlide = ({data, value, setOneValue}) => {
 
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
+    const [componentClass, setComponentClass] = useState("param-container-normal")
     
     const classes = useStyles();
 
@@ -42,10 +43,14 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     }
 
     function toggleClass() {
-        if (infosClass==="param-info-container-visible") {
-            setInfoClass("param-info-container-hidden")
+        if (componentClass==="param-container-normal") {
+            setComponentClass("param-container-expanded")
+            setInfoClass("param-info-container-visible")
         }
-        else setInfoClass("param-info-container-visible") 
+        else {
+            setComponentClass("param-container-normal")
+            setInfoClass("param-info-container-hidden") 
+        }
     }
     
       
@@ -58,7 +63,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
         //     </form>
         // </div>
         
-        <div>
+        <div className={componentClass}>
             <div className="param-header flex-item nomarge nopad">
                 <h5 className="nomarge">{data.name}</h5>
                 <div className="hidden nomarge">||</div>
