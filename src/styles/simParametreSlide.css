@@ -1,8 +1,24 @@
 .param-info-container-visible {
+    box-sizing: border-box;
     display: flex;
+    flex-wrap: wrap;
+    padding-left: 4%;
     visibility: visible;
+}
+
+.param-info-container-visible div {
+    width: 20%;
+    margin-right: 4%;
 }
 
 .param-info-container-hidden {
     display: none;
+}
+
+.param-container-normal {
+    background-color: inherit;
+}
+
+.param-container-expanded {
+    background-color: grey;
 }
