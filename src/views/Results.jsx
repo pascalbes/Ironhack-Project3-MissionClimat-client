@@ -83,11 +83,23 @@ const Results = (props) => {
                 <button className="border-btn up-btn"><a href="#scroll-top">Resultats globaux</a></button>
                 <ResultsNav/>
                 
-                
+                <div className="detail-national flex-item flex-column">
+                    <h2>Émissions françaises</h2>
+                    <div className="detail-national-main flex-item">
+                        <div className="flex-item flex-column">
+                            <h4>> Par secteur entre 2010 et 2030</h4>
+                            <AreaChart datas={results.emiSecteur}/>
+                        </div>
+                        <div>
+                            <h4>> Répartition des émissions pour 2030</h4>
+                            <Sunburst datas={results.emiSecteurPie}/>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="detail-parameters flex-item flex-column">
-                    <h3>Paramètres</h3>
-                    <div className="detail-parameters-box">
+                    <h2>Résumé des Paramètres</h2>
+                    <div className="detail-parameters-box grid-item">
                         {jsonFile.categories.map((categorie, i) => {
                             return <Parametres 
                                 scope={categorie.data.scope} 
@@ -103,16 +115,7 @@ const Results = (props) => {
 
 
             
-            <div className="emissions-fr-main-container">
-                <h2>Emissions françaises</h2>
-
-
-                <h3>Evolution des émissions par secteur entre 2010 et 2030</h3>
-                
-
-                <AreaChart datas={results.emiSecteur}/>
-             
-                <h3>Historique des émissions en comparaison avec les objectifs</h3>
+            <h3>Historique des émissions en comparaison avec les objectifs</h3>
 
                 <div>
                     <h4>Résultat des émissions générales</h4>
@@ -128,12 +131,8 @@ const Results = (props) => {
                     }
                     </div>
                 </div>
-            </div>
 
-            <h3>Part de chaque secteur dans l'émission de CO2</h3>     
-            <div className="sim-jauge">
-                <Sunburst datas={results.emiSecteurPie}/>
-            </div>
+
 
             <div className="emissions-mondiales-main-container">
                     <h2>Emissions mondiales</h2>
