@@ -1,0 +1,8 @@
+.param-info-container-visible {
+    display: flex;
+    visibility: visible;
+}
+
+.param-info-container-hidden {
+    display: none;
+}
