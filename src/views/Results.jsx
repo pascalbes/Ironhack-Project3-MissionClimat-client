@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState} from 'react'
 
 import jsonFile from "../ressources/initialDatas.json"
 
@@ -19,9 +19,16 @@ import { Link } from 'react-router-dom'
 
 
 const Results = (props) => {
-    console.log(props)
 
-    const results=props.location.state.fullDatas
+    var results={}
+
+    if (localStorage.getItem('results')) {
+        results = JSON.parse(localStorage.getItem('results'))
+    }
+    else {
+        results = props.location.state.results
+        localStorage.setItem('results', JSON.stringify(results))
+    }
 
     const checkScope = (categories) => {
         var frenchCategories = [];
@@ -68,6 +75,7 @@ const Results = (props) => {
                     <button className="green-btn left-btn">Partager</button>
                     <button className="green-btn left-btn">Télécharger</button>
                 </div>
+                {/* <Link to={{pathname: "/results#detail-results",state: {results: results}}}><button className="border-btn down-btn">Résultats détaillés</button></Link> */}
                 <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
             </article>
 
@@ -115,7 +123,6 @@ const Results = (props) => {
 
                     
                     {checkScope(jsonFile.categories).map((categorie, i) => {
-                        console.log(categorie)
                         return <SectorLinearChart data={categorie}/>
                     })
                     }
@@ -137,3 +144,4 @@ const Results = (props) => {
 }
 
 export default Results
+

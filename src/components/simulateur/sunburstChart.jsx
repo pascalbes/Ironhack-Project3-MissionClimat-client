@@ -1,11 +1,15 @@
-import React from 'react'
-  
+
+import React from 'react'  
 import {
   PieChart, Pie, Sector, Cell, Legend, Label, Tooltip
 } from 'recharts';
+
   
-  const sunburstChart = ({datas}) => {
+  const SunburstChart = ({datas}) => {
+
+
   const RADIAN = Math.PI / 180;
+
   const renderCustomizedLabel = ({
     cx, cy, midAngle, innerRadius, outerRadius, percent, index,
   }) => {
@@ -18,7 +22,8 @@ import {
         {`${(percent * 100).toFixed(0)}%`}
       </text>
     );
-  }
+  };
+
     return (
       <PieChart width={400} height={200}>
           <Pie data={datas.data01} dataKey="value" cx={200} cy={100} outerRadius={60}  stroke="none" >
@@ -35,4 +40,5 @@ import {
     )
   }
   
-  export default sunburstChart
+  export default SunburstChart
+  

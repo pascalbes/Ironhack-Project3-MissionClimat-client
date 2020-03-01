@@ -1,6 +1,7 @@
 @import "./reset.css";
 @import "./button.css";
 @import "./icons.css";
+@import "./simulator.css";
 
 /* /// DEBUG */
 *{
