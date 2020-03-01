@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom'
 
 
 const Results = (props) => {
+    console.log(props)
 
     const fullDatas=props.location.state.fullDatas
 

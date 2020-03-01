@@ -8,14 +8,14 @@ button{
 }
 
 .green-btn{
-    background: linear-gradient(135deg, #5a80ef, #34d5b0);
-    background-size: 110%;
+    background-image: var(--backgreen);
+    background-size: 110% 110%;
     background-position: center;
     border: 2px solid transparent;
 }
 
 .border-btn{
-    border: 2px solid #88F2B6;
+    border: 2px solid var(--lightgreen);
 }
 
 .left-btn{
