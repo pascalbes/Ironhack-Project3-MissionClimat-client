@@ -71,8 +71,6 @@ hr:last-of-type{
 
 .sim-param-box{
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-    padding: 2em;
-    border-radius: 1em;
 }
 
 .sim-param-radio{
@@ -85,6 +83,13 @@ hr:last-of-type{
 
 /* /// RESULTS */
 .sim-results-box button{
-    padding: 1em 3em
+    padding: 1em 3em;
+}
+
+.results-temp-box{
+    background-color: var(--green);
+    border-radius: 1em;
+    padding: 1em 2em;
+    font-size: 2em;
 }
 

@@ -178,11 +178,11 @@ const Simulator = (props) => {
                         <FontAwesomeIcon className="icon-gears" icon={faCogs}/>
                     </button>
                 </div>
-                <div className="sim-main-box border-btn">
+                <div className="sim-main-box border-btn light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
-                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item light">
+                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
                             {cat.parameters.map((param, j) => (
                             handleParameterType(param, j, values, setValues)
                             ))}
@@ -193,8 +193,8 @@ const Simulator = (props) => {
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column nomarge">
-                <div>
-                    TEMP HERE
+                <div className="results-temp-box">
+                    +2°C
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
