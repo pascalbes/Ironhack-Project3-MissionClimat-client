@@ -1,7 +1,9 @@
 import React from 'react'
 import Footer from "../components/partials/Footer"
-import "../styles/home.css"
 import { Link } from "react-router-dom"
+
+import "../styles/home.css"
+import "../styles/footer.css"
 
 
 const Home = () => {
@@ -39,8 +41,9 @@ const Home = () => {
                         <p>blablablabla blabla bla bjhzd dhziwnha dhziuehf w</p>
                     </div>
                 </div>
-                <Footer />
+                <div className="hidden"></div>
             </article>
+            <Footer/>
         </div>
     )
 }

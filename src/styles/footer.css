@@ -1,6 +1,12 @@
 footer{
     padding: 0 2rem;
     height: 10vh;
+    width: 100%;
     justify-content: space-between;
+    align-items: center;
+}
+
+.footer-item{
+    justify-content: center;
     align-items: center;
 }
