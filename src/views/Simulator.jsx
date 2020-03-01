@@ -5,6 +5,7 @@ import { faCogs } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
+import Popup from "reactjs-popup";
 
 /// COMPONENTS
 import SimNav from "../components/simulateur/simNavBar"
@@ -174,13 +175,46 @@ const Simulator = (props) => {
         <div className="sim-page flex-item">
             <section className="sim-container-box grid-item nomarge">
                 <div className="sim-nav-box flex-item nopad">
+
+                    {/* BARRE DE NAVIGATION DANS LES CATEGORIES */}
+
                     <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
                     <div className="hidden">||</div>
                     <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     <div className="hidden">||</div>
-                    <button className="icon-box nomarge nopad">
-                        <FontAwesomeIcon className="icon-gears" icon={faCogs}/>
-                    </button>
+
+
+                    {/* POP-UP OPTIONS */}
+
+                    <Popup trigger=
+                        {<button className="icon-box nomarge nopad">
+                            <FontAwesomeIcon className="icon-gears" icon={faCogs}/>
+                        </button>} modal>
+                        <div>
+                           <h5>Options</h5>
+                           <h6>Initialiser les données</h6>
+                           <div>
+
+                           </div>
+                           <h6>Mode expert</h6>
+                           <div>
+                                <div>
+                                    <input type="radio" checked></input>
+                                    <label>Conserver les valeurs actuelles</label>
+                                </div>
+                                <div>
+                                    <input type="radio"></input>
+                                    <label>Initialiser les valeurs sur un scénario 1.5°C</label>
+                                </div>
+                           </div>
+
+                        </div>
+                        
+                    </Popup>
+                    
+
+                    {/* AFFICHAGE DES PARAMETRES */}
+
                 </div>
                 <div className="sim-main-box border-btn light">
                     {jsonFile.categories.map((cat, i) => (
@@ -196,6 +230,10 @@ const Simulator = (props) => {
                     ))}
                 </div>
             </section>
+
+
+                {/* AFFICHAGE DES RESULTATS */}
+
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div className="results-temp" style={{backgroundColor: handleTempColor}}>+2°C</div>
                 <div>
@@ -205,7 +243,7 @@ const Simulator = (props) => {
                     <SimResultsAreaChart datas={results.emiSecteur}/>
                     <Sunburst datas={results.emiSecteurPie}/>
                 </div>
-                <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
+                <Link to={{pathname: "/results",state: {fullDatas: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
     )
