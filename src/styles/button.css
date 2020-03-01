@@ -18,6 +18,13 @@ button{
     border: 2px solid var(--lightgreen);
 }
 
+.see-more-btn{
+    border-color: var(--darkblue);
+    color: var(--darkblue);
+    padding: 0 0.2em;
+    line-height: 1em;
+}
+
 .left-btn{
     margin-left: 1em;
 }

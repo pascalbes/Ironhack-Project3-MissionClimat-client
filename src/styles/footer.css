@@ -2,11 +2,14 @@ footer{
     padding: 0 2rem;
     height: 10vh;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
 .footer-item{
+    min-width: 30%;
+    max-width: 100%;
     justify-content: center;
     align-items: center;
 }

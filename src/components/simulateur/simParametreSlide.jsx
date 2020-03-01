@@ -59,9 +59,12 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
         // </div>
         
         <div>
-            <button onClick={toggleClass}>Expand View</button>
-            <h5>{data.name}</h5>
-            <p>{data.description}</p>
+            <div className="param-header flex-item nomarge nopad">
+                <h5 className="nomarge">{data.name}</h5>
+                <div className="hidden nomarge">||</div>
+                <button className="see-more-btn nomarge" onClick={toggleClass}>+</button>
+            </div>
+            {data.description && <p className="small-param-desc">{data.description}</p>}
 
             <div className={classes.root}>
                 <div className={classes.margin} />

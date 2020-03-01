@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className="flex-item nomarge">
+        <footer className="flex-item nomarge flex-item">
             <div className="footer-item flex-item">LOGO BOX</div>
             <div className="footer-item flex-item flex-column">
                 <h3>Contactez-nous :</h3>
