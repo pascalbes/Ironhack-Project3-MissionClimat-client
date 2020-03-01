@@ -86,10 +86,3 @@ hr:last-of-type{
     padding: 1em 3em;
 }
 
-.results-temp-box{
-    background-color: var(--green);
-    border-radius: 1em;
-    padding: 1em 2em;
-    font-size: 2em;
-}
-

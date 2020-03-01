@@ -166,6 +166,10 @@ const Simulator = (props) => {
         }
     }
 
+    function handleTempColor(){
+        return "color"
+    }
+
     return (
         <div className="sim-page flex-item">
             <section className="sim-container-box grid-item nomarge">
@@ -193,9 +197,7 @@ const Simulator = (props) => {
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column nomarge">
-                <div className="results-temp-box">
-                    +2°C
-                </div>
+                <div className="results-temp" style={{backgroundColor: handleTempColor}}>+2°C</div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
                     <Sunburst datas={results.emiSecteurPie}/>

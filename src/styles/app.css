@@ -58,6 +58,10 @@ body{
     visibility: hidden;
 }
 
+.displaynone{
+    display: none;
+}
+
 .flex-item{
     display: flex;
 }
