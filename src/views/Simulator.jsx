@@ -166,6 +166,10 @@ const Simulator = (props) => {
         }
     }
 
+    function handleTempColor(){
+        return "color"
+    }
+
     return (
         <div className="sim-page flex-item">
             <section className="sim-container-box grid-item nomarge">
@@ -193,19 +197,15 @@ const Simulator = (props) => {
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column nomarge">
-                <div className="results-temp-box">
-                    +2°C
+                <div className="results-temp" style={{backgroundColor: handleTempColor}}>+2°C</div>
+                <div>
+                    Emissions carbone : {}Mt CO2 ({})
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
                     <Sunburst datas={results.emiSecteurPie}/>
                 </div>
-                <Link to={{
-                    pathname: "/results",
-                    state: {
-                        fullDatas: results
-                    }}}> 
-                    <button className="sim-init-button green-btn">Voir mes résultats</button></Link>
+                <Link to={{pathname: "/results",state: {fullDatas: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
     )
