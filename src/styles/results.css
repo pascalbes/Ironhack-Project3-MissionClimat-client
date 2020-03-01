@@ -1,3 +1,5 @@
+@import "./icons.css";
+
 .results-page{
     justify-content: flex-start;
     align-items: center;
@@ -54,7 +56,7 @@
 }
 
 .results-nav{
-    margin-top: 1em;
+    margin: 2em 0 2em;
     height: 2.5em;
     border-radius: 1em;
     padding: 0 0.5em;
@@ -71,29 +73,29 @@
 }
 
 .detail-parameters{
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     margin-top: 2em;
-}
-
-.detail-parameters-box{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
 }
 
-.emissions-fr-main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px;
+.detail-parameters-box{
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    gap: 1em;
 }
 
-.emissions-fr-main-container > div {
-    display: flex;
-    flex-direction: column;
+.detail-national{
     align-items: center;
+    justify-content: space-between;
+    margin-top: 2em;
+    width: 100%;
+}
+
+.detail-national-main{
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .emissions-fr-main-container h2,.emissions-fr-main-container h3 {
