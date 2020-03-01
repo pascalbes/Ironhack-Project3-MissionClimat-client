@@ -7,7 +7,6 @@ const SimParametreList = ({data, value, setOneValue}) => {
 
     const possibleValues = data.possibleValues.split(', ')
 
-
     useEffect(() => {
         setOneValue(defaultValue, data.index)
     }, [defaultValue])

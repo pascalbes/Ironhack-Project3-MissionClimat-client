@@ -25,21 +25,6 @@ import "./styles/app.css"
 
 function App() {
 
-  function createSheet() {
-    if (!localStorage.getItem('idSheet')) {
-      api.get("/sheet/")
-      .then(res => {
-        console.log("SHEET CREATED!", res)
-        localStorage.setItem('idSheet', res.data.id);
-      })
-      .catch(err=>console.log(err))
-    }
-    else {
-      console.log("SHEET ALREADY CREATED", localStorage.getItem('idSheet'))
-    }
-  }
-
-  createSheet();
 
   // function deleteSheet(e) {
   //   //e.preventDefault();

@@ -24,8 +24,6 @@ import {
   //   );
   // };
 
-  console.log(datas)
-
     return (
       <PieChart width={400} height={200}>
           <Pie data={datas.data01} dataKey="value" cx={200} cy={100} outerRadius={60}  stroke="none" >

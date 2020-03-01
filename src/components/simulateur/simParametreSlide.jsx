@@ -17,6 +17,8 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
     const [componentClass, setComponentClass] = useState("param-container-normal")
     
+    const unit=data.unit
+    
     const classes = useStyles();
 
     const marks = [
@@ -30,8 +32,8 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     },
     ];
     
-    function valuetext(value) {
-    return `${value}`;
+    function valuetext() {
+    return `${value}${unit}`;
     }
     
     function valueLabelFormat(value) {
@@ -74,7 +76,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
             <div className={classes.root}>
                 <div className={classes.margin} />
                 <Slider
-                    defaultValue={value}
+                    value={value}
                     getAriaValueText={valuetext}
                     aria-labelledby="discrete-slider-always"
                     min={data.min}

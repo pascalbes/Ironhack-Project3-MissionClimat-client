@@ -20,10 +20,9 @@ const Simulator = (props) => {
 
     const [values, setValues] = useState(jsonFile.options.vInit)
     const [results, setResults] = useState(jsonFile.results)
-    const [hasBeenExecutedOnce, setHasBeenExecutedOnce ] = useState(0)
 
     //Gestion d'une route avec paramêtres spécifiques
-    //url test : p0=60&&p1=50&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
+    //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
     
     //fonction qui récupère en paramètre la string de l'url et la transforme en un array de values au format excel
     function getValuesFromUrl(vals) {
@@ -66,73 +65,58 @@ const Simulator = (props) => {
     //////////// LOADER ?
     //////////////////////////
 
-    //Fonction appellée à la première exécution. Permet de :
+    // Fonction appellée à la première exécution. Permet de :
     //   - créer une spreadsheet si non créée, 
     //   - charger les valeurs de la spreadsheet créée si existante, et les afficher,
     //   - charger les valeurs d'un scénario enregistré, dans le cas d'un appel via url spécifique,
 
+    useEffect(() => {
 
-    // if (!hasBeenExecutedOnce) {
+        async function initDatas() {
 
-    //     setHasBeenExecutedOnce(1)
+            var res={}
+
+            // cas où une sheet est déjà en dans le localstorage
+            if (localStorage.getItem('idSheet')) {
+
+                const idSheet = localStorage.getItem('idSheet')
+                console.log("SHEET ALREADY CREATED, ID:", idSheet)
+
+                //cas où appel normal de la page simulateur
+                if (!props.match.params.urlParams) {
+                    res = await api.get("/sheet/values/"+idSheet)
+                    setValues(res.data.values)
+                }
+
+                else { // cas où appel via url spécifique /save/p=1&&p=3.....
+                    var valuesURL = getValuesFromUrl(props.match.params.urlParams)
+                    setValues(valuesURL)
+                }
+
+            }
+            else {  // cas où aucune sheet n'a été créée
+
+                //création d'une copie de la sheet master
+                res = await api.get("/sheet/")
+                var idSheet = res.data.id
+                localStorage.setItem('idSheet', idSheet);
+                console.log("SHEET CREATED! ID:", idSheet)
+
+                // cas où appel via url spécifique /save/p=1&&p=3.....
+                if (props.match.params.urlParams) {
+                    var valuesURL = getValuesFromUrl(props.match.params.urlParams)
+                    setValues(valuesURL)
+                }
+
+            }
+
+        }
+
+        initDatas()
+
+    }, [])
         
-    //     // cas où une sheet est déjà en dans le localstorage
-    //     if (localStorage.getItem('idSheet')) {
-
-    //         console.log("Sheet déjà créée")
-
-    //         const idSheet = localStorage.getItem('idSheet')
-    //         console.log("SHEET ALREADY CREATED, ID:", idSheet)
-
-    //         //cas où appel normal de la page simulateur
-    //         if (!props.match.params.urlParams) {
-
-    //             api.get("/sheet/values/"+idSheet)
-    //             .then (res => {
-    //                 console.log(res.data)
-    //                 setValues(res.data)
-    //             })
-    //             .catch(err => console.log(err))
-    //         }
-
-    //         else { // cas où appel via url spécifique /save/p=1&&p=3.....
-    //             var valuesURL = getValuesFromUrl(props.match.params.urlParams)
-    //             setValues(valuesURL)
-    //         }
-
-
-    //     }
-    //     else {  // cas où aucune sheet n'a pas été créée
-
-    //         console.log("Création d'une sheet")
-
-    //         //création d'une copie de la sheet master
-    //         api.get("/sheet/")
-    //         .then(res => {
-
-    //             var idSheet = res.data.id
-    //             localStorage.setItem('idSheet', idSheet);
-    //             console.log("SHEET CREATED! ID: ", idSheet)
-
-    //             //cas où appel normal de la page simulateur
-    //             if (!props.match.params.urlParams) {
-    //                 var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
-    //                 api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
-    //                 .then(res => {
-    //                     setResults(res.data.results)
-    //                 })
-    //                 .catch(err => console.log(err))
-    //             }
-    //             else { // cas où appel via url spécifique /save/p=1&&p=3.....
-    //                 var valuesURL = getValuesFromUrl(props.match.params.urlParams)
-    //                 setValues(valuesURL)
-    //             }
-
-    //         })
-    //         .catch(err => console.log(err))
-    //     }
-
-    // }
+        
 
 
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
