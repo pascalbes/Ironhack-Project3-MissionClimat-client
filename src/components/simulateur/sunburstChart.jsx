@@ -23,7 +23,7 @@ import {
         {`${(percent * 100).toFixed(0)}%`}
       </text>
     );
-  };
+  }
 
     return (
       <PieChart width={400} height={200}>
