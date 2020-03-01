@@ -70,7 +70,7 @@ function App() {
           <Route path="/contact" component={Contact} /> 
           {/* SIMULATOR */}
           <Route path="/concept" component={Concept} />
-          <Route path="/simulator/save/:urlParams" component={Simulator} />
+          <Route path="/simulator/favorites/:urlParams" component={Simulator} />
           <Route path="/simulator" component={Simulator} />        
           <Route path="/results" component={Results} />
           {/* AUTH */}
