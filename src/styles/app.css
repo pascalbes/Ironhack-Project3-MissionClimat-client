@@ -1,9 +1,10 @@
 @import "./reset.css";
 @import "./button.css";
+@import "./icons.css";
 
 /* /// DEBUG */
 *{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 /* /// COLORS */

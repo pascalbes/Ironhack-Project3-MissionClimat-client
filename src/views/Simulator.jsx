@@ -1,6 +1,8 @@
 /// BASIC
 import React, {  useState, useEffect } from 'react'
 import "./../styles/simulator.css"
+import { faCogs } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
 
@@ -172,15 +174,15 @@ const Simulator = (props) => {
                     <div className="hidden">||</div>
                     <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     <div className="hidden">||</div>
-                    <div className="flex-item">
-                        <button className="border-btn sim-option">Options</button>
-                    </div>
+                    <button className="icon-box nomarge nopad">
+                        <FontAwesomeIcon className="icon-gears" icon={faCogs}/>
+                    </button>
                 </div>
-                <div className="sim-main-box light">
+                <div className="sim-main-box border-btn">
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
-                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
+                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item light">
                             {cat.parameters.map((param, j) => (
                             handleParameterType(param, j, values, setValues)
                             ))}

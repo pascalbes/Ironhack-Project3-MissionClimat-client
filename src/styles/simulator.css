@@ -20,8 +20,8 @@
 
 /* /// SIM-NAV */
 .sim-nav-box{
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .sim-nav{
@@ -34,7 +34,7 @@
 }
 
 .sim-nav-categories{
-    height: 2.5em;
+    min-height: 3.5em;
     border-radius: 1em;
     padding: 0 0.5em;
     justify-content: space-evenly;
@@ -46,11 +46,12 @@
 }
 
 .sim-nav-categorie{
+    flex-wrap: wrap;
     text-decoration: none;
-    margin: 0 0.5em;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.7em;
     font-weight: bold;
+    margin: 0 0.8em;
 }
 
 /* /// MAIN-BOX */
@@ -70,6 +71,8 @@ hr:last-of-type{
 
 .sim-param-box{
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    padding: 2em;
+    border-radius: 1em;
 }
 
 .sim-param-radio{
