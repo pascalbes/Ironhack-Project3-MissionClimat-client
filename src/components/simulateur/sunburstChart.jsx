@@ -1,13 +1,12 @@
 
-  import React from 'react'
-
-  
+import React from 'react'  
 import {
   PieChart, Pie, Sector, Cell, Legend, Label, Tooltip
 } from 'recharts';
 
   
-  const sunburstChart = ({datas}) => {
+  const SunburstChart = ({datas}) => {
+
 
   const RADIAN = Math.PI / 180;
 
@@ -41,5 +40,5 @@ import {
     )
   }
   
-  export default sunburstChart
+  export default SunburstChart
   

@@ -19,9 +19,12 @@ import { Link } from 'react-router-dom'
 
 
 const Results = (props) => {
-    console.log(props)
+    
 
-    const fullDatas=props.location.state.fullDatas
+    const results=props.location.state.results
+
+    console.log(results)
+    console.log(results.emiSecteurPie)
 
     const checkScope = (categories) => {
         var frenchCategories = [];
@@ -50,7 +53,7 @@ const Results = (props) => {
                             <p className="nomarge">2100 : blabla CO2</p>
                         </div>
                         <div className="results-data-sunburst">
-                            <Sunburst/>
+                            <Sunburst datas={results.emiSecteurPie}/>
                         </div>
                         <div className="results-data-area">
 
@@ -102,7 +105,7 @@ const Results = (props) => {
                 <h3>Evolution des émissions par secteur entre 2010 et 2030</h3>
                 
 
-                <AreaChart datas={fullDatas.emiSecteur}/>
+                <AreaChart datas={results.emiSecteur}/>
              
                 <h3>Historique des émissions en comparaison avec les objectifs</h3>
 
@@ -115,7 +118,6 @@ const Results = (props) => {
 
                     
                     {checkScope(jsonFile.categories).map((categorie, i) => {
-                        console.log(categorie)
                         return <SectorLinearChart data={categorie}/>
                     })
                     }
@@ -125,7 +127,7 @@ const Results = (props) => {
 
             <h3>Part de chaque secteur dans l'émission de CO2</h3>     
             <div className="sim-jauge">
-                <Sunburst/>
+                <Sunburst datas={results.emiSecteurPie}/>
             </div>
 
             <div className="emissions-mondiales-main-container">
@@ -137,3 +139,4 @@ const Results = (props) => {
 }
 
 export default Results
+
