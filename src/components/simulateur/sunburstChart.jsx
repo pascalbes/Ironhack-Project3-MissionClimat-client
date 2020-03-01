@@ -28,21 +28,21 @@ import {
     { name: 'D2', value: 50 },
   ];
 
-  const RADIAN = Math.PI / 180;
+  // const RADIAN = Math.PI / 180;
 
-  const renderCustomizedLabel = ({
-    cx, cy, midAngle, innerRadius, outerRadius, percent, index,
-  }) => {
-     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  // const renderCustomizedLabel = ({
+  //   cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+  // }) => {
+  //    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  //   const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  //   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   
-    return (
-      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
-  };
+  //   return (
+  //     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+  //       {`${(percent * 100).toFixed(0)}%`}
+  //     </text>
+  //   );
+  // };
   
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -50,7 +50,9 @@ import {
 
     return (
       <PieChart width={400} height={200}>
-          <Pie data={data01} dataKey="value" cx={150} cy={100} outerRadius={60} label={renderCustomizedLabel}>
+          <Pie data={data01} dataKey="value" cx={150} cy={100} outerRadius={60} 
+          // label={renderCustomizedLabel}
+          >
             {data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
           </Pie>
           <Pie data={data02} dataKey="value" cx={110} cy={100} innerRadius={65} outerRadius={100} fill="#82ca9d">
