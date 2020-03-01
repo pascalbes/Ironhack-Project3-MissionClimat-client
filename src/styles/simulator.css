@@ -56,6 +56,7 @@
 
 /* /// MAIN-BOX */
 .sim-main-box{
+    scroll-behavior: smooth;
     overflow-y: auto;
     border-radius: 1em;
     padding: 1em 2em;
@@ -79,6 +80,14 @@ hr:last-of-type{
 
 .sim-param-radio input{
     margin-right: 1em;
+}
+
+.small-param-desc{
+    font-size: 0.8em;
+}
+
+.expand-box{
+    
 }
 
 /* /// RESULTS */
