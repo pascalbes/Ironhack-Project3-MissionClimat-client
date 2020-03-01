@@ -13,20 +13,15 @@
 .sim-results-box{
     height: 90vh;
     padding: 1.5%;
-    width: 30%;
+    width: 40%;
     justify-content: space-between;
     align-items: center;
 }
 
 /* /// SIM-NAV */
-.sim-nav-head{
+.sim-nav-box{
     justify-content: space-between;
     align-items: center;
-    margin: 0;
-}
-
-.sim-nav-bar{
-    align-items: flex-start;
 }
 
 .sim-nav{
@@ -39,7 +34,7 @@
 }
 
 .sim-nav-categories{
-    height: 2.5em;
+    min-height: 3.5em;
     border-radius: 1em;
     padding: 0 0.5em;
     justify-content: space-evenly;
@@ -51,11 +46,12 @@
 }
 
 .sim-nav-categorie{
+    flex-wrap: wrap;
     text-decoration: none;
-    margin: 0 0.5em;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.7em;
     font-weight: bold;
+    margin: 0 0.8em;
 }
 
 /* /// MAIN-BOX */
@@ -87,6 +83,13 @@ hr:last-of-type{
 
 /* /// RESULTS */
 .sim-results-box button{
-    padding: 1em 3em
+    padding: 1em 3em;
+}
+
+.results-temp-box{
+    background-color: var(--green);
+    border-radius: 1em;
+    padding: 1em 2em;
+    font-size: 2em;
 }
 

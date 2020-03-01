@@ -1,6 +1,8 @@
 /// BASIC
 import React, {  useState, useEffect } from 'react'
 import "./../styles/simulator.css"
+import { faCogs } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
 
@@ -167,23 +169,16 @@ const Simulator = (props) => {
     return (
         <div className="sim-page flex-item">
             <section className="sim-container-box grid-item nomarge">
-                <div className="sim-nav-box flex-item flex-column nopad">
-                    <div className="sim-nav-head flex-item">
-                        <div className="sim-nav-head-title nopad nomarge">
-                            <h2 className="border">Mon scénario climat</h2>
-                            <p>Paramétrez votre scénario pour la France d'ici 2030</p>
-                        </div>
-                        <div className="sim-nav-head-init nopad">
-                            <button className="border-btn left-btn"> > Options</button>
-                        </div>
-                    </div>
-                    <div className="sim-nav-bar flex-item nopad nomarge">
-                        <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
-                        <div className="hidden">||</div>
-                        <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
-                    </div>
+                <div className="sim-nav-box flex-item nopad">
+                    <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
+                    <div className="hidden">||</div>
+                    <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
+                    <div className="hidden">||</div>
+                    <button className="icon-box nomarge nopad">
+                        <FontAwesomeIcon className="icon-gears" icon={faCogs}/>
+                    </button>
                 </div>
-                <div className="sim-main-box light">
+                <div className="sim-main-box border-btn light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
                         <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
@@ -198,8 +193,8 @@ const Simulator = (props) => {
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column nomarge">
-                <div>
-                    TEMP HERE
+                <div className="results-temp-box">
+                    +2°C
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
