@@ -1,3 +1,12 @@
+.param-container-normal {
+    padding: 0 3%;
+}
+
+.param-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
 .param-info-container-visible {
     display: flex;
     visibility: visible;

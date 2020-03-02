@@ -46,7 +46,8 @@ body{
 }
 
 .light{
-    background: var(--backwhite);
+    /* background: var(--backwhite); */
+    background: white;
     color: var(--darkblue);
 }
 

@@ -2,16 +2,18 @@ import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Slider from '@material-ui/core/Slider'
 import '../../styles/simParametreSlide.css'
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     root: {
       width: "auto",
     },
     margin: {
-      height: theme.spacing(3),
-    },
-}));
-
+      height: 5,
+    }});
+    
 const SimParametreSlide = ({data, value, setOneValue}) => {
 
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
@@ -67,9 +69,10 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
         
         <div className={componentClass}>
             <div className="param-header flex-item nomarge nopad">
-                <h5 className="nomarge">{data.name}</h5>
-                <div className="hidden nomarge">||</div>
-                <button className="see-more-btn nomarge" onClick={toggleClass}>+</button>
+                <h6 className="param-name nomarge">{data.name}</h6>
+                <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
+                    <FontAwesomeIcon icon={faPlus}/>
+                </button>
             </div>
             {data.description && <p className="small-param-desc">{data.description}</p>}
 

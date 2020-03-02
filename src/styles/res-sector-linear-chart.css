@@ -1,7 +1,3 @@
-div > * {
-    margin-bottom: 15px;
-}
-
-div {
+.linear-box {
     padding-top: 5px;
 }
