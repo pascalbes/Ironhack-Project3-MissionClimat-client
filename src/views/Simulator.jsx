@@ -119,6 +119,29 @@ const Simulator = (props) => {
         console.log("in init data")
 
     }, [])
+
+    function getUrl(values, parameters) {
+
+        var url = window.location.origin + "/simulator/favorites/"
+      
+        for (let i=0; i<parameters.length;i++) {
+          
+          var param = parameters[i]
+          url += "p" + i + "="
+      
+          if (param.type === "slider") {
+            url += values[i][0]
+          }
+          else if (param.type === "list") {
+            var possibleValues= param.possibleValues.split(", ")
+            url += possibleValues.indexOf(values[i][0])
+          }
+          if (i < parameters.length-1) {
+            url += "&&"
+          }
+        }
+        return url
+    }
         
         
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
@@ -130,7 +153,9 @@ const Simulator = (props) => {
             if (idSheet) {
                 api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
                 .then(res => {
-                    setResults(res.data.results)
+                    var resTemp = res.data.results
+                    resTemp.url= getUrl(values, jsonFile.parameters)
+                    setResults(resTemp)
                 })
             .catch(err => console.log(err))
             }
