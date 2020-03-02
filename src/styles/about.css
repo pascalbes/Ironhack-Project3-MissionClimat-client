@@ -1,0 +1,45 @@
+.about-page{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+}
+
+.about-card{
+    width: 80%;
+    padding: 2em;
+    border-radius: 1em;
+    margin-bottom: 3em;
+    justify-content: space-between;
+}
+
+.about-card-head{
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.about-icon{
+    font-size: 3em;
+    margin-right: 1rem;
+}
+
+.team-logo{
+    height: 3em;
+    width: auto;
+    margin-right: 1em;
+}
+
+.about-card p{
+    margin: 0.5em 0;
+}
+
+.about-links{
+    justify-content: space-between;
+    margin-top: 1em;
+    color: var(--green);
+    font-weight: bold;
+}
+
+.about-links>div>a{
+    margin
+}

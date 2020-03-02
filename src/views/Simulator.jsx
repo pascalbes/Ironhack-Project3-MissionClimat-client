@@ -200,12 +200,12 @@ const Simulator = (props) => {
                 <div className="sim-main-box border-btn light">
                     {jsonFile.categories.map((cat, i) => (
                         <>
-                        <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
-                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
-                            {cat.parameters.map((param, j) => (
-                            handleParameterType(param, j, values, setValues)
-                            ))}
-                        </div>
+                            <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
+                            <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
+                                {cat.parameters.map((param, j) => (
+                                    handleParameterType(param, j, values, setValues)
+                                ))}
+                            </div>
                         {/* <hr className="border" style={{borderWidth:"1px"}} /> */}
                         </>
                     ))}

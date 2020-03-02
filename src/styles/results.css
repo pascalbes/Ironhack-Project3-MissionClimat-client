@@ -22,11 +22,11 @@
     width: 80%;
     height: 70%;
     padding: 1em 2em;
-    grid-template-rows: 1fr 3fr 3fr;
+    grid-template-columns: 2fr 1fr;
     border-radius: 1em;
 }
 
-.results-head{
+.results-left{
     justify-content: space-between;
     align-items: center;
 }
@@ -39,7 +39,8 @@
 }
 
 .results-data{
-    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .results-btns{
@@ -74,9 +75,8 @@
 
 .detail-national{
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 2em;
-    width: 90%;
     margin: 2em 0 3em;
 }
 
@@ -84,10 +84,14 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     border-radius: 1em;
     padding: 1em;
     margin-top: 1em;
+}
+
+.detail-national-box{
+    margin-bottom: 2em;
 }
 
 .detail-world-box{
