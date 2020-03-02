@@ -12,7 +12,7 @@ import AreaChart from './../components/simulateur/simResultsAreaChart'
 import GenLinearChart from './../components/resultats/resGenLinearChart'
 import SectorLinearChart from './../components/resultats/resSectorLinearChart'
 
-import SimJauge from './../components/simulateur/simJauge'
+import SimBarChart from './../components/simulateur/simBarChart'
 
 import Sunburst from './../components/simulateur/sunburstChart'
 
@@ -155,6 +155,7 @@ const Results = (props) => {
                     </div>
                 </div>
             </article>
+            <SimBarChart datas={results.emiSecteur}/>
         </div>
     )
 }
