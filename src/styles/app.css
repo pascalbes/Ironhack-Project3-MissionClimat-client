@@ -2,10 +2,12 @@
 @import "./button.css";
 @import "./icons.css";
 @import "./simulator.css";
+@import "./results.css";
 
 /* /// DEBUG */
 *{
     /* border: 1px solid blue; */
+    margin-bottom: 0;
 }
 
 /* /// COLORS */
@@ -44,7 +46,8 @@ body{
 }
 
 .light{
-    background: var(--backwhite);
+    /* background: var(--backwhite); */
+    background: white;
     color: var(--darkblue);
 }
 

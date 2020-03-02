@@ -113,18 +113,37 @@ const Simulator = (props) => {
 
             }
 
-            
-
         }
 
         initDatas()
         console.log("in init data")
 
     }, [])
+
+    function getUrl(values, parameters) {
+
+        var url = window.location.origin + "/simulator/favorites/"
+      
+        for (let i=0; i<parameters.length;i++) {
+          
+          var param = parameters[i]
+          url += "p" + i + "="
+      
+          if (param.type === "slider") {
+            url += values[i][0]
+          }
+          else if (param.type === "list") {
+            var possibleValues= param.possibleValues.split(", ")
+            url += possibleValues.indexOf(values[i][0])
+          }
+          if (i < parameters.length-1) {
+            url += "&&"
+          }
+        }
+        return url
+    }
         
         
-
-
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
         console.log("in useeffet update")
@@ -134,13 +153,13 @@ const Simulator = (props) => {
             if (idSheet) {
                 api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
                 .then(res => {
-                    setResults(res.data.results)
+                    var resTemp = res.data.results
+                    resTemp.url= getUrl(values, jsonFile.parameters)
+                    setResults(resTemp)
                 })
             .catch(err => console.log(err))
+            }
         }
-
-        }
-        
     }, [values])
 
     function setOneValue(value, index) {
@@ -150,8 +169,6 @@ const Simulator = (props) => {
     }
 
     function handleParameterType(param, j, values) {
-
-        //console.log("handle", param.data.index, values[12], values)
 
         if (param.type.list) {
             return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
@@ -181,17 +198,17 @@ const Simulator = (props) => {
                     </button>
                 </div>
                 <div className="sim-main-box border-btn light">
-                    {jsonFile.categories.map((cat, i) => (
-                        <>
-                        <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
-                        <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
-                            {cat.parameters.map((param, j) => (
-                            handleParameterType(param, j, values, setValues)
-                            ))}
-                        </div>
-                        <hr className="border" style={{borderWidth:"1px"}} />
-                        </>
-                    ))}
+                        {jsonFile.categories.map((cat, i) => (
+                            <div className="sim-cat-params-box">
+                                <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
+                                <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
+                                    {cat.parameters.map((param, j) => (
+                                    handleParameterType(param, j, values, setValues)
+                                    ))}
+                                </div>
+                                {/* <hr className="border" style={{borderWidth:"1px"}} /> */}
+                            </div>
+                        ))}
                 </div>
             </section>
             <section className="sim-results-box flex-item flex-column nomarge">
@@ -201,7 +218,7 @@ const Simulator = (props) => {
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
-                    <Sunburst datas={results.emiSecteurPie}/>
+                    {/* <Sunburst datas={results.emiSecteurPie}/> */}
                 </div>
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>

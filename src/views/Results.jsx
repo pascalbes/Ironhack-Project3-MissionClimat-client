@@ -1,4 +1,8 @@
 import React, { useState} from 'react'
+import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faWrench } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import jsonFile from "../ressources/initialDatas.json"
 
@@ -16,36 +20,44 @@ import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
 import { Link } from 'react-router-dom'
+import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 
-const Results = (props) => {
-
-    var results={}
-
-    if (localStorage.getItem('results')) {
-        results = JSON.parse(localStorage.getItem('results'))
-    }
-    else {
-        results = props.location.state.results
-        localStorage.setItem('results', JSON.stringify(results))
-    }
-
-    const checkScope = (categories) => {
+    const Results = (props) => {
+        var results={}
+        if (localStorage.getItem('results')) {
+            results = JSON.parse(localStorage.getItem('results'))
+        }
+        else {
+            results = props.location.state.results
+            localStorage.setItem('results', JSON.stringify(results))
+        }
+        const checkScope = (categories) => {
         var frenchCategories = [];
         categories.map((categorie) => {
             if (categorie.data.scope !== ("Répartition mondiale")) {
-         return frenchCategories.push(categorie)}
+                return frenchCategories.push(categorie)}
         })
         return frenchCategories
     }
-
     // travailler sur paramètre et les données à lui envoyer
+
+    const graphParam = [];
+
+    function setGraphParam(){
+        checkScope(jsonFile.categories).map((categorie, i) => (
+                graphParam.push(<SectorLinearChart key={i} data={categorie}/>)
+        ));
+        graphParam.splice(-2,2);
+    }
+
+    setGraphParam();
 
     return (
         <div className="results-page flex-item flex-column">
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
-                <div className="results-box light grid-item">
+                <div className="results-box light grid-item border-btn">
                     <div className="results-head flex-item nopad">
                         <h3 className="nomarge nopad">Mes résultats</h3>
                         <div className="results-temp nomarge">Temp</div>
@@ -60,7 +72,7 @@ const Results = (props) => {
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
                         <div className="results-data-area">
-
+                            <AreaChart datas={results.emiSecteur}/>
                         </div>
                     </div>
                     <div className="results-text flex-item flex-column">
@@ -70,10 +82,18 @@ const Results = (props) => {
                     </div>
                 </div>
                 <div className="results-btns flex-item">
-                    <Link to="/simulator"><button className="green-btn left-btn">Retour</button></Link>
-                    <button className="green-btn left-btn">Sauvegarder</button>
-                    <button className="green-btn left-btn">Partager</button>
-                    <button className="green-btn left-btn">Télécharger</button>
+                    <div className="flex-item">
+                    <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
+                        <button className="green-btn right-btn">Sauvegarder</button>
+                        <button className="green-btn">Télécharger</button>
+                    </div>
+                    <div className="flex-item">
+                        <EmailShareButton className="left-btn" subject="Mission 1.5 : mon plan climat pour 2030" body="Voilà le plan climat que j'ai élaboré pour 2030 !"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>
+                        <FacebookShareButton className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#mission1.5 #ecologie #climat"><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></FacebookShareButton>
+                        <TwitterShareButton className="left-btn" title="Mission 1.5 : mon plan climat pour 2030" via="Mission 1.5°C" hashtags={["mission1.5", "climat", "ecologie", "citoyen", "action"]}><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></TwitterShareButton>
+                        <RedditShareButton className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030"><RedditIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></RedditShareButton>
+                        <LinkedinShareButton className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France et tentez d'atteindre 1.5°C !" source="Mission 1.5°C"><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></LinkedinShareButton>
+                    </div>
                 </div>
                 {/* <Link to={{pathname: "/results#detail-results",state: {results: results}}}><button className="border-btn down-btn">Résultats détaillés</button></Link> */}
                 <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
@@ -84,60 +104,40 @@ const Results = (props) => {
                 <ResultsNav/>
                 
                 <div className="detail-national flex-item flex-column">
-                    <h2>Émissions françaises</h2>
-                    <div className="detail-national-main flex-item">
+                    <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
+                    <div className="detail-national-main flex-item border-btn">
                         <div className="flex-item flex-column">
                             <h4>> Par secteur entre 2010 et 2030</h4>
                             <AreaChart datas={results.emiSecteur}/>
                         </div>
-                        <div>
+                        <div className="flex-item flex-column">
                             <h4>> Répartition des émissions pour 2030</h4>
                             <Sunburst datas={results.emiSecteurPie}/>
+                        </div>
+                        <div className="flex-item flex-column">
+                            <h4>> Émissions générales</h4>
+                            <GenLinearChart/>
                         </div>
                     </div>
                 </div>
 
+                <div className="detail-world flex-item flex-column">
+                    <h2><FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>Emissions mondiales</h2>
+                    <MondialLinearChart/>
+                </div>
+
                 <div className="detail-parameters flex-item flex-column">
-                    <h2>Résumé des Paramètres</h2>
-                    <div className="detail-parameters-box grid-item">
-                        {jsonFile.categories.map((categorie, i) => {
-                            return <Parametres 
-                                scope={categorie.data.scope} 
-                                categorie={categorie}
-                                />
-                            {/* pour accéder aux résultats individuels: .data.value */}
-                        })}
+                    <h2><FontAwesomeIcon className="right-btn" icon={faWrench}/>Résumé des Paramètres</h2>
+                    <div className="detail-parameters-box grid-item border-btn">
+                        {jsonFile.categories.map((categorie, i) => (
+                            <div className="param-box light flex-item flex-column nomarge">
+                                <Parametres key={i} scope={categorie.data.scope} categorie={categorie}/>
+                                <div>{graphParam[i] && graphParam[i]}</div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </article>
-            
-            
-
-
-            
-            <h3>Historique des émissions en comparaison avec les objectifs</h3>
-
-                <div>
-                    <h4>Résultat des émissions générales</h4>
-                    <GenLinearChart/>
-                    <h3>Résultat des émissions par secteur</h3>
-
-                    <div className="sector-linear-charts-container">
-
-                    
-                    {checkScope(jsonFile.categories).map((categorie, i) => {
-                        return <SectorLinearChart data={categorie}/>
-                    })
-                    }
-                    </div>
-                </div>
-
-
-
-            <div className="emissions-mondiales-main-container">
-                    <h2>Emissions mondiales</h2>
-                    <MondialLinearChart/>
-            </div>
         </div>
     )
 }

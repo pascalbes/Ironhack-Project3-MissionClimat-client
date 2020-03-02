@@ -30,6 +30,7 @@
 .sim-nav-box{
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2%;
 }
 
 .sim-nav{
@@ -70,8 +71,22 @@
     padding: 1em 2em;
 }
 
+.sim-cat-params-box {
+    margin-bottom: 2%;
+}
+
 .sim-categorie{
+    padding: 1.5% 0;
     justify-content: space-between;
+    border-top: darkblue 1px solid;
+    border-bottom: darkblue 1px solid;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.sim-categorie-name {
+    font-weight: normal;
 }
 
 hr:last-of-type{
@@ -80,6 +95,9 @@ hr:last-of-type{
 
 .sim-param-box{
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin-bottom: 2%;
 }
 
 .sim-param-radio{
@@ -91,6 +109,8 @@ hr:last-of-type{
 }
 
 .param-header{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
