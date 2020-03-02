@@ -217,41 +217,56 @@ const Simulator = (props) => {
             </section>
             <section className="sim-results-box flex-item flex-column nomarge">
 
-                <div className="results-temp">
-                    <div id="results-temp-figure" style={{backgroundColor: handleTempColor}}>
-                        <h2>+2°C</h2>
-                    </div>
-                    <p>Scénario RCP 4.5 : de 1,1°C à 2,6°C </p>                    
-                </div>
-
-                <div id="results-emissions-nat">
-                    <h3>Emissions Nationales</h3> 
-
-                    <div id="results-emissions-figures">
-                        <div>
-                            <p>Emissions totales 2020 : {"500"} Mt CO2 {}</p>
-                            <p>Emissions totales 2030 : {"400"} Mt CO2 {}</p> 
-                        </div>
-                        <div id="results-emissions-evolution">
-                            <h3>{"-20%"} Mt CO2 {}</h3>
-                        </div>  
-                    </div>
-                                                         
-                </div>
-
-                <div className="results-emissions-secteur charts-box">
-                    {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
-                    <Sunburst datas={results.emiSecteurPie}/>  
-                    <p>Emissions par Secteur</p>
-                </div>
-
-                <div className="results-impacts">
+                
+                <div id="results-impacts">
                     <h3>Impacts</h3> 
-                    <div>
-                        <p>Elévation des océans : {"+2"}m {}</p>
-                        <p>Villes sous l'eau : {"La Tremblade"}</p> 
+                    <div id="results-impacts-box" className="flex-item">
+                        <div>
+                            <div className="results-figure" style={{backgroundColor: handleTempColor}}>
+                                <h2>+2°C</h2>
+                            </div>
+                            <p>Scénario RCP 4.5 : de 1,1°C à 2,6°C </p>                    
+                        </div>
+                        <div>
+                            <div className="results-figure" style={{backgroundColor: handleTempColor}}>
+                                <h2>+1.5m</h2>
+                            </div>
+                            <p>Villes impactées : La Tremblade</p>  
+                        </div>
                     </div>
                 </div>
+
+                
+
+                <div id="results-emissions-nat" className="flex-item">
+                    <h3>Emissions Nationales</h3> 
+                    <div id="results-emissions-evolution">
+                        <h3>{"-20%"}</h3>
+                    </div>  
+                </div>
+                    
+
+                <div id="results-emissions-figures" className="flex-item">
+
+                    <div className="flex-item flex-column results-emissions-charts">
+                        <div>
+                            BAR CHART
+                        </div>
+                        <p>Emissions Totales</p>
+                    </div>
+
+                    <div className="flex-item flex-column results-emissions-charts">
+                        {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
+                        <div className="pie-chart">
+                            <Sunburst datas={results.emiSecteurPie}/>  
+                        </div>
+                        <p>Emissions par Secteur</p>
+                    </div>
+                    
+                </div>
+                         
+                
+                
 
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
 
