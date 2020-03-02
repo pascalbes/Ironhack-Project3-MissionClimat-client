@@ -82,7 +82,8 @@
 .detail-parameters-box{
     width: 90%;
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-    gap: 1em;
+    column-gap: 2em;
+    row-gap: 1em;
 }
 
 .detail-national{

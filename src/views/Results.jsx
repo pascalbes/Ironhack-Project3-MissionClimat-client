@@ -37,7 +37,7 @@ const Results = (props) => {
         var frenchCategories = [];
         categories.map((categorie) => {
             if (categorie.data.scope !== ("Répartition mondiale")) {
-         return frenchCategories.push(categorie)}
+                return frenchCategories.push(categorie)}
         })
         return frenchCategories
     }
@@ -117,7 +117,6 @@ const Results = (props) => {
                                 scope={categorie.data.scope} 
                                 categorie={categorie}
                                 />
-                            {/* pour accéder aux résultats individuels: .data.value */}
                         })}
                     </div>
                 </div>
@@ -130,7 +129,7 @@ const Results = (props) => {
 
             <div className="sector-linear-charts-container">
                                 {checkScope(jsonFile.categories).map((categorie, i) => {
-                                        return <SectorLinearChart data={categorie}/>
+                                        return <SectorLinearChart key={i} data={categorie}/>
                                     })
                                 }
                             </div>
