@@ -8,17 +8,52 @@ const simResultsAreaChart = ({datas}) => {
 
     const data = datas.data.data
 
+    // function forTooltip(object) {
+    //   return Object.entries(object).map((array, i) =>{
+    //     return `${array[0]}: ${array[1]}`
+    //   })
+    // };
+  
+
+    const CustomTooltip = (e) => {
+      console.log(e);
+      
+    //   if (active) {
+    //     console.log(forTooltip(payload[0].payload))
+    //     return (
+    //       <div className="custom-tooltip">
+    //         {Object.entries(payload[0].payload).map((array, i) => {
+    //           return <p>{array[0]}: {array[1]} MGT CO2</p>
+    //         })}
+    //         {/* {forTooltip(payload[0].payload)} */}
+    //         {/* {`${payload.name} :${payload.value}`} */}
+    //         {/* <p className="intro">{getIntroOfPage(label)}</p> */}
+    //       </div>
+    //     );
+    }
+    
+    //   return null;
+    // };
+
+
     return (
+      
       <AreaChart width={400} height={300} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip 
+         <Tooltip  
           allowEscapeViewBox={{x:true, y: true}}
-          offSet={5000}
+          // coordinate={{x:"-1000", y:"2000"}}
+          // payload={{}}
+          offset={-400}
+         
           />
         {datas.areaDatas.map((area, i) => (
-          <Area type="monotone" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color} />
+          <Area type="monotone" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}  activeDot={{
+            // onMouseOver: showToolTip(),
+            // onMouseLeave: hideToolTip()
+          }} />
         ))}
       </AreaChart>
     )
