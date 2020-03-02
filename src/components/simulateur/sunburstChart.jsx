@@ -1,11 +1,11 @@
 
 import React from 'react'  
 import {
-  PieChart, Pie, Sector, Cell, Legend, Label, Tooltip
+  PieChart, Pie, Sector, Cell, Legend, Label, Tooltip, ResponsiveContainer
 } from 'recharts';
 
   
-  const SunburstChart = ({datas}) => {
+  const SunburstChart = React.forwardRef(({datas}, ref) => {
 
 
   // const RADIAN = Math.PI / 180;
@@ -25,20 +25,23 @@ import {
   // };
 
     return (
-      <PieChart width={400} height={200}>
-          <Pie data={datas.data01} dataKey="value" cx={200} cy={100} outerRadius={60}  stroke="none" >
+      
+      <ResponsiveContainer width="100%" height="40%" maxWidth="200px" maxHeight="400px">
+      <PieChart>
+          <Pie data={datas.data01} dataKey="value" outerRadius={"50%"}  stroke="none" >
             {datas.data01.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color}/>)}
             {/* {datas.data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)} */}
           </Pie>
-          <Pie data={datas.data02} dataKey="value" cx={200} cy={100} innerRadius={65} outerRadius={85}  stroke="none">
+          <Pie data={datas.data02} dataKey="value" innerRadius={"60%"} outerRadius={"80%"}  stroke="none">
             {datas.data02.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
             {/* {datas.data02.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS2[index % COLORS2.length]} />)} */}
             <Label dataKey="value" position="outside"/>
           </Pie>
           <Tooltip/>
         </PieChart>
+        </ResponsiveContainer>
     )
-  }
+  })
   
   export default SunburstChart
   
