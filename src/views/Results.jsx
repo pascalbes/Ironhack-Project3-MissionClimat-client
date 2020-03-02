@@ -57,7 +57,7 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
         <div className="results-page flex-item flex-column">
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
-                <div className="results-box light grid-item">
+                <div className="results-box light grid-item border-btn">
                     <div className="results-head flex-item nopad">
                         <h3 className="nomarge nopad">Mes résultats</h3>
                         <div className="results-temp nomarge">Temp</div>
