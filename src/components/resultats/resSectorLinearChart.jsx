@@ -5,18 +5,16 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'r
 
 
 const resSectorLinearChart = () => {
-
     const data = [
-    {name: 2015, "MGTonnes de CO2 émis": 40, pv: 2400, amt: 2400},
-    {name: 2020, "MGTonnes de CO2 émis": 36, Objectif: 30,  pv: 2400, amt: 2400},
-    {name: 2025, "MGTonnes de CO2 émis": 32, Objectif: 25, pv: 2400, amt: 2400},
-    {name: 2030, "MGTonnes de CO2 émis": 20, Objectif: 15, pv: 2400, amt: 2400},
-    {name: 2035, Objectif: 10, pv: 2400, amt: 2400},
-    {name: 2040, Objectif: 5, pv: 2400, amt: 2400}
-];
+        {name: 2015, "MGTonnes de CO2 émis": 40, pv: 2400, amt: 2400},
+        {name: 2020, "MGTonnes de CO2 émis": 36, Objectif: 30,  pv: 2400, amt: 2400},
+        {name: 2025, "MGTonnes de CO2 émis": 32, Objectif: 25, pv: 2400, amt: 2400},
+        {name: 2030, "MGTonnes de CO2 émis": 20, Objectif: 15, pv: 2400, amt: 2400},
+        {name: 2035, Objectif: 10, pv: 2400, amt: 2400},
+        {name: 2040, Objectif: 5, pv: 2400, amt: 2400}
+    ];
 
     return (
-
 
         <div className="linear-box">
 

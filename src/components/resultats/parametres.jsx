@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const parametres = (props) => {
     return (
-        <div className="param-box light">
+        <div>
             <div className="param-box-title flex-item">
                 {props.scope==="Émissions nationales" ? <FontAwesomeIcon className="right-btn" icon={faFlag}/> : <FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>}
                 <h4>{props.categorie.data.name}</h4>

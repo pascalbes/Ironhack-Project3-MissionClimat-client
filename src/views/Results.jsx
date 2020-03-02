@@ -19,21 +19,19 @@ import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
 import { Link } from 'react-router-dom'
+import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 
-const Results = (props) => {
-
-    var results={}
-
-    if (localStorage.getItem('results')) {
-        results = JSON.parse(localStorage.getItem('results'))
-    }
-    else {
-        results = props.location.state.results
-        localStorage.setItem('results', JSON.stringify(results))
-    }
-
-    const checkScope = (categories) => {
+    const Results = (props) => {
+        var results={}
+        if (localStorage.getItem('results')) {
+            results = JSON.parse(localStorage.getItem('results'))
+        }
+        else {
+            results = props.location.state.results
+            localStorage.setItem('results', JSON.stringify(results))
+        }
+        const checkScope = (categories) => {
         var frenchCategories = [];
         categories.map((categorie) => {
             if (categorie.data.scope !== ("Répartition mondiale")) {
@@ -41,8 +39,18 @@ const Results = (props) => {
         })
         return frenchCategories
     }
-
     // travailler sur paramètre et les données à lui envoyer
+
+    const graphParam = [];
+
+    function setGraphParam(){
+        checkScope(jsonFile.categories).map((categorie, i) => (
+                graphParam.push(<SectorLinearChart key={i} data={categorie}/>)
+        ));
+        graphParam.splice(-2,2);
+    }
+
+    setGraphParam();
 
     return (
         <div className="results-page flex-item flex-column">
@@ -63,7 +71,7 @@ const Results = (props) => {
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
                         <div className="results-data-area">
-
+                            <AreaChart datas={results.emiSecteur}/>
                         </div>
                     </div>
                     <div className="results-text flex-item flex-column">
@@ -73,10 +81,18 @@ const Results = (props) => {
                     </div>
                 </div>
                 <div className="results-btns flex-item">
-                    <Link to="/simulator"><button className="green-btn left-btn">Retour</button></Link>
-                    <button className="green-btn left-btn">Sauvegarder</button>
-                    <button className="green-btn left-btn">Partager</button>
-                    <button className="green-btn left-btn">Télécharger</button>
+                    <div className="flex-item">
+                    <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
+                        <button className="green-btn right-btn">Sauvegarder</button>
+                        <button className="green-btn">Télécharger</button>
+                    </div>
+                    <div className="flex-item">
+                        <EmailShareButton className="left-btn" subject="Mission 1.5 : mon plan climat pour 2030" body="Voilà le plan climat que j'ai élaboré pour 2030 !"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>
+                        <FacebookShareButton className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#mission1.5 #ecologie #climat"><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></FacebookShareButton>
+                        <TwitterShareButton className="left-btn" title="Mission 1.5 : mon plan climat pour 2030" via="Mission 1.5°C" hashtags={["mission1.5", "climat", "ecologie", "citoyen", "action"]}><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></TwitterShareButton>
+                        <RedditShareButton className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030"><RedditIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></RedditShareButton>
+                        <LinkedinShareButton className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France et tentez d'atteindre 1.5°C !" source="Mission 1.5°C"><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></LinkedinShareButton>
+                    </div>
                 </div>
                 {/* <Link to={{pathname: "/results#detail-results",state: {results: results}}}><button className="border-btn down-btn">Résultats détaillés</button></Link> */}
                 <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
@@ -112,27 +128,17 @@ const Results = (props) => {
                 <div className="detail-parameters flex-item flex-column">
                     <h2>Résumé des Paramètres</h2>
                     <div className="detail-parameters-box grid-item">
-                        {jsonFile.categories.map((categorie, i) => {
-                            return <Parametres 
-                                scope={categorie.data.scope} 
-                                categorie={categorie}
-                                />
-                        })}
+                        {jsonFile.categories.map((categorie, i) => (
+                            <div className="param-box light flex-item flex-column">
+                                <Parametres key={i} scope={categorie.data.scope} categorie={categorie}/>
+                                <div>{graphParam[i] && graphParam[i]}</div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </article>
-            
-            
-            
-
-
-
-            <div className="sector-linear-charts-container">
-                                {checkScope(jsonFile.categories).map((categorie, i) => {
-                                        return <SectorLinearChart key={i} data={categorie}/>
-                                    })
-                                }
-                            </div>
+                                
+                            
 
             
         </div>
