@@ -41,6 +41,10 @@ const Home = () => {
                         <p>blablablabla blabla bla bjhzd dhziwnha dhziuehf w</p>
                     </div>
                 </div>
+                <div>
+                    <Link to="/concept"><button className="green-btn right-btn">Plus d'infos</button></Link>
+                    <Link to="/simulator"><button className="green-btn left-btn ">Je me lance !</button></Link>
+                </div>
                 <div className="hidden"></div>
             </article>
             <Footer/>

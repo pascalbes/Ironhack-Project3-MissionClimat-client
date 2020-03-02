@@ -20,7 +20,7 @@ export const AboutUs = () => {
                 
             <article className="about-card about-card-lead border-btn light flex-item flex-column">
                     <div className="about-card-head flex-item">
-                        <img className="team-logo" src="../../images/logo/logoIH.svg" alt=""/>
+                        <img className="team-logo" src="../../images/logo/logoIH.svg" alt="Logo Ironhack"/>
                         <h3 className="nomarge">Pascal Besson, Paul Carillon & Nina Gautreau</h3>
                     </div>
                     <p>Pascal est un super leader</p>
@@ -36,7 +36,7 @@ export const AboutUs = () => {
                 
                 <article className="about-card about-card-lead border-btn light flex-item flex-column">
                     <div className="about-card-head flex-item">
-                        <img className="team-logo" src="../../images/logo/BLevo.png" alt=""/>
+                        <img className="team-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
                         <h3 className="nomarge">B&L Évolution</h3>
                     </div>
                     <p>B&L Évolution est un bureau d'étude en développement durable.</p>
@@ -51,7 +51,7 @@ export const AboutUs = () => {
 
             <article className="about-card border-btn light flex-item flex-column">
                 <div className="about-card-head flex-item">
-                    <img className="team-logo" src="../../images/logo/AC.png" alt=""/>
+                    <img className="team-logo" src="../../images/logo/AC.png" alt="Logo Avenir Climatique"/>
                     <h3 className="nomarge">Avenir climatique</h3>
                 </div>
                 <p>Avenir Climatique, c'est une association</p>
@@ -63,7 +63,7 @@ export const AboutUs = () => {
 
             <article className="about-card border-btn light flex-item flex-column">
                 <div className="about-card-head flex-item">
-                    <img className="team-logo" src="../../images/logo/GIEC.svg" alt=""/>
+                    <img className="team-logo" src="../../images/logo/GIEC.svg" alt="Logo GIEC"/>
                     <h3 className="nomarge">Le GIEC</h3>
                 </div>
                 <p>Le Groupe d’experts intergouvernemental sur l’évolution du climat (GIEC), c'est un organisme intergouvernemental et scientifique ayant pour mission d'évaluer le changement climatique, ses effets potentiels sur l'environnement et la société, ainsi que les solutions envisageables pour y remédier.</p>
