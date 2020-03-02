@@ -21,19 +21,16 @@ import './../styles/results.css'
 import { Link } from 'react-router-dom'
 
 
-const Results = (props) => {
-
-    var results={}
-
-    if (localStorage.getItem('results')) {
-        results = JSON.parse(localStorage.getItem('results'))
-    }
-    else {
-        results = props.location.state.results
-        localStorage.setItem('results', JSON.stringify(results))
-    }
-
-    const checkScope = (categories) => {
+    const Results = (props) => {
+        var results={}
+        if (localStorage.getItem('results')) {
+            results = JSON.parse(localStorage.getItem('results'))
+        }
+        else {
+            results = props.location.state.results
+            localStorage.setItem('results', JSON.stringify(results))
+        }
+        const checkScope = (categories) => {
         var frenchCategories = [];
         categories.map((categorie) => {
             if (categorie.data.scope !== ("Répartition mondiale")) {
@@ -41,8 +38,18 @@ const Results = (props) => {
         })
         return frenchCategories
     }
-
     // travailler sur paramètre et les données à lui envoyer
+
+    const graphParam = [];
+
+    function setGraphParam(){
+        checkScope(jsonFile.categories).map((categorie, i) => (
+                graphParam.push(<SectorLinearChart key={i} data={categorie}/>)
+        ));
+        graphParam.splice(-2,2);
+    }
+
+    setGraphParam();
 
     return (
         <div className="results-page flex-item flex-column">
@@ -112,27 +119,17 @@ const Results = (props) => {
                 <div className="detail-parameters flex-item flex-column">
                     <h2>Résumé des Paramètres</h2>
                     <div className="detail-parameters-box grid-item">
-                        {jsonFile.categories.map((categorie, i) => {
-                            return <Parametres 
-                                scope={categorie.data.scope} 
-                                categorie={categorie}
-                                />
-                        })}
+                        {jsonFile.categories.map((categorie, i) => (
+                            <div className="param-box light flex-item flex-column">
+                                <Parametres key={i} scope={categorie.data.scope} categorie={categorie}/>
+                                <div>{graphParam[i] && graphParam[i]}</div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </article>
-            
-            
-            
-
-
-
-            <div className="sector-linear-charts-container">
-                                {checkScope(jsonFile.categories).map((categorie, i) => {
-                                        return <SectorLinearChart key={i} data={categorie}/>
-                                    })
-                                }
-                            </div>
+                                
+                            
 
             
         </div>
