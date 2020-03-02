@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Bullet } from '@nivo/bullet'
+import { ResponsiveBullet } from '@nivo/bullet'
 
 
 
@@ -8,10 +8,9 @@ const MyBullet = ({results}) => {
 
     return (
         <div>
-    <Bullet
+    <ResponsiveBullet
         data={results}
-        height= {30}
-        width= {400}
+        // height={"10em"}
         // margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
         spacing={46}
         measureColors="blue"
