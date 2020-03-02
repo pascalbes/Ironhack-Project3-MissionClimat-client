@@ -23,17 +23,17 @@ import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 
-    const Results = (props) => {
-        
-        var results={}
-        if (localStorage.getItem('results')) {
-            results = JSON.parse(localStorage.getItem('results'))
-        }
-        else {
-            results = props.location.state.results
-            localStorage.setItem('results', JSON.stringify(results))
-        }
-        const checkScope = (categories) => {
+const Results = (props) => {
+
+    var results={}
+    if (localStorage.getItem('results')) {
+        results = JSON.parse(localStorage.getItem('results'))
+    }
+    else {
+        results = props.location.state.results
+        localStorage.setItem('results', JSON.stringify(results))
+    }
+    const checkScope = (categories) => {
         var frenchCategories = [];
         categories.map((categorie) => {
             if (categorie.data.scope !== ("Répartition mondiale")) {
@@ -41,14 +41,30 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
         })
         return frenchCategories
     }
-    // travailler sur paramètre et les données à lui envoyer
+// travailler sur paramètre et les données à lui envoyer
 
     const graphParam = [];
 
-    function setGraphParam(){
-        checkScope(jsonFile.categories).map((categorie, i) => (
-                graphParam.push(<SectorLinearChart key={i} data={categorie}/>)
-        ));
+    function setGraphParam() {
+        checkScope(jsonFile.categories).map((categorie, i) => {
+            //envoyer le bon graphe à la bonne catégorie
+            var resultsTemp = {}
+
+            if (categorie.data.name == "Transports de personnes") {
+                resultsTemp=results.emiParSecteur.transports
+            }
+            // else if (categorie.data.name == "Énergie") {
+            //     resultsTemp=results.emiParSecteur.energie
+            // }
+            // else if (categorie.data.name == "Agriculture et alimentation") {
+            //     resultsTemp=results.emiParSecteur.agriculture
+            // }
+            // else if (categorie.data.name == "Logement") {
+            //     resultsTemp=results.emiParSecteur.batiments
+            // }
+
+            graphParam.push(<SectorLinearChart key={i} data={categorie} results={resultsTemp}/>)
+        });
         graphParam.splice(-2,2);
     }
 
