@@ -24,7 +24,7 @@ const Home = () => {
 
             <article id="next-landing" className="next-landing flex-item flex-column">
                 <button className="border-btn up-btn"><a href="#scroll-top">Accueil</a></button>
-                <div className="home-white-box flex-item light">
+                <div className="home-white-box border-btn flex-item light">
                     <div className="home-white-item flex-item flex-column">
                         <img src="" alt=""/>
                         <h3>blabla</h3>
