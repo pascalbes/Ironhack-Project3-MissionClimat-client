@@ -19,6 +19,7 @@ import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
 import { Link } from 'react-router-dom'
+import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 
     const Results = (props) => {
@@ -70,7 +71,7 @@ import { Link } from 'react-router-dom'
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
                         <div className="results-data-area">
-
+                            <AreaChart datas={results.emiSecteur}/>
                         </div>
                     </div>
                     <div className="results-text flex-item flex-column">
@@ -80,10 +81,18 @@ import { Link } from 'react-router-dom'
                     </div>
                 </div>
                 <div className="results-btns flex-item">
-                    <Link to="/simulator"><button className="green-btn left-btn">Retour</button></Link>
-                    <button className="green-btn left-btn">Sauvegarder</button>
-                    <button className="green-btn left-btn">Partager</button>
-                    <button className="green-btn left-btn">Télécharger</button>
+                    <div className="flex-item">
+                    <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
+                        <button className="green-btn right-btn">Sauvegarder</button>
+                        <button className="green-btn">Télécharger</button>
+                    </div>
+                    <div className="flex-item">
+                        <EmailShareButton className="left-btn" subject="Mission 1.5 : mon plan climat pour 2030" body="Voilà le plan climat que j'ai élaboré pour 2030 !"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>
+                        <FacebookShareButton className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#mission1.5 #ecologie #climat"><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></FacebookShareButton>
+                        <TwitterShareButton className="left-btn" title="Mission 1.5 : mon plan climat pour 2030" via="Mission 1.5°C" hashtags={["mission1.5", "climat", "ecologie", "citoyen", "action"]}><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></TwitterShareButton>
+                        <RedditShareButton className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030"><RedditIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></RedditShareButton>
+                        <LinkedinShareButton className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France et tentez d'atteindre 1.5°C !" source="Mission 1.5°C"><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></LinkedinShareButton>
+                    </div>
                 </div>
                 {/* <Link to={{pathname: "/results#detail-results",state: {results: results}}}><button className="border-btn down-btn">Résultats détaillés</button></Link> */}
                 <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
