@@ -20,7 +20,8 @@ import api from "./api/APIHandler"
 import Header from "./components/partials/Header";
 
 /// STYLES
-import "./styles/app.css"
+import "./styles/app.css";
+import "./styles/reset.css";
 
 
 function App() {

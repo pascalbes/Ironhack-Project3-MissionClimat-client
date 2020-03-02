@@ -16,7 +16,7 @@ const mondialLinearChart = () => {
 
     return (
         <div>
-            <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+            <LineChart width={500} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <Line type="monotone" dataKey="MGTonnes de CO2 émis" stroke="#8884d8" />
                     <Line type="monotone" dataKey="Objectif" stroke="green" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
