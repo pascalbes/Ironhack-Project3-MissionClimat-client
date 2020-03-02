@@ -239,9 +239,9 @@ const Simulator = (props) => {
                                                          
                 </div>
 
-                <div className="results-emissions-secteur">
-                    <SimResultsAreaChart datas={results.emiSecteur}/>
-                    {/* <Sunburst datas={results.emiSecteurPie}/> */}
+                <div className="results-emissions-secteur charts-box">
+                    {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
+                    <Sunburst datas={results.emiSecteurPie}/>  
                     <p>Emissions par Secteur</p>
                 </div>
 
@@ -250,7 +250,7 @@ const Simulator = (props) => {
                     <div>
                         <p>Elévation des océans : {"+2"}m {}</p>
                         <p>Villes sous l'eau : {"La Tremblade"}</p> 
-                    </div>*                                   
+                    </div>
                 </div>
 
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
