@@ -1,6 +1,7 @@
 import React, { useState} from 'react'
 import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import jsonFile from "../ressources/initialDatas.json"
@@ -56,7 +57,7 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
         <div className="results-page flex-item flex-column">
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
-                <div className="results-box light grid-item">
+                <div className="results-box light grid-item border-btn">
                     <div className="results-head flex-item nopad">
                         <h3 className="nomarge nopad">Mes résultats</h3>
                         <div className="results-temp nomarge">Temp</div>
@@ -104,16 +105,16 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
                 
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
-                    <div className="detail-national-main flex-item">
+                    <div className="detail-national-main flex-item border-btn">
                         <div className="flex-item flex-column">
                             <h4>> Par secteur entre 2010 et 2030</h4>
                             <AreaChart datas={results.emiSecteur}/>
                         </div>
-                        <div>
+                        <div className="flex-item flex-column">
                             <h4>> Répartition des émissions pour 2030</h4>
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
-                        <div>
+                        <div className="flex-item flex-column">
                             <h4>> Émissions générales</h4>
                             <GenLinearChart/>
                         </div>
@@ -126,10 +127,10 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
                 </div>
 
                 <div className="detail-parameters flex-item flex-column">
-                    <h2>Résumé des Paramètres</h2>
-                    <div className="detail-parameters-box grid-item">
+                    <h2><FontAwesomeIcon className="right-btn" icon={faWrench}/>Résumé des Paramètres</h2>
+                    <div className="detail-parameters-box grid-item border-btn">
                         {jsonFile.categories.map((categorie, i) => (
-                            <div className="param-box light flex-item flex-column">
+                            <div className="param-box light flex-item flex-column nomarge">
                                 <Parametres key={i} scope={categorie.data.scope} categorie={categorie}/>
                                 <div>{graphParam[i] && graphParam[i]}</div>
                             </div>
@@ -137,10 +138,6 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
                     </div>
                 </div>
             </article>
-                                
-                            
-
-            
         </div>
     )
 }
