@@ -20,9 +20,10 @@ const MyBullet = ({results}) => {
         measureColors="blue"
         rangeColors="purple_blue"
         markerColors="dark2"
-        titleAlign="start"
-        // titleOffsetX={-70}
-        // titleOffsetY={-15}
+        // titleAlign="start"
+        titleOffsetX={-7000}
+        titleOffsetY={-15}
+        
         measureSize={0.5}
         animate={true}
         motionStiffness={90}
