@@ -201,7 +201,7 @@ const Simulator = (props) => {
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
-                    <Sunburst datas={results.emiSecteurPie}/>
+                    {/* <Sunburst datas={results.emiSecteurPie}/> */}
                 </div>
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>

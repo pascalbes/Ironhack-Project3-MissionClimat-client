@@ -1,4 +1,7 @@
 import React, { useState} from 'react'
+import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import jsonFile from "../ressources/initialDatas.json"
 
@@ -84,7 +87,7 @@ const Results = (props) => {
                 <ResultsNav/>
                 
                 <div className="detail-national flex-item flex-column">
-                    <h2>Émissions françaises</h2>
+                    <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
                     <div className="detail-national-main flex-item">
                         <div className="flex-item flex-column">
                             <h4>> Par secteur entre 2010 et 2030</h4>
@@ -94,7 +97,16 @@ const Results = (props) => {
                             <h4>> Répartition des émissions pour 2030</h4>
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
+                        <div>
+                            <h4>> Émissions générales</h4>
+                            <GenLinearChart/>
+                        </div>
                     </div>
+                </div>
+
+                <div className="detail-world flex-item flex-column">
+                    <h2><FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>Emissions mondiales</h2>
+                    <MondialLinearChart/>
                 </div>
 
                 <div className="detail-parameters flex-item flex-column">
@@ -112,32 +124,18 @@ const Results = (props) => {
             </article>
             
             
+            
 
+
+
+            <div className="sector-linear-charts-container">
+                                {checkScope(jsonFile.categories).map((categorie, i) => {
+                                        return <SectorLinearChart data={categorie}/>
+                                    })
+                                }
+                            </div>
 
             
-            <h3>Historique des émissions en comparaison avec les objectifs</h3>
-
-                <div>
-                    <h4>Résultat des émissions générales</h4>
-                    <GenLinearChart/>
-                    <h3>Résultat des émissions par secteur</h3>
-
-                    <div className="sector-linear-charts-container">
-
-                    
-                    {checkScope(jsonFile.categories).map((categorie, i) => {
-                        return <SectorLinearChart data={categorie}/>
-                    })
-                    }
-                    </div>
-                </div>
-
-
-
-            <div className="emissions-mondiales-main-container">
-                    <h2>Emissions mondiales</h2>
-                    <MondialLinearChart/>
-            </div>
         </div>
     )
 }

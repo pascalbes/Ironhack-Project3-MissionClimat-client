@@ -110,9 +110,3 @@
     flex-wrap: wrap;
     width: 100%;
 }
-
-.emissions-mondiales-main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
