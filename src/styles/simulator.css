@@ -76,9 +76,10 @@
 }
 
 .sim-categorie{
-    padding: 1.5% 0;
+    padding: 1.5% 1em;
     justify-content: space-between;
-    background: var(--lightgreen);
+    border: 2px solid var(--green);
+    border-radius: 1em;
     align-items: center;
     margin-top: 1%;
     margin-bottom: 2%;
@@ -117,10 +118,6 @@ hr:last-of-type{
 
 .small-param-desc{
     font-size: 0.8em;
-}
-
-.expand-box{
-    
 }
 
 /* /// RESULTS */
