@@ -9,7 +9,7 @@ button{
 
 .green-btn{
     background-image: var(--backgreen);
-    background-size: 110% 110%;
+    background-size: 120% 120%;
     background-position: center;
     border: 2px solid transparent;
 }

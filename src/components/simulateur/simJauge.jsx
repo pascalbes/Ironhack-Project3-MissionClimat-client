@@ -17,17 +17,17 @@ const MyBullet = ({results}) => {
         width={width}
         // margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
         spacing={46}
-        measureColors="blue"
-        rangeColors="purple_blue"
-        markerColors="dark2"
+        measureColors="indigo"
+        rangeColors="lavender"
+        markerColors="paired"
         // titleAlign="start"
         titleOffsetX={-7000}
         titleOffsetY={-15}
         
-        measureSize={0.5}
+        measureSize={0.7}
         animate={true}
-        motionStiffness={90}
-        motionDamping={12}
+        motionStiffness={20}
+        motionDamping={5}
         markerSize={1}
         reverse={true}
     />
