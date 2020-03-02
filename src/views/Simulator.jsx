@@ -113,8 +113,6 @@ const Simulator = (props) => {
 
             }
 
-            
-
         }
 
         initDatas()
@@ -123,8 +121,6 @@ const Simulator = (props) => {
     }, [])
         
         
-
-
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
         console.log("in useeffet update")
@@ -137,10 +133,8 @@ const Simulator = (props) => {
                     setResults(res.data.results)
                 })
             .catch(err => console.log(err))
+            }
         }
-
-        }
-        
     }, [values])
 
     function setOneValue(value, index) {
@@ -150,8 +144,6 @@ const Simulator = (props) => {
     }
 
     function handleParameterType(param, j, values) {
-
-        //console.log("handle", param.data.index, values[12], values)
 
         if (param.type.list) {
             return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
@@ -201,7 +193,7 @@ const Simulator = (props) => {
                 </div>
                 <div>
                     <SimResultsAreaChart datas={results.emiSecteur}/>
-                    <Sunburst datas={results.emiSecteurPie}/>
+                    {/* <Sunburst datas={results.emiSecteurPie}/> */}
                 </div>
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>

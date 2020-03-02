@@ -80,6 +80,8 @@ hr:last-of-type{
 
 .sim-param-box{
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    grid-column-gap: 5%;
+    grid-row-gap: 5%;
 }
 
 .sim-param-radio{
