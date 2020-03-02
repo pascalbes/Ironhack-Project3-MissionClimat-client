@@ -1,0 +1,14 @@
+.concept-page{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+}
+
+.concept-box{
+    width: 80%;
+    padding: 2em;
+    border-radius: 1em;
+    margin-bottom: 3em;
+    justify-content: space-between;
+}

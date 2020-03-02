@@ -13,13 +13,26 @@
     justify-content: space-between;
 }
 
+.about-lead-team{
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.about-card-lead{
+    width: 38%;
+}
+
+.about-card-lead:first-of-type{
+    margin-right: 4%;
+}
+
 .about-card-head{
     align-items: center;
     margin-bottom: 1em;
 }
 
 .about-icon{
-    font-size: 3em;
+    font-size: 2em;
     margin-right: 1rem;
 }
 
@@ -40,6 +53,15 @@
     font-weight: bold;
 }
 
-.about-links>div>a{
-    /* margin */
+.about-links>div>a:first-of-type{
+    margin-right: 1em;
+}
+
+ul{
+    margin-left: 3em;
+}
+
+ul>li>span{
+    font-weight: bold;
+    color: var(--green);
 }

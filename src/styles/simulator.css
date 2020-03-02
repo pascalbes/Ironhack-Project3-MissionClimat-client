@@ -78,13 +78,12 @@
 .sim-categorie{
     padding: 1.5% 0;
     justify-content: space-between;
-    border-top: darkblue 1px solid;
-    border-bottom: darkblue 1px solid;
+    background: var(--lightgreen);
     align-items: center;
     margin-top: 1%;
     margin-bottom: 2%;
-    width: 100%;
-    /* height: 1.5em; */
+    height: auto;
+    width: auto
 }
 
 .sim-categorie-name {

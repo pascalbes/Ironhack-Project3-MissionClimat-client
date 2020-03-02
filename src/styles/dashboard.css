@@ -1,0 +1,34 @@
+.dashboard-page{
+    padding: 2em;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.userbox{
+    border-radius: 1em;
+    width: 80%;
+    padding: 2em;
+}
+
+.userbox-head{
+    margin-bottom: 2em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userbox-tools{
+    justify-content: center;
+    align-items: center;
+}
+
+.saved-sims{
+    border-radius: 1em;
+    padding: 2em;
+    flex-wrap: wrap;
+}
+
+.saved-sims *{
+    align-items: center;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
