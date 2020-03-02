@@ -5,6 +5,8 @@ import { faCogs } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
+import Loader from 'react-loader-spinner'
+
 
 /// COMPONENTS
 import SimNav from "../components/simulateur/simNavBar"
@@ -18,7 +20,7 @@ import api from '../api/APIHandler'
 
 const Simulator = (props) => {
 
-    const [values, setValues] = useState(jsonFile.options.vInit)
+    const [values, setValues] = useState()
     const [results, setResults] = useState(jsonFile.results)
 
     //Gestion d'une route avec paramêtres spécifiques
@@ -41,8 +43,6 @@ const Simulator = (props) => {
                 params.push([p.split("=")[1]])
             }
         })
-
-        //var finalValues = getValuesFormatted(params, jsonFile.options.unit)
 
         return params
 
@@ -107,12 +107,18 @@ const Simulator = (props) => {
                     var valuesURL = getValuesFromUrl(props.match.params.urlParams)
                     setValues(valuesURL)
                 }
+                else { // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
+                    setValues(jsonFile.options.vInit)
+                }
 
             }
+
+            
 
         }
 
         initDatas()
+        console.log("in init data")
 
     }, [])
         
@@ -121,15 +127,20 @@ const Simulator = (props) => {
 
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
-        var idSheet = localStorage.getItem('idSheet')
-        var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
-        if (idSheet) {
-            api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
-            .then(res => {
-                setResults(res.data.results)
-            })
+        console.log("in useeffet update")
+        if (values) {
+            var idSheet = localStorage.getItem('idSheet')
+            var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
+            if (idSheet) {
+                api.patch("/sheet/update/"+idSheet, {values: valuesFormatted})
+                .then(res => {
+                    setResults(res.data.results)
+                })
             .catch(err => console.log(err))
         }
+
+        }
+        
     }, [values])
 
     function setOneValue(value, index) {
@@ -155,6 +166,9 @@ const Simulator = (props) => {
     }
 
     return (
+
+        values ?
+
         <div className="sim-page flex-item">
             <section className="sim-container-box grid-item nomarge">
                 <div className="sim-nav-box flex-item nopad">
@@ -192,6 +206,14 @@ const Simulator = (props) => {
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
             </section>
         </div>
+
+        :
+
+        <div id="loader">
+            <Loader type="BallTriangle" color="white" height={100} width={100} />
+            <h4>Nous préparons votre environnement de travail</h4>
+        </div>
+ 
     )
 }
 
