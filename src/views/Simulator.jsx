@@ -181,7 +181,7 @@ const Simulator = (props) => {
                             handleParameterType(param, j, values, setValues)
                             ))}
                         </div>
-                        <hr className="border" style={{borderWidth:"1px"}} />
+                        {/* <hr className="border" style={{borderWidth:"1px"}} /> */}
                         </>
                     ))}
                 </div>

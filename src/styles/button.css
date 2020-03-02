@@ -19,10 +19,11 @@ button{
 }
 
 .see-more-btn{
-    border-color: var(--darkblue);
+    /* border-color: var(--darkblue); */
     color: var(--darkblue);
     padding: 0 0.2em;
-    line-height: 1em;
+    line-height: 0.5em;
+    font-size: 1.5em;
 }
 
 .left-btn{
