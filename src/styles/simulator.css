@@ -82,6 +82,8 @@
     align-items: center;
     margin-top: 1%;
     margin-bottom: 2%;
+    height: auto;
+    width: auto
 }
 
 .sim-categorie-name {
@@ -122,7 +124,22 @@ hr:last-of-type{
 }
 
 /* /// RESULTS */
+
+.charts-box {
+    width: 100%;
+    height: 50vh;
+}
+
 .sim-results-box button{
     padding: 1em 3em;
 }
 
+.area-chart {
+    width: 100%;
+    height: 40%;
+}
+
+.pie-chart {
+    width: 100%;
+    height: 40%;
+}

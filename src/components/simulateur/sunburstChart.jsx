@@ -26,7 +26,7 @@ import {
 
     return (
       
-      <ResponsiveContainer width="100%" height="40%" maxWidth="200px" maxHeight="400px">
+      <ResponsiveContainer width="100%" height="100%" >
       <PieChart>
           <Pie data={datas.data01} dataKey="value" outerRadius={"50%"}  stroke="none" >
             {datas.data01.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color}/>)}

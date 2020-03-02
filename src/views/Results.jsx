@@ -24,6 +24,7 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
 
 
     const Results = (props) => {
+        
         var results={}
         if (localStorage.getItem('results')) {
             results = JSON.parse(localStorage.getItem('results'))
