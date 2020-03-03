@@ -15,6 +15,7 @@ import SimParamSlider from "../components/simulateur/simParametreSlide"
 import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 import Sunburst from './../components/simulateur/sunburstChart'
 import SimPopUp from './../components/simulateur/simPopUp'
+import SimBarChart from './../components/simulateur/simBarChart'
 
 import api from '../api/APIHandler'
 
@@ -247,15 +248,15 @@ const Simulator = (props) => {
                 <div id="results-emissions-figures" className="flex-item">
 
                     <div className="flex-item flex-column results-emissions-charts">
-                        <div>
-                            BAR CHART
+                        <div className="chart">
+                            <SimBarChart datas={results.emiSecteur}/>
                         </div>
                         <p>Emissions Totales</p>
                     </div>
 
                     <div className="flex-item flex-column results-emissions-charts">
                         {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
-                        <div className="pie-chart">
+                        <div className="chart">
                             <Sunburst datas={results.emiSecteurPie}/>  
                         </div>
                         <p>Emissions par Secteur</p>

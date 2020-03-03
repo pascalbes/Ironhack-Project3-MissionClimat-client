@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
   } from 'recharts';
   
 
@@ -19,16 +19,14 @@ const simBarChart = ({datas}) => {
     const data = datas.data.data.filter(object => object.name == "2020" || object.name === "2030")
 
     return (
-        <div>
+        <ResponsiveContainer width="100%" height="100%">
         <BarChart
-        width={300}
-        height={500}
         data={data}
         margin={{
-          top: 20, right: 30, left: 20, bottom: 5,
+          top: 20, right: 10, left: 0, bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        {/* <CartesianGrid strokeDasharray="3 3" /> */}
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
@@ -40,7 +38,7 @@ const simBarChart = ({datas}) => {
         
       </BarChart>
             
-        </div>
+        </ResponsiveContainer>
     )
 }
 
