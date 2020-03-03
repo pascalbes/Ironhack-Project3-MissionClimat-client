@@ -50,7 +50,7 @@ const Results = (props) => {
             //envoyer le bon graphe à la bonne catégorie
             var resultsTemp = {}
 
-            if (categorie.data.name == "Transports de personnes") {
+            if (categorie.data.name === "Transports de personnes") {
                 resultsTemp=results.emiParSecteur.transports
             }
             // else if (categorie.data.name == "Énergie") {
@@ -147,7 +147,7 @@ const Results = (props) => {
                     <h2><FontAwesomeIcon className="right-btn" icon={faWrench}/>Résumé des Paramètres</h2>
                     <div className="detail-parameters-box grid-item border-btn">
                         {jsonFile.categories.map((categorie, i) => (
-                            <div className="param-box light flex-item flex-column nomarge">
+                            <div key={i} className="param-box light flex-item flex-column nomarge">
                                 <Parametres key={i} scope={categorie.data.scope} categorie={categorie}/>
                                 <div>{graphParam[i] && graphParam[i]}</div>
                             </div>

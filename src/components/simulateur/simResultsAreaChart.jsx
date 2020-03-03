@@ -37,7 +37,7 @@ const simResultsAreaChart = ({datas}) => {
 
 
     return (
-      <ResponsiveContainer height= "100%" width="100%">
+      <ResponsiveContainer minWidth="300px" height= "100%" minHeight="300px" width="100%">
       <AreaChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />

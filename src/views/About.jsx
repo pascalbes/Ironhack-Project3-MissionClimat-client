@@ -63,18 +63,6 @@ export const AboutUs = () => {
 
             <article className="about-card border-btn light flex-item flex-column">
                 <div className="about-card-head flex-item">
-                    <img className="team-logo" src="../../images/logo/GIEC.svg" alt="Logo GIEC"/>
-                    <h3 className="nomarge">Le GIEC</h3>
-                </div>
-                <p>Le Groupe d’experts intergouvernemental sur l’évolution du climat (GIEC), c'est un organisme intergouvernemental et scientifique ayant pour mission d'évaluer le changement climatique, ses effets potentiels sur l'environnement et la société, ainsi que les solutions envisageables pour y remédier.</p>
-                <p>C'est le GIEC qui a publié les chiffres sur lesquels se base notre simulateur.</p>
-                <div className="about-links flex-item">
-                    <a href="https://www.ipcc.ch/languages-2/francais/">Site internet</a>
-                </div>
-            </article>
-
-            <article className="about-card border-btn light flex-item flex-column">
-                <div className="about-card-head flex-item">
                     <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart}/>
                     <h3 className="nomarge">Remerciements</h3>
                 </div>

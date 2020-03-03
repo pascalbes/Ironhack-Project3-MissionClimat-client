@@ -22,7 +22,7 @@
     width: 80%;
     height: 70%;
     padding: 1em 2em;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: auto auto;
     border-radius: 1em;
 }
 
