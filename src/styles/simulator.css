@@ -63,6 +63,13 @@
     margin: 0 0.8em;
 }
 
+/* /// POP-UP */
+
+.sim-pop-up-box {
+    color: var(--darkblue);
+    
+}
+
 /* /// MAIN-BOX */
 .sim-main-box{
     scroll-behavior: smooth;

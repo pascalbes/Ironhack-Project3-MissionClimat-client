@@ -1,8 +1,7 @@
 /// BASIC
 import React, {  useState, useEffect } from 'react'
 import "./../styles/simulator.css"
-import { faCogs } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
 import Loader from 'react-loader-spinner'
@@ -15,6 +14,7 @@ import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 import Sunburst from './../components/simulateur/sunburstChart'
+import SimPopUp from './../components/simulateur/simPopUp'
 
 import api from '../api/APIHandler'
 
@@ -197,9 +197,7 @@ const Simulator = (props) => {
                     <div className="hidden">||</div>
                     <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     <div className="hidden">||</div>
-                    <button className="icon-box nomarge nopad">
-                        <FontAwesomeIcon className="icon-gears" icon={faCogs}/>
-                    </button>
+                    <SimPopUp />
                 </div>
                 <div className="sim-main-box border-btn light">
                         {jsonFile.categories.map((cat, i) => (
