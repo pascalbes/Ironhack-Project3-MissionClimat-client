@@ -6,6 +6,7 @@
 
 .sim-container-box{
     grid-template-rows: 2(1fr, auto);
+    width: 100%;
 }
 
 .sim-results-box{
@@ -76,6 +77,7 @@
     overflow-y: auto;
     border-radius: 1em;
     padding: 1em 2em;
+    width: 100%;
 }
 
 .sim-cat-params-box {

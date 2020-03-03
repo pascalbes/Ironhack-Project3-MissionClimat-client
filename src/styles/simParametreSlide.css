@@ -1,5 +1,10 @@
 .param-container-normal {
+    width: 100%;
     padding: 0 3%;
+}
+
+.param-container-expanded{
+    width: 100%;
 }
 
 .param-name {
@@ -7,11 +12,23 @@
     font-size: 1.1em;
 }
 
-.param-info-container-visible {
-    display: flex;
-    visibility: visible;
-}
-
 .param-info-container-hidden {
     display: none;
+}
+
+.param-info-container-visible {
+    background-color: WHITESMOKE;
+    padding: 1em;
+    border-radius: 1em;
+    width: 100%;
+}
+
+.param-info-container-visible h6{
+    margin-bottom: 0.5em;
+}
+
+.param-info-container-visible p{
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+    width: 90%;
 }

@@ -49,7 +49,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     function toggleClass() {
         if (componentClass==="param-container-normal") {
             setComponentClass("param-container-expanded")
-            setInfoClass("param-info-container-visible")
+            setInfoClass("param-info-container-visible flex-item")
         }
         else {
             setComponentClass("param-container-normal")
@@ -92,21 +92,25 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
             </div>
 
             <div className={infosClass}>
-                <div>
-                    <h6>Calcul des émissions</h6>
-                    <p>{data.infoCalcul}</p>
+                <div className="right-btn">
+                    <div>
+                        <h6>Calcul des émissions</h6>
+                        <p>{data.infoCalcul}</p>
+                    </div>
+                    <div>
+                        <h6>Tendances</h6>
+                        <p>{data.tendance}</p>
+                    </div>
                 </div>
                 <div>
-                    <h6>Tendances</h6>
-                    <p>{data.tendance}</p>
-                </div>
-                <div>
-                    <h6>Co-Bénéfices</h6>
-                    <p>{data.coBenefices}</p>
-                </div>
-                <div>
-                    <h6>Contraintes</h6>
-                    <p>{data.contraintes}</p>
+                    <div>
+                        <h6>Co-Bénéfices</h6>
+                        <p>{data.coBenefices}</p>
+                    </div>
+                    <div>
+                        <h6>Contraintes</h6>
+                        <p>{data.contraintes}</p>
+                    </div>
                 </div>
                 
             </div>
