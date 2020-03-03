@@ -23,7 +23,7 @@ const SunburstChart = React.forwardRef(({datas}, ref) => {
   // };
 
   return (
-    <ResponsiveContainer minWidth="300px" width="100%" minHeight="300px" height="100%" >
+    <ResponsiveContainer width="100%" height="100%" >
       <PieChart>
         <Pie data={datas.data01} dataKey="value" outerRadius={"50%"}  stroke="none" >
           {datas.data01.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color}/>)}
