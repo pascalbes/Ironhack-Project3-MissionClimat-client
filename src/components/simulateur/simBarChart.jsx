@@ -23,12 +23,12 @@ const simBarChart = ({datas}) => {
         <BarChart
         data={data}
         margin={{
-          top: 20, right: 10, left: 0, bottom: 5,
+          top: 20, right: 10, left: 10, bottom: 5,
         }}
       >
         {/* <CartesianGrid strokeDasharray="3 3" /> */}
         <XAxis dataKey="name" />
-        <YAxis />
+        {/* <YAxis /> */}
         <Tooltip />
         {/* <Legend /> */}
 
