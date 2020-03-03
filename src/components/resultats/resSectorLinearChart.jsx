@@ -6,17 +6,12 @@ import Results from '../../views/Results';
 
 
 const resSectorLinearChart = ({results}) => {
-
-    console.log("in sector")
-
     var data =[]
 
     if (Object.entries(results).length) {
-        console.log("coucou1")
         data=results.data
     }
     else {
-        console.log("coucou2")
         data = [
             {name: 2015, "MGTonnes de CO2 émis": 40, tarace:55, pv: 2400, amt: 2400},
             {name: 2020, "MGTonnes de CO2 émis": 36, Objectif: 30, tarace:55,  pv: 2400, amt: 2400},
@@ -41,9 +36,6 @@ const resSectorLinearChart = ({results}) => {
         
 
     }
-
-    console.log(results)
-    console.log(results.line.length)
 
     // TITRES A ACTUALISER
 

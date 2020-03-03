@@ -191,16 +191,15 @@ const Simulator = (props) => {
 
         values ?
 
-        <div className="sim-page flex-item">
+        <div className="sim-page flex-item light">
             <section className="sim-container-box grid-item nomarge">
-                <div className="sim-nav-box flex-item nopad">
+                <div className="sim-nav-box flex-item">
                     <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
-                    <div className="hidden">||</div>
                     <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     <div className="hidden">||</div>
                     <SimPopUp />
                 </div>
-                <div className="sim-main-box border-btn light">
+                <div className="sim-main-box">
                         {jsonFile.categories.map((cat, i) => (
                             <div className="sim-cat-params-box">
                                 <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
@@ -217,18 +216,18 @@ const Simulator = (props) => {
             <section className="sim-results-box flex-item flex-column nomarge">
 
                 
-                <div id="results-impacts">
+                <div id="results-impacts" className="flex-item flex-column">
                     <h3>Impacts</h3> 
                     <div id="results-impacts-box" className="flex-item">
-                        <div>
-                            <div className="results-figure" style={{backgroundColor: handleTempColor}}>
-                                <h2>+2°C</h2>
+                        <div className="tag-container flex-item flex-column">
+                            <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
+                                +2°C
                             </div>
                             <p>Scénario RCP 4.5 : de 1,1°C à 2,6°C </p>                    
                         </div>
-                        <div>
-                            <div className="results-figure" style={{backgroundColor: handleTempColor}}>
-                                <h2>+1.5m</h2>
+                        <div className="tag-container flex-item flex-column">
+                            <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
+                                +1.5m
                             </div>
                             <p>Villes impactées : La Tremblade</p>  
                         </div>
@@ -238,9 +237,9 @@ const Simulator = (props) => {
                 
 
                 <div id="results-emissions-nat" className="flex-item">
-                    <h3>Emissions Nationales</h3> 
+                    <h4>Emissions<br/>Nationales</h4> 
                     <div id="results-emissions-evolution">
-                        <h3>{"-20%"}</h3>
+                        {"-20%"}
                     </div>  
                 </div>
                     

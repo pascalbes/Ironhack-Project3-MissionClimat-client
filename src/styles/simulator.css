@@ -1,20 +1,21 @@
 /* /// SECTIONS */
 .sim-page{
     height: 90vh;
-    padding: 0 1.5% 1.5%;
 }
 
 .sim-container-box{
     grid-template-rows: 2(1fr, auto);
     width: 100%;
+    padding: 1em 0;
 }
 
 .sim-results-box{
     height: 90vh;
-    padding: 1.5% 1.5%;
+    padding: 1em 1em;
     width: 40%;
     justify-content: space-between;
     align-items: center;
+    border-left: 3px solid var(--green);
 }
 
 /* /// Loader */
@@ -32,43 +33,66 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2%;
+    border-bottom: 3px solid var(--green);
+    padding: 0 1em;
 }
 
 .sim-nav{
     align-items: center;
+    margin-bottom: 1em;
 }
 
 .sim-nav-scope{
     text-align: center;
     margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--green)
 }
 
 .sim-nav-categories{
-    min-height: 3.5em;
-    border-radius: 1em;
-    padding: 0 0.5em;
-    justify-content: space-evenly;
     align-items: center;
-}
-
-.sim-nav-categories p:last-of-type{
-    display: none;
+    justify-content: center;
+    height: 3em
 }
 
 .sim-nav-categorie{
     flex-wrap: wrap;
     text-decoration: none;
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-weight: bold;
-    margin: 0 0.8em;
+    margin: 0 0.5em;
+}
+
+icon-gears{
+    color:
 }
 
 /* /// POP-UP */
+.modal-content{
+    border-radius: 1em;
+}
 
 .sim-pop-up-box {
+    padding: 2em;
     color: var(--darkblue);
-    
+}
+
+.sim-pop-up-box h4{
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+
+.sim-pop-up-box p{
+    margin-bottom: 1em;
+}
+
+.sim-pop-up-box p, .sim-pop-up-box label{
+    font-size: 0.8em;
+}
+
+.sim-pop-up-box input[type="radio"]{
+    margin-right: 1em;
 }
 
 /* /// MAIN-BOX */
@@ -76,7 +100,7 @@
     scroll-behavior: smooth;
     overflow-y: auto;
     border-radius: 1em;
-    padding: 1em 2em;
+    padding: 1em 3em 1em 2em;
     width: 100%;
 }
 
@@ -134,58 +158,60 @@ hr:last-of-type{
 /* /// Température */
 
 #results-impacts {
-    width: 100%;
+    width: 85%;
     height: 20vh;
-}
-
-#results-impacts > h3 {
-    font-size: 1.5em;
-    align-self: flex-start;
+    align-items: center;
 }
 
 #results-impacts p {
     font-size: 0.7em;
-    font-weight: normal;
+    text-align: center;
 }
 
 #results-impacts-box {
     width: 100%;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 0.8em;
 }
 
-.results-figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.results-figure {
-    background-color: orange;
-    height: 3.5em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.tag-container{
+    width: 35%;
     justify-content: center;
     align-items: center;
+}
+
+.results-figure {
+    background-color: var(--green);
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 
 /* /// Emissions Nationales */
 
-
 #results-emissions-nat {
-    width: 100%;
+    width: 90%;
+    height: 10vh;
     justify-content: space-between;
-}
-
-#results-emissions-nat > h3 {
-    font-size: 1.5em;
+    align-items: center;
 }
 
 #results-emissions-evolution {
-    background-color: orange;
+    width: 40%;
+    background-color: gold;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 #results-emissions-figures {
@@ -196,6 +222,7 @@ hr:last-of-type{
     align-items: flex-end;
 
 }
+
 #results-emissions-figures p {
     font-size: 0.9em;
 }
@@ -203,10 +230,16 @@ hr:last-of-type{
 .results-emissions-charts {
     width: 45%;
     height: 100%;
-    border: solid lightseagreen 1px;
+    border: 2px solid var(--green);
+    border-radius: 1em;
+    padding: 1em;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+}
+
+.results-emissions-charts p{
+    text-align: center;
 }
 
 

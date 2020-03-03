@@ -1,10 +1,12 @@
 .param-container-normal {
     width: 100%;
-    padding: 0 3%;
+    padding: 0 1em;
 }
 
 .param-container-expanded{
     width: 100%;
+    padding: 0 2em;
+    grid-column-end: span 2;
 }
 
 .param-name {
@@ -14,6 +16,7 @@
 
 .param-info-container-hidden {
     display: none;
+    opacity: 0;
 }
 
 .param-info-container-visible {
