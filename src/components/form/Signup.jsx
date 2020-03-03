@@ -1,8 +1,10 @@
 import React, {useState, setState} from 'react'
 import APIHandler from "../../api/APIHandler";
+import { withRouter } from "react-router";
 
 
-const Signup = () => {
+
+const Signup = (props) => {
 
     const [user, setUser] = useState({});
     // const [password, setPassword] = useState("password");
@@ -15,7 +17,7 @@ const Signup = () => {
             await APIHandler.post("/session/signup", user);
             console.log("ok");
             
-            this.props.history.push("/session/signin");
+            props.history.push("/signin");
           } catch (err) {
             console.error(err);
           }
@@ -37,6 +39,10 @@ const Signup = () => {
             <label className="label" htmlFor="password">Votre mot de passe</label>
             <input className="input border-btn" id="password" type="password" name="password" placeholder="••••••••" required/>
 
+            <div className="error-message">
+            {user.password && user.password.length <= 7 && <p>Le mot de passe doit faire 8 caractères minimum.</p>}
+            </div>
+
             <div className="news-box flex-item">
                 <input className="border-btn right-btn" type="checkbox" id="newsletter" name="isNewsLetter"  /> Je souhaite recevoir la newsletter
             </div>
@@ -46,4 +52,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default withRouter(Signup)

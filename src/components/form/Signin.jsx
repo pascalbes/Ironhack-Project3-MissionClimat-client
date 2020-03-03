@@ -13,8 +13,9 @@ const Signin = (props) => {
     const [user, setUser] = useState({});
     const userContext = useContext(UserContext);
     const { setCurrentUser } = userContext;
+    const [error, setError] =useState("")
 
-    
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
@@ -23,8 +24,9 @@ const Signin = (props) => {
       setCurrentUser(apiRes.data.currentUser);
       console.log(props)
       props.history.push('/dashboard')
-    } catch (err) {
+    } catch (err) {   
       setCurrentUser(null);
+      setError("Les identifiants sont incorrects.")
     }
   };
 
@@ -39,6 +41,8 @@ const Signin = (props) => {
 
             <label className="label" htmlFor="password">Votre mot de passe</label>
             <input className="input border-btn" id="from" type="password" name="password" placeholder="••••••••" required/>
+             
+            <p className="error-message">{error}</p>
 
             <button className="green-btn">Envoyer</button>
         </form>
