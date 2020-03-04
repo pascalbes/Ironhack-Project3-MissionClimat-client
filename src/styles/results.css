@@ -139,3 +139,21 @@
     margin: 1em 0 2em;
 }
 
+
+/* FORM SAVE */
+
+.form-save {
+    background-color: #07163A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-save > * {
+    margin-bottom: 1em
+}
+
+.textarea {
+    width: 50%;
+    height: 5em
+}
