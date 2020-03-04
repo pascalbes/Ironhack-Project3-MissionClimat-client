@@ -33,6 +33,7 @@ const Results = (props) => {
 
     const userContext = useContext(UserContext);
     const { currentUser } = userContext;
+
     console.log(currentUser,"this is currentUser")
     var results={}
     if (localStorage.getItem('results')) {
@@ -104,7 +105,7 @@ const Results = (props) => {
         setResultsToSave({...resultsToSave, [e.target.name]: e.target.value });
     }
 
-    
+    console.log("the current user:", currentUser)
 
     return (
         <div className="results-page flex-item flex-column">
@@ -143,14 +144,15 @@ const Results = (props) => {
                         modal
                         closeOnDocumentClick
                         >
-                        {currentUser ? <p>Vous devez vous connecter dans "mon espace" avant de pouvoir sauvegarder</p>:
+                        {currentUser ? 
                         <form className="form-save" onChange={onChange} onSubmit={saveResults}>
                             <label htmlFor="name">Nom du scénario</label>
                             <input name="name" id="name" type="text"/>
                             <label htmlFor="description">Description</label>
                             <textarea className="textarea" name="description" id="description" type="textarea"/>
                             <button className="green-btn right-btn">Sauvegarder</button>
-                        </form>}
+                        </form>: 
+                        <p className="popup-error">Vous devez vous connecter dans "mon espace" avant de pouvoir sauvegarder.</p>}
                         </Popup>
                         
                         <button className="green-btn">Télécharger</button>

@@ -157,3 +157,10 @@
     width: 50%;
     height: 5em
 }
+
+.popup-error {
+    background-color: #07163A;
+    align-items: center;
+    text-align: center;
+    padding: 3em;
+}

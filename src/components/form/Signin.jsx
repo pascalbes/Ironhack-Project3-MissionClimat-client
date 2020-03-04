@@ -10,7 +10,10 @@ import APIHandler from "../../api/APIHandler";
 
 const Signin = (props) => {
 
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({
+      email: "hello@gmail.com",
+      password: "azertyui"
+    });
     const userContext = useContext(UserContext);
     const { setCurrentUser } = userContext;
     const [error, setError] =useState("")
@@ -37,10 +40,10 @@ const Signin = (props) => {
     return (
         <form className="form contact-form flex-item flex-column" onChange={handleChange} onSubmit={handleSubmit}>
             <label className="label" htmlFor="from">Votre adresse e-mail</label>
-            <input className="input border-btn" id="from" type="email" name="email" placeholder="example@domaine.com" required/>
+            <input className="input border-btn" id="from" type="email" name="email" placeholder="example@domaine.com" required defaultValue={user.email}/>
 
             <label className="label" htmlFor="password">Votre mot de passe</label>
-            <input className="input border-btn" id="from" type="password" name="password" placeholder="••••••••" required/>
+            <input className="input border-btn" id="from" type="password" name="password" placeholder="••••••••" required defaultValue={user.password}/>
              
             <p className="error-message">{error}</p>
 

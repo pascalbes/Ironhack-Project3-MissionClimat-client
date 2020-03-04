@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import "../styles/dashboard.css"
 import { withRouter } from "react-router-dom";
 import APIHandler from "../api/APIHandler";
@@ -6,7 +6,9 @@ import UserContext from "../auth/UserContext";
 
 
 const Dashboard = (props) => {
+
     const userContext = useContext(UserContext);
+
     const { setCurrentUser } = userContext;
 
     function handleSignout() {
@@ -14,10 +16,24 @@ const Dashboard = (props) => {
             props.history.push("/signin")
             setCurrentUser(null);
             console.log("signed out!")
-    })
-}
+        })
+    }
 
-console.log(userContext)
+        const deleteScenario = async (scenario, i) => {
+            console.log(scenario, i);
+            try {
+                await APIHandler.patch('/users/delete-scenario', {i})
+            }
+            catch (err) {
+                console.error(err);
+            }
+        }
+
+    
+    
+    
+
+    console.log(userContext)
 
     return (
         <div className="dashboard-page flex-item flex-column">
@@ -33,9 +49,17 @@ console.log(userContext)
                 <h3>Mes simulations enregistrées : </h3>
                 <div className="saved-sims border-btn flex-item">
                     <ul>
-                        {/* il faudrait mapper à travers l'array des scénarios du user  */}
-                        <li className="li-scenario"><p> My first scenario: got 1.5!!!! </p> <div><button className="dash-btn">Voir</button><button className="dash-btn">Editer</button><button className="dash-btn">Supprimer</button></div></li>
-                        <li className="li-scenario"><p> My second scenario: I'm a polluter </p> <div><button className="dash-btn">Voir</button><button className="dash-btn">Editer</button><button className="dash-btn">Supprimer</button></div></li>
+                        {userContext.currentUser.scenarios.map((scenario, i) => (
+                            <li className="li-scenario" key={i}>
+                                <p>{scenario.name}</p> 
+                                <div>
+                                    <button className="dash-btn">Voir</button>
+                                    <button className="dash-btn">Editer</button>
+                                    <button onClick={() => deleteScenario(scenario, i)} className="dash-btn">Supprimer</button>
+                                </div>
+                            </li>
+                        ))}
+                       
                     </ul>
                 </div>
             </div>
