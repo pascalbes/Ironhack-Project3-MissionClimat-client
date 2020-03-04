@@ -38,7 +38,7 @@ const MscSlider = withStyles({
         track: {
           height: 10,
           borderRadius: 4,
-          color: 'black'
+          color: 'grey'
         },
         rail: {
           height: 10,
@@ -53,6 +53,8 @@ const MscSlider = withStyles({
       })(Slider);
     
 const SimParametreSlide = ({data, value, setOneValue}) => {
+
+    console.log(value)
 
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
     const [componentClass, setComponentClass] = useState("param-container-normal")
@@ -116,13 +118,15 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
 
             <div className={classes.root}>
                 <div className={classes.margin} />
-                <MscSlider
-                    defaultalue={value}
+                <MscSlider 
+                    defaultValue={value}
+                    //value={value}
                     getAriaValueText={valuetext}
                     aria-labelledby="discrete-slider-always"
                     min={data.min}
                     max={data.max}
                     marks={marks}
+                    scale={x => x + data.unit}
                     valueLabelDisplay="auto"
                     onChangeCommitted={ (e, val) => handleChange(e, val)}
                     track="normal"

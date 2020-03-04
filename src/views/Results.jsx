@@ -1,31 +1,32 @@
 import React, { useState, setState, useContext} from 'react'
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import jsonFile from "../ressources/initialDatas.json"
 
-import ResultsNav from './../components/resultats/resultsNav'
 import Parametres from './../components/resultats/parametres'
 import AreaChart from './../components/simulateur/simResultsAreaChart'
 import GenLinearChart from './../components/resultats/resGenLinearChart'
 import SectorLinearChart from './../components/resultats/resSectorLinearChart'
-
 import SimBarChart from './../components/simulateur/simBarChart'
-
 import Sunburst from './../components/simulateur/sunburstChart'
-
 import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
 import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
-
 import APIHandler from "../api/APIHandler";
 import UserContext from "../auth/UserContext";
 import Popup from "reactjs-popup";
+
+
+
 
 const Results = (props) => {
 
@@ -105,13 +106,12 @@ const Results = (props) => {
         setResultsToSave({...resultsToSave, [e.target.name]: e.target.value });
     }
 
-    console.log("the current user:", currentUser)
 
     return (
         <div className="results-page flex-item flex-column">
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
-                <div className="results-box light grid-item border-btn">
+                <div id="pdfFile" className="results-box light grid-item border-btn">
                     <div className="results-left flex-item flex-column">
                         <h3 className="nomarge nopad">Mes résultats</h3>
                         <div className="results-temp nomarge">Temp</div>
@@ -140,7 +140,7 @@ const Results = (props) => {
                     <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
                         
                         <Popup
-                        trigger={<button  className="green-btn right-btn">Sauvegarder</button>}
+                        trigger={<button className="green-btn right-btn">Sauvegarder</button>}
                         modal
                         closeOnDocumentClick
                         >
@@ -158,6 +158,7 @@ const Results = (props) => {
                         <button className="green-btn">Télécharger</button>
                     </div>
                     <div className="flex-item">
+                        <FontAwesomeIcon className="left-btn" icon={faShareAlt}/>
                         <EmailShareButton url={results.url} className="left-btn" subject="Mission 1.5 : mon plan climat pour 2030"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>
                         <FacebookShareButton url={results.url} className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#mission1.5 #ecologie #climat"><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></FacebookShareButton>
                         <TwitterShareButton url={results.url} className="left-btn" title="Mission 1.5 : mon plan climat pour 2030" via="Mission 1.5°C" hashtags={["mission1.5", "climat", "ecologie", "citoyen", "action"]}><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></TwitterShareButton>
@@ -165,14 +166,11 @@ const Results = (props) => {
                         <LinkedinShareButton url={results.url} className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France et tentez d'atteindre 1.5°C !" source="Mission 1.5°C"><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></LinkedinShareButton>
                     </div>
                 </div>
-                {/* <Link to={{pathname: "/results#detail-results",state: {results: results}}}><button className="border-btn down-btn">Résultats détaillés</button></Link> */}
-                <button className="border-btn down-btn"><a href="#detail-results">Résultats détaillés</a></button>
+                <button className="border-btn down-btn"><a href="#detail-results"><FontAwesomeIcon icon={faChevronDown}/></a></button>
             </article>
 
+
             <article id="detail-results" className="detail-results flex-item flex-column">
-                <button className="border-btn up-btn"><a href="#scroll-top">Resultats globaux</a></button>
-                <ResultsNav/>
-                
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
                     <div className="detail-national-main flex-item flex-column border-btn">
@@ -207,6 +205,7 @@ const Results = (props) => {
                         ))}
                     </div>
                 </div>
+                <button className="border-btn up-btn"><a href="#scroll-top"><FontAwesomeIcon icon={faChevronUp}/></a></button>
             </article>
             <SimBarChart datas={results.emiSecteur}/>
         
