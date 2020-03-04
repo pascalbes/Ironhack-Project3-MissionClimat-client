@@ -106,6 +106,7 @@
 .sim-options{
     justify-content: space-between;
     align-items: baseline;
+    padding: 1em;
 }
 
 .sim-option-box{
@@ -130,7 +131,6 @@
 .sim-option-form div{
     height: 2.2em;
     align-items: center;
-    margin-bottom: 1em;
 }
 
 .sticky{
@@ -138,7 +138,7 @@
     background-color: white;
     position: sticky;
     position: -webkit-sticky;
-    top: -11em;
+    top: -12em;
 }
 
 .sticky .sim-categorie{
@@ -168,6 +168,7 @@ input[type="radio"]{
 
 .small-param-desc{
     font-size: 0.8em;
+    height: 2.5em;
 }
 
 /* /// RESULTS */
