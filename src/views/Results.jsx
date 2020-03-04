@@ -13,21 +13,20 @@ import Parametres from './../components/resultats/parametres'
 import AreaChart from './../components/simulateur/simResultsAreaChart'
 import GenLinearChart from './../components/resultats/resGenLinearChart'
 import SectorLinearChart from './../components/resultats/resSectorLinearChart'
-
 import SimBarChart from './../components/simulateur/simBarChart'
-
 import Sunburst from './../components/simulateur/sunburstChart'
-
 import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
 import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
-
 import APIHandler from "../api/APIHandler";
 import UserContext from "../auth/UserContext";
 import Popup from "reactjs-popup";
+
+
+
 
 const Results = (props) => {
 
@@ -106,13 +105,12 @@ const Results = (props) => {
         setResultsToSave({...resultsToSave, [e.target.name]: e.target.value });
     }
 
-    
 
     return (
         <div className="results-page flex-item flex-column">
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
-                <div className="results-box light grid-item border-btn">
+                <div id="pdfFile" className="results-box light grid-item border-btn">
                     <div className="results-left flex-item flex-column">
                         <h3 className="nomarge nopad">Mes résultats</h3>
                         <div className="results-temp nomarge">Temp</div>
@@ -141,7 +139,7 @@ const Results = (props) => {
                     <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
                         
                         <Popup
-                        trigger={<button  className="green-btn right-btn">Sauvegarder</button>}
+                        trigger={<button className="green-btn right-btn">Sauvegarder</button>}
                         modal
                         closeOnDocumentClick
                         >
