@@ -111,11 +111,7 @@ const Simulator = (props) => {
                 else { // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
                     setValues(jsonFile.options.vInit)
                 }
-
             }
-
-            
-
         }
 
         initDatas()
@@ -183,6 +179,19 @@ const Simulator = (props) => {
         }
     }
 
+    function handleInitValues(e) {
+        var initMode = e.target.value
+        if (initMode === "init") {
+            setValues(jsonFile.options.vInit)
+        }
+        else if (initMode === "1degre5") {
+            setValues(jsonFile.options.v15)
+        }
+        else if (initMode === "mad-max") {
+            setValues(jsonFile.options.vBaU)
+        }
+    }
+
     function handleTempColor(){
         return "color"
     }
@@ -214,7 +223,7 @@ const Simulator = (props) => {
                                 <div className="sim-option-box">
                                     <h6 className="param-name">Initialisation des paramètres</h6>
                                     <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
-                                    <form className="sim-option-form flex-item">
+                                    <form className="sim-option-form flex-item" onChange={e=>handleInitValues(e)}>
                                         <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
                                         <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Scénario 1.5°C</label></div>
                                         <div className="flex-item"><input name="initialisation" value="mad-max" type="radio"></input><label>Mad Max</label></div>
