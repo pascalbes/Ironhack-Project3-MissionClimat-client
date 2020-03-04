@@ -1,18 +1,56 @@
 import React, {useState, useEffect} from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider'
 import '../../styles/simParametreSlide.css'
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
-      width: "auto",
+      width: '100%'
     },
     margin: {
-      height: 5,
-    }});
+      height: theme.spacing(1),
+    },
+  }));
+
+const MscSlider = withStyles({
+        root: {
+          color: 'grey',
+          height: 8,
+        },
+        thumb: {
+          height: 24,
+          width: 24,
+          backgroundColor: '#fff',
+          border: '5px solid currentColor',
+          marginTop: -8,
+          marginLeft: -12,
+          '&:focus,&:hover,&$active': {
+            boxShadow: 'inherit',
+          },
+        },
+        active: {},
+        valueLabel: {
+        //   left: 'calc(-50%)',
+        },
+        track: {
+          height: 10,
+          borderRadius: 4,
+          color: 'black'
+        },
+        rail: {
+          height: 10,
+          borderRadius: 4,
+        },
+        markActive: {
+            display: 'none'
+          },
+        mark: {
+            display: 'none'
+          },
+      })(Slider);
     
 const SimParametreSlide = ({data, value, setOneValue}) => {
 
@@ -21,7 +59,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     
     const unit=data.unit
     
-    const classes = useStyles();
+    const classes = useStyles()
 
     const marks = [
     {
@@ -78,8 +116,8 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
 
             <div className={classes.root}>
                 <div className={classes.margin} />
-                <Slider
-                    value={value}
+                <MscSlider
+                    defaultalue={value}
                     getAriaValueText={valuetext}
                     aria-labelledby="discrete-slider-always"
                     min={data.min}

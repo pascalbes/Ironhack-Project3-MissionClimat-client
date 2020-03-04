@@ -21,6 +21,8 @@
     --purple: #8B4F8C;
     --green: #77D9B5;
     --lightgreen: #88F2B6;
+    --grey: rgb(228, 228, 228);
+    --darkgrey: darkgrey;
 }
 
 /* /// APP SETUP */
