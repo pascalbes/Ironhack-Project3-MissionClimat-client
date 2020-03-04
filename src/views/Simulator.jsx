@@ -5,6 +5,8 @@ import "./../styles/simulator.css"
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
 import Loader from 'react-loader-spinner'
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 /// COMPONENTS
@@ -12,9 +14,7 @@ import SimNav from "../components/simulateur/simNavBar"
 import SimCat from "../components/simulateur/simCategorie"
 import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
-import SimResultsAreaChart from "../components/simulateur/simResultsAreaChart"
 import Sunburst from './../components/simulateur/sunburstChart'
-import SimPopUp from './../components/simulateur/simPopUp'
 import SimBarChart from './../components/simulateur/simBarChart'
 
 import api from '../api/APIHandler'
@@ -187,6 +187,10 @@ const Simulator = (props) => {
         return "color"
     }
 
+    function displayResultChart(){
+        return "huhu"
+    }
+
     return (
 
         values ?
@@ -195,11 +199,34 @@ const Simulator = (props) => {
             <section className="sim-container-box grid-item nomarge">
                 <div className="sim-nav-box flex-item">
                     <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
-                    <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                     <div className="hidden">||</div>
-                    <SimPopUp />
+                    <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                 </div>
+
+
+
                 <div className="sim-main-box">
+                        <div className="sim-cat-params-box sticky">
+                            <div className="sim-categorie flex-item">
+                                <h4 className="sim-categorie-name">Options</h4>
+                            </div>
+                            <div className="sim-options flex-item">
+                                <div className="sim-option-box">
+                                    <h6 className="param-name">Initialisation des paramètres</h6>
+                                    <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
+                                    <form className="sim-option-form flex-item">
+                                        <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Scénario 1.5°C</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="mad-max" type="radio"></input><label>Mad Max</label></div>
+                                    </form>
+                                </div>
+                                <div className="sim-option-box">
+                                    <h6 className="param-name">Mode Expert</h6>
+                                    <p>Le mode expert permet d'accéder à un plus grand nombre de paramètres, pour régler son scénario avec davantage de finesse</p>
+                                    <FormControlLabel className="nomarge nopad" value="end" control={<Switch color="Secondary"/>} /><label>Mode Expert</label>
+                                </div>
+                            </div>
+                        </div>
                         {jsonFile.categories.map((cat, i) => (
                             <div className="sim-cat-params-box">
                                 <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
@@ -208,44 +235,34 @@ const Simulator = (props) => {
                                     handleParameterType(param, j, values, setValues)
                                     ))}
                                 </div>
-                                {/* <hr className="border" style={{borderWidth:"1px"}} /> */}
                             </div>
                         ))}
                 </div>
             </section>
-            <section className="sim-results-box flex-item flex-column nomarge">
 
-                
-                <div id="results-impacts" className="flex-item flex-column">
-                    <h3>Impacts</h3> 
+
+
+            <section className="sim-results-box flex-item flex-column nomarge">
+                <div id="results-impacts" className="sim-results-head flex-item flex-column">
+                    <h3>Impacts pour 2100</h3>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
                                 +2°C
                             </div>
-                            <p>Scénario RCP 4.5 : de 1,1°C à 2,6°C </p>                    
+                            <p>sur le globe</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
-                            <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
+                            <div className="results-figure flex-item">
                                 +1.5m
                             </div>
-                            <p>Villes impactées : La Tremblade</p>  
+                            <p>niveau de la mer</p>  
                         </div>
                     </div>
                 </div>
-
-                
-
-                <div id="results-emissions-nat" className="flex-item">
-                    <h4>Emissions<br/>Nationales</h4> 
-                    <div id="results-emissions-evolution">
-                        {"-20%"}
-                    </div>  
-                </div>
                     
 
-                <div id="results-emissions-figures" className="flex-item">
-
+                <div id="results-emissions-data" className="flex-item">
                     <div className="flex-item flex-column results-emissions-charts">
                         <div className="chart">
                             <SimBarChart datas={results.emiSecteur}/>
@@ -260,12 +277,17 @@ const Simulator = (props) => {
                         </div>
                         <p>Emissions par Secteur</p>
                     </div>
-                    
                 </div>
-                         
-                
+
                 
 
+                <div id="results-emissions" className="flex-item">
+                    <h4>Émissions CO2</h4>
+                    <div id="results-emissions-box" className="flex-item">
+                        -20%
+                    </div>
+                </div>
+                         
                 <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
 
             </section>
@@ -275,7 +297,8 @@ const Simulator = (props) => {
 
         <div id="loader">
             <Loader type="BallTriangle" color="white" height={100} width={100} />
-            <h4>Nous préparons votre environnement de travail</h4>
+            <div className="hidden">||</div>
+            <h4>Initialisation...</h4>
         </div>
  
     )

@@ -5,20 +5,20 @@
 
 .sim-container-box{
     grid-template-rows: 2(1fr, auto);
-    width: 100%;
-    padding: 1em 0;
+    width: 65%;
+    padding: 0 0 2em;
 }
 
 .sim-results-box{
     height: 90vh;
-    padding: 1em 1em;
-    width: 40%;
+    width: 35%;
     justify-content: space-between;
     align-items: center;
     border-left: 3px solid var(--green);
+    padding: 1em 3em;
 }
 
-/* /// Loader */
+/* /// LOADER */
 #loader {
     height: 100%;
     width: 100%;
@@ -34,7 +34,8 @@
     align-items: center;
     margin-bottom: 2%;
     border-bottom: 3px solid var(--green);
-    padding: 0 1em;
+    padding: 1em 2em;
+    background-color: mintcream;
 }
 
 .sim-nav{
@@ -46,13 +47,20 @@
     text-align: center;
     margin-bottom: 0.5em;
     font-weight: bold;
-    color: var(--green)
+    color: var(--darkblue)
 }
 
 .sim-nav-categories{
     align-items: center;
     justify-content: center;
-    height: 3em
+    height: 3em;
+    background-color: var(--darkgrey);
+    border-radius: 1em;
+    padding: 0 1em;
+}
+
+.sim-nav-categories p:last-of-type{
+    display: none;
 }
 
 .sim-nav-categorie{
@@ -64,43 +72,13 @@
     margin: 0 0.5em;
 }
 
-icon-gears{
-    color:
-}
-
-/* /// POP-UP */
-.modal-content{
-    border-radius: 1em;
-}
-
-.sim-pop-up-box {
-    padding: 2em;
-    color: var(--darkblue);
-}
-
-.sim-pop-up-box h4{
-    font-size: 2rem;
-    margin-bottom: 0.5em;
-}
-
-.sim-pop-up-box p{
-    margin-bottom: 1em;
-}
-
-.sim-pop-up-box p, .sim-pop-up-box label{
-    font-size: 0.8em;
-}
-
-.sim-pop-up-box input[type="radio"]{
-    margin-right: 1em;
-}
-
 /* /// MAIN-BOX */
 .sim-main-box{
+    height: auto;
     scroll-behavior: smooth;
     overflow-y: auto;
     border-radius: 1em;
-    padding: 1em 3em 1em 2em;
+    padding: 1em 3em;
     width: 100%;
 }
 
@@ -117,15 +95,54 @@ icon-gears{
     margin-top: 1%;
     margin-bottom: 2%;
     height: auto;
-    width: auto
+    width: auto;
+    background-color: var(--grey);
 }
 
 .sim-categorie-name {
     font-weight: normal;
 }
 
-hr:last-of-type{
-    display: none;
+.sim-options{
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.sim-option-box{
+    width: 48%;
+}
+
+.sim-option-box p{
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+    color: rgb(114, 114, 114);
+}
+
+.sim-option-box label{
+    font-size: 1em;
+    margin-right: 0.5em;
+}
+
+.sim-option-form{
+    justify-content: space-between;
+}
+
+.sim-option-form div{
+    height: 2.2em;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.sticky{
+    z-index: 2;
+    background-color: white;
+    position: sticky;
+    position: -webkit-sticky;
+    top: -11em;
+}
+
+.sticky .sim-categorie{
+    background: rgb(207, 231, 223);
 }
 
 .sim-param-box{
@@ -139,7 +156,7 @@ hr:last-of-type{
     margin-right: 1em;
 }
 
-.sim-param-radio input{
+input[type="radio"]{
     margin-right: 1em;
 }
 
@@ -154,17 +171,25 @@ hr:last-of-type{
 }
 
 /* /// RESULTS */
-
-/* /// Température */
-
-#results-impacts {
-    width: 85%;
-    height: 20vh;
+/* /// IMPACTS */
+.sim-results-head{
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
 }
 
+.sim-results-head h3{
+    line-height: 1.5rem;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--darkblue);
+}
+
 #results-impacts p {
-    font-size: 0.7em;
+    font-size: 0.8em;
+    margin-top: 0.5em;
     text-align: center;
 }
 
@@ -172,67 +197,40 @@ hr:last-of-type{
     width: 100%;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 0.8em;
 }
 
 .tag-container{
-    width: 35%;
-    justify-content: center;
+    width: 40%;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .results-figure {
-    background-color: var(--green);
+    background-color: var(--grey);
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
-    margin-bottom: 0.2em;
+    height: 3rem;
+    width: 5em;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2rem;
 }
 
 
-/* /// Emissions Nationales */
-
-#results-emissions-nat {
-    width: 90%;
-    height: 10vh;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#results-emissions-evolution {
-    width: 40%;
-    background-color: gold;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-weight: bold;
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
-    margin-bottom: 0.2em;
-}
-
-#results-emissions-figures {
+/* /// NIVEAU CO2 */
+#results-emissions-data {
     width: 100%;
     height: 35vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
-
-}
-
-#results-emissions-figures p {
-    font-size: 0.9em;
+    border-top: 2px solid var(--green);
 }
 
 .results-emissions-charts {
     width: 45%;
     height: 100%;
-    border: 2px solid var(--green);
-    border-radius: 1em;
-    padding: 1em;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
@@ -242,22 +240,33 @@ hr:last-of-type{
     text-align: center;
 }
 
+.chart {
+    width: 100%;
+    height: 100%;
+}
 
+#results-emissions {
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/* /// Impacts */
+#results-emissions-box {
+    background-color: var(--grey);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 3rem;
+    width: 5em;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
 
 
 
 .sim-results-box button{
     padding: 1em 3em;
-}
-
-.area-chart {
-    width: 100%;
-    height: 40%;
-}
-
-.chart {
-    width: 100%;
-    height: 100%;
+    margin-bottom: 1em;
 }
