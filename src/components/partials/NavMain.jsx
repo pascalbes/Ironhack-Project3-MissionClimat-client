@@ -8,7 +8,7 @@ const NavMain = () => {
             <Link to="/concept"><button className="border-btn left-btn">Concept</button></Link>
             <Link to="/about"><button className="border-btn left-btn">L'équipe</button></Link>
             <Link to="/contact"><button className="border-btn left-btn">Contact</button></Link>
-            <Link to="/signin"><button className="border-btn left-btn">Mon espace</button></Link>
+            <Link to="/dashboard"><button className="border-btn left-btn">Mon espace</button></Link>
         </nav>
     )
 }
