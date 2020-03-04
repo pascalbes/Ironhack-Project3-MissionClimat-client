@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, setState, useContext} from 'react'
 import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
 import { faWrench } from "@fortawesome/free-solid-svg-icons";
@@ -23,11 +23,22 @@ import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 
+import APIHandler from "../api/APIHandler";
+import UserContext from "../auth/UserContext";
+import Popup from "reactjs-popup";
+
 const Results = (props) => {
 
+    console.log(props)
+
+    const userContext = useContext(UserContext);
+    const { currentUser } = userContext;
+    console.log(currentUser,"this is currentUser")
     var results={}
     if (localStorage.getItem('results')) {
         results = JSON.parse(localStorage.getItem('results'))
+        console.log("the results are", results)
+        console.log(userContext)
     }
     else {
         results = props.location.state.results
@@ -68,7 +79,32 @@ const Results = (props) => {
         graphParam.splice(-2,2);
     }
 
+    
+
     setGraphParam();
+
+    console.log("the results =>", results)
+
+    const [resultsToSave, setResultsToSave] = useState({})
+
+    resultsToSave.url = results.url
+
+    const saveResults = async e => {
+        e.preventDefault();
+        try {
+        await APIHandler.patch('users/save', {resultsToSave});
+        console.log("saved héhé!")
+        }
+        catch (err) {
+            console.error(err);
+          }
+    }
+
+    const onChange = async e => {
+        setResultsToSave({...resultsToSave, [e.target.name]: e.target.value });
+    }
+
+    
 
     return (
         <div className="results-page flex-item flex-column">
@@ -101,7 +137,22 @@ const Results = (props) => {
                 <div className="results-btns flex-item">
                     <div className="flex-item">
                     <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
-                        <button className="green-btn right-btn">Sauvegarder</button>
+                        
+                        <Popup
+                        trigger={<button  className="green-btn right-btn">Sauvegarder</button>}
+                        modal
+                        closeOnDocumentClick
+                        >
+                        {currentUser ? <p>Vous devez vous connecter dans "mon espace" avant de pouvoir sauvegarder</p>:
+                        <form className="form-save" onChange={onChange} onSubmit={saveResults}>
+                            <label htmlFor="name">Nom du scénario</label>
+                            <input name="name" id="name" type="text"/>
+                            <label htmlFor="description">Description</label>
+                            <textarea className="textarea" name="description" id="description" type="textarea"/>
+                            <button className="green-btn right-btn">Sauvegarder</button>
+                        </form>}
+                        </Popup>
+                        
                         <button className="green-btn">Télécharger</button>
                     </div>
                     <div className="flex-item">
@@ -156,7 +207,14 @@ const Results = (props) => {
                 </div>
             </article>
             <SimBarChart datas={results.emiSecteur}/>
+        
+            
+        
+        
+        
         </div>
+
+
     )
 }
 

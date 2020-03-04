@@ -22,7 +22,7 @@ const Signin = (props) => {
       const apiRes = await APIHandler.post("/session/signin", user);
       console.log(apiRes)
       setCurrentUser(apiRes.data.currentUser);
-      console.log(props)
+    
       props.history.push('/dashboard')
     } catch (err) {   
       setCurrentUser(null);

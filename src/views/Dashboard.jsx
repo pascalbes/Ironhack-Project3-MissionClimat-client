@@ -17,6 +17,8 @@ const Dashboard = (props) => {
     })
 }
 
+console.log(userContext)
+
     return (
         <div className="dashboard-page flex-item flex-column">
             <div className="userbox border-btn light flex-item flex-column">

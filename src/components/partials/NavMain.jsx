@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {useAuth} from "../../auth/useAuth"
 const NavMain = () => {
+    useAuth();
     return (
         <nav>
             <Link to="/simulator"><button className="green-btn left-btn">Simulateur</button></Link>
