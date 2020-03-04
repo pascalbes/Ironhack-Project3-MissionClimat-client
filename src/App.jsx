@@ -2,6 +2,9 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 
+import { ProtectedRoute } from "./auth/ProtectedRoute";
+
+
 /// PAGES
 import Home from "./views/Home";
 import About from "./views/About";
@@ -60,7 +63,8 @@ function App() {
           <Route path="/simulator" component={Simulator} />        
           <Route path="/results" component={Results} />
           {/* AUTH */}
-          <Route path="/dashboard" component={Dashboard} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} />
+          {/* <Route path="/dashboard" component={Dashboard} /> */}
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
           {/* NOT FOUND */}

@@ -32,3 +32,28 @@
     margin-right: 1em;
     margin-bottom: 1em;
 }
+
+ul {
+    width: 100%
+}
+
+.li-scenario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100% content-box;
+    list-style-type: none;
+    border-bottom: var(--lightgreen) solid 2px;
+}
+
+.li-sceanrio > div {
+    width: fit-content;
+}
+
+.dash-btn {
+    background-image: var(--backgreen);
+    background-size: 120% 120%;
+    background-position: center;
+    border: 2px solid transparent;
+    margin: 0 1em 0 0;
+}
