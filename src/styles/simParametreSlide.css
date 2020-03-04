@@ -10,8 +10,13 @@
 }
 
 .param-name {
+    margin-bottom: 0.5em;
     font-weight: bold;
     font-size: 1.1em;
+}
+
+.see-more-btn{
+    margin-bottom: 0.5em;
 }
 
 .param-info-container-hidden {
@@ -20,7 +25,7 @@
 }
 
 .param-info-container-visible {
-    background-color: WHITESMOKE;
+    background-color: var(--grey);
     padding: 1em;
     border-radius: 1em;
     width: 100%;

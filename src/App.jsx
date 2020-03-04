@@ -1,5 +1,5 @@
 /// BASIC
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { ProtectedRoute } from "./auth/ProtectedRoute";
@@ -25,9 +25,18 @@ import Header from "./components/partials/Header";
 /// STYLES
 import "./styles/app.css";
 import "./styles/reset.css";
+import UserContext from "./auth/UserContext"
+
 
 
 function App() {
+
+const [currentUser,setCurrentUser] = useState(null);
+
+const UserContextValue = {
+  currentUser, 
+  setCurrentUser
+}
 
 
   // function deleteSheet(e) {
@@ -49,7 +58,7 @@ function App() {
   // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
 
   return (
-    <Fragment>
+    <UserContext.Provider value={UserContextValue}>
       <Header />
       <main id="content-main">
         <Switch>
@@ -71,7 +80,7 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
       </main>
-    </Fragment>
+</UserContext.Provider>
   );
 }
 
