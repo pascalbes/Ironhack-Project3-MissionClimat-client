@@ -38,7 +38,7 @@ const MscSlider = withStyles({
         track: {
           height: 10,
           borderRadius: 4,
-          color: 'black'
+          color: 'grey'
         },
         rail: {
           height: 10,
@@ -123,6 +123,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
                     min={data.min}
                     max={data.max}
                     marks={marks}
+                    scale={x => Number(x) + data.unit}
                     valueLabelDisplay="auto"
                     onChangeCommitted={ (e, val) => handleChange(e, val)}
                     track="normal"
