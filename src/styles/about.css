@@ -44,6 +44,7 @@
 
 .about-card p{
     margin: 0.5em 0;
+    text-align: justify;
 }
 
 .about-links{
@@ -58,7 +59,7 @@
 }
 
 ul{
-    margin-left: 3em;
+    padding: 0 3em;
 }
 
 ul>li>span{
