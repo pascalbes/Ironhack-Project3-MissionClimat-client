@@ -34,18 +34,17 @@
     height: auto;
 }
 
-a{
+.concept-box a{
     color: var(--green);
     text-decoration: underline;
     font-weight: bold;
-    text-align: center;
 }
 
 ul{
     margin: 1em 0 0;
 }
 
-.border-btn{
+.concept-box .border-btn{
     border-radius: 1em;
     padding: 1em 2em;
 }

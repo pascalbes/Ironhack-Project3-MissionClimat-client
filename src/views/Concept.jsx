@@ -109,9 +109,7 @@ const Concept = () => {
 
                 <p>Tout notre mode de vie actuel s’est construit sur l’idée d’une énergie et de matières premières surabondantes et inépuisables qui auraient permis une croissance économique infinie. </p>
 
-                <p>Un nouveau monde est à construire, à toutes les échelles. Ce site internet vous permettra de configurer votre scénario climat à l’échelle nationale. Vous pouvez aussi vous appuyer sur l’outil MicMac (Mon Impact Climat, Mes Actions Concrètes) pour étudier l’impact carbone de votre mode et de vie et identifier les actions pertinentes pour faire baisser votre empreinte carbone. </p>
-
-                <a href="http://avenirclimatique.org/les-outils/">Boîte à Outils</a>
+                <p>Un nouveau monde est à construire, à toutes les échelles. Ce site internet vous permettra de configurer votre scénario climat à l’échelle nationale. Vous pouvez aussi vous appuyer sur l’outil MicMac (Mon Impact Climat, Mes Actions Concrètes) pour étudier l’impact carbone de votre mode et de vie et identifier les actions pertinentes pour faire baisser votre empreinte carbone. <a href="http://avenirclimatique.org/les-outils/">(>> Boîte à Outils)</a></p>
 
                 <p>Tout est à réinventer, repenser et construire, de l’agriculture à l’habitat, des modes d’organisation du travail à l’urbanisme, etc. Bref, cette aventure s’annonce passionnante !</p>
             </div>
