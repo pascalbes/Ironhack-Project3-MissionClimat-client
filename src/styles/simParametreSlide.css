@@ -14,8 +14,24 @@
     align-items: center;
 }
 
-.mode-expert {
-    background-color: lightcyan;
+.MuiSwitch-thumb{
+    color: #da8fff;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: #da8fff !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked {
+    color: #da8fff !important;
+}
+
+.mode-expert h6{
+    color: #da8fff;
+}
+
+.mode-expert .MuiSlider-rail{
+    background-color: #da8fff;
 }
 
 .param-name {

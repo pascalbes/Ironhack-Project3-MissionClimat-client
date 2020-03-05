@@ -175,7 +175,7 @@ const Simulator = (props) => {
         //gestion mode expert
         if (!param.data.expert || (param.data.expert && modeExpert)) {
 
-            //gestion type de paramêtre
+            //gestion type de paramètre
             if (param.type.list) {
                 return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
             }
