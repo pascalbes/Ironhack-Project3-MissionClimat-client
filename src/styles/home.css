@@ -35,6 +35,7 @@
 .hero-text{
     width: 90%;
     margin-bottom: 2em;
+    text-align: justify;
 }
 
 .hero-img{
