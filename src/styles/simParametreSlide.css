@@ -15,23 +15,23 @@
 }
 
 .MuiSwitch-thumb{
-    color: #da8fff;
+    color: rgb(92, 92, 92);
 }
 
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-    background-color: #da8fff !important;
+    background-color: rgb(92, 92, 92) !important;
 }
 
 .MuiSwitch-colorSecondary.Mui-checked {
-    color: #da8fff !important;
+    color: rgb(92, 92, 92) !important;
 }
 
 .mode-expert h6{
-    color: #da8fff;
+    color: rgb(92, 92, 92);
 }
 
 .mode-expert .MuiSlider-rail{
-    background-color: #da8fff;
+    background-color: rgb(92, 92, 92);
 }
 
 .param-name {
