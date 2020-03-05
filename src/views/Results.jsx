@@ -18,6 +18,7 @@ import Sunburst from './../components/simulateur/sunburstChart'
 import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
+import "./../styles/form.css"
 import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
@@ -139,26 +140,22 @@ const Results = (props) => {
                     <div className="flex-item">
                     <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
                         
-                        <Popup
-                        trigger={<button className="green-btn right-btn">Sauvegarder</button>}
-                        modal
-                        closeOnDocumentClick
-                        >
-                        {currentUser ? 
-                        <form className="form-save" onChange={onChange} onSubmit={saveResults}>
-                            <label htmlFor="name">Nom du scénario</label>
-                            <input name="name" id="name" type="text"/>
-                            <label htmlFor="description">Description</label>
-                            <textarea className="textarea" name="description" id="description" type="textarea"/>
-                            <button className="green-btn right-btn">Sauvegarder</button>
-                        </form>: 
-                        <p className="popup-error">Vous devez vous connecter dans "mon espace" avant de pouvoir sauvegarder.</p>}
+                        <Popup className="form-page flex-item flex-column" trigger={<button className="green-btn right-btn">Sauvegarder</button>} modal closeOnDocumentClick >
+                            {currentUser ? 
+                                <form className="form-save flex-item flex-column light" onChange={onChange} onSubmit={saveResults}>
+                                    <label className="label" htmlFor="name">Nom du scénario</label>
+                                    <input className="input border-btn" name="name" id="name" type="text" placeholder="ex : Scénario 2°C"/>
+                                    <label className="label" htmlFor="description">Description</label>
+                                    <textarea className="input border-btn" name="description" id="description" type="textarea" placeholder="Focus sur les transports"/>
+                                    <button className="green-btn right-btn">Sauvegarder</button>
+                                </form>
+                                : <p className="popup-error"><a href="/signin">Connectez-vous</a> pour enregistrer votre scénario !</p>}
                         </Popup>
                         
                         <button className="green-btn">Télécharger</button>
                     </div>
                     <div className="flex-item">
-                        <FontAwesomeIcon className="left-btn" icon={faShareAlt}/>
+                        <FontAwesomeIcon className="share-icon left-btn" icon={faShareAlt}/>
                         <EmailShareButton url={results.url} className="left-btn" subject="Mission 1.5 : mon plan climat pour 2030"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>
                         <FacebookShareButton url={results.url} className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#mission1.5 #ecologie #climat"><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></FacebookShareButton>
                         <TwitterShareButton url={results.url} className="left-btn" title="Mission 1.5 : mon plan climat pour 2030" via="Mission 1.5°C" hashtags={["mission1.5", "climat", "ecologie", "citoyen", "action"]}><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></TwitterShareButton>
@@ -166,23 +163,27 @@ const Results = (props) => {
                         <LinkedinShareButton url={results.url} className="left-btn" title="Mission 1.5 : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France et tentez d'atteindre 1.5°C !" source="Mission 1.5°C"><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></LinkedinShareButton>
                     </div>
                 </div>
-                <button className="border-btn down-btn"><a href="#detail-results"><FontAwesomeIcon icon={faChevronDown}/></a></button>
+                <button className="blinking border-btn down-btn"><a href="#detail-results"><FontAwesomeIcon icon={faChevronDown}/></a></button>
             </article>
 
 
             <article id="detail-results" className="detail-results flex-item flex-column">
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
-                    <div className="detail-national-main flex-item flex-column border-btn">
-                        <div className="detail-national-box flex-item flex-column">
-                            <h4>> Par secteur entre 2010 et 2030</h4>
-                            <AreaChart datas={results.emiSecteur}/>
+                    <div className="detail-national-main grid-item border-btn">
+                    <div className="detail-national-box">
+                            <h4>> Émissions de CO2</h4>
+                            <SimBarChart datas={results.emiSecteur}/>
                         </div>
-                        <div className="detail-national-box flex-item flex-column">
-                            <h4>> Répartition des émissions pour 2030</h4>
+                        <div className="detail-national-box">
+                            <h4>> Par secteur</h4>
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
-                        <div className="detail-national-box flex-item flex-column">
+                        <div className="detail-national-box">
+                            <h4>> Par secteur sur le temps</h4>
+                            <AreaChart datas={results.emiSecteur}/>
+                        </div>
+                        <div className="detail-national-box">
                             <h4>> Émissions générales</h4>
                             <GenLinearChart/>
                         </div>
@@ -194,7 +195,7 @@ const Results = (props) => {
                     <MondialLinearChart/>
                 </div>
 
-                <div className="detail-parameters flex-item flex-column">
+                {/* <div className="detail-parameters flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faWrench}/>Résumé des Paramètres</h2>
                     <div className="detail-parameters-box grid-item border-btn">
                         {jsonFile.categories.map((categorie, i) => (
@@ -204,15 +205,9 @@ const Results = (props) => {
                             </div>
                         ))}
                     </div>
-                </div>
-                <button className="border-btn up-btn"><a href="#scroll-top"><FontAwesomeIcon icon={faChevronUp}/></a></button>
+                </div> */}
+                <button className="top-btn blinking border-btn up-btn"><a href="#scroll-top"><FontAwesomeIcon icon={faChevronUp}/></a></button>
             </article>
-            <SimBarChart datas={results.emiSecteur}/>
-        
-            
-        
-        
-        
         </div>
 
 
