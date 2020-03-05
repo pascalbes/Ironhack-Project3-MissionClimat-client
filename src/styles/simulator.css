@@ -214,10 +214,7 @@ input[type="radio"]{
         inset 20px 0 80px var(--tempgreen),
         inset -20px 0 80px var(--tempgreen),
         inset 20px 0 300px var(--tempgreen),
-        inset -20px 0 300px var(--tempgreen),
-        0 0 50px var(--tempgreen),
-        -10px 0 80px var(--tempgreen),
-        10px 0 80px var(--tempgreen);
+        inset -20px 0 300px var(--tempgreen)
 }
 
 .results-figure {
