@@ -208,10 +208,6 @@ const Simulator = (props) => {
         return "color"
     }
 
-    function displayResultChart(){
-        return "huhu"
-    }
-
     return (
 
         values ?
