@@ -13,7 +13,7 @@ export const AboutUs = () => {
                     <FontAwesomeIcon className="about-icon" icon={faBookmark}/>
                     <h3 className="nomarge">Conception</h3>
                 </div>
-                <p>Mission 1.5°C, c'est d'abord un travail d'équipe.</p>
+                <p>Mission Climat, c'est d'abord un travail d'équipe.</p>
             </article>
 
             <section className="about-lead-team flex-item">
@@ -26,7 +26,7 @@ export const AboutUs = () => {
                     <p>Pascal est un super leader</p>
                     <p>Paul est derrière tous nos graphiques</p>
                     <p>Nina aime les gradients</p>
-                    <p>Au sein de la promotion Développement Web à Ironhack, ces trois personnes ont développé le site internet de Mission 1.5°C.</p>
+                    <p>Au sein de la promotion Développement Web à Ironhack, ces trois personnes ont développé le site internet de Mission Climat</p>
                     <div className="about-links flex-item">
                         <a href="">Pascal Besson</a>
                         <a href="">Paul Carillon</a>

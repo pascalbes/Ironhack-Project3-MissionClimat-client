@@ -13,17 +13,17 @@ const Home = () => {
                 <div className="hidden"></div>
                 <div className="hero-box flex-item">
                     <div className="hero-left">
-                        <h1 className="border"><span className="hero-mission">mission</span><br/><span className="hero-temp">Climatique</span></h1>
-                        <p className="hero-text">Votre mission, si vous l'acceptez, est de proposer un scénario climat 2030 pour la France, permettant de limiter les impacts à un niveau soutenable. Pour se faire, nous mettons à votre disposition quelques paramètres, un modèle de calcul et un joli tableau de bord. Configurez, visualisez, et, une fois l'ensemble du vivant préservé, partagez : il paraît que c'est sympa !</p>
+                        <h1 className="border"><span className="hero-mission">mission</span><br/><span className="hero-temp">Climat</span></h1>
+                        <p className="hero-text">Votre mission, si vous l'acceptez, est de proposer un scénario climat 2030 pour la France, permettant de limiter les impacts à un niveau soutenable. Pour ce faire, nous mettons à votre disposition quelques paramètres, un modèle de calcul et un joli tableau de bord. Configurez, visualisez, et, une fois l'ensemble du vivant préservé, partagez : il paraît que c'est sympa !</p>
                         <Link to="/simulator"><button className="green-btn">Mission acceptée !</button></Link>
                     </div>
                     <img className="hero-img" src="../../images/undraw_travel_plans_li01.svg" alt="landing-visual"/>
                 </div>
-                <button className="border-btn down-btn"><a href="#next-landing">Plus...</a></button>
+                <button className="blinking border-btn down-btn"><a href="#next-landing">Plus...</a></button>
             </article>
 
             <article id="next-landing" className="next-landing flex-item flex-column">
-                <button className="border-btn up-btn"><a href="#scroll-top">Accueil</a></button>
+                <button className="blinking border-btn up-btn"><a href="#scroll-top">Accueil</a></button>
                 <div className="home-white-box border-btn flex-item light">
                     <div className="home-white-item flex-item flex-column">
                         <img src="" alt=""/>

@@ -16,6 +16,7 @@
 .hero-box{
     justify-content: space-evenly;
     align-items: center;
+    width: 80%;
 }
 
 .hero-mission{
@@ -32,12 +33,13 @@
 }
 
 .hero-text{
+    width: 90%;
     margin-bottom: 2em;
 }
 
 .hero-img{
-    width: 40%;
-    height: auto;
+    height: 50vh;
+    width: auto;
 }
 
 /* /// NEXT LANDING */
@@ -61,4 +63,15 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+/* BLINKING BTN */
+.blinking{
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
 }
