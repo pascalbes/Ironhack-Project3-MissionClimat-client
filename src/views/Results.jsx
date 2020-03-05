@@ -26,6 +26,7 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShare
 import APIHandler from "../api/APIHandler";
 import UserContext from "../auth/UserContext";
 import Popup from "reactjs-popup";
+import Pdf from "react-to-pdf";
 
 
 
@@ -112,6 +113,14 @@ const Results = (props) => {
         return "color"
     }
 
+    // const refHeroResults = React.createRef();
+
+    // const pdfOptions = {
+    //     orientation: 'landscape',
+    //     width: '2000',
+    //     height: '792',
+    // };
+
     return (
         <div className="results-page flex-item flex-column">
             <article className="hero-results flex-item flex-column">
@@ -170,7 +179,10 @@ const Results = (props) => {
                                 : <p className="popup-error"><a href="/signin">Connectez-vous</a> pour enregistrer votre scénario !</p>}
                         </Popup>
                         
-                        <button className="green-btn">Télécharger</button>
+                        {/* <Pdf targetRef={refHeroResults} options={pdfOptions} filename="mission-climat-resultats.pdf">
+                            {({ toPdf }) => <button onClick={toPdf} className="green-btn">Télécharger</button>}
+                        </Pdf> */}
+                        
                     </div>
                     <div className="flex-item">
                         <FontAwesomeIcon className="share-icon left-btn" icon={faShareAlt}/>
