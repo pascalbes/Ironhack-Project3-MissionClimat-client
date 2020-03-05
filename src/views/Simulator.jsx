@@ -170,6 +170,8 @@ const Simulator = (props) => {
         setValues(newValues)
     }
 
+    console.log(values)
+
     function handleParameterType(param, j, values) {
 
         //gestion mode expert

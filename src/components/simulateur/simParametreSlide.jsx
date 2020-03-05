@@ -55,6 +55,8 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
 
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
     const [componentClass, setComponentClass] = useState("")
+    // const [valueState, setValueState] = useState(value)
+    const [defaultVal, setDefaultVal] = useState(value)
 
     useEffect(() => {
         if (data.expert) {
@@ -62,6 +64,17 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
         }
         else setComponentClass("param-container-normal")
     },[])
+
+    // useEffect(() => {
+    //     setValueState(value)
+    //     setDefaultVal(value)
+    // })
+
+    // useEffect(() => {
+    //     setDefaultVal(valueState)
+    // },[valueState])
+
+    console.log(value)
     
     const unit=data.unit
     
@@ -87,6 +100,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     }
 
     const handleChange = (e, val) => {
+        console.log("inhandle", val)
         setOneValue(val[0], data.index)
     }
 
@@ -102,7 +116,6 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
             setInfoClass("param-info-container-hidden") 
         }
     }
-    
       
     return (
         
@@ -118,7 +131,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
             <div className={classes.root}>
                 <div className={classes.margin} />
                 <MscSlider 
-                    defaultValue={value}
+                    defaultValue={defaultVal}
                     //value={value}
                     getAriaValueText={valuetext}
                     aria-labelledby="discrete-slider-always"
