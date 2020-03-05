@@ -9,10 +9,20 @@
     grid-column-end: span 2;
 }
 
+.param-header {
+    justify-content: start;
+    align-items: center;
+}
+
+.mode-expert {
+    background-color: lightcyan;
+}
+
 .param-name {
     margin-bottom: 0.5em;
     font-weight: bold;
     font-size: 1.1em;
+    margin-right: 10px;
 }
 
 .see-more-btn{

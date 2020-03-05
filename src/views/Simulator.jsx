@@ -23,6 +23,7 @@ const Simulator = (props) => {
 
     const [values, setValues] = useState()
     const [results, setResults] = useState(jsonFile.results)
+    const [modeExpert, setModeExpert] = useState(false)
 
     //Gestion d'une route avec paramêtres spécifiques
     //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -171,12 +172,19 @@ const Simulator = (props) => {
 
     function handleParameterType(param, j, values) {
 
-        if (param.type.list) {
-            return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
+        //gestion mode expert
+        if (!param.data.expert || (param.data.expert && modeExpert)) {
+
+            //gestion type de paramêtre
+            if (param.type.list) {
+                return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
+            }
+            else if (param.type.slider) {
+                return <SimParamSlider key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue}/>
+            }
         }
-        else if (param.type.slider) {
-            return <SimParamSlider key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue}/>
-        }
+
+        
     }
 
     function handleInitValues(e) {
@@ -191,6 +199,7 @@ const Simulator = (props) => {
             setValues(jsonFile.options.vBaU)
         }
     }
+
 
     function handleTempColor(){
         return "color"
@@ -232,7 +241,7 @@ const Simulator = (props) => {
                                 <div className="sim-option-box">
                                     <h6 className="param-name">Mode Expert</h6>
                                     <p>Le mode expert permet d'accéder à un plus grand nombre de paramètres, pour régler son scénario avec davantage de finesse</p>
-                                    <FormControlLabel className="nomarge nopad" value="end" control={<Switch color="Secondary"/>} /><label>Mode Expert</label>
+                                    <FormControlLabel className="nomarge nopad" onChange={e => setModeExpert(e.target.checked)} value="end" control={<Switch color="Secondary"/>} /><label>Mode Expert</label>
                                 </div>
                             </div>
                         </div>

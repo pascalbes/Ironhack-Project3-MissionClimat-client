@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider'
 import '../../styles/simParametreSlide.css'
-import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
       width: '100%'
     },
     margin: {
-      height: theme.spacing(1),
+      height: 0,
     },
   }));
 
@@ -32,13 +32,12 @@ const MscSlider = withStyles({
           },
         },
         active: {},
-        valueLabel: {
-        //   left: 'calc(-50%)',
+        valueLabel: {//   left: 'calc(-50%)',
         },
         track: {
           height: 10,
           borderRadius: 4,
-          color: 'grey'
+          color: 'black'
         },
         rail: {
           height: 10,
@@ -54,10 +53,15 @@ const MscSlider = withStyles({
     
 const SimParametreSlide = ({data, value, setOneValue}) => {
 
-    console.log(value)
-
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
-    const [componentClass, setComponentClass] = useState("param-container-normal")
+    const [componentClass, setComponentClass] = useState("")
+
+    useEffect(() => {
+        if (data.expert) {
+            setComponentClass("mode-expert param-container-normal")
+        }
+        else setComponentClass("param-container-normal")
+    },[])
     
     const unit=data.unit
     
@@ -87,31 +91,26 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     }
 
     function toggleClass() {
-        if (componentClass==="param-container-normal") {
-            setComponentClass("param-container-expanded")
+        var componentClassSt =""
+        if (data.expert) componentClassSt += "mode-expert"
+        if (componentClass.includes("param-container-normal")) {
+            setComponentClass(componentClassSt + " param-container-expanded")
             setInfoClass("param-info-container-visible flex-item")
         }
         else {
-            setComponentClass("param-container-normal")
+            setComponentClass(componentClassSt + " param-container-normal")
             setInfoClass("param-info-container-hidden") 
         }
     }
     
       
     return (
-        // <div id={"param"+data.index}>
-        //     <h5>{data.name}</h5>
-        //     <p>{data.description}</p>
-        //     <form onChange={handleChange}>
-        //         <input type="range" id="param" name="param" min= max={data.max} defaultValue={`${value}`} step={(data.max - data.min)/20}/>
-        //     </form>
-        // </div>
         
         <div className={componentClass}>
             <div className="param-header flex-item nomarge nopad">
                 <h6 className="param-name nomarge">{data.name}</h6>
                 <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
-                    <FontAwesomeIcon icon={faPlus}/>
+                    <FontAwesomeIcon icon={faInfoCircle}/>
                 </button>
             </div>
             {data.description && <p className="small-param-desc">{data.description}</p>}

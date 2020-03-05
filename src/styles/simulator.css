@@ -160,11 +160,6 @@ input[type="radio"]{
     margin-right: 1em;
 }
 
-.param-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .small-param-desc{
     font-size: 0.8em;
