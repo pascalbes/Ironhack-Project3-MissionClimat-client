@@ -262,18 +262,26 @@ const Simulator = (props) => {
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
                     <h3>Impacts pour 2100</h3>
+                    <h3 className="rcp-data">Scénario RCP {2.6}</h3>
+
+                    <div className="tag-container flex-item flex-column">
+                        <div className="results-figure tag-temp flex-item" style={{backgroundColor: handleTempColor}}>
+                            +{2}°C
+                        </div>
+                        <p>{0.9}°C à {2.5}°C</p>                    
+                    </div>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
-                                +2°C
+                                {67}j
                             </div>
-                            <p>sur le globe</p>                    
+                            <p>jours à +35°C par an</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
-                                +1.5m
+                                {30}j
                             </div>
-                            <p>niveau de la mer</p>  
+                            <p>période sans pluie max</p>  
                         </div>
                     </div>
                 </div>
@@ -301,7 +309,7 @@ const Simulator = (props) => {
                 <div id="results-emissions" className="flex-item">
                     <h4>Émissions CO2</h4>
                     <div id="results-emissions-box" className="flex-item">
-                        -20%
+                        {"-20"}%
                     </div>
                 </div>
                          

@@ -12,10 +12,12 @@
 
 /* /// COLORS */
 :root{
+    /* /// BACKGROUND */
     --backpurple: linear-gradient(315deg,rgb(69, 46, 90) 0%, #271d46 50%, #001438 100%);
     --backgreen: linear-gradient(135deg, rgb(0, 124, 161), rgb(126, 212, 164));
     --backwhite: rgb(250, 255, 250, 0.8);
 
+    /* /// CHART */
     --darkblue: #012340;
     --darkpurple: #312559;
     --purple: #8B4F8C;
@@ -23,6 +25,15 @@
     --lightgreen: #88F2B6;
     --grey: rgb(228, 228, 228);
     --darkgrey: darkgrey;
+
+    /* /// TEMP DATA */
+    --tempgreen: rgb(56, 177, 126);
+    --tempyellowgreen: rgb(163, 207, 91);
+    --tempyellow: rgb(255, 230, 0);
+    --tempyelloworange: rgb(255, 153, 0);
+    --temporangered: rgb(255, 94, 0);
+    --tempred: crimson;
+    --tempredblack: rgb(119, 2, 2);
 }
 
 /* /// APP SETUP */
