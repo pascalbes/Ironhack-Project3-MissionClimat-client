@@ -262,24 +262,24 @@ const Simulator = (props) => {
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
                     <h3>Impacts pour 2100</h3>
-                    <h3 className="rcp-data">Scénario RCP {2.6}</h3>
+                    <h3 className="rcp-data">Scénario {results.impacts.RCP}</h3>
 
                     <div className="tag-container flex-item flex-column">
                         <div className="results-figure tag-temp flex-item" style={{backgroundColor: handleTempColor}}>
-                            +{2}°C
+                            +{results.impacts.temperature}°C
                         </div>
                         <p>{0.9}°C à {2.5}°C</p>                    
                     </div>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
-                                {67}j
+                                {results.impacts.jours35}j
                             </div>
                             <p>jours à +35°C par an</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
-                                {30}j
+                                {results.impacts.joursSecheresse}j
                             </div>
                             <p>période sans pluie max</p>  
                         </div>
@@ -309,7 +309,7 @@ const Simulator = (props) => {
                 <div id="results-emissions" className="flex-item">
                     <h4>Émissions CO2</h4>
                     <div id="results-emissions-box" className="flex-item">
-                        {"-20"}%
+                        {results.impacts.reductionEmission2030}
                     </div>
                 </div>
                          
