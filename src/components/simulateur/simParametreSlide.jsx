@@ -57,12 +57,12 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     const [componentClass, setComponentClass] = useState("")
     const [defautVal, setDefaultVal] = useState(value)
 
-    // useEffect(() => {
-    //     if (data.expert) {
-    //         setComponentClass("mode-expert param-container-normal")
-    //     }
-    //     else setComponentClass("param-container-normal")
-    // },[])
+    useEffect(() => {
+        if (data.expert) {
+            setComponentClass("mode-expert param-container-normal")
+        }
+        else setComponentClass("param-container-normal")
+    },[])
 
     // useEffect(() => {
     //     setValueState(value)
