@@ -115,11 +115,26 @@ const Concept = () => {
             </div>
 
             <div className="concept-box border-btn light flex-item flex-column">
-                <h3>Les arguments</h3>
-            </div>
+                <h3>Questions / Réponses</h3>
 
-            <div className="concept-box border-btn light flex-item flex-column">
-                <h3>FAQ</h3>
+                <h5>> Mais si la France ne représente que 1% des émissions mondiales, à quoi ça sert ? </h5>
+                <p>Effectivement, la France ne représente que 0,9% des émissions de CO2 si on ne compte que les émissions "territoriales" qui ont lieu sur le sol français et les émissions énergétiques (issues de la combustion d'énergies fossiles). </p>
+
+                <p>Il est donc clair qu'un effort isolé de la France n'aura que peu d'impact direct sur la trajectoire mondiale de réchauffement climatique. Cependant, plusieurs arguments peuvent remettre en question ce postulat. </p>
+
+                <p>D'abord, la France est responsable de près de 2% des émissions historiques (les émissions cumulées depuis 1850) alors qu'elle représente moins de 1% de la population mondiale. Ce total est encore plus important si on intègre les émissions non énergétiques (agriculture, déchets...) et les émissions importées (ces émissions représente plus de 30% de l'empreinte carbone des français). Enfin, par la capacité d'influence qu'elle possède, la France peut faire effet de levier et entrainer dans son sillage de nombreux pays. </p>
+
+                <h5>> N'y a t-il pas des technologies que vous n'avez pas intégrées dans votre modèle ? </h5>
+                <p>Notre modèle de calculs modélise les émissions de gaz à effet de serre en France jusqu'à 2030. En l'espace de 10 ans, il est très peu probable qu'une rupture technologique nous permette de faire baisser les émissions suffisament rapidement. Certaines technologies font rêver beaucoup de gens. Certaines d'entre elles peuvent paraître prometeuses. Cependant, aucune n'est aujourd'hui mature à l'échelle industrielle pour être déployée, à bas coût, sur l'ensemble du territoire, a fortiri à l'échelle mondiale. Cela montre qu'au delà de la technologie, c'est notre mode de vie qui doit changer très rapidement si on souhaite limiter le réchauffement climatique. </p>
+
+                <h5>> La transition va t-elle assez vite ? </h5>
+                <p>Clairement, non. Les émissions mondiales ne cessent d'augmenter. D'après les scénarios du GIEC, pour limiter le réchauffement climatique à 1,5°C, les émissions doivent commencer à stagner d'ici 2020 puis baisser jusqu'à atteindre la neutralité carbone entre 2040 et 2060. </p>
+
+                <h5>> Se fixer un objectif 1,5°C : c’est envisager un changement global de système ?</h5>
+                <p>Notre modèle de calculs montre qu'une trajectoire 1,5°C à l'échelle de la France n'est possible que si on envisage une rupture complète dans nos modes de vie. La politique des petits pas ne suffira pas. Pour atteindre la neutralité carbone, chaque Français doit émettre moins de 2 tonnes de CO2 par an. Aujourd'hui, vivre avec 2 tonnes de CO2 par an relève du parcours du combattant car la société actuelle n'est pas du tout adaptée à cela. Pour changer son mode de vie, le citoyen a besoin du soutien de l'Etat et des collectivités territoriales qui aménagent le territoire ainsi que des entreprises qui lui fournissent des biens et services. </p>
+
+                <h5>> Donc chaque année compte ?</h5>
+                <p>En 2018, le GIEC estimait le budget carbone restant associé à une limitation du réchauffement climatique de 420 à 580 milliards de tonnes de CO2. Chaque année, nous émettons environ 50 milliards de tonnes de CO2. Ainsi, d'ici une dizaine d'années, nous aurons épuisé notre budget carbone associé à une trajectoire 1,5°C. Chaque année de retard dans la baisse des émissions nous obligerait à rattraper cet effort dans les années suivantes.</p>
             </div>
         </div>
     )
