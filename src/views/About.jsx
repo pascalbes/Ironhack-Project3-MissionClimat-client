@@ -58,9 +58,11 @@ Le projet a été réalisé par une équipe de 5 personnes, toutes bénévoles, 
                     </div>
                     <p>Les entreprises et territoires qui ont l’ambition de se développer de manière durable font confiance à l'équipe d’experts de B&L évolution depuis plus de 9 ans. B&L évolution est un bureau d’études et de conseils en développement durable. Au service de la société, cette équipe engagée souhaite diffuser une vision résiliente de l’aménagement des territoires et du développent des entreprises en associant une vision fortement participative à une prise de conscience réaliste et éclairée des enjeux du XXIe siècle.</p>
                     <p>Consultant énergie climat et mobilités au sein de B&L évolution, Guillaume accompagne des entreprises et des territoires dans leur transition écologique. Ingénieur (Grenoble INP - ENSE3) il est aussi membre actif de l'association Avenir Climatique et co-auteur avec Charles-Adrien Louis de l'étude B&L évolution "Comment la France peut s'aligner sur une trajectoire compatible avec les 1,5°C" publiée en 2019. </p>
-                    <p>Célian Niclot a de la fièvre.</p>
+                    <p>Après une Licence Physique-Chimie, un Master Sciences de l'Océan, de l'Atmosphère et du Climat, Célian est consultant énergie climat au sein de B&L Evolution. C'est le créateur de la base de données pour Mission Climat.</p>
                     <div className="about-links flex-item">
                         <a target="_blank" href="https://bl-evolution.com/">Site internet</a>
+                        <a target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">Guillaume Martin</a>
+                        <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">Célian Niclot</a>
                     </div>
                 </article>
             </section>
