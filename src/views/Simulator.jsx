@@ -200,6 +200,7 @@ const Simulator = (props) => {
         else if (initMode === "mad-max") {
             setValues(jsonFile.options.vBaU)
         }
+        window.location.reload();
     }
 
 
