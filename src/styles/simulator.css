@@ -157,10 +157,13 @@ input[type="radio"]{
     margin-right: 1em;
 }
 
-
 .small-param-desc{
     font-size: 0.8em;
     height: 2.5em;
+}
+
+.bigger{
+    height: 2.2em;
 }
 
 /* /// RESULTS */
@@ -255,8 +258,6 @@ input[type="radio"]{
     border-radius: 0.5rem;
     margin-bottom: 0.2rem;
 }
-
-
 
 
 .sim-results-box button{

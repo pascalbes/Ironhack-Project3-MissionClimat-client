@@ -9,6 +9,11 @@
     margin: 2em;
 }
 
+.form-save{
+    margin: 2em;
+    width: 100%;
+}
+
 .input, .form select, .form textarea{
     margin: 1em 0 1em;
     padding: 0.5em 1em;

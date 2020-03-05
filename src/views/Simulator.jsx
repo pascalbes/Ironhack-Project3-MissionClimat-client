@@ -247,8 +247,7 @@ const Simulator = (props) => {
                         </div>
                         {jsonFile.categories.map((cat, i) => (
                             <div className="sim-cat-params-box">
-                                <div className="hidden" id={"cat"+cat.data.index}>||</div>
-                                <div className="hidden">||</div>
+                                <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>
                                 <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
                                 <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
                                     {cat.parameters.map((param, j) => (
