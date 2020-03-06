@@ -9,7 +9,7 @@
 
 /* /// HERO LANDING */
 .hero-landing{
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 90vh;
     margin: 0;
