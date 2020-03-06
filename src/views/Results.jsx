@@ -261,12 +261,13 @@ const Results = (props) => {
                         <div className="modal-div">
                         <form className="new-or-edit" onChange={toggleNew}>
                             <div>
-                                <label htmlFor="new">New</label>
-                                <input type="radio" id="new" name="toggle" value="new" defaultChecked></input>
+                            <label htmlFor="new">New</label>
+                            <input type="radio" id="new" name="toggle" value="new" defaultChecked></input>
                             </div>
+                            
                             <div>
-                                <label htmlFor="edit">Edit</label>
-                                <input type="radio" id="edit" name="toggle" value="edit"></input>
+                            <label htmlFor="edit">Edit</label>
+                            <input type="radio" id="edit" name="toggle" value="edit"></input>
                             </div>
                         </form>
                         
@@ -274,12 +275,12 @@ const Results = (props) => {
                             {isNew? 
                             
                             <form className="form-popup" onChange={onChange} onSubmit={saveResults}>
-                                <label htmlFor="name">Nom du scénario</label>
-                                <input name="name" id="name" type="text"/>
-                                <label htmlFor="description">Description</label>
-                                <textarea className="textarea" name="description" id="description" type="textarea"/>
-                                <p className="msg-existe-déjà">{scenarioExists}</p>
-                                <button className="green-btn right-btn">Sauvegarder</button>
+                            <label htmlFor="name">Nom du scénario</label>
+                            <input name="name" id="name" type="text"/>
+                            <label htmlFor="description">Description</label>
+                            <textarea className="textarea" name="description" id="description" type="textarea"/>
+                            <p className="msg-existe-déjà">{scenarioExists}</p>
+                            <button className="green-btn right-btn">Sauvegarder</button>
                             </form>
                             
                             :
@@ -312,7 +313,7 @@ const Results = (props) => {
                             <Link to='/signin'>Se connecter</Link></div>}
                             <p className="popup-error">Appuyez sur "échap" pour fermer cette fenêtre.</p>
                         </Popup>
-                        
+                    
                         {/* <Pdf targetRef={refHeroResults} options={pdfOptions} filename="mission-climat-resultats.pdf">
                             {({ toPdf }) => <button onClick={toPdf} className="green-btn">Télécharger</button>}
                         </Pdf> */}

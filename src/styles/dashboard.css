@@ -41,13 +41,19 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
     width: 100% content-box;
     list-style-type: none;
     border-bottom: var(--lightgreen) solid 2px;
 }
 
-.li-sceanrio > div {
-    width: fit-content;
+
+.div-name-description {
+    width: 40%;
+}
+
+.div-scenario-buttons a {
+    margin: 0;
 }
 
 .dash-btn {
@@ -57,3 +63,4 @@ ul {
     border: 2px solid transparent;
     margin: 0 1em 0 0;
 }
+
