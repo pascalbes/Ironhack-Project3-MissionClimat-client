@@ -1,6 +1,7 @@
 /// BASIC
 import React, {  useState, useEffect } from 'react'
 import "./../styles/simulator.css"
+import "./../styles/app.css"
 
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
@@ -125,15 +126,14 @@ const Simulator = (props) => {
     }, [])
 
     function tempColor(){
-        const tempColors = ["--tempgreen", "--tempyellowgreen", "--tempyellow", "--tempyelloworange", "--temporangered", "--tempred", "--tempredblack"]
+        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
         return (results.impacts.temperature < 1.5) ? tempColors[0]
-        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[0]
-        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[1]
-        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[2]
-        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[3]
-        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[4]
-        : (results.impacts.temperature >= 2.8 && results.impacts.temperature < 3) ? tempColors[5]
-        : (results.impacts.temperature >= 3) && tempColors[6]
+        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
+        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
+        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
+        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
+        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
+        : tempColors[6]
     }
 
     console.log(results.impacts.temperature)
@@ -272,7 +272,7 @@ const Simulator = (props) => {
                     <h3 className="rcp-data">Scénario GIEC {results.impacts.RCP}</h3>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
-                            <div className="results-figure tag-temp flex-item" style={{backgroundColor: tempColor}}>
+                            <div className="results-figure tag-temp flex-item" style={{boxShadow: `inset 0 0 50px mintcream, inset 20px 0 80px ${tempColor()}, inset -20px 0 80px ${tempColor()}, inset 20px 0 300px ${tempColor()}, inset -20px 0 300px ${tempColor()}`}}>
                                 +{results.impacts.temperature}°C
                             </div>
                             <p>{results.impacts.temperatureRange}</p>                    
