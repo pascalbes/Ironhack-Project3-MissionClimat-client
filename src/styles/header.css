@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One&display=swap');
+
 header{
     padding: 0 2rem;
     height: 10vh;
@@ -6,6 +9,16 @@ header{
     margin: 0;
 }
 
+.header-left{
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Fugaz One', cursive;;
+}
+
 .header-logo{
-    margin-right: 1em;
+    width: 80%;
+}
+
+.header h4{
+    display: inline-block;
 }
