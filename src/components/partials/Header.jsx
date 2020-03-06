@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import "../../styles/header.css"
 import { useState } from 'react'
 import { useEffect } from 'react'
+import {withRouter} from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -17,4 +18,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default withRouter(Header)
