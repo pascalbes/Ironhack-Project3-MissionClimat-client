@@ -7,8 +7,6 @@ import '../../styles/simParametreSlide.css'
 
 const SimParametreList = ({data, value, setOneValue}) => {
 
-    console.log(value)
-
     const [defaultValue, setDefaultValue] = useState(value[0])
     const possibleValues = data.possibleValues.split(', ')
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
