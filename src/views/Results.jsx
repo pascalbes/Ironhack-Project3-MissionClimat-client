@@ -206,13 +206,13 @@ const Results = (props) => {
                             <div id="results-impacts-box" className="flex-item">
                                 <div className="tag-container flex-item flex-column">
                                     <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
-                                        +2°C
+                                    +{results.impacts.temperature}°C
                                     </div>
                                     <p>sur le globe</p>                    
                                 </div>
                                 <div className="tag-container flex-item flex-column">
                                     <div id="results-emissions-box" className="flex-item">
-                                        -20%
+                                    {results.impacts.reductionEmission2030}
                                     </div>
                                     <p>niveau de C02</p>  
                                 </div>
