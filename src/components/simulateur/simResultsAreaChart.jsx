@@ -15,8 +15,8 @@ const simResultsAreaChart = ({datas}) => {
     // };
   
 
-    const CustomTooltip = (e) => {
-      console.log(e);
+    // const CustomTooltip = (e) => {
+      // console.log(e);
       
     //   if (active) {
     //     console.log(forTooltip(payload[0].payload))
@@ -30,7 +30,7 @@ const simResultsAreaChart = ({datas}) => {
     //         {/* <p className="intro">{getIntroOfPage(label)}</p> */}
     //       </div>
     //     );
-    }
+    // }
     
     //   return null;
     // };
@@ -42,13 +42,13 @@ const simResultsAreaChart = ({datas}) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-         <Tooltip  
+         {/* <Tooltip  
           allowEscapeViewBox={{x:true, y: true}}
           // coordinate={{x:"-1000", y:"2000"}}
           // payload={{}}
           offset={-400}
          
-          />
+          /> */}
         {datas.areaDatas.map((area, i) => (
           <Area type="monotone" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}  activeDot={{
             // onMouseOver: showToolTip(),
