@@ -338,15 +338,15 @@ const Results = (props) => {
                             <AreaChart datas={results.emiSecteur}/>
                         </div>
                         <div className="detail-national-box">
-                            <h4>> Émissions générales</h4>
-                            <GenLinearChart/>
+                            <h4>> Émissions générales ({results.emiFrance.yTitle})</h4>
+                            <GenLinearChart datas={results.emiFrance}/>
                         </div>
                     </div>
                 </div>
 
                 <div className="detail-world flex-item flex-column">
-                    <h2><FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>Emissions mondiales</h2>
-                    <MondialLinearChart/>
+                    <h2><FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>Emissions mondiales ({results.emiMonde.yTitle})</h2>
+                    <GenLinearChart datas={results.emiMonde}/>
                 </div>
 
                 <div className="detail-national flex-item flex-column">
