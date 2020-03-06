@@ -68,7 +68,7 @@
     flex-wrap: wrap;
     text-decoration: none;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1em;
     font-weight: bold;
     margin: 0 0.5em;
 }
@@ -176,7 +176,7 @@ input[type="radio"]{
 
 .sim-results-head h3{
     line-height: 1.5rem;
-    font-size: 1em;
+    font-size: 1.5em;
     text-align: center;
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -233,11 +233,10 @@ input[type="radio"]{
 /* /// NIVEAU CO2 */
 #results-emissions-data {
     width: 100%;
-    height: 25vh;
+    height: 40%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border-top: 2px solid var(--green);
 }
 
 .results-emissions-charts {
@@ -261,6 +260,17 @@ input[type="radio"]{
     width: 90%;
     justify-content: space-between;
     align-items: center;
+    padding-top: 1em;
+    border-top: 2px solid var(--green);
+}
+
+#results-emissions h3{
+    line-height: 1.5rem;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--darkblue);
 }
 
 #results-emissions-box {

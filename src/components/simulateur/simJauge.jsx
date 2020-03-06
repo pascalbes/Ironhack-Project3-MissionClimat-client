@@ -7,10 +7,7 @@ import { AutoSizer } from 'react-virtualized'
 
 const MyBullet = ({results}) => {
 
-    
-
     const color=results[0].color
-    console.log(results, color)
     delete results.color;
 
     return (
@@ -24,7 +21,7 @@ const MyBullet = ({results}) => {
         // margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
         spacing={46}
         measureColors={color}
-        rangeColors="lavender"
+        rangeColors="grey"
         markerColors="paired"
         // titleAlign="start"
         titleOffsetX={-7000}

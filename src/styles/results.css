@@ -133,21 +133,24 @@
     text-align: center;
 }
 
-.detail-impacts-temperature img{
-    max-width: 80%;
-    text-align: center;
-}
+
 
 .detail-impacts-temperature{
     width:90%;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    align-items: stretch;
+    grid-gap: 50px;
+    align-items: center;
     justify-items: center;
     justify-content: center;
     border-radius: 1em;
     padding: 1em;
     margin-top: 1em;
+}
+
+.detail-impacts-temperature img{
+    max-width: 100%;
+    text-align: center;
 }
 
 .detail-world-box{

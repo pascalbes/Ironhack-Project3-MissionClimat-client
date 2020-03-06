@@ -15,7 +15,7 @@ const Home = () => {
                     <div className="hero-left">
                         <h1 className="border"><span className="hero-mission">mission</span><br/><span className="hero-temp">Climat</span></h1>
                         <p className="hero-text">Votre mission, si vous l'acceptez, est de proposer un scénario climat 2030 pour la France, permettant de limiter les impacts à un niveau soutenable. Pour se faire, nous mettons à votre disposition quelques paramètres, un modèle de calcul et un joli tableau de bord.</p>
-                        <p className="hero-text hero-bold">Configurez, visualisez, et, une fois l'ensemble du <br/>vivant préservé, partagez : il paraît que c'est sympa !</p>
+                        <p className="hero-text hero-bold">Configurez, visualisez, et, une fois l'ensemble du <br/>vivant préservé, partagez : il paraît que c'est sympa.</p>
                         <br></br>
                         <div className="hero-btn flex-item">
                             <Link to="/simulator"><button className="green-btn">Mission acceptée !</button></Link>
