@@ -7,10 +7,7 @@ import { AutoSizer } from 'react-virtualized'
 
 const MyBullet = ({results}) => {
 
-    
-
     const color=results[0].color
-    console.log(results, color)
     delete results.color;
 
     return (
