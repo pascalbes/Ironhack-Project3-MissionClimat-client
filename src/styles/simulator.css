@@ -10,6 +10,7 @@
 }
 
 .sim-results-box{
+    box-shadow: -15px 0 15px -15px inset, 15px 0 15px -15px inset;
     height: 90vh;
     width: 35%;
     justify-content: space-between;
@@ -30,7 +31,7 @@
 
 /* /// SIM-NAV */
 .sim-nav-box{
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 2%;
     border-bottom: 3px solid var(--green);
@@ -82,17 +83,12 @@
     width: 100%;
 }
 
-.sim-cat-params-box {
-    margin-bottom: 2%;
-}
-
 .sim-categorie{
     padding: 1.5% 1em;
     justify-content: space-between;
     border: 2px solid var(--green);
     border-radius: 1em;
     align-items: center;
-    margin-top: 1%;
     margin-bottom: 2%;
     height: auto;
     width: auto;
@@ -106,7 +102,7 @@
 .sim-options{
     justify-content: space-between;
     align-items: baseline;
-    padding: 1em;
+    padding: 1em 1em 0;
 }
 
 .sim-option-box{
@@ -134,6 +130,7 @@
 }
 
 .sticky{
+    margin-right: -0.3em;
     z-index: 2;
     background-color: white;
     position: sticky;
@@ -160,10 +157,13 @@ input[type="radio"]{
     margin-right: 1em;
 }
 
-
 .small-param-desc{
     font-size: 0.8em;
     height: 2.5em;
+}
+
+.bigger{
+    height: 2.2em;
 }
 
 /* /// RESULTS */
@@ -183,10 +183,16 @@ input[type="radio"]{
     color: var(--darkblue);
 }
 
+.rcp-data{
+    color: #da8fff !important;
+    margin-bottom: 2em !important;
+}
+
 #results-impacts p {
     font-size: 0.8em;
     margin-top: 0.5em;
     text-align: center;
+    margin-bottom: 1.5em;
 }
 
 #results-impacts-box {
@@ -199,6 +205,16 @@ input[type="radio"]{
     width: 40%;
     justify-content: flex-start;
     align-items: center;
+}
+
+.tag-temp{
+    background-color: white;
+    box-shadow:
+        inset 0 0 50px mintcream,
+        inset 20px 0 80px var(--tempyellowgreen),
+        inset -20px 0 80px var(--tempyellowgreen),
+        inset 20px 0 300px var(--tempyellowgreen),
+        inset -20px 0 300px var(--tempyellowgreen)
 }
 
 .results-figure {
@@ -217,7 +233,7 @@ input[type="radio"]{
 /* /// NIVEAU CO2 */
 #results-emissions-data {
     width: 100%;
-    height: 35vh;
+    height: 25vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -258,8 +274,6 @@ input[type="radio"]{
     border-radius: 0.5rem;
     margin-bottom: 0.2rem;
 }
-
-
 
 
 .sim-results-box button{

@@ -25,6 +25,8 @@ const Simulator = (props) => {
     const [results, setResults] = useState(jsonFile.results)
     const [modeExpert, setModeExpert] = useState(false)
 
+    console.log(values)
+
     //Gestion d'une route avec paramêtres spécifiques
     //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
     
@@ -148,7 +150,6 @@ const Simulator = (props) => {
         
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
-        console.log("in useeffet update")
         if (values) {
             var idSheet = localStorage.getItem('idSheet')
             var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
@@ -175,7 +176,7 @@ const Simulator = (props) => {
         //gestion mode expert
         if (!param.data.expert || (param.data.expert && modeExpert)) {
 
-            //gestion type de paramêtre
+            //gestion type de paramètre
             if (param.type.list) {
                 return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
             }
@@ -198,15 +199,12 @@ const Simulator = (props) => {
         else if (initMode === "mad-max") {
             setValues(jsonFile.options.vBaU)
         }
+        window.location.reload();
     }
 
 
     function handleTempColor(){
         return "color"
-    }
-
-    function displayResultChart(){
-        return "huhu"
     }
 
     return (
@@ -247,8 +245,7 @@ const Simulator = (props) => {
                         </div>
                         {jsonFile.categories.map((cat, i) => (
                             <div className="sim-cat-params-box">
-                                <div className="hidden" id={"cat"+cat.data.index}>||</div>
-                                <div className="hidden">||</div>
+                                <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>
                                 <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
                                 <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
                                     {cat.parameters.map((param, j) => (
@@ -264,18 +261,26 @@ const Simulator = (props) => {
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
                     <h3>Impacts pour 2100</h3>
+                    <h3 className="rcp-data">Scénario GIEC {results.impacts.RCP}</h3>
+
+                    <div className="tag-container flex-item flex-column">
+                        <div className="results-figure tag-temp flex-item" style={{backgroundColor: handleTempColor}}>
+                            +{results.impacts.temperature}°C
+                        </div>
+                        <p>{results.impacts.temperatureRange}</p>                    
+                    </div>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
-                                +2°C
+                                {results.impacts.jours35}j
                             </div>
-                            <p>sur le globe</p>                    
+                            <p>jours à +35°C par an</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
-                                +1.5m
+                                {results.impacts.joursSecheresse}j
                             </div>
-                            <p>niveau de la mer</p>  
+                            <p>période sans pluie max</p>  
                         </div>
                     </div>
                 </div>
@@ -303,7 +308,7 @@ const Simulator = (props) => {
                 <div id="results-emissions" className="flex-item">
                     <h4>Émissions CO2</h4>
                     <div id="results-emissions-box" className="flex-item">
-                        -20%
+                        {results.impacts.reductionEmission2030}
                     </div>
                 </div>
                          

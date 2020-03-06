@@ -1,6 +1,6 @@
 .param-container-normal {
     width: 100%;
-    padding: 0 1em;
+    padding: 0 2em;
 }
 
 .param-container-expanded{
@@ -14,8 +14,24 @@
     align-items: center;
 }
 
-.mode-expert {
-    background-color: lightcyan;
+.MuiSwitch-thumb{
+    color: rgb(81, 32, 114);
+}
+
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: rgb(81, 32, 114) !important;
+}
+
+.MuiSwitch-colorSecondary.Mui-checked {
+    color: rgb(81, 32, 114)) !important;
+}
+
+.mode-expert h6{
+    color: rgb(81, 32, 114);
+}
+
+.mode-expert .MuiSlider-rail{
+    background-color: rgb(81, 32, 114);
 }
 
 .param-name {
