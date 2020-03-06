@@ -164,11 +164,18 @@
     margin-bottom: 3em;
 }
 
-.detail-world-box{
+.detail-world{
     padding: 1em;
     border-radius: 1em;
     margin: 1em 0 2em;
+    width: 50%;
+    height: 30em
 }
+
+.detail-world > h2 {
+    text-align: center
+}
+
 
 .detail-parameters{
     align-items: center;
@@ -239,3 +246,8 @@
       opacity: 0;
     }
 }
+/* 
+
+.div-linear-chart {
+    height: 100%
+} */
