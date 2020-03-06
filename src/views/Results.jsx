@@ -33,17 +33,21 @@ import Pdf from "react-to-pdf";
 
 const Results = (props) => {
 
-    console.log(props)
+    // console.log(props)
 
     const userContext = useContext(UserContext);
-    const { currentUser } = userContext;
 
-    console.log(currentUser,"this is currentUser")
+    let { currentUser } = userContext;
+
+    const [isNew, setIsNew] = useState(true)
+
+    const [scenarioExists, setScenarioExists] = useState("")
+
+    // console.log(currentUser,"this is currentUser")
     var results={}
     if (localStorage.getItem('results')) {
         results = JSON.parse(localStorage.getItem('results'))
-        console.log("the results are", results)
-        console.log(userContext)
+
     }
     else {
         results = props.location.state.results
@@ -84,11 +88,9 @@ const Results = (props) => {
         graphParam.splice(-2,2);
     }
 
-    
-
     setGraphParam();
 
-    console.log("the results =>", results)
+    // console.log("the results =>", results)
 
     const [resultsToSave, setResultsToSave] = useState({})
 
@@ -97,13 +99,28 @@ const Results = (props) => {
     const saveResults = async e => {
         e.preventDefault();
         try {
-        await APIHandler.patch('users/save', {resultsToSave});
-        console.log("saved héhé!")
+        var rv = await APIHandler.patch('users/save', {resultsToSave}); 
+        setScenarioExists(rv.data.msg, console.log(scenarioExists))
+        return  console.log(rv.data.msg)
         }
         catch (err) {
             console.error(err);
           }
     }
+
+    const editResults = async e => {
+        e.preventDefault();
+        try {
+            var rv = await APIHandler.patch('users/edit-scenario', {resultsToSave});
+            return setScenarioExists(rv.data.msg, console.log(scenarioExists));
+
+        }
+        catch (err) {
+            console.error(err);
+          }
+    }
+
+    
 
     const onChange = async e => {
         setResultsToSave({...resultsToSave, [e.target.name]: e.target.value });
@@ -113,6 +130,36 @@ const Results = (props) => {
         return "color"
     }
 
+    function handleImageEurope() {
+        if (results.impacts.RCP =="RCP 2.6") {
+            return './images/europeRCP26.png'
+        }
+        if (results.impacts.RCP =="RCP 4.5") {
+            return './images/europeRCP45.png'
+        }
+        if (results.impacts.RCP =="RCP 6.0") {
+            return './images/europeRCP60.png'
+        }
+        if (results.impacts.RCP =="RCP 8.5") {
+            return './images/europeRCP85.png'
+        }
+    }
+
+    function handleImageWorld() {
+        if (results.impacts.RCP =="RCP 2.6") {
+            return './images/worldRCP26.png'
+        }
+        if (results.impacts.RCP =="RCP 4.5") {
+            return './images/worldRCP45.png'
+        }
+        if (results.impacts.RCP =="RCP 6.0") {
+            return './images/worldRCP60.png'
+        }
+        if (results.impacts.RCP =="RCP 8.5") {
+            return './images/worldRCP85.png'
+        }
+    }
+
     // const refHeroResults = React.createRef();
 
     // const pdfOptions = {
@@ -120,6 +167,32 @@ const Results = (props) => {
     //     width: '2000',
     //     height: '792',
     // };
+
+    const toggleNew = async e => {
+        if( e.target.value === "new") return setIsNew(true);
+        if (e.target.value === "edit") return setIsNew(false);
+    }
+
+    console.log(props.location.state.results.url)
+    // console.log(currentUser)
+
+    // var [descriptionToEdit, setDescriptionToEdit] = useState("")
+
+    // function findTheRightDescription(results) {
+    //     console.log("it works")
+    //     console.log(currentUser.scenarios)
+    //     console.log(results)
+    //     var arrayUnique
+    //     arrayUnique = []
+    //     arrayUnique = currentUser.scenarios.filter(scenario => scenario.name === results.name)
+    //     console.log(arrayUnique)
+    //     console.log(arrayUnique[0].description)
+    //     if (arrayUnique[0].description.length === 0) {
+    //         return setDescriptionToEdit("")
+    //     } else {return setDescriptionToEdit(arrayUnique[0].description)}
+
+    // }
+
 
     return (
         <div className="results-page flex-item flex-column">
@@ -167,16 +240,60 @@ const Results = (props) => {
                     <div className="flex-item">
                     <button className="green-btn right-btn"><Link to="/simulator">Retour</Link></button>
                         
-                        <Popup className="form-page flex-item flex-column" trigger={<button className="green-btn right-btn">Sauvegarder</button>} modal closeOnDocumentClick >
-                            {currentUser ? 
-                                <form className="form-save flex-item flex-column light" onChange={onChange} onSubmit={saveResults}>
-                                    <label className="label" htmlFor="name">Nom du scénario</label>
-                                    <input className="input border-btn" name="name" id="name" type="text" placeholder="ex : Scénario 2°C"/>
-                                    <label className="label" htmlFor="description">Description</label>
-                                    <textarea className="input border-btn" name="description" id="description" type="textarea" placeholder="Focus sur les transports"/>
-                                    <button className="green-btn right-btn">Sauvegarder</button>
-                                </form>
-                                : <p className="popup-error"><a href="/signin">Connectez-vous</a> pour enregistrer votre scénario !</p>}
+                        <Popup
+
+                        trigger={<button className="green-btn right-btn">Sauvegarder</button>}
+                        modal
+                        closeOnEscape
+                        >
+                        {currentUser ? 
+                        <div>
+                        <form className="new-or-edit" onChange={toggleNew}>
+                            <label htmlFor="new">New</label>
+                            <input type="radio" id="new" name="toggle" value="new" defaultChecked></input>
+                            <label htmlFor="edit">Edit</label>
+                            <input type="radio" id="edit" name="toggle" value="edit"></input>
+                        </form>
+                        
+                            
+                            {isNew? 
+                            
+                            <form className="form-save" onChange={onChange} onSubmit={saveResults}>
+                            <label htmlFor="name">Nom du scénario</label>
+                            <input name="name" id="name" type="text"/>
+                            <label htmlFor="description">Description</label>
+                            <textarea className="textarea" name="description" id="description" type="textarea"/>
+                            <p className="msg-existe-déjà">{scenarioExists}</p>
+                            <button className="green-btn right-btn">Sauvegarder</button>
+                            </form>
+                            
+                            :
+
+                            <form className="form-save" onChange={onChange} onSubmit={editResults}>
+                                <label htmlFor="name">Nom du scénario</label>
+                                <select 
+                                    name="name" 
+                                    id="name" 
+                                    >
+                                        <option value="Choisissez"></option>
+                                    {
+                                        currentUser.scenarios.map((scenario, i) => (
+                                            <option key={i} value={scenario.name}>{scenario.name}</option>
+                                        ))
+                                    }
+                                </select>
+                                <label htmlFor="description">Nouvelle description</label>
+                                <textarea className="textarea" name="description" id="description" type="textarea"/>
+                                <p className="msg-existe-déjà">{scenarioExists}</p>
+                                <button className="green-btn right-btn">Sauvegarder</button>
+                            </form>
+
+                            }
+                            
+                        
+                        </div>: 
+                        <p className="popup-error">Vous devez vous connecter dans "mon espace" avant de pouvoir sauvegarder.</p>}
+                        <p className="popup-error">Appuyez sur "échap" pour fermer cette fenêtre.</p>
                         </Popup>
                         
                         {/* <Pdf targetRef={refHeroResults} options={pdfOptions} filename="mission-climat-resultats.pdf">
@@ -201,7 +318,7 @@ const Results = (props) => {
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
                     <div className="detail-national-main grid-item border-btn">
-                    <div className="detail-national-box">
+                        <div className="detail-national-box">
                             <h4>> Émissions de CO2</h4>
                             <SimBarChart datas={results.emiSecteur}/>
                         </div>
@@ -223,6 +340,20 @@ const Results = (props) => {
                 <div className="detail-world flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>Emissions mondiales</h2>
                     <MondialLinearChart/>
+                </div>
+
+                <div className="detail-national flex-item flex-column">
+                    <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Impacts / Températures</h2>
+                    <div className="detail-impacts-temperature grid-item border-btn">
+                        <div className="detail-national-box">
+                            <h4>> Europe</h4>
+                            <img src={handleImageEurope()}/>
+                        </div>
+                        <div className="detail-national-box">
+                            <h4>> Monde</h4>
+                            <img src={handleImageWorld()}/>
+                        </div>
+                    </div>
                 </div>
 
                 {/* <div className="detail-parameters flex-item flex-column">

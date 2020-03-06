@@ -113,6 +113,7 @@
 }
 
 .detail-national-main{
+    width:90%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: stretch;
@@ -130,6 +131,23 @@
 .detail-national-box h4{
     margin-bottom: 1em;
     text-align: center;
+}
+
+.detail-impacts-temperature img{
+    max-width: 80%;
+    text-align: center;
+}
+
+.detail-impacts-temperature{
+    width:90%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: stretch;
+    justify-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    padding: 1em;
+    margin-top: 1em;
 }
 
 .detail-world-box{
@@ -157,6 +175,18 @@
 
 
 /* FORM SAVE */
+
+.new-or-edit {
+    background-color: #07163A;
+}
+
+.form-save {
+    background-color: #07163A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
 .popup-error {
     text-align: center;
     padding: 3em;
