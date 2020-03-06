@@ -136,6 +136,8 @@ const Simulator = (props) => {
         : (results.impacts.temperature >= 3) && tempColors[6]
     }
 
+    console.log(results.impacts.temperature)
+
     function getUrl(values, parameters) {
 
         var url = window.location.origin + "/simulator/favorites/"
@@ -268,14 +270,13 @@ const Simulator = (props) => {
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
                     <h3>Impacts pour 2100</h3>
                     <h3 className="rcp-data">Scénario GIEC {results.impacts.RCP}</h3>
-
-                    <div className="tag-container flex-item flex-column">
-                        <div className="results-figure tag-temp flex-item" style={{backgroundColor: tempColor}}>
-                            +{results.impacts.temperature}°C
-                        </div>
-                        <p>{results.impacts.temperatureRange}</p>                    
-                    </div>
                     <div id="results-impacts-box" className="flex-item">
+                        <div className="tag-container flex-item flex-column">
+                            <div className="results-figure tag-temp flex-item" style={{backgroundColor: tempColor}}>
+                                +{results.impacts.temperature}°C
+                            </div>
+                            <p>{results.impacts.temperatureRange}</p>                    
+                        </div>
                         <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
                                 {results.impacts.jours35}j
@@ -290,7 +291,13 @@ const Simulator = (props) => {
                         </div>
                     </div>
                 </div>
-                    
+                
+                <div id="results-emissions" className="flex-item flex-column">
+                    <h3>Émissions CO2</h3>
+                    <div id="results-emissions-box" className="flex-item">
+                        {results.impacts.reductionEmission2030}
+                    </div>
+                </div>
 
                 <div id="results-emissions-data" className="flex-item">
                     <div className="flex-item flex-column results-emissions-charts">
@@ -306,15 +313,6 @@ const Simulator = (props) => {
                             <Sunburst datas={results.emiSecteurPie}/>  
                         </div>
                         <p>Emissions par Secteur</p>
-                    </div>
-                </div>
-
-                
-
-                <div id="results-emissions" className="flex-item">
-                    <h4>Émissions CO2</h4>
-                    <div id="results-emissions-box" className="flex-item">
-                        {results.impacts.reductionEmission2030}
                     </div>
                 </div>
                          
