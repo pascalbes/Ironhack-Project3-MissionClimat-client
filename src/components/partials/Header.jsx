@@ -4,23 +4,24 @@ import { Link } from "react-router-dom"
 import "../../styles/header.css"
 import { useState } from 'react'
 import { useEffect } from 'react'
+import {withRouter} from 'react-router-dom'
 
-const Header = () => {
+const Header = ({location}) => {
     const [title, setTitle] = useState("")
 
-    useEffect(() => {
-        window.location.pathname === "/" ? setTitle("") : setTitle("mission climat")
-    })
+    // useEffect(() => {
+    //     window.location.pathname === "/" ? setTitle("") : setTitle("mission climat")
+    // })
 
     return (
         <header id="scroll-top" className="flex-item">
             <div className="header-left flex-item">
                 <Link to="/"><img src="../../../images/logo/missionclimat.svg" alt="Home logo" className="header-logo"/></Link>
-                <h4>{title}</h4>
+                {location.pathname !== "/" && <h4>mission climat</h4>}
             </div>
             <NavMain/>
         </header>
     )
 }
 
-export default Header
+export default withRouter(Header)
