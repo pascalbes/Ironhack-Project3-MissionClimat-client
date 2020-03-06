@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div className="home-page flex-item flex-column">
             <article className="hero-landing flex-item flex-column">
-                <div className="hidden"></div>
+                {/* <div className="hidden"></div> */}
                 <div className="hero-box flex-item">
                     <div className="hero-left">
                         <h1 className="border"><span className="hero-mission">mission</span><br/><span className="hero-temp">Climat</span></h1>
@@ -23,10 +23,10 @@ const Home = () => {
                     </div>
                     <img className="hero-img" src="../../images/undraw_travel_plans_li01.svg" alt="landing-visual"/>
                 </div>
-                <button className="blinking border-btn down-btn"><a href="#next-landing">Plus...</a></button>
+                {/* <button className="blinking border-btn down-btn"><a href="#next-landing">Plus...</a></button> */}
             </article>
 
-            <article id="next-landing" className="next-landing flex-item flex-column">
+            {/* <article id="next-landing" className="next-landing flex-item flex-column">
                 <button className="blinking border-btn up-btn"><a href="#scroll-top">Accueil</a></button>
                 <div className="home-white-box border-btn flex-item light">
                     <div className="home-white-item flex-item flex-column">
@@ -50,7 +50,7 @@ const Home = () => {
                     <Link to="/simulator"><button className="green-btn left-btn ">Je me lance !</button></Link>
                 </div>
                 <div className="hidden"></div>
-            </article>
+            </article> */}
             <Footer/>
         </div>
     )
