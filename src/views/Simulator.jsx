@@ -25,6 +25,8 @@ const Simulator = (props) => {
     const [results, setResults] = useState(jsonFile.results)
     const [modeExpert, setModeExpert] = useState(false)
 
+    console.log(values)
+
     //Gestion d'une route avec paramêtres spécifiques
     //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
     
@@ -148,7 +150,6 @@ const Simulator = (props) => {
         
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
-        console.log("in useeffet update")
         if (values) {
             var idSheet = localStorage.getItem('idSheet')
             var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
@@ -169,8 +170,6 @@ const Simulator = (props) => {
         newValues[index][0]=value
         setValues(newValues)
     }
-
-    console.log(values)
 
     function handleParameterType(param, j, values) {
 
@@ -262,13 +261,13 @@ const Simulator = (props) => {
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
                     <h3>Impacts pour 2100</h3>
-                    <h3 className="rcp-data">Scénario {results.impacts.RCP}</h3>
+                    <h3 className="rcp-data">Scénario GIEC {results.impacts.RCP}</h3>
 
                     <div className="tag-container flex-item flex-column">
                         <div className="results-figure tag-temp flex-item" style={{backgroundColor: handleTempColor}}>
                             +{results.impacts.temperature}°C
                         </div>
-                        <p>{0.9}°C à {2.5}°C</p>                    
+                        <p>{results.impacts.temperatureRange}</p>                    
                     </div>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">

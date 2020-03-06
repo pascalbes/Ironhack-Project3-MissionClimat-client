@@ -72,8 +72,6 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     // useEffect(() => {
     //     setDefaultVal(valueState)
     // },[valueState])
-
-    console.log(value)
     
     const unit=data.unit
     
@@ -99,7 +97,6 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     }
 
     const handleChange = (e, val) => {
-        console.log("inhandle", val)
         setOneValue(val[0], data.index)
     }
 
