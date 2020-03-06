@@ -113,6 +113,36 @@ const Results = (props) => {
         return "color"
     }
 
+    function handleImageEurope() {
+        if (results.impacts.RCP =="RCP 2.6") {
+            return './images/europeRCP26.png'
+        }
+        if (results.impacts.RCP =="RCP 4.5") {
+            return './images/europeRCP45.png'
+        }
+        if (results.impacts.RCP =="RCP 6.0") {
+            return './images/europeRCP60.png'
+        }
+        if (results.impacts.RCP =="RCP 8.5") {
+            return './images/europeRCP85.png'
+        }
+    }
+
+    function handleImageWorld() {
+        if (results.impacts.RCP =="RCP 2.6") {
+            return './images/worldRCP26.png'
+        }
+        if (results.impacts.RCP =="RCP 4.5") {
+            return './images/worldRCP45.png'
+        }
+        if (results.impacts.RCP =="RCP 6.0") {
+            return './images/worldRCP60.png'
+        }
+        if (results.impacts.RCP =="RCP 8.5") {
+            return './images/worldRCP85.png'
+        }
+    }
+
     // const refHeroResults = React.createRef();
 
     // const pdfOptions = {
@@ -201,7 +231,7 @@ const Results = (props) => {
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>
                     <div className="detail-national-main grid-item border-btn">
-                    <div className="detail-national-box">
+                        <div className="detail-national-box">
                             <h4>> Émissions de CO2</h4>
                             <SimBarChart datas={results.emiSecteur}/>
                         </div>
@@ -223,6 +253,20 @@ const Results = (props) => {
                 <div className="detail-world flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faGlobeAmericas}/>Emissions mondiales</h2>
                     <MondialLinearChart/>
+                </div>
+
+                <div className="detail-national flex-item flex-column">
+                    <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Impacts / Températures</h2>
+                    <div className="detail-impacts-temperature grid-item border-btn">
+                        <div className="detail-national-box">
+                            <h4>> Europe</h4>
+                            <img src={handleImageEurope()}/>
+                        </div>
+                        <div className="detail-national-box">
+                            <h4>> Monde</h4>
+                            <img src={handleImageWorld()}/>
+                        </div>
+                    </div>
                 </div>
 
                 {/* <div className="detail-parameters flex-item flex-column">
