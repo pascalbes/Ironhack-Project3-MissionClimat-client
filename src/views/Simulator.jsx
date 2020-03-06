@@ -124,6 +124,18 @@ const Simulator = (props) => {
 
     }, [])
 
+    function tempColor(){
+        const tempColors = ["--tempgreen", "--tempyellowgreen", "--tempyellow", "--tempyelloworange", "--temporangered", "--tempred", "--tempredblack"]
+        return (results.impacts.temperature < 1.5) ? tempColors[0]
+        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[0]
+        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[1]
+        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[2]
+        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[3]
+        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[4]
+        : (results.impacts.temperature >= 2.8 && results.impacts.temperature < 3) ? tempColors[5]
+        : (results.impacts.temperature >= 3) && tempColors[6]
+    }
+
     function getUrl(values, parameters) {
 
         var url = window.location.origin + "/simulator/favorites/"
@@ -202,13 +214,7 @@ const Simulator = (props) => {
         window.location.reload();
     }
 
-
-    function handleTempColor(){
-        return "color"
-    }
-
     return (
-
         values ?
 
         <div className="sim-page flex-item light">
@@ -264,14 +270,14 @@ const Simulator = (props) => {
                     <h3 className="rcp-data">Scénario GIEC {results.impacts.RCP}</h3>
 
                     <div className="tag-container flex-item flex-column">
-                        <div className="results-figure tag-temp flex-item" style={{backgroundColor: handleTempColor}}>
+                        <div className="results-figure tag-temp flex-item" style={{backgroundColor: tempColor}}>
                             +{results.impacts.temperature}°C
                         </div>
                         <p>{results.impacts.temperatureRange}</p>                    
                     </div>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
-                            <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
+                            <div className="results-figure flex-item">
                                 {results.impacts.jours35}j
                             </div>
                             <p>jours à +35°C par an</p>                    
