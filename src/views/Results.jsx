@@ -212,23 +212,23 @@ const Results = (props) => {
                 <div className="results-box light grid-item border-btn">
                     <div className="results-left flex-item flex-column">
                         <h3 className="nomarge nopad">Mes résultats</h3>
-                        <div id="results-impacts" className="sim-results-head flex-item flex-column">
-                            <h5>Impacts pour 2100 - <span className="rcp-data">Scénario GIEC {results.impacts.RCP}</span></h5>
+                        <div id="results-impacts" className="sim-results-head-results flex-item flex-column">
+                            <h5>Impacts pour 2100<br/><span className="rcp-data">Scénario GIEC {results.impacts.RCP}</span></h5>
                             <div id="results-impacts-box" className="flex-item flex-column">
                                 <div className="tag-container flex-item">
-                                    <div className="results-figure tag-temp flex-item" style={{boxShadow: `inset 0 0 50px mintcream, inset 20px 0 80px ${tempColor()}, inset -20px 0 80px ${tempColor()}, inset 20px 0 300px ${tempColor()}, inset -20px 0 300px ${tempColor()}`}}>
+                                    <div className="results-figure-results tag-temp flex-item" style={{boxShadow: `inset 0 0 50px mintcream, inset 20px 0 80px ${tempColor()}, inset -20px 0 80px ${tempColor()}, inset 20px 0 300px ${tempColor()}, inset -20px 0 300px ${tempColor()}`}}>
                                         +{results.impacts.temperature}°C
                                     </div>
                                     <p>{results.impacts.temperatureRange}</p>                    
                                 </div>
                                 <div className="tag-container flex-item">
-                                    <div className="results-figure flex-item">
+                                    <div className="results-figure-results flex-item">
                                         {results.impacts.jours35}j
                                     </div>
                                     <p>jours à +35°C par an</p>                    
                                 </div>
                                 <div className="tag-container flex-item">
-                                    <div className="results-figure flex-item">
+                                    <div className="results-figure-results flex-item">
                                         {results.impacts.joursSecheresse}j
                                     </div>
                                     <p>période sans pluie max</p>  
@@ -241,6 +241,8 @@ const Results = (props) => {
                             <Sunburst datas={results.emiSecteurPie}/>
                             <p>Émissions par secteur</p>
                         </div>
+                    </div>
+                    <div className="results-data flex-item flex-column">
                         <div className="results-data-area">
                             <AreaChart datas={results.emiSecteur}/>
                             <p>Émissions par secteur et année</p>
