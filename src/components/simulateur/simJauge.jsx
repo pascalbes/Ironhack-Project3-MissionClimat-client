@@ -29,7 +29,7 @@ const MyBullet = ({results}) => {
         motionStiffness={20}
         motionDamping={5}
         markerSize={1}
-        reverse={true}
+        // reverse={true}
     />
     )}
 </AutoSizer>

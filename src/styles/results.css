@@ -142,6 +142,10 @@
 
 /* FORM SAVE */
 
+.new-or-edit {
+    background-color: #07163A;
+}
+
 .form-save {
     background-color: #07163A;
     display: flex;
