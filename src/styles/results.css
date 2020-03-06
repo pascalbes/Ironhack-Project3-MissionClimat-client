@@ -179,25 +179,40 @@
 
 /* FORM SAVE */
 
-.new-or-edit {
+.modal-div {
     background-color: #07163A;
 }
+.new-or-edit {
+    background-color: #07163A;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em 4em;
+}
+.new-or-edit > * > * {
+    margin: 0 5px;
+}
 
-.form-save {
+.form-popup {
     background-color: #07163A;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1em 0;
+}
 
+.form-popup > * {
+    margin-bottom: 1em;
 }
 .popup-error {
+    background-color: #07163A;
     text-align: center;
-    padding: 3em;
-    color: var(--darkblue);
+    padding: 1em;
+    color: white;
 }
 
 .popup-error a{
-    color: var(--green);
+    
     font-weight: bold;
     margin-right: 0.3em;
 }
