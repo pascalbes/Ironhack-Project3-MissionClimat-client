@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One&display=swap');
 
 header{
@@ -12,7 +11,7 @@ header{
 .header-left{
     justify-content: flex-start;
     align-items: center;
-    font-family: 'Fugaz One', cursive;;
+    font-family: 'Fugaz One', cursive;
 }
 
 .header-logo{
