@@ -11,8 +11,7 @@ const Header = ({location}) => {
     return (
         <header id="scroll-top" className="flex-item">
             <div className="header-left flex-item">
-                <Link to="/"><img src="../../../images/logo/missionclimat.svg" alt="Home logo" className="header-logo"/></Link>
-                {location.pathname !=="/" && <h4>mission climat</h4>}
+                <Link className="header-link flex-item" to="/"><img src="../../../images/logo/missionclimat.svg" alt="Home logo" className="header-logo"/>{location.pathname !=="/" && <h4>mission climat</h4>}</Link>
             </div>
             <NavMain/>
         </header>

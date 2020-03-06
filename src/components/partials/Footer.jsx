@@ -9,6 +9,7 @@ const Footer = () => {
                 <img className="footer-logo" src="../../images/logo/logoIH.svg" alt="Logo Ironhack"/>
                 <img className="footer-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
                 <img className="footer-logo" src="../../images/logo/AC.png" alt="Logo Avenir Climatique"/>
+                <img className="footer-logo" src="../../images/logo/PG.svg" alt="Logo Avenir Climatique"/>
             </div>
             <div className="footer-item flex-item">
                 <EmailShareButton url={window.location.href} className="left-btn" subject="Mission Climat : mon plan climat pour 2030"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>

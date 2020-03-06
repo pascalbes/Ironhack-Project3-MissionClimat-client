@@ -13,7 +13,7 @@
 /* /// COLORS */
 :root{
     /* /// BACKGROUND */
-    --backpurple: linear-gradient(315deg,rgb(69, 46, 90) 0%, #271d46 50%, #001438 100%);
+    --backpurple: linear-gradient(315deg,#452e5a 0%, #271d46 50%, #001438 100%);
     --backgreen: linear-gradient(135deg, rgb(0, 124, 161), rgb(126, 212, 164));
     --backwhite: rgb(250, 255, 250, 0.8);
 

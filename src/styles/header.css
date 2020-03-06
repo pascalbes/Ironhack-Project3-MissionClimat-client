@@ -9,13 +9,17 @@ header{
 }
 
 .header-left{
-    justify-content: flex-start;
-    align-items: center;
     font-family: 'Fugaz One', cursive;
 }
 
+.header-link{
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .header-logo{
-    width: 80%;
+    width: 2em;
+    margin-right: 1em;
 }
 
 .header h4{
