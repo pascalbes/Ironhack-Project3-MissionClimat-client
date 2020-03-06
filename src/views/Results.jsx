@@ -247,29 +247,33 @@ const Results = (props) => {
                         closeOnEscape
                         >
                         {currentUser ? 
-                        <div>
+                        <div className="modal-div">
                         <form className="new-or-edit" onChange={toggleNew}>
-                            <label htmlFor="new">New</label>
-                            <input type="radio" id="new" name="toggle" value="new" defaultChecked></input>
-                            <label htmlFor="edit">Edit</label>
-                            <input type="radio" id="edit" name="toggle" value="edit"></input>
+                            <div>
+                                <label htmlFor="new">New</label>
+                                <input type="radio" id="new" name="toggle" value="new" defaultChecked></input>
+                            </div>
+                            <div>
+                                <label htmlFor="edit">Edit</label>
+                                <input type="radio" id="edit" name="toggle" value="edit"></input>
+                            </div>
                         </form>
                         
                             
                             {isNew? 
                             
-                            <form className="form-save" onChange={onChange} onSubmit={saveResults}>
-                            <label htmlFor="name">Nom du scénario</label>
-                            <input name="name" id="name" type="text"/>
-                            <label htmlFor="description">Description</label>
-                            <textarea className="textarea" name="description" id="description" type="textarea"/>
-                            <p className="msg-existe-déjà">{scenarioExists}</p>
-                            <button className="green-btn right-btn">Sauvegarder</button>
+                            <form className="form-popup" onChange={onChange} onSubmit={saveResults}>
+                                <label htmlFor="name">Nom du scénario</label>
+                                <input name="name" id="name" type="text"/>
+                                <label htmlFor="description">Description</label>
+                                <textarea className="textarea" name="description" id="description" type="textarea"/>
+                                <p className="msg-existe-déjà">{scenarioExists}</p>
+                                <button className="green-btn right-btn">Sauvegarder</button>
                             </form>
                             
                             :
 
-                            <form className="form-save" onChange={onChange} onSubmit={editResults}>
+                            <form className="form-popup" onChange={onChange} onSubmit={editResults}>
                                 <label htmlFor="name">Nom du scénario</label>
                                 <select 
                                     name="name" 
@@ -292,7 +296,9 @@ const Results = (props) => {
                             
                         
                         </div>: 
-                        <p className="popup-error">Vous devez vous connecter dans "mon espace" avant de pouvoir sauvegarder.</p>}
+                        <div className="popup-error">
+                        <p>Vous devez vous connecter avant de pouvoir sauvegarder.</p>
+                        <Link to='/signin'>Se connecter</Link></div>}
                         <p className="popup-error">Appuyez sur "échap" pour fermer cette fenêtre.</p>
                         </Popup>
                         
