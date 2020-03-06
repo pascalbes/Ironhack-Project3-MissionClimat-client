@@ -34,15 +34,19 @@ Le projet a été réalisé par une équipe de 5 personnes, toutes bénévoles, 
                         <br/>API : Google Sheet et Drive
                     <br/>Librairies : rechart, nivo, material UI</p>
 
-                    <p>Pascal Besson
-                        <br/>Formation : Ingénieur / Master RSE / Dev Fullstack
-                    <br/>Rôle : chef de projet, dev back & front</p>
+                    <hr className="border-btn"/>
 
-                    <p>Paul est derrière tous nos graphiques</p>
+                    <p>Pascal Besson
+                        <br/>Historique : Ingénieur / Master RSE / Dev Fullstack
+                    <br/>Rôle : Chef de projet, dev back & front</p>
+
+                    <p>Paul Carillion
+                        <br/>Historique : Études de lettres / Dev Fullstack
+                    <br/> Rôle : Graphiques, dev back & front</p>
 
                     <p>Nina Gautreau
-                        <br/>Formation : Dev Fullstack après 7 ans dans la mode et le luxe
-                    <br/>Rôle : charte graphique, dev front</p>
+                        <br/>Historique : Mode & Luxe / Dev Fullstack
+                    <br/>Rôle : UX-UI, CSS, dev front</p>
 
                     <div className="about-links flex-item">
                         <a target="_blank" href="https://www.linkedin.com/in/pascal-besson/">Pascal Besson</a>

@@ -13,6 +13,10 @@
     justify-content: space-between;
 }
 
+hr{
+    margin: 2.5em 0;
+}
+
 .about-lead-team{
     justify-content: center;
     align-items: flex-start;
