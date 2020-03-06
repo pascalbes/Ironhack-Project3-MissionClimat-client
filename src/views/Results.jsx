@@ -145,6 +145,17 @@ const Results = (props) => {
         }
     }
 
+    function tempColor(){
+        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
+        return (results.impacts.temperature < 1.5) ? tempColors[0]
+        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
+        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
+        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
+        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
+        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
+        : tempColors[6]
+    }
+
     function handleImageWorld() {
         if (results.impacts.RCP =="RCP 2.6") {
             return './images/worldRCP26.png'
@@ -202,38 +213,38 @@ const Results = (props) => {
                     <div className="results-left flex-item flex-column">
                         <h3 className="nomarge nopad">Mes résultats</h3>
                         <div id="results-impacts" className="sim-results-head flex-item flex-column">
-                            <h3>Impacts pour 2100</h3>
-                            <div id="results-impacts-box" className="flex-item">
-                                <div className="tag-container flex-item flex-column">
-                                    <div className="results-figure flex-item" style={{backgroundColor: handleTempColor}}>
-                                    +{results.impacts.temperature}°C
+                            <h5>Impacts pour 2100 - <span className="rcp-data">Scénario GIEC {results.impacts.RCP}</span></h5>
+                            <div id="results-impacts-box" className="flex-item flex-column">
+                                <div className="tag-container flex-item">
+                                    <div className="results-figure tag-temp flex-item" style={{boxShadow: `inset 0 0 50px mintcream, inset 20px 0 80px ${tempColor()}, inset -20px 0 80px ${tempColor()}, inset 20px 0 300px ${tempColor()}, inset -20px 0 300px ${tempColor()}`}}>
+                                        +{results.impacts.temperature}°C
                                     </div>
-                                    <p>sur le globe</p>                    
+                                    <p>{results.impacts.temperatureRange}</p>                    
                                 </div>
-                                <div className="tag-container flex-item flex-column">
-                                    <div id="results-emissions-box" className="flex-item">
-                                    {results.impacts.reductionEmission2030}
+                                <div className="tag-container flex-item">
+                                    <div className="results-figure flex-item">
+                                        {results.impacts.jours35}j
                                     </div>
-                                    <p>niveau de C02</p>  
+                                    <p>jours à +35°C par an</p>                    
+                                </div>
+                                <div className="tag-container flex-item">
+                                    <div className="results-figure flex-item">
+                                        {results.impacts.joursSecheresse}j
+                                    </div>
+                                    <p>période sans pluie max</p>  
                                 </div>
                             </div>
-                        </div>
-                        <div className="results-text flex-item flex-column">
-                            <h5>Conséquences</h5>
-                            <p>Blabla la mer monte</p>
-                            <p>Blabla il fait trop chaud tout le temps</p>
-                            <p>Blabla le coronavirus c'est du pipi à côté de ça</p>
                         </div>
                     </div>
                     <div className="results-data flex-item flex-column">
                         <div className="results-data-sunburst">
                             <Sunburst datas={results.emiSecteurPie}/>
+                            <p>Émissions par secteur</p>
                         </div>
-                        <p>Émissions par secteur</p>
                         <div className="results-data-area">
                             <AreaChart datas={results.emiSecteur}/>
+                            <p>Émissions par secteur et année</p>
                         </div>
-                        <p>Émissions par secteur et année</p>
                     </div>
                 </div>
                 <div className="results-btns flex-item">
@@ -296,11 +307,11 @@ const Results = (props) => {
                             }
                             
                         
-                        </div>: 
-                        <div className="popup-error">
-                        <p>Vous devez vous connecter avant de pouvoir sauvegarder.</p>
-                        <Link to='/signin'>Se connecter</Link></div>}
-                        <p className="popup-error">Appuyez sur "échap" pour fermer cette fenêtre.</p>
+                            </div> 
+                            : <div className="popup-error">
+                                <p>Vous devez vous connecter avant de pouvoir sauvegarder.</p>
+                            <Link to='/signin'>Se connecter</Link></div>}
+                            <p className="popup-error">Appuyez sur "échap" pour fermer cette fenêtre.</p>
                         </Popup>
                     
                         {/* <Pdf targetRef={refHeroResults} options={pdfOptions} filename="mission-climat-resultats.pdf">
@@ -351,12 +362,12 @@ const Results = (props) => {
 
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Impacts / Températures</h2>
-                    <div className="detail-impacts-temperature grid-item border-btn">
-                        <div className="detail-national-box">
+                    <div className="detail-impacts-temperature flex-item flex-column border-btn">
+                        <div className="detail-national-box flex-item flex-column">
                             <h4>> Europe</h4>
                             <img src={handleImageEurope()}/>
                         </div>
-                        <div className="detail-national-box">
+                        <div className="detail-national-box flex-item flex-column">
                             <h4>> Monde</h4>
                             <img src={handleImageWorld()}/>
                         </div>

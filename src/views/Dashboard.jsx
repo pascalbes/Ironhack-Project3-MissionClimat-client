@@ -63,8 +63,11 @@ const Dashboard = (props) => {
                     <ul>
                         {scenariosList.map((scenario, i) => (
                             <li className="li-scenario" key={i}>
-                                <p>{scenario.name}</p> 
-                                <div>
+                                <div className="div-name-description">
+                                    <p>{scenario.name}</p> 
+                                    <p>{scenario.description}</p>
+                                </div>
+                                <div className="div-scenario-buttons">
                                     <a href={scenario.url}><button className="dash-btn">Voir</button></a>
                                     <button className="dash-btn">Editer</button>
                                     <button onClick={() => deleteScenario(scenario, i)} className="dash-btn">Supprimer</button>

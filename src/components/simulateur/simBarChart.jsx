@@ -29,7 +29,7 @@ const simBarChart = ({datas}) => {
         {/* <CartesianGrid strokeDasharray="3 3" /> */}
         <XAxis dataKey="name" />
         {/* <YAxis /> */}
-        <Tooltip />
+        {/* <Tooltip /> */}
         {/* <Legend /> */}
 
         {datas.areaDatas.map((bar) => (

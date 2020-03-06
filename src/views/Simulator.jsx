@@ -136,8 +136,6 @@ const Simulator = (props) => {
         : tempColors[6]
     }
 
-    console.log(results.impacts.temperature)
-
     function getUrl(values, parameters) {
 
         var url = window.location.origin + "/simulator/favorites/"
