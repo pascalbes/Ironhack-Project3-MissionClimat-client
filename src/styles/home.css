@@ -38,9 +38,19 @@
     text-align: justify;
 }
 
+.hero-bold{
+    font-weight: bold;
+    text-align: right;
+}
+
 .hero-img{
     height: 50vh;
     width: auto;
+}
+
+.hero-btn{
+    width: 90%;
+    justify-content: flex-end;
 }
 
 /* /// NEXT LANDING */
