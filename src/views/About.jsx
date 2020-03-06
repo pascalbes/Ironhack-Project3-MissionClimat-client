@@ -46,7 +46,7 @@ Le projet a été réalisé par une équipe de 5 personnes, toutes bénévoles, 
 
                     <div className="about-links flex-item">
                         <a target="_blank" href="https://www.linkedin.com/in/pascal-besson/">Pascal Besson</a>
-                        <a target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">Paul Carillon</a>
+                        <a target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">Paul Carillion</a>
                         <a target="_blank" href="https://www.linkedin.com/in/ninagautreau/">Nina Gautreau</a>
                     </div>
                 </article>
