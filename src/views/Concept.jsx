@@ -19,7 +19,7 @@ const Concept = () => {
                 <p>Les émissions actuelles de chaque secteur (Bâtiment, Transports, Agriculture) sont modélisées à partir d’hypothèses et des meilleures données disponibles. L’approche retenue est celle de l’empreinte carbone qui intègre les émissions importées en plus des émissions ayant directement lieu sur le territoire français. L’inventaire national indique que les émissions de gaz à effet de serre territoriales sont de l’ordre de 6,6 tonnes de CO2e par habitant. En revanche, l’empreinte carbone des Français, incluant l’ensemble des émissions importées, liées le plus souvent à la fabrication de biens de consommation à l’étranger, s’élève à 10,5 tonnes de CO2e par habitant.</p>
 
                 <div className="concept-img-box flex-item">
-                    <img className="border-btn" src="" alt="Exemple de Paramètre"/>
+                    <img className="border-btn" src="../../images/exemple-paramètres.JPG" alt="Exemple de Paramètre"/>
                 </div>
 
                 <p>Pour chaque secteur, un certain nombre de paramètres (nombre de logements à rénover, nombre de vols réalisés par an…) permettent à l’utilisateur de faire varier les émissions de gaz à effet de serre du secteur. Un mode expert permet à l’utilisateur de modifier plus de paramètres, préremplis par défaut.</p>
