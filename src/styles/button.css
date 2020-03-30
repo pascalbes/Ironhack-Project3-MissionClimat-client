@@ -14,6 +14,10 @@ button{
     border: 2px solid transparent;
 }
 
+#cta-btn {
+    font-size: 1.3em;
+}
+
 .border-btn{
     border: 2px solid var(--lightgreen);
 }

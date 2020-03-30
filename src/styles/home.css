@@ -11,8 +11,9 @@
 .hero-landing{
     justify-content: center;
     align-items: center;
-    height: 90vh;
-    margin: 0;
+    height: 80vh;
+    margin: 0 0 10vh 0;
+
 }
 
 .hero-box{
@@ -22,14 +23,14 @@
 }
 
 .hero-mission{
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 4rem;
+    line-height: 4rem;
     font-family: 'Fugaz One', cursive;
 }
 
 .hero-temp{
-    font-size: 7rem;
-    line-height: 7rem;
+    font-size: 6rem;
+    line-height: 6rem;
     font-family: 'Fugaz One', cursive;
     background: var(--backgreen);
     background-clip: text;
