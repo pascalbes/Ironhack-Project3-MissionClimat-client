@@ -65,11 +65,6 @@ const Simulator = (props) => {
         return valsFinal
     }
 
-
-    //////////////////////////
-    //////////// LOADER ?
-    //////////////////////////
-
     // Fonction appellée à la première exécution. Permet de :
     //   - créer une spreadsheet si non créée, 
     //   - charger les valeurs de la spreadsheet créée si existante, et les afficher,
@@ -213,6 +208,8 @@ const Simulator = (props) => {
         }
         window.location.reload();
     }
+
+    console.log(results)
 
     return (
         values ?
