@@ -74,7 +74,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
     // },[valueState])
     
     const unit=data.unit
-    
+    const sliderStep = (data.max-data.min)/100
     const classes = useStyles()
 
     const marks = [
@@ -133,6 +133,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
                     aria-labelledby="discrete-slider-always"
                     min={data.min}
                     max={data.max}
+                    step={sliderStep}
                     marks={marks}
                     scale={x => x + data.unit}
                     valueLabelDisplay="auto"
