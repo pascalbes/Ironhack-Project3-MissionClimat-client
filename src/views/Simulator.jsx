@@ -276,7 +276,7 @@ const Simulator = (props) => {
                             <div className="results-figure tag-temp flex-item">
                                 {results.impacts.RCP}
                             </div>
-                            <p>Scénario GIEC correspondant à vos paramètres</p>                    
+                            <p>Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold"}}>Plus d'infos</a>)</p>                    
                         </div>
                         {/* <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
