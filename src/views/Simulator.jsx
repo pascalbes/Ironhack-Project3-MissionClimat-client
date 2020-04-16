@@ -11,6 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 /// COMPONENTS
+import AreaChart from './../components/simulateur/simResultsAreaChart'
 import SimNav from "../components/simulateur/simNavBar"
 import SimCat from "../components/simulateur/simCategorie"
 import SimParamList from "../components/simulateur/simParametreList"
@@ -222,8 +223,6 @@ const Simulator = (props) => {
                     <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
                 </div>
 
-
-
                 <div className="sim-main-box">
                         <div className="sim-cat-params-box sticky">
                             <div className="sim-categorie flex-item">
@@ -263,16 +262,23 @@ const Simulator = (props) => {
 
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
-                    <h3>Impacts pour 2100</h3>
-                    <h3 className="rcp-data">Scénario GIEC {results.impacts.RCP}</h3>
+                    <h3>Mon impact  2100</h3>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
+                            <h6>Températures</h6>
                             <div className="results-figure tag-temp flex-item" style={{boxShadow: `inset 0 0 50px mintcream, inset 20px 0 80px ${tempColor()}, inset -20px 0 80px ${tempColor()}, inset 20px 0 300px ${tempColor()}, inset -20px 0 300px ${tempColor()}`}}>
                                 +{results.impacts.temperature}°C
                             </div>
-                            <p>{results.impacts.temperatureRange}</p>                    
+                            <p>Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange}</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
+                            <h6>Scénario GIEC</h6>
+                            <div className="results-figure tag-temp flex-item">
+                                {results.impacts.RCP}
+                            </div>
+                            <p>Scénario GIEC correspondant à vos paramètres</p>                    
+                        </div>
+                        {/* <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
                                 {results.impacts.jours35}j
                             </div>
@@ -283,24 +289,56 @@ const Simulator = (props) => {
                                 {results.impacts.joursSecheresse}j
                             </div>
                             <p>période sans pluie max</p>  
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 
                 <div id="results-emissions" className="flex-item flex-column">
-                    <h3>Émissions CO2</h3>
-                    <div id="results-emissions-box" className="flex-item">
-                        {results.impacts.reductionEmission2030}
+                    <h3>Émissions CO2 France 2030</h3>
+                    <div id="results-impacts-box" className="flex-item">
+                        <div className="tag-container flex-item flex-column">
+                            <h6>Évolution</h6>
+                            <div className="results-figure tag-temp flex-item">
+                                {results.impacts.reductionEmission2030}
+                            </div>
+                            <p>Entre 2020 et 2030</p>                    
+                        </div>
+                        <div className="tag-container flex-item flex-column">
+                            <h6>Moyenne Annuelle</h6>
+                            <div className="results-figure tag-temp flex-item">
+                                TBD
+                            </div>
+                            <p>Émissions moyennes entre 2020 et 2030</p>                    
+                        </div>
+                        <div className="tag-container flex-item flex-column">
+                            <h6>Empreinte Carbone</h6>
+                            <div className="results-figure tag-temp flex-item">
+                                TBD
+                            </div>
+                            <p>Par an et par habitant en 2030</p>                    
+                        </div>
                     </div>
+                    {/* <div id="results-emissions-box" className="flex-item">
+                        {results.impacts.reductionEmission2030}
+                    </div> */}
                 </div>
 
                 <div id="results-emissions-data" className="flex-item">
+
+                    <div className="flex-item flex-column results-emissions-charts">
+                        <div className="chart">
+                            <AreaChart datas={results.emiSecteurGnl}/>
+                        </div>
+                        <p>Emissions Totales</p>
+                    </div>
+                    {/* 
+                    BAR CHART
                     <div className="flex-item flex-column results-emissions-charts">
                         <div className="chart">
                             <SimBarChart datas={results.emiSecteur}/>
                         </div>
                         <p>Emissions Totales</p>
-                    </div>
+                    </div> */}
 
                     <div className="flex-item flex-column results-emissions-charts">
                         {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}

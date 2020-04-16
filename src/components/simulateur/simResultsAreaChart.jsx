@@ -50,7 +50,7 @@ const simResultsAreaChart = ({datas}) => {
          
           /> */}
         {datas.areaDatas.map((area, i) => (
-          <Area type="monotone" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}  activeDot={{
+          <Area fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}  activeDot={{
             // onMouseOver: showToolTip(),
             // onMouseLeave: hideToolTip()
           }} />
