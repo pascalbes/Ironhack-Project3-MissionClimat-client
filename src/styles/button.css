@@ -16,10 +16,15 @@ button{
 
 #cta-btn {
     font-size: 1.3em;
+    color: #021438;
 }
 
 .border-btn{
-    border: 2px solid var(--lightgreen);
+    /* border: 2px solid var(--lightgreen); */
+    color:white;
+    border: none;
+    font-weight: lighter;
+    font-size: 0.9em;
 }
 
 .see-more-btn{

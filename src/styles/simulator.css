@@ -167,7 +167,7 @@ input[type="radio"]{
 }
 
 /* /// RESULTS */
-/* /// IMPACTS */
+/* /// PROJECTION MONDIALE */
 .sim-results-head{
     width: 100%;
     justify-content: space-between;
@@ -183,28 +183,71 @@ input[type="radio"]{
     color: var(--darkblue);
 }
 
-.rcp-data{
-    color: #da8fff !important;
-    margin-bottom: 2em !important;
-}
-
-#results-impacts p {
-    font-size: 0.8em;
-    margin-top: 0.5em;
-    text-align: center;
-    margin-bottom: 1.5em;
-}
-
 #results-impacts-box {
     width: 100%;
     justify-content: space-between;
     align-items: baseline;
 }
 
+/* /// PROJECTION FRANCAISE */
+#results-emissions {
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    border-top: 2px solid var(--green);
+}
+
+#results-emissions h3{
+    line-height: 1.5rem;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--darkblue);
+}
+
+#results-emissions-charts-container {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.results-emissions-charts {
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.results-emissions-charts p{
+    text-align: center;
+}
+
+.chart {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* /// COMPOSANT INDICATEUR AVEC TITRE BOX ET LEGENDE */
+
 .tag-container{
     width: 40%;
     justify-content: flex-start;
     align-items: center;
+}
+
+.results-title {
+    font-size: 0.8em;
+}
+
+.results-legend {
+    font-size: 0.6em;
+    text-align: center;
 }
 
 .tag-temp{
@@ -230,68 +273,8 @@ input[type="radio"]{
 }
 
 
-/* /// NIVEAU CO2 */
-#results-emissions-data {
-    width: 100%;
-    height: 40%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.results-emissions-charts {
-    width: 50%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.results-emissions-charts p{
-    text-align: center;
-}
-
-.chart {
-    width: 100%;
-    height: 100%;
-}
-
-#results-emissions {
-    width: 90%;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1em;
-    border-top: 2px solid var(--green);
-}
-
-#results-emissions h3{
-    line-height: 1.5rem;
-    font-size: 1.5em;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: var(--darkblue);
-}
-
-#results-emissions-box {
-    background-color: var(--grey);
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    height: 3rem;
-    width: 5em;
-    border-radius: 0.5rem;
-    margin-bottom: 0.2rem;
-}
-
 
 .sim-results-box button{
     padding: 1em 3em;
     margin-bottom: 1em;
-}
-
-
-.tag-container>p{
-    font-size: 0.8em !important;
 }

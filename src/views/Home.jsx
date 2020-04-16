@@ -21,7 +21,7 @@ const Home = () => {
                             <Link to="/simulator"><button id="cta-btn" className="green-btn">Mission acceptée !</button></Link>
                         </div>
                     </div>
-                    <img className="hero-img" src="../../images/undraw_travel_plans_li01.svg" alt="landing-visual"/>
+                    <img className="hero-img" src="../../images/hero_image.svg" alt="landing-visual"/>
                 </div>
                 {/* <button className="blinking border-btn down-btn"><a href="#next-landing">Plus...</a></button> */}
             </article>

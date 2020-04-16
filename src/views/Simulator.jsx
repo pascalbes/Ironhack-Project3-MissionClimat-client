@@ -259,21 +259,28 @@ const Simulator = (props) => {
 
             <section className="sim-results-box flex-item flex-column nomarge">
                 <div id="results-impacts" className="sim-results-head flex-item flex-column">
-                    <h3>Mon impact  2100</h3>
+                    <h3>Ma projection mondiale</h3>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
-                            <h6>Températures</h6>
+                            <p className="results-title">Températures</p>
                             <div className="results-figure tag-temp flex-item" style={{boxShadow: `inset 0 0 50px mintcream, inset 20px 0 80px ${tempColor()}, inset -20px 0 80px ${tempColor()}, inset 20px 0 300px ${tempColor()}, inset -20px 0 300px ${tempColor()}`}}>
                                 +{results.impacts.temperature}°C
                             </div>
-                            <p>Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange}</p>                    
+                            <p className="results-legend">Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange}</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
-                            <h6>Scénario GIEC</h6>
+                            <p className="results-title">Scénario GIEC</p>
                             <div className="results-figure tag-temp flex-item">
                                 {results.impacts.RCP}
                             </div>
-                            <p>Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold"}}>Plus d'infos</a>)</p>                    
+                            <p className="results-legend">Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold"}}>Plus d'infos</a>)</p>                    
+                        </div>
+                        <div className="tag-container flex-item flex-column">
+                            <p className="results-title">Empreinte Carbone</p>
+                            <div className="results-figure tag-temp flex-item">
+                                {results.impacts.empreinteMonde}
+                            </div>
+                            <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
                         </div>
                         {/* <div className="tag-container flex-item flex-column">
                             <div className="results-figure flex-item">
@@ -291,36 +298,33 @@ const Simulator = (props) => {
                 </div>
                 
                 <div id="results-emissions" className="flex-item flex-column">
-                    <h3>Émissions CO2 France 2030</h3>
+                    <h3>Ma projection française</h3>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
-                            <h6>Évolution</h6>
+                            <p className="results-title">Évolution émissions</p>
                             <div className="results-figure tag-temp flex-item">
                                 {results.impacts.reductionEmission2030}
                             </div>
-                            <p>Entre 2020 et 2030</p>                    
+                            <p className="results-legend">Entre 2020 et 2030</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
-                            <h6>Moyenne Annuelle</h6>
+                            <p className="results-title">Moyenne Annuelle</p>
                             <div className="results-figure tag-temp flex-item">
-                                TBD
+                                {results.impacts.emissionMoy}
                             </div>
-                            <p>Émissions moyennes entre 2020 et 2030</p>                    
+                            <p className="results-legend">En MtCO2 entre 2020 et 2030</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
-                            <h6>Empreinte Carbone</h6>
+                            <p className="results-title">Empreinte Carbone</p>
                             <div className="results-figure tag-temp flex-item">
-                                TBD
+                                {results.impacts.empreinteMonde}
                             </div>
-                            <p>Par an et par habitant en 2030</p>                    
+                            <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
                         </div>
                     </div>
-                    {/* <div id="results-emissions-box" className="flex-item">
-                        {results.impacts.reductionEmission2030}
-                    </div> */}
                 </div>
 
-                <div id="results-emissions-data" className="flex-item">
+                <div id="results-emissions-charts-container" className="flex-item">
 
                     <div className="flex-item flex-column results-emissions-charts">
                         <div className="chart">
