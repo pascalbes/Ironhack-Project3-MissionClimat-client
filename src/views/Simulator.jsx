@@ -317,7 +317,7 @@ const Simulator = (props) => {
                         <div className="tag-container flex-item flex-column">
                             <p className="results-title">Empreinte Carbone</p>
                             <div className="results-figure tag-temp flex-item">
-                                {results.impacts.empreinteMonde}
+                                {results.impacts.empreinteFr}
                             </div>
                             <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
                         </div>
