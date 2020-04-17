@@ -218,15 +218,19 @@ const Simulator = (props) => {
                 <div id="sim-nav-box" className="flex-item flex-column">
                     <h1>Mes mesures pour 2030</h1>
                     <div className="flex-item">
-                        <SimNav data={jsonFile.nav[0]}/>
-                        <SimNav data={jsonFile.nav[1]}/>
+                        <div id="sim-nav-fr">
+                            <SimNav data={jsonFile.nav[0]}/>
+                        </div>
+                        <div id="sim-nav-world">
+                            <SimNav data={jsonFile.nav[1]}/>
+                        </div>
                         <a href="" id="options" className="sim-nav-category flex-item flex-column">
-                        <div>
-                            <img src= "../../images/Options.png"></img>
-                        </div>
-                        <div>
-                            <p>Options</p>
-                        </div>
+                            <div>
+                                <img src= "../../images/Options.png"></img>
+                            </div>
+                            <div>
+                                <p>Options</p>
+                            </div>
                         </a>
                     </div>
                 </div>

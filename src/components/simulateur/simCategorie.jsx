@@ -3,19 +3,8 @@ import Jauge from "./simJauge"
 
 const simCategorie = ({data, results}) => {
 
-    console.log('-------')
-    console.log(data)
-    console.log(results)
-    console.log('-------')
-
-    var backColor = 'grey'
-    if (results) {
-        // backColor =  "#80" + results[0].color[0].split('').slice(1,7).join('')
-        backColor = results[0].color[0]
-    }
-
     return (
-        <div className="sim-categorie flex-item" style={{backgroundColor:backColor}}>
+        <div className="sim-categorie flex-item" style={{backgroundColor:data.color}}>
             <h4 className="sim-categorie-name">{data.name}</h4>
             {results && data.name === results[0].name && <div className="flex-item flex-column">
                 <p className="sim-categorie-emissions">Mes émissions 2030 : {results[0].measures[0]} MtCO2</p>
