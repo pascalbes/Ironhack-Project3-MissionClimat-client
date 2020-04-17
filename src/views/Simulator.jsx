@@ -207,19 +207,27 @@ const Simulator = (props) => {
         window.location.reload();
     }
 
+    console.log(values)
     console.log(results)
 
     return (
         values ?
 
         <div className="sim-page flex-item">
-            <section className="sim-container-box grid-item">
+            <section className="sim-container-box">
                 <div id="sim-nav-box" className="flex-item flex-column">
                     <h1>Mes mesures</h1>
                     <div className="flex-item">
-                        <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
-                        <div className="hidden">||</div>
-                        <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
+                        <SimNav data={jsonFile.nav[0]}/>
+                        <SimNav data={jsonFile.nav[1]}/>
+                        <a href="" id="options" className="sim-nav-category flex-item flex-column">
+                        <div>
+                            <img src= "../../images/Options.png"></img>
+                        </div>
+                        <div>
+                            <p>Options</p>
+                        </div>
+                        </a>
                     </div>
                 </div>
 
