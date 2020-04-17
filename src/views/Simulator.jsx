@@ -212,12 +212,15 @@ const Simulator = (props) => {
     return (
         values ?
 
-        <div className="sim-page flex-item light">
-            <section className="sim-container-box grid-item nomarge">
-                <div className="sim-nav-box flex-item">
-                    <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
-                    <div className="hidden">||</div>
-                    <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
+        <div className="sim-page flex-item">
+            <section className="sim-container-box grid-item">
+                <div id="sim-nav-box" className="flex-item flex-column">
+                    <h1>Mes mesures</h1>
+                    <div className="flex-item">
+                        <SimNav className="sim-nav-world" data={jsonFile.nav[0]}/>
+                        <div className="hidden">||</div>
+                        <SimNav className="sim-nav-national" data={jsonFile.nav[1]}/>
+                    </div>
                 </div>
 
                 <div className="sim-main-box">
@@ -257,8 +260,8 @@ const Simulator = (props) => {
             </section>
 
 
-            <section className="sim-results-box flex-item flex-column nomarge">
-                <div id="results-impacts" className="sim-results-head flex-item flex-column">
+            <section className="sim-results-box flex-item flex-column">
+                <div id="results-top-box" className="flex-item flex-column">
                     <h3>Ma projection mondiale</h3>
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
@@ -297,61 +300,68 @@ const Simulator = (props) => {
                     </div>
                 </div>
                 
-                <div id="results-emissions" className="flex-item flex-column">
-                    <h3>Ma projection française</h3>
-                    <div id="results-impacts-box" className="flex-item">
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Évolution émissions</p>
-                            <div className="results-figure tag-temp flex-item">
-                                {results.impacts.reductionEmission2030}
+                <div id="results-bottom-box" className="flex-item flex-column">
+                    <div id="results-emissions" className="flex-item flex-column">
+                        <h3>Ma projection française</h3>
+                        <div id="results-impacts-box" className="flex-item">
+                            <div className="tag-container flex-item flex-column">
+                                <p className="results-title">Évolution émissions</p>
+                                <div className="results-figure tag-temp flex-item">
+                                    {results.impacts.reductionEmission2030}
+                                </div>
+                                <p className="results-legend">Entre 2020 et 2030</p>                    
                             </div>
-                            <p className="results-legend">Entre 2020 et 2030</p>                    
-                        </div>
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Moyenne Annuelle</p>
-                            <div className="results-figure tag-temp flex-item">
-                                {results.impacts.emissionMoy}
+                            <div className="tag-container flex-item flex-column">
+                                <p className="results-title">Moyenne Annuelle</p>
+                                <div className="results-figure tag-temp flex-item">
+                                    {results.impacts.emissionMoy}
+                                </div>
+                                <p className="results-legend">En MtCO2 entre 2020 et 2030</p>                    
                             </div>
-                            <p className="results-legend">En MtCO2 entre 2020 et 2030</p>                    
-                        </div>
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Empreinte Carbone</p>
-                            <div className="results-figure tag-temp flex-item">
-                                {results.impacts.empreinteFr}
+                            <div className="tag-container flex-item flex-column">
+                                <p className="results-title">Empreinte Carbone</p>
+                                <div className="results-figure tag-temp flex-item">
+                                    {results.impacts.empreinteFr}
+                                </div>
+                                <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
                             </div>
-                            <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
                         </div>
                     </div>
-                </div>
+                
 
-                <div id="results-emissions-charts-container" className="flex-item">
+                    <div id="results-emissions-charts-container" className="flex-item">
 
-                    <div className="flex-item flex-column results-emissions-charts">
-                        <div className="chart">
-                            <AreaChart datas={results.emiSecteurGnl}/>
+                        <div className="flex-item flex-column results-emissions-charts">
+                            <div className="chart">
+                                <AreaChart datas={results.emiSecteurGnl}/>
+                            </div>
+                            <p>Emissions Totales</p>
                         </div>
-                        <p>Emissions Totales</p>
+                        {/* 
+                        BAR CHART
+                        <div className="flex-item flex-column results-emissions-charts">
+                            <div className="chart">
+                                <SimBarChart datas={results.emiSecteur}/>
+                            </div>
+                            <p>Emissions Totales</p>
+                        </div> */}
+
+                        <div className="flex-item flex-column results-emissions-charts">
+                            {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
+                            <div className="chart">
+                                <Sunburst datas={results.emiSecteurPie}/>  
+                            </div>
+                            <p>Emissions par Secteur</p>
+                        </div>  
+
                     </div>
-                    {/* 
-                    BAR CHART
-                    <div className="flex-item flex-column results-emissions-charts">
-                        <div className="chart">
-                            <SimBarChart datas={results.emiSecteur}/>
-                        </div>
-                        <p>Emissions Totales</p>
-                    </div> */}
 
-                    <div className="flex-item flex-column results-emissions-charts">
-                        {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
-                        <div className="chart">
-                            <Sunburst datas={results.emiSecteurPie}/>  
-                        </div>
-                        <p>Emissions par Secteur</p>
+                    <div id="results-button" className="flex-item">
+                        <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
                     </div>
+
                 </div>
                          
-                <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
-
             </section>
         </div>
 
