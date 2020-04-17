@@ -41,6 +41,8 @@
     margin-bottom: 10px;
 }
 
+/* @import "./font/fontCircular.css"; */
+
 #sim-nav-box h1 {
     font-family: 'Circular Std';
     font-style: normal;
@@ -62,12 +64,12 @@
 }
 
 #sim-nav-fr {
-    width: 70%;
+    width: 66%;
     margin-right: 10px;
 }
 
 #sim-nav-world {
-    width: 18%;
+    width: 22%;
 }
 
 .sim-nav {
@@ -113,6 +115,7 @@
     font-size: 15px;
     text-align: center;
     letter-spacing: -0.045em;
+    color: #163E59;
 }
 
 #options {
@@ -170,21 +173,72 @@
     width: 100%;
 }
 
-.sim-categorie{
+/* /// TITRES CATEGORIES */
+
+.sim-categorie {
     padding: 1.5% 1em;
     justify-content: space-between;
-    border: 2px solid var(--green);
-    border-radius: 1em;
     align-items: center;
     margin-bottom: 2%;
     height: auto;
-    width: auto;
-    background-color: var(--grey);
+    width: 100%;
 }
 
-.sim-categorie-name {
-    font-weight: normal;
+.sim-categorie > div {
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.sim-jauge {
+    width: 100%;
+    height: 20px;
+    margin: 5px 0;
+}
+
+.sim-categorie-emissions {
+    font-size: 15px;
+    line-height: 19px;
+}
+
+.sim-categorie-markers {
+    justify-content: space-around;
+    width: 100%;
+}
+
+.sim-categorie-markers > div {
+    align-items: center;
+}
+
+.sim-categorie-markers p {
+    font-size: 12px;
+    line-height: 115.9%;
+    text-align: center;
+    letter-spacing: -0.015em;
+}
+
+.sim-emissions-2030 {
+    color:#0B8C85;
+}
+
+.sim-emissions-2020 {
+    color:#FF6868;
+}
+
+
+.sim-categorie-name {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 32px;
+    color: #163E59;
+}
+
+
+
+
+
+/* /// OPTIONS */
+
 
 .sim-options{
     justify-content: space-between;
@@ -242,11 +296,6 @@
 
 input[type="radio"]{
     margin-right: 1em;
-}
-
-.small-param-desc{
-    font-size: 0.8em;
-    height: 2.5em;
 }
 
 .bigger{

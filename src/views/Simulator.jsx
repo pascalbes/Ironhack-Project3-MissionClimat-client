@@ -216,7 +216,7 @@ const Simulator = (props) => {
         <div className="sim-page flex-item">
             <section className="sim-container-box">
                 <div id="sim-nav-box" className="flex-item flex-column">
-                    <h1>Mes mesures</h1>
+                    <h1>Mes mesures pour 2030</h1>
                     <div className="flex-item">
                         <SimNav data={jsonFile.nav[0]}/>
                         <SimNav data={jsonFile.nav[1]}/>
@@ -232,7 +232,7 @@ const Simulator = (props) => {
                 </div>
 
                 <div className="sim-main-box">
-                        <div className="sim-cat-params-box sticky">
+                        {/* <div className="sim-cat-params-box sticky">
                             <div className="sim-categorie flex-item">
                                 <h4 className="sim-categorie-name">Options</h4>
                             </div>
@@ -252,10 +252,10 @@ const Simulator = (props) => {
                                     <FormControlLabel className="nomarge nopad" onChange={e => setModeExpert(e.target.checked)} value="end" control={<Switch color="Secondary"/>} /><label>Mode Expert</label>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         {jsonFile.categories.map((cat, i) => (
                             <div className="sim-cat-params-box">
-                                <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>
+                                {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
                                 <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
                                 <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
                                     {cat.parameters.map((param, j) => (

@@ -7,6 +7,7 @@ import { AutoSizer } from 'react-virtualized'
 
 const MyBullet = ({results}) => {
 
+    console.log("jauge data", results)
     const color=results[0].color
     delete results.color;
 
@@ -21,7 +22,7 @@ const MyBullet = ({results}) => {
         // margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
         spacing={46}
         measureColors={color}
-        rangeColors="grey"
+        rangeColors="white"
         markerColors="paired"
         // titleAlign="start"
         titleOffsetX={-7000}

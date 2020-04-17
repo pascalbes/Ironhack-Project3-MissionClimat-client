@@ -10,7 +10,7 @@
 }
 
 .param-header {
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -35,14 +35,23 @@
 }
 
 .param-name {
-    margin-bottom: 0.5em;
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-right: 10px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    line-height: 19px;
 }
 
 .see-more-btn{
-    margin-bottom: 0.5em;
+    font-size: 15px;
+    line-height: 19px;
+}
+
+.small-param-desc {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 115.9%;
+    letter-spacing: -0.015em;
+    margin-bottom: 2px;
 }
 
 .param-info-container-hidden {

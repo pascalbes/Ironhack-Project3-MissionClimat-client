@@ -21,12 +21,11 @@ const MscSlider = withStyles({
           height: 8,
         },
         thumb: {
-          height: 24,
-          width: 24,
-          backgroundColor: '#fff',
-          border: '5px solid currentColor',
-          marginTop: -8,
-          marginLeft: -12,
+          height: 14,
+          width: 14,
+          backgroundColor: '#1087a1',
+          marginTop: -4,
+          marginLeft: -7,
           '&:focus,&:hover,&$active': {
             boxShadow: 'inherit',
           },
@@ -35,12 +34,12 @@ const MscSlider = withStyles({
         valueLabel: {//   left: 'calc(-50%)',
         },
         track: {
-          height: 10,
+          height: 5,
           borderRadius: 4,
           color: 'black'
         },
         rail: {
-          height: 10,
+          height: 5,
           borderRadius: 4,
         },
         markActive: {
@@ -119,7 +118,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
             <div className="param-header flex-item nomarge nopad">
                 <h6 className="param-name nomarge">{data.name}</h6>
                 <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
-                    <FontAwesomeIcon icon={faInfoCircle}/>
+                    <FontAwesomeIcon icon={faPlus}/>
                 </button>
             </div>
             {data.description && <p className="small-param-desc">{data.description}</p>}

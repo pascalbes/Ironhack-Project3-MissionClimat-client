@@ -42,16 +42,17 @@ const SimParametreList = ({data, value, setOneValue}) => {
                 <div className="param-header flex-item nomarge nopad">
                     <h6 className="param-name nomarge">{data.name}</h6>
                     <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
-                        <FontAwesomeIcon icon={faInfoCircle}/>
+                        <FontAwesomeIcon icon={faPlus}/>
                     </button>
                 </div>
-                <p>{data.description}</p>
+                {data.description && <p className="small-param-desc">{data.description}</p>}
+
                 <form >
                 <div className="flex-item"> 
                     {possibleValues.map((val, i) => (
                         <div key={i} className="sim-param-radio">
                             <input type="radio" key={i} id={val} name={i} onChange={e => setDefaultValue(e.target.id)} checked={val === defaultValue}/>
-                            <label key={"lab"+i} htmlFor={val}>{val}</label>
+                            <label className="small-param-desc" key={"lab"+i} htmlFor={val}>{val}</label>
                         </div>
                     ))
                     }
