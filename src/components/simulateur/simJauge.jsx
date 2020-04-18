@@ -21,7 +21,7 @@ const MyBullet = ({results}) => {
         width={width}
         // margin={{ top: 50, right: 90, bottom: 50, left: 90 }}
         spacing={46}
-        measureColors={color}
+        measureColors='#77D9B5'
         rangeColors="white"
         markerColors="paired"
         // titleAlign="start"
