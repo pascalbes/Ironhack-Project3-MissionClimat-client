@@ -72,7 +72,7 @@
 }
 
 #sim-nav-world {
-  width: 15%;
+  width: 12%;
 }
 
 .sim-nav {
@@ -142,56 +142,13 @@
   width: 90%;
 }
 
-/* .sim-nav-category p {
-  font-family: "Circular Std";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  text-align: center;
-  letter-spacing: -0.045em;
-  color: #163e59;
-} */
 
 #options {
-  width: 15%;
+  width: 11%;
   margin-top: 42px;
   background-color: #b0e0e6;
 }
 
-/* 
-.sim-nav{
-    align-items: center;
-    margin-bottom: 1em;
-}
-
-.sim-nav-scope{
-    text-align: center;
-    margin-bottom: 0.5em;
-    font-weight: bold;
-    color: var(--darkblue)
-}
-
-.sim-nav-categories{
-    align-items: center;
-    justify-content: center;
-    height: 3em;
-    background-color: var(--darkgrey);
-    border-radius: 1em;
-    padding: 0 1em;
-}
-
-.sim-nav-categories p:last-of-type{
-    display: none;
-}
-
-.sim-nav-categorie{
-    flex-wrap: wrap;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1em;
-    font-weight: bold;
-    margin: 0 0.5em;
-} */
 
 /* /// MAIN-BOX */
 .sim-main-box {
@@ -437,6 +394,25 @@ input[type="radio"] {
   width: 100%;
   height: 100%;
 }
+
+.chart-tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  box-shadow: 5px 5px 5px lightgrey;
+  font-size: 0.8em;
+}
+
+.chart-tooltip h4 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+/* .chart-tooltip p {
+  font-size: 0.8em;
+} */
 
 /* /// COMPOSANT INDICATEUR AVEC TITRE BOX ET LEGENDE */
 

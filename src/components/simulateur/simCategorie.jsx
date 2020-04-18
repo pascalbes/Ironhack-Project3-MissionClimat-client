@@ -4,7 +4,7 @@ import Jauge from "./simJauge"
 const simCategorie = ({data, results}) => {
 
     return (
-        <div className="sim-categorie flex-item" style={{backgroundColor:data.color}}>
+        <div id={"cat" + data.index} className="sim-categorie flex-item" style={{backgroundColor:data.color}}>
             <h4 className="sim-categorie-name">{data.name}</h4>
             {results && data.name === results[0].name && <div className="flex-item flex-column">
                 <p className="sim-categorie-emissions">Mes émissions 2030 : {results[0].measures[0]} MtCO2</p>

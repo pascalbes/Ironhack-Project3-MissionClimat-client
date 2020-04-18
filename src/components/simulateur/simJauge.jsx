@@ -7,7 +7,6 @@ import { AutoSizer } from 'react-virtualized'
 
 const MyBullet = ({results}) => {
 
-    console.log("jauge data", results)
     const color=results[0].color
     delete results.color;
 

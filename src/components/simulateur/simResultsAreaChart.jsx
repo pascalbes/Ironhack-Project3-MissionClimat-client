@@ -9,9 +9,8 @@ const simResultsAreaChart = ({datas}) => {
     const data = datas.data.data
 
     function toolTipContent(e) {
-      console.log(e)
       return (
-        <div id="area-tooltip" style={{backgroundColor:'white'}}>
+        <div className="chart-tooltip" style={{backgroundColor:'white'}}>
           <h4>Année : {e.label}</h4>
           {e.payload.map((area) => (
             <p style={{color:area.color}}>{area.name} : {area.value} MtCO2</p>
@@ -28,7 +27,7 @@ const simResultsAreaChart = ({datas}) => {
         <YAxis />
          <Tooltip
            content={e => toolTipContent(e)}
-           position={{ x: 0, y: -200}}
+           position={{ x: 50, y: -150}}
          />
         {datas.areaDatas.map((area, i) => (
           <Area fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}/>
