@@ -8,6 +8,10 @@ const simResultsAreaChart = ({datas}) => {
 
     const data = datas.data.data
 
+    console.log("areadatas")
+    console.log(data)
+    console.log(datas.areaDatas)
+
     // function forTooltip(object) {
     //   return Object.entries(object).map((array, i) =>{
     //     return `${array[0]}: ${array[1]}`
@@ -35,6 +39,32 @@ const simResultsAreaChart = ({datas}) => {
     //   return null;
     // };
 
+    function toolTipContent(e) {
+      console.log(e)
+      return (
+        <div id="area-tooltip" style={{backgroundColor:'white'}}>
+          <h4>Année : {e.label}</h4>
+          {e.payload.map((area) => (
+            <p style={{color:area.color}}>{area.name} : {area.value} MtCO2</p>
+          ))}
+        </div>
+        )
+    }
+
+
+//     payload: Array(5)
+// 0:
+// fillOpacity: "1"
+// stroke: "#0000CD"
+// fill: "#0000CD"
+// points: []
+// dataKey: "Bâtiments"
+// unit: undefined
+// formatter: undefined
+// name: "Bâtiments"
+// color: "#0000CD"
+// value: 111.6
+// type: undefined
 
     return (
       <ResponsiveContainer height= "100%" width="100%">
@@ -42,18 +72,12 @@ const simResultsAreaChart = ({datas}) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-         {/* <Tooltip  
-          allowEscapeViewBox={{x:true, y: true}}
-          // coordinate={{x:"-1000", y:"2000"}}
-          // payload={{}}
-          offset={-400}
-         
-          /> */}
+         <Tooltip
+           content={e => toolTipContent(e)}
+           position={{ x: 0, y: -200}}
+         />
         {datas.areaDatas.map((area, i) => (
-          <Area fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}  activeDot={{
-            // onMouseOver: showToolTip(),
-            // onMouseLeave: hideToolTip()
-          }} />
+          <Area fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}/>
         ))}
       </AreaChart>
       </ResponsiveContainer>
