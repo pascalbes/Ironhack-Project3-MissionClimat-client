@@ -47,11 +47,6 @@
     justify-content: flex-end;
 }
 
-.tag-container{
-    width: 100%;
-    margin-top: 1em;
-}
-
 .sim-results-head-results h5{
     width: 100%;
     font-size: 1.5em;

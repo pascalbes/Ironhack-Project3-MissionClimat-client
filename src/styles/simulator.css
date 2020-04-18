@@ -10,14 +10,14 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 64%;
+  width: 60%;
   margin-right: 10px;
 }
 
 .sim-results-box {
   /* box-shadow: -15px 0 15px -15px inset, 15px 0 15px -15px inset; */
   height: 100%;
-  width: auto%;
+  width: calc(40% - 10px);
 }
 
 /* /// LOADER */
@@ -33,9 +33,8 @@
 /* /// SIM-NAV */
 #sim-nav-box {
   align-items: center;
-  height: 28%;
-  /* border-bottom: 3px solid var(--green); */
-  padding: 20px;
+  height: 22%;
+  padding: 15px;
   background-color: white;
   width: 100%;
   margin-bottom: 10px;
@@ -43,14 +42,15 @@
 
 /* @import "./font/fontCircular.css"; */
 
-#sim-nav-box h1 {
+#sim-nav-box h1, #results-top-box h1, #results-emissions h1 {
   font-family: "Circular Std";
   font-style: normal;
   font-weight: bold;
   font-size: 25px;
-  line-height: 32px;
+  line-height: 25px;
   color: #163e59;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 0;
 }
 
 #sim-nav-box h2 {
@@ -58,7 +58,7 @@
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
-  line-height: 23px;
+  line-height: 18px;
 }
 
 #sim-nav-box > div {
@@ -83,7 +83,7 @@
   width: 100%;
   border-top: solid rgba(0, 0, 0, 0.2) 1px;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .sim-nav-category {
@@ -92,7 +92,7 @@
   border-radius: 10px;
   position: relative;
   display: inline-block;
-  height: 60px;
+  height: 50px;
 }
 
 .sim-nav-category .sim-nav-category-background {
@@ -131,7 +131,6 @@
   max-width: 30px;
   display: inline-block;
   vertical-align: middle;
-  vertical-align: middle;
 }
 
 #sim-nav-fr .sim-nav-category {
@@ -142,10 +141,9 @@
   width: 90%;
 }
 
-
 #options {
   width: 11%;
-  margin-top: 42px;
+  margin-top: 32px;
   background-color: #b0e0e6;
 }
 
@@ -157,7 +155,7 @@
   scroll-behavior: smooth;
   overflow-y: auto;
   padding: 10px;
-  height: calc(72% - 10px);
+  height: calc(78% - 10px);
   width: 100%;
 }
 
@@ -321,51 +319,32 @@ input[type="radio"] {
 /* /// PROJECTION MONDIALE */
 #results-top-box {
   background-color: white;
-  height: 25%;
+  height: 28%;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-}
-
-#results-top-box h3 {
-  line-height: 1.5rem;
-  font-size: 1.5em;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: var(--darkblue);
+  padding: 15px;
 }
 
 #results-impacts-box {
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
+  margin-top: 10px;
 }
 
 /* /// PROJECTION FRANCAISE */
 
 #results-bottom-box {
   background-color: white;
-  justify-content: space-between;
-  height: calc(75% - 10px);
+  height: calc(72% - 10px);
   width: 100%;
+  padding: 15px;
 }
 
 #results-emissions {
   width: 100%;
-  justify-content: space-between;
   align-items: center;
-  padding-top: 1em;
-}
-
-#results-emissions h3 {
-  line-height: 1.5rem;
-  font-size: 1.5em;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: var(--darkblue);
 }
 
 #results-emissions-charts-container {
@@ -375,7 +354,7 @@ input[type="radio"] {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin: 3% 0;
+  margin: 20px 0;
 }
 
 .results-emissions-charts {
@@ -417,7 +396,7 @@ input[type="radio"] {
 /* /// COMPOSANT INDICATEUR AVEC TITRE BOX ET LEGENDE */
 
 .tag-container {
-  width: 40%;
+  width: 30%;
   justify-content: flex-start;
   align-items: center;
 }
@@ -440,7 +419,6 @@ input[type="radio"] {
 }
 
 .results-figure {
-  background-color: var(--grey);
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
@@ -448,7 +426,12 @@ input[type="radio"] {
   height: 3rem;
   width: 5em;
   border-radius: 0.5rem;
-  margin-bottom: 0.2rem;
+  line-height: normal;
+}
+
+.figure-unit {
+  font-size: 0.6em;
+  font-weight:normal;
 }
 
 #results-button {
@@ -461,5 +444,5 @@ input[type="radio"] {
 
 .sim-results-box button {
   padding: 1em 3em;
-  margin-bottom: 1em;
+  font-size: 1em;
 }
