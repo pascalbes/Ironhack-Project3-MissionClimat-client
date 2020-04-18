@@ -19,6 +19,9 @@ import SimParamSlider from "../components/simulateur/simParametreSlide"
 import Sunburst from './../components/simulateur/sunburstChart'
 import SimBarChart from './../components/simulateur/simBarChart'
 
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import api from '../api/APIHandler'
 
 const Simulator = (props) => {
@@ -26,6 +29,7 @@ const Simulator = (props) => {
     const [values, setValues] = useState()
     const [results, setResults] = useState(jsonFile.results)
     const [modeExpert, setModeExpert] = useState(false)
+    const [visibleOptions, setVisibleOptions] = useState(false);
 
     //Gestion d'une route avec paramêtres spécifiques
     //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -207,6 +211,17 @@ const Simulator = (props) => {
         window.location.reload();
     }
 
+
+    function showOptions(e) {
+      e.preventDefault();
+      setVisibleOptions(true);
+    }
+
+    function hideOptions(e) {
+      e.preventDefault();
+      setVisibleOptions(false);
+    }
+
     console.log(values)
     console.log(results)
 
@@ -224,19 +239,26 @@ const Simulator = (props) => {
                         <div id="sim-nav-world">
                             <SimNav data={jsonFile.nav[1]}/>
                         </div>
-                        <a href="" id="options" className="sim-nav-category flex-item flex-column">
-                            <div>
-                                <img src= "../../images/Options.png"></img>
-                            </div>
-                            <div>
-                                <p>Options</p>
+                        <a href="" id="options" className="sim-nav-category flex-item flex-column" onClick={showOptions}>
+                             <div class="sim-nav-category-icon">
+                                <span class="sim-nav-category-icon-helper"></span>
+                                <img src="../../images/Options.png"></img>
                             </div>
                         </a>
                     </div>
                 </div>
 
                 <div className="sim-main-box">
-                        {/* <div className="sim-cat-params-box sticky">
+                    {visibleOptions && (
+                        <div id="optionsContainer">
+                          <div
+                            class="optionsContainerBackground"
+                            onClick={hideOptions}
+                          ></div>
+                          <div id="scrollOptions" className=" sim-cat-params-box sticky">
+                             <div class="optionsContainerClose"  onClick={hideOptions}>
+                              <FontAwesomeIcon icon={faTimes} />
+                            </div>
                             <div className="sim-categorie flex-item">
                                 <h4 className="sim-categorie-name">Options</h4>
                             </div>
@@ -256,18 +278,20 @@ const Simulator = (props) => {
                                     <FormControlLabel className="nomarge nopad" onChange={e => setModeExpert(e.target.checked)} value="end" control={<Switch color="Secondary"/>} /><label>Mode Expert</label>
                                 </div>
                             </div>
-                        </div> */}
-                        {jsonFile.categories.map((cat, i) => (
-                            <div className="sim-cat-params-box">
-                                {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
-                                <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
-                                <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
-                                    {cat.parameters.map((param, j) => (
-                                    handleParameterType(param, j, values, setValues)
-                                    ))}
-                                </div>
+                        </div> 
+                      </div>
+                    )}
+                    {jsonFile.categories.map((cat, i) => (
+                        <div className="sim-cat-params-box">
+                            {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
+                            <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
+                            <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
+                                {cat.parameters.map((param, j) => (
+                                handleParameterType(param, j, values, setValues)
+                                ))}
                             </div>
-                        ))}
+                        </div>
+                    ))}
                 </div>
             </section>
 
