@@ -23,7 +23,7 @@ const MyBullet = ({results}) => {
         spacing={46}
         measureColors='#77D9B5'
         rangeColors="white"
-        markerColors="paired"
+        markerColors={'green', 'red'}
         // titleAlign="start"
         titleOffsetX={-7000}
         titleOffsetY={-15}
