@@ -43,7 +43,7 @@ const simNavBar = (props) => {
             <h2 key="i1" className="sim-nav-scope">{props.data.scope}</h2>
             <div key="i2" className="sim-nav-categories flex-item">
                 {props.data.categories.map((cat, i) => (
-                    <a href={"#"+cat.id} className="sim-nav-category flex-item  flex-column">
+                    <a href={"#"+cat.id}   title={cat.name} className="sim-nav-category flex-item  flex-column">
                         <div
                           class="sim-nav-category-background"
                           style={{
