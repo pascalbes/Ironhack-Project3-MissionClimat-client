@@ -8,6 +8,11 @@ header{
     margin: 0;
 }
 
+#header-simulator {
+    color: #163e59;
+    background-color: white;
+}
+
 .header-left{
     font-family: 'Fugaz One', cursive;
 }
