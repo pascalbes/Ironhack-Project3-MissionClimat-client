@@ -21,7 +21,7 @@ const simNavBar = (props) => {
                         <div
                           class="sim-nav-category-background"
                           style={{
-                            backgroundColor: cat.color,
+                            backgroundColor: cat.colorHover,
                           }}
                         ></div>
                         <div class="sim-nav-category-icon">
