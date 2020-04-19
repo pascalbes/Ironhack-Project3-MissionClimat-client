@@ -1,62 +1,96 @@
-.concept-page{
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2em;
+.concept-page {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
 }
 
-.concept-box{
-    width: 80%;
-    padding: 3em 4em !important;
-    border-radius: 1em;
-    margin-bottom: 3em;
-    justify-content: space-between;
+.concept-box {
+  width: 80%;
+  padding: 3em 4em !important;
+  border-radius: 1em;
+  margin-bottom: 3em;
+  justify-content: space-between;
 }
 
-.concept-box p{
-    margin: 0.8em 0;
-    text-align: justify;
+img.border-btn {
+  background: white;
+}
+.full-width {
 }
 
-.concept-box h5{
-    margin: 0.8em 0;
-    color: var(--green);
-    font-size: 1em;
+.chapter-selection {
+  color: white;
+  text-align: center;
+  padding: 25px 50px;
+  cursor: pointer;
 }
 
-.concept-img-box{
-    padding: 2em 0;
-    justify-content: center;
+.chapter-selection.active {
+  color: #7fffd4;
 }
 
-.concept-img-box img{
-    width: 50%;
-    height: auto;
+.chapter-selection span {
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 5px solid transparent;
+  transition: 0.5s;
 }
 
-.concept-box a{
-    color: var(--green);
-    text-decoration: underline;
-    font-weight: bold;
+.chapter-selection.active span {
+  border-bottom: 5px solid #7fffd4;
 }
 
-ul{
-    margin: 1em 0 0;
+.chapter-selection img {
+  color: white;
+  height: 50px;
+  margin-bottom: 20px;
 }
 
-.concept-box .border-btn{
-    border-radius: 1em;
-    padding: 1em 2em;
+.concept-box p {
+  margin: 0.8em 0;
+  text-align: justify;
 }
 
-.concept-impact-box{
-    padding: 0 6em;
-    margin: 2em 0;
-    align-items: center;
+.concept-box h5 {
+  margin: 0.8em 0;
+  color: var(--green);
+  font-size: 1em;
 }
 
-.concept-impact-box img{
-    margin-right: 2em;
-    width: 5em;
-    height: auto;
+.concept-img-box {
+  padding: 2em 0;
+  justify-content: center;
+}
+
+.concept-img-box img {
+  width: 50%;
+  height: auto;
+}
+
+.concept-box a {
+  color: var(--green);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+ul {
+  margin: 1em 0 0;
+}
+
+.concept-box .border-btn {
+  border-radius: 1em;
+  padding: 1em 2em;
+}
+
+.concept-impact-box {
+  padding: 0 6em;
+  margin: 2em 0;
+  align-items: center;
+}
+
+.concept-impact-box img {
+  margin-right: 2em;
+  width: 5em;
+  height: auto;
 }
