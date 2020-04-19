@@ -1,72 +1,104 @@
-.about-page{
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2em;
+.about-page {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
 }
 
-.about-card{
-    width: 80%;
-    padding: 2em;
-    border-radius: 1em;
-    margin-bottom: 3em;
-    justify-content: space-between;
+.about-page h3 {
+  color: #7fffd4;
 }
 
-hr{
-    margin: 2.5em 0;
+.about-card {
+  width: 80%;
+  padding: 2em;
+  border-radius: 1em;
+  margin-bottom: 3em;
+  justify-content: space-between;
 }
 
-.about-lead-team{
-    justify-content: center;
-    align-items: flex-start;
+.separator {
+  margin-bottom: 35px;
+}
+.dev-team {
+  margin-bottom: 1.5em;
 }
 
-.about-card-lead{
-    width: 38%;
+a {
+  color: #7fffd4;
 }
 
-.about-card-lead:first-of-type{
-    margin-right: 4%;
+.dev-team-linkedin-icon {
+  padding-right: 20px;
 }
 
-.about-card-head{
-    align-items: center;
-    margin-bottom: 1em;
+.dev-team-linkedin-iconsmall {
+  padding-right: 5px;
 }
 
-.about-icon{
-    font-size: 2em;
-    margin-right: 1rem;
+.dev-team-linkedin-iconsmall-name {
+  padding-top: 5px;
 }
 
-.team-logo{
-    height: 3em;
-    width: auto;
-    margin-right: 1em;
+.linkedin-small {
+  width: 30px;
 }
 
-.about-card p{
-    margin: 0.5em 0;
-    text-align: justify;
+hr {
+  margin: 2.5em 0;
 }
 
-.about-links{
-    justify-content: space-between;
-    margin-top: 1em;
-    color: var(--green);
-    font-weight: bold;
+.about-lead-team {
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.about-links>div>a:first-of-type{
-    margin-right: 1em;
+.about-card-lead {
+  width: 38%;
 }
 
-ul{
-    padding: 0 3em;
+.about-card-lead:first-of-type {
+  margin-right: 4%;
 }
 
-ul>li>span{
-    font-weight: bold;
-    color: var(--green);
+.about-card-head {
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.about-icon {
+  font-size: 2em;
+  margin-right: 1rem;
+  color: #7fffd4;
+}
+
+.team-logo {
+  height: 3em;
+  width: auto;
+  margin-right: 1em;
+}
+
+.about-card p {
+  margin: 0.5em 0;
+  text-align: justify;
+}
+
+.about-links {
+  justify-content: space-between;
+  margin-top: 1em;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.about-links > div > a:first-of-type {
+  margin-right: 1em;
+}
+
+ul {
+  padding: 0 3em;
+}
+
+ul > li > span {
+  font-weight: bold;
+  color: var(--green);
 }
