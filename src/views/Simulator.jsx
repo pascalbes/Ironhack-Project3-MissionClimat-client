@@ -302,7 +302,7 @@ const Simulator = (props) => {
                     <div id="results-impacts-box" className="flex-item">
                         <div className="tag-container flex-item flex-column">
                             <p className="results-title">Températures</p>
-                            <div className="results-figure flex-item" style={{backgroundColor:tempColor()}}>
+                            <div className="results-figure flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
                                 +{results.impacts.temperature}°C
                             </div>
                             <p className="results-legend">Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange})</p>                    

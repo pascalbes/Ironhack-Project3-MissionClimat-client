@@ -315,6 +315,19 @@ input[type="radio"] {
   height: 2.2em;
 }
 
+/* /// JAUGES */
+.jauge-ext {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.jauge-int {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-image:linear-gradient(80deg, #7FFFD4 0%,  #88F2B6 18%, #77D9B5 38%, #1087A1 100%);
+}
+
 /* /// RESULTS */
 /* /// PROJECTION MONDIALE */
 #results-top-box {
