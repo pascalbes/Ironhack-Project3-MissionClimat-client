@@ -107,7 +107,7 @@
 }
 
 .sim-nav-category:hover .sim-nav-category-background {
-  opacity: 0.3;
+  opacity: 1;
 }
 
 .sim-nav-category .sim-nav-category-icon {
