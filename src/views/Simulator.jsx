@@ -182,17 +182,19 @@ const Simulator = (props) => {
         setValues(newValues)
     }
 
-    function handleParameterType(param, j, values) {
+    function handleParameterType(cat, param, j, values) {
+
+        console.log("handle", param, cat)
 
         //gestion mode expert
         if (!param.data.expert || (param.data.expert && modeExpert)) {
 
             //gestion type de paramètre
             if (param.type.list) {
-                return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} />
+                return <SimParamList key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} cat={cat.data}/>
             }
             else if (param.type.slider) {
-                return <SimParamSlider key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue}/>
+                return <SimParamSlider key={j} data={param.data} value={values[param.data.index]} setOneValue={setOneValue} cat={cat.data}/>
             }
         }
     }
@@ -262,7 +264,7 @@ const Simulator = (props) => {
                             <div className="sim-categorie flex-item">
                                 <h4 className="sim-categorie-name">Options</h4>
                             </div>
-                            <div className="sim-options flex-item">
+                            <div className="sim-options flex-item flex-column">
                                 <div className="sim-option-box">
                                     <h6 className="param-name">Initialisation des paramètres</h6>
                                     <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
@@ -287,7 +289,7 @@ const Simulator = (props) => {
                             <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
                             <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">
                                 {cat.parameters.map((param, j) => (
-                                handleParameterType(param, j, values, setValues)
+                                handleParameterType(cat, param, j, values, setValues)
                                 ))}
                             </div>
                         </div>
@@ -330,14 +332,14 @@ const Simulator = (props) => {
                         <div id="results-impacts-box" className="flex-item">
                             <div className="tag-container flex-item flex-column">
                                 <p className="results-title">Évolution émissions</p>
-                                <div className="results-figure flex-item" style={{backgroundColor:'#1087a1', color:'white'}}>
+                                <div className="results-figure flex-item" style={{backgroundColor:'#40E0D0', color:'#163E59'}}>
                                     {results.impacts.reductionEmission2030}
                                 </div>
                                 <p className="results-legend">Entre 2020 et 2030</p>                    
                             </div>
                             <div className="tag-container flex-item flex-column">
                                 <p className="results-title">Moyenne Annuelle</p>
-                                <div className="results-figure flex-item flex-column" style={{backgroundColor:'#1087a1', color:"white"}}>
+                                <div className="results-figure flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
                                     <p>{results.impacts.emissionMoy}</p>
                                     <p className="figure-unit">MtCO2</p>
                                 </div>

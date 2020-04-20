@@ -168,6 +168,7 @@
   margin-bottom: 2%;
   height: auto;
   width: 100%;
+  text-align: center;
 }
 
 .sim-categorie > div {
@@ -220,36 +221,6 @@
 
 /* /// OPTIONS */
 
-.sim-options {
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1em 1em 0;
-}
-
-.sim-option-box {
-  width: 48%;
-}
-
-.sim-option-box p {
-  margin-bottom: 0.5em;
-  font-size: 0.8em;
-  color: rgb(114, 114, 114);
-}
-
-.sim-option-box label {
-  font-size: 1em;
-  margin-right: 0.5em;
-}
-
-.sim-option-form {
-  justify-content: space-between;
-}
-
-.sim-option-form div {
-  height: 2.2em;
-  align-items: center;
-}
-
 #optionsContainer {
   position: fixed;
   top: 0px;
@@ -276,6 +247,51 @@
   font-size: 2rem;
   cursor: pointer;
 }
+
+#scrollOptions {
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#scrollOptions > div {
+  justify-content: center;
+}
+
+.sim-options {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em 0;
+}
+
+.sim-option-box {
+  width: 90%;
+  margin-bottom: 30px;
+
+}
+
+.sim-option-box p {
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+  color: rgb(114, 114, 114);
+}
+
+.sim-option-box label {
+  font-size: 1em;
+  margin-right: 0.5em;
+}
+
+.sim-option-form {
+  justify-content: flex-start;
+}
+
+.sim-option-form div {
+  height: 2.2em;
+  align-items: center;
+  margin-right: 20px;
+}
+
+
 
 .sticky {
   margin-right: -0.3em;

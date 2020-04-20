@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../../styles/simParametreSlide.css'
 
 
-const SimParametreList = ({data, value, setOneValue}) => {
+const SimParametreList = ({data, value, setOneValue, cat}) => {
+
+    console.log("param", cat)
 
     const [defaultValue, setDefaultValue] = useState(value[0])
     const possibleValues = data.possibleValues.split(', ')
@@ -60,7 +62,7 @@ const SimParametreList = ({data, value, setOneValue}) => {
                 </form>
             </div>
 
-            <div className={infosClass}>
+            <div className={infosClass} style={{backgroundColor:cat.color}}>
                 <div className="right-btn">
                     <div>
                         <h6>Calcul des émissions</h6>

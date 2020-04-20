@@ -50,7 +50,7 @@ const MscSlider = withStyles({
           },
       })(Slider);
     
-const SimParametreSlide = ({data, value, setOneValue}) => {
+const SimParametreSlide = ({data, value, setOneValue, cat}) => {
 
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
     const [componentClass, setComponentClass] = useState("")
@@ -141,7 +141,7 @@ const SimParametreSlide = ({data, value, setOneValue}) => {
                 />
             </div>
 
-            <div className={infosClass}>
+            <div className={infosClass} style={{backgroundColor:cat.colorHover}}>
                 <div className="right-btn">
                     <div>
                         <h6>Calcul des émissions</h6>
