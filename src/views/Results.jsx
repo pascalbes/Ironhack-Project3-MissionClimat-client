@@ -322,6 +322,35 @@ const Results = (props) => {
             </article>
 
 
+
+
+
+
+
+            <article id="res-emi-fr" className="flex-item flex-column">
+                <h1>Emissions françaises</h1>
+                <div id="res-emi-fr-pie">
+                    <h2>Emissions sectorielles françaises en 2030</h2>
+                    <p className="chart-short-desc">Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                            <Sunburst datas={results.emiSecteurPie}/>
+                        </div>
+                        <div>
+                            <p className="chart-long-desc">Description du graphique. Description du graphique. Description du graphique. Description du graphique. Description du graphique. Description du graphique.</p>  
+                            <p id="pie-legend">ici se trouve la légende</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </article>
+
+
             <article id="detail-results" className="detail-results flex-item flex-column">
                 <div className="detail-national flex-item flex-column">
                     <h2><FontAwesomeIcon className="right-btn" icon={faFlag}/>Émissions françaises</h2>

@@ -1,12 +1,21 @@
 @import "./icons.css";
 
-.results-page{
+.results-page {
     width: 100%;
     justify-content: flex-start;
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
+}
+
+.results-page h1 {
+    color: #7fffd4;
+    font-size: 3em;
+}
+
+.results-page h2 {
+    font-size: 2em;
 }
 
 /* /// HERO RESULTS */
@@ -103,6 +112,42 @@
 .share-icon{
     height: 32px;
 }
+
+/* ////////////////////////// */
+/* /// FRANCE */
+/* ////////////////////////// */
+
+/* /// PIE */
+#res-emi-fr {
+    width: 100%;
+    align-items: center;
+}
+
+#res-emi-fr-pie {
+    width: 90%;
+}
+
+.chart-short-desc {
+    font-size: 1.2em;
+    font-family:'Circular Std Medium Italic';
+}
+
+.res-chart-container {
+    width: 100%;
+}
+
+.res-chart {
+    width: 60%;
+    height: 60vh;
+}
+
+.chart-long-desc {
+    font-weight: lighter;
+    font-size: 0.9em;
+}
+
+
+
 
 /* /// DETAIL RESULTS */
 .detail-results{
