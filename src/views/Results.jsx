@@ -9,13 +9,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import jsonFile from "../ressources/initialDatas.json"
 
-import Parametres from './../components/resultats/parametres'
 import AreaChart from './../components/simulateur/simResultsAreaChart'
 import GenLinearChart from './../components/resultats/resGenLinearChart'
 import SectorLinearChart from './../components/resultats/resSectorLinearChart'
 import SimBarChart from './../components/simulateur/simBarChart'
 import Sunburst from './../components/simulateur/sunburstChart'
-import MondialLinearChart from './../components/resultats/mondialLinearChart'
 
 import './../styles/results.css'
 import "./../styles/form.css"
@@ -36,14 +34,11 @@ const Results = (props) => {
     // console.log(props)
 
     const userContext = useContext(UserContext);
-
     let { currentUser } = userContext;
 
     const [isNew, setIsNew] = useState(true)
-
     const [scenarioExists, setScenarioExists] = useState("")
 
-    // console.log(currentUser,"this is currentUser")
     var results={}
     if (localStorage.getItem('results')) {
         results = JSON.parse(localStorage.getItem('results'))
@@ -53,6 +48,7 @@ const Results = (props) => {
         results = props.location.state.results
         localStorage.setItem('results', JSON.stringify(results))
     }
+
     const checkScope = (categories) => {
         var frenchCategories = [];
         categories.map((categorie) => {
@@ -170,14 +166,6 @@ const Results = (props) => {
             return './images/worldRCP85.png'
         }
     }
-
-    // const refHeroResults = React.createRef();
-
-    // const pdfOptions = {
-    //     orientation: 'landscape',
-    //     width: '2000',
-    //     height: '792',
-    // };
 
     const toggleNew = async e => {
         if( e.target.value === "new") return setIsNew(true);
