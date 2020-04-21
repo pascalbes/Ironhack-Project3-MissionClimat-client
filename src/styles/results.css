@@ -146,10 +146,25 @@
     font-size: 2em;
 }
 
-#res-synthese button, a {
+#res-synthese button {
     border: none;
+    color: #34244E
 }
 
+#res-synthese-buttons > div {
+    background-color: white;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    color: #34244E;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#res-synthese-buttons div:first-child {
+    margin-right: 1em;
+}
 
 
 /* ////////////////////////// */
