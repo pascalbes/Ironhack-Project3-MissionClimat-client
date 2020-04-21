@@ -117,19 +117,23 @@
 /* /// FRANCE */
 /* ////////////////////////// */
 
+
 /* /// PIE */
 #res-emi-fr {
     width: 100%;
     align-items: center;
 }
 
-#res-emi-fr-pie {
+.res-emi-fr-container {
+    height: 100vh;
     width: 90%;
 }
 
 .chart-short-desc {
     font-size: 1.2em;
-    font-family:'Circular Std Medium Italic';
+    font-family:'Circular Std Book';
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
 .res-chart-container {
@@ -138,15 +142,74 @@
 
 .res-chart {
     width: 60%;
-    height: 60vh;
+    height: 70vh;
 }
 
-.chart-long-desc {
+.res-chart-infos {
+    width: 40%;
+    justify-content: center;
+}
+
+.res-chart-source {
     font-weight: lighter;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+.res-chart-legend {
+    padding: 20px;
+}
+
+.res-chart-legend > p {
+    margin-bottom: 10px;
+}
+
+.res-chart-legend td {
+    padding: 5px 10px;
+}
+
+.legend-point {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    
 }
 
 
+/* ////////////////////////// */
+/* /// MONDE */
+/* ////////////////////////// */
+
+#res-emi-world {
+    width: 100%;
+    align-items: center;
+}
+
+/* ////////////////////////// */
+/* /// IMPACTS */
+/* ////////////////////////// */
+
+#res-impacts {
+    width: 100%;
+    align-items: center;
+}
+
+#res-impacts .res-chart-legend > div {
+    flex-wrap: wrap;
+}
+
+#res-impacts .res-chart-legend > div > div {
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+#res-impacts .res-chart-legend .legend-point {
+    margin-right: 10px;
+}
+
+#res-impacts .res-chart-legend p {
+    margin-right: 20px;
+}
 
 
 /* /// DETAIL RESULTS */

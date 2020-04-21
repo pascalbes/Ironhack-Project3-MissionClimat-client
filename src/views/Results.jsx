@@ -172,25 +172,34 @@ const Results = (props) => {
         if (e.target.value === "edit") return setIsNew(false);
     }
 
+    function handleEvolution(sector) {
+        // results.emiSecteurGnl
+        let datas = results.emiSecteurGnl.data.data;
+        let evolution = Math.round((datas[datas.length-1][sector]-datas[0][sector])/datas[0][sector]*10000)/100
+        return evolution >= 0 ? "+" + evolution + "%" : evolution  + "%" 
+    }
+
+    //légende cartes températures
+    const mapLegendInfos = [["#FFF5CC", "de 0 à 0,5°C"],
+    ["#FFF5CC", "de 0 à 0,5°C"],
+    ["#FFE099", "de 0,5 à 1°C"],
+    ["#FFCB66", "de 1 à 1,5°C"],
+    ["#FFB433", "de 1,5 à 2°C"],
+    ["#FF8C33", "de 2 à 3°C"],
+    ["#FF5500", "de 3 à 4°C"],
+    ["#E6281E", "de 4 à 5°C"],
+    ["#BF0000", "de 5 à 7°C"],
+    ["#8C0000", "de 7 à 9°C"],
+    ["#6C0000", "de 9 à 11°C"],
+    ["#6E0046", "plus de 11°C"]]
+
     console.log(props.location.state.results.url)
-    // console.log(currentUser)
+    console.log(results.emiSecteurGnl)
 
-    // var [descriptionToEdit, setDescriptionToEdit] = useState("")
+    const areaDatas = [...results.emiSecteurPie.data01.reverse()];
+    results.emiSecteurPie.data01.reverse();
 
-    // function findTheRightDescription(results) {
-    //     console.log("it works")
-    //     console.log(currentUser.scenarios)
-    //     console.log(results)
-    //     var arrayUnique
-    //     arrayUnique = []
-    //     arrayUnique = currentUser.scenarios.filter(scenario => scenario.name === results.name)
-    //     console.log(arrayUnique)
-    //     console.log(arrayUnique[0].description)
-    //     if (arrayUnique[0].description.length === 0) {
-    //         return setDescriptionToEdit("")
-    //     } else {return setDescriptionToEdit(arrayUnique[0].description)}
-
-    // }
+    
 
 
     return (
@@ -328,27 +337,160 @@ const Results = (props) => {
 
 
             <article id="res-emi-fr" className="flex-item flex-column">
+
                 <h1>Emissions françaises</h1>
-                <div id="res-emi-fr-pie">
+
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h2>Evolution des émissions</h2>
+                    <p className="chart-short-desc">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures.</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                            <AreaChart datas={results.emiSecteurGnl}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <p>Légende</p>
+                                <table>
+                                    <tbody>
+                                    {areaDatas.map((data,i) => (
+                                        <tr>
+                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
+                                            <td>
+                                                <p>{data.name}</p>
+                                                <p>{Math.round(data.value)} MtCO2 / Evolution : {handleEvolution(data.name)}</p>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                        
+                                    </tbody>
+                                </table>
+                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex-item flex-column res-emi-fr-container">
                     <h2>Emissions sectorielles françaises en 2030</h2>
                     <p className="chart-short-desc">Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
-                        <div>
-                            <p className="chart-long-desc">Description du graphique. Description du graphique. Description du graphique. Description du graphique. Description du graphique. Description du graphique.</p>  
-                            <p id="pie-legend">ici se trouve la légende</p>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <p>Légende</p>
+                                <table>
+                                    <tbody>
+                                    {results.emiSecteurPie.data01.map((data,i) => (
+                                        <tr>
+                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
+                                            <td>
+                                                <p>{data.name}</p>
+                                                <p>{Math.round(data.value)} MtCO2</p>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
                         </div>
-
                     </div>
+                </div>
+            </article>
 
 
+            <article id="res-emi-world" className="flex-item flex-column">
+
+                <h1>Emissions Mondiales</h1>
+
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h2>Evolution des émissions</h2>
+                    <p className="chart-short-desc">Ce graphique représente l'évolution des émissions mondiales de 2020 à 2030, fonction de vos mesures.</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                            <GenLinearChart datas={results.emiMonde}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <p>Légende</p>
+                                <table>
+                                    
+                                </table>
+                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="res-impacts" className="flex-item flex-column">
+
+                <h1>Températures</h1>
+
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h2>Augmentation de températures en Europe</h2>
+                    <p className="chart-short-desc">Cette carte représente l'évolution des températures, en Europe, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                            <img src={handleImageEurope()}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <p>Légende</p>
+                                <div className="flex-item">
+                                    {mapLegendInfos.map((data,i) => (
+                                        <div className="flex-item">
+                                            <div className="legend-point" style={{backgroundColor:data[0]}}></div>
+                                            <p>{data[1]}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}}>(lien)</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h2>Augmentation de températures dans le Monde</h2>
+                    <p className="chart-short-desc">Cette carte représente l'évolution des températures, dans le Monde, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                            <img src={handleImageWorld()}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <p>Légende</p>
+                                <div className="flex-item">
+                                    {mapLegendInfos.map((data,i) => (
+                                        <div className="flex-item">
+                                            <div className="legend-point" style={{backgroundColor:data[0]}}></div>
+                                            <p>{data[1]}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}}>(lien)</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </article>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <article id="detail-results" className="detail-results flex-item flex-column">

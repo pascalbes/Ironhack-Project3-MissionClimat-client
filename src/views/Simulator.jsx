@@ -314,7 +314,7 @@ const Simulator = (props) => {
                             <div className="results-figure flex-item">
                                 {results.impacts.RCP}
                             </div>
-                            <p className="results-legend">Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold"}}>Plus d'infos</a>)</p>                    
+                            <p className="results-legend">Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
                             <p className="results-title">Empreinte Carbone</p>
@@ -384,7 +384,7 @@ const Simulator = (props) => {
                     </div>
 
                     <div id="results-button" className="flex-item">
-                        <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Voir mes résultats</button></Link>
+                        <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Résultats complets</button></Link>
                     </div>
 
                 </div>
