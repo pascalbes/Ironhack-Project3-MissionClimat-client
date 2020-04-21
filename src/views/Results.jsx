@@ -1,4 +1,5 @@
 import React, { useState, setState, useContext} from 'react'
+import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
@@ -38,6 +39,7 @@ const Results = (props) => {
 
     const [isNew, setIsNew] = useState(true)
     const [scenarioExists, setScenarioExists] = useState("")
+    const [textArea, setTextArea] = useState()
 
     var results={}
     if (localStorage.getItem('results')) {
@@ -193,17 +195,124 @@ const Results = (props) => {
     ["#6C0000", "de 9 à 11°C"],
     ["#6E0046", "plus de 11°C"]]
 
-    console.log(props.location.state.results.url)
-    console.log(results.emiSecteurGnl)
-
     const areaDatas = [...results.emiSecteurPie.data01.reverse()];
     results.emiSecteurPie.data01.reverse();
 
-    
+    function copyUrl() {
+        if (textArea) {
+            textArea.select()
+            document.execCommand('copy');
+            alert("Url copied to clipboard")
+        }
+    }
+
+    // function downloadModel() {
+    //     2020-04-09_Scenario1.5.xlsx
+    // }
+
 
 
     return (
+
+      
+        
+
+
         <div className="results-page flex-item flex-column">
+
+<form>
+          <textarea
+                ref={(textarea) => setTextArea(textarea)}
+                value={results.url}
+                style={{visibility:'hidden'}}
+            />
+            </form>
+
+            <article id="hero-article">
+                <div class="flex-item full-width">
+
+                    <div class="flex-column">
+                        <a href="#res-synthese">
+                            <div className="chapter-selection">            
+                            <img src="../../images/logo/Idea.svg" />
+                            <br />
+                            <span>Synthèse</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex-column">
+                        <a href="#res-emi-fr">
+                            <div className="chapter-selection">            
+                            <img src="../../images/logo/Idea.svg" />
+                            <br />
+                            <span>Emissions françaises</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex-column">
+                        <a href="#res-emi-world">
+                            <div className="chapter-selection">            
+                            <img src="../../images/logo/Idea.svg" />
+                            <br />
+                            <span>Emissions mondiales</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex-column">
+                        <a href="#res-impacts">
+                            <div className="chapter-selection">            
+                            <img src="../../images/logo/Idea.svg" />
+                            <br />
+                            <span>Impacts</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+
+            
+                <section id="res-synthese" className="flex-item flex-column">
+
+                    <h1>Synthèse</h1>
+                    
+                    <div className="flex-item flex-column">
+                        
+                        <div id="res-synthese-indicator" className="flex-item">
+                            <div className="tag-container flex-item flex-column">
+                                <p className="results-title">Températures</p>
+                                <div className="results-figure flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
+                                    +{results.impacts.temperature}°C
+                                </div>
+                                <p className="results-legend">Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange})</p>                    
+                            </div>
+                            <div className="tag-container flex-item flex-column">
+                                <p className="results-title">Évolution émissions</p>
+                                <div className="results-figure flex-item" style={{backgroundColor:'#40E0D0', color:'#163E59'}}>
+                                    {results.impacts.reductionEmission2030}
+                                </div>
+                                <p className="results-legend">Entre 2020 et 2030</p>                    
+                            </div>
+                        </div> 
+
+                        <p>"Peut mieux faire !"</p>
+
+                        <div id="res-synthese-buttons" className="flex-item">
+                            <div><button onClick={copyUrl}><FontAwesomeIcon icon={faLink}/></button></div>
+                            <div><a href='./2020-04-09_Scenario1.5.xlsx' download><FontAwesomeIcon icon={faDownload}/></a></div>
+                        </div> 
+
+                    </div>
+                
+                </section>
+            </article>
+
+
+
+
+
             <article className="hero-results flex-item flex-column">
                 <div className="hidden"></div>
                 <div className="results-box light grid-item border-btn">
@@ -329,6 +438,7 @@ const Results = (props) => {
                 </div>
                 <button className="blinking border-btn down-btn"><a href="#detail-results"><FontAwesomeIcon icon={faChevronDown}/></a></button>
             </article>
+
 
 
 

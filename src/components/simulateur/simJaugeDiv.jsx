@@ -3,8 +3,6 @@ import React from 'react'
 const simJaugeDiv = ({results}) => {
 
     const color=results[0].color
-    
-    console.log(results)
 
     const max = results[0].ranges[2];
     const value = results[0].measures[0]/max*100+"%";

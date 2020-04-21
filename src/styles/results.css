@@ -12,6 +12,8 @@
 .results-page h1 {
     color: #7fffd4;
     font-size: 3em;
+    border-bottom: #7fffd4 solid 4px;
+    margin-bottom: 10px;
 }
 
 .results-page h2 {
@@ -114,6 +116,43 @@
 }
 
 /* ////////////////////////// */
+/* /// SYNTHESE */
+/* ////////////////////////// */
+
+#hero-article {
+    height: 100vh;
+}
+
+
+#res-synthese {
+    width: 100%;
+    align-items: center;
+}
+
+#res-synthese > div {
+    width: 90%;
+    padding: 20px;
+    background-color: #442D59;
+}
+
+#res-synthese > div > * {
+    justify-content: center;
+    text-align: center;
+}
+
+#res-synthese > div > p {
+    color: #7fffd4;
+    margin: 30px 0;
+    font-size: 2em;
+}
+
+#res-synthese button, a {
+    border: none;
+}
+
+
+
+/* ////////////////////////// */
 /* /// FRANCE */
 /* ////////////////////////// */
 
@@ -172,7 +211,6 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    
 }
 
 

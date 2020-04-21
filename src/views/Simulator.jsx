@@ -184,8 +184,6 @@ const Simulator = (props) => {
 
     function handleParameterType(cat, param, j, values) {
 
-        console.log("handle", param, cat)
-
         //gestion mode expert
         if (!param.data.expert || (param.data.expert && modeExpert)) {
 
@@ -317,7 +315,7 @@ const Simulator = (props) => {
                             <p className="results-legend">Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Empreinte Carbone</p>
+                            <p className="results-title">Empreinte carbone</p>
                             <div className="results-figure flex-item" style={{backgroundColor:'#b0e0e6'}}>
                                 {results.impacts.empreinteMonde}t
                             </div>
@@ -338,15 +336,15 @@ const Simulator = (props) => {
                                 <p className="results-legend">Entre 2020 et 2030</p>                    
                             </div>
                             <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Moyenne Annuelle</p>
+                                <p className="results-title">Émissions annuelles</p>
                                 <div className="results-figure flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
                                     <p>{results.impacts.emissionMoy}</p>
                                     <p className="figure-unit">MtCO2</p>
                                 </div>
-                                <p className="results-legend">En MtCO2 entre 2020 et 2030</p>                    
+                                <p className="results-legend">Entre 2020 et 2030</p>                    
                             </div>
                             <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Empreinte Carbone</p>
+                                <p className="results-title">Empreinte carbone</p>
                                 <div className="results-figure flex-item" style={{backgroundColor:'#b0e0e6'}}>
                                     {results.impacts.empreinteFr}t
                                 </div>
@@ -378,7 +376,7 @@ const Simulator = (props) => {
                             <div className="chart">
                                 <Sunburst datas={results.emiSecteurPie}/>  
                             </div>
-                            <p>Emissions par Secteur</p>
+                            <p>Emissions par Secteur / 2030</p>
                         </div>  
 
                     </div>
