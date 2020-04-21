@@ -9,6 +9,16 @@
   color: #7fffd4;
 }
 
+.about-page h5 {
+  font-size: 1.2em;
+  color: #7fffd4;
+}
+
+.about-page p {
+  font-family:  'Circular Std Book';
+  font-weight: 300;
+}
+
 .about-card {
   width: 80%;
   padding: 2em;
@@ -25,7 +35,7 @@
 }
 
 .about-page a {
-  color: #7fffd4;
+  color: #DB7093;
 }
 
 .dev-team-linkedin-icon {
