@@ -11,6 +11,8 @@
 
 .about-page h5 {
   font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #7fffd4;
 }
 
@@ -21,7 +23,7 @@
 
 .about-card {
   width: 80%;
-  padding: 2em;
+  padding: 1.5em;
   border-radius: 1em;
   margin-bottom: 3em;
   justify-content: space-between;
@@ -30,16 +32,24 @@
 .separator {
   margin-bottom: 35px;
 }
+
+.about-team-section {
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .dev-team {
-  margin-bottom: 1.5em;
+  margin-bottom: 0.7em;
+  width: 44%;
+  margin-right: 15px;
 }
 
 .about-page a {
-  color: #DB7093;
+  color: #7fffd4;
 }
 
 .dev-team-linkedin-icon {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .dev-team-linkedin-iconsmall {
@@ -48,6 +58,10 @@
 
 .dev-team-linkedin-iconsmall-name {
   padding-top: 5px;
+}
+
+.linkedin {
+  width: 30px;
 }
 
 .linkedin-small {
@@ -59,16 +73,13 @@ hr {
 }
 
 .about-lead-team {
+  width: 80%;
   justify-content: center;
   align-items: flex-start;
 }
 
-.about-card-lead {
-  width: 38%;
-}
-
 .about-card-lead:first-of-type {
-  margin-right: 4%;
+  margin-right: 2%;
 }
 
 .about-card-head {
