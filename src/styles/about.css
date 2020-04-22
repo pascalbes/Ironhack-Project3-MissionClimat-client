@@ -11,7 +11,7 @@
 
 .about-page h5 {
   font-size: 1.2em;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
   color: #7fffd4;
 }
@@ -38,10 +38,18 @@
   width: 100%;
 }
 
+.about-card-lead > p:last-of-type {
+  margin-bottom: 15px;
+}
+
+.bl-logo {
+  width: 80px;
+}
+
 .dev-team {
   margin-bottom: 0.7em;
-  width: 44%;
-  margin-right: 15px;
+  width: 48%;
+  margin-right: 2%;
 }
 
 .about-page a {
@@ -78,8 +86,8 @@ hr {
   align-items: flex-start;
 }
 
-.about-card-lead:first-of-type {
-  margin-right: 2%;
+.about-card-lead {
+  width: 100%;
 }
 
 .about-card-head {

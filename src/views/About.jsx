@@ -29,26 +29,25 @@ export const AboutUs = () => {
         <p>
           Liens étude et articles de presse
         </p>
-        <h5>Développement v0 @Ironhack Paris / Février 2020</h5>
+        <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
           En janvier 2020, Guillaume Martin, l'un des 2 co-auteurs de l'étude, et Pascal Besson
           décident de démocratiser et valoriser ce modèle autour d'un simulateur web. Une maquette 
           est développée en 2 semaines avec Nina Gautreau et Paul Carillion, 
           pour le projet final du bootcamp Ironhack Paris. En parallèle, Charles-Adrien Louis, Célian Niclot 
           et Guillaume Martin simplifient et améliorent le modèle pour le rendre accessible au public. Le projet est finalement honoré en étant élu meilleur projet web par la promotion
-          de dev web puis lors du hackshow du 9 mars. Champagne!
+          de dev web puis lors du hackshow du 9 mars de Ironhack. Champagne!
         </p>
 
-        <h5>Développement Mission Transition / Avril 2020</h5>
+        <h5>Développement Mission Climat / Avril 2020</h5>
         <p>
           Après un cours repos une petite équipe est montée pour finaliser le projet.
-          Oriana Berthomieu définit l'UI finale et Emmanuel Bernard rejoint Pascal pour finaliser le développement. Le site sort enfin le 3 mai 2020, au grand bonheur de tout ce joli monde, et nous l'espérons,
-          au vôtre également !
+          Oriana Berthomieu définit l'UI finale et Emmanuel Bernard rejoint Pascal pour finaliser le développement. Le site sort enfin le 3 mai 2020, au grand bonheur de tout ce joli monde, et nous l'espérons, au vôtre également !
         </p>
       </article>
 
-      <section className="about-lead-team flex-item">
-        <article className="about-card about-card-lead border-btn  flex-item flex-column">
+      <section className="about-lead-team flex-item flex-column">
+        <article className="about-card-lead border-btn flex-item flex-column">
           <div className="about-card-head flex-item">
             {/* <img
               className="team-logo"
@@ -58,7 +57,8 @@ export const AboutUs = () => {
             <h3 className="nomarge">L'équipe</h3>
           </div>
 
-          <p>L'ensemble de l'équipe s'est investie bénévolement. Vous souhaitez les rejoindre ? les soutenir dans leur futur projet "Mission Transition" ? C'est ici.</p>
+          <p>L'ensemble de l'équipe s'est investie bénévolement.</p>
+          <p> Vous souhaitez les rejoindre ? les soutenir dans leur futur projet "Mission Transition" ? C'est ici !</p>
 
           <h5>Pilotage Projet</h5>
 
@@ -90,13 +90,54 @@ export const AboutUs = () => {
                 Guillaume Martin
                 </a>
                 <br />Expert Climat / Energie @ BL évolution<br />
-                Rôle : pilotage projet, modèle émissions
+                Rôle : pilotage projet, modèle émissions<br />
+                <img className="bl-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
               </div>
             </div>
 
           </div>
 
-          <h5>Data, Dev, UX/UI</h5>
+          <h5>Data : modèle de calcul des émissions</h5>
+
+          <p>Le modèle de calcul a été réalisé par BL évolution.</p>
+
+          <div className="flex-item about-team-section">
+
+            <div class="flex-item dev-team">
+                <div class="flex-column dev-team-linkedin-icon">
+                  <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
+                    <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
+                  </a>
+                </div>
+                <div class="flex-column">
+                  <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
+                  Charles-Adrien Louis
+                  </a>
+                  <br />Co-fondateur et co-dirigeant BL évolution<br />
+                  Rôle : modèle émission<br />
+                  <img className="bl-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                </div>
+              </div>
+
+              <div class="flex-item dev-team">
+                <div class="flex-column dev-team-linkedin-icon">
+                  <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
+                    <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
+                  </a>
+                </div>
+                <div class="flex-column">
+                  <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
+                  Célian Niclot
+                  </a>
+                  <br />Consultant énergie climat @ BL évolution<br />
+                  Rôle : modèle émission<br />
+                  <img className="bl-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                </div>
+              </div>
+            
+          </div>
+
+          <h5>Dev, UX/UI</h5>
 
           <div className="flex-item about-team-section">
 
@@ -112,36 +153,6 @@ export const AboutUs = () => {
                 </a>
                 <br />Dev Fullstack<br />
                 Rôle : UX-UI, CSS, dev front
-              </div>
-            </div>
-
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
-                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
-                Charles-Adrien Louis
-                </a>
-                <br />Co-fondateur et co-dirigeant BL évolution<br />
-                Rôle : modèle émission
-              </div>
-            </div>
-
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
-                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
-                Célian Niclot
-                </a>
-                <br />Consultant énergie climat @ BL évolution<br />
-                Rôle : modèle émission
               </div>
             </div>
 
@@ -388,23 +399,32 @@ export const AboutUs = () => {
           <h3 className="nomarge">Droits, licences et spécifications</h3>
         </div>
 
-        <h5>Site Mission Climat</h5>
+        <div className="flex-item">
 
-        <p>Stack : JS / React / NodeJS
-            <br />
-            API : Google Sheet et Drive
-            <br />
-            Librairies : rechart, material UI
-        </p>
-        <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
-        <p>Le site est sous licence CC ...</p>
-        <p>Lien github</p>
+          <div>
+            <h5>Site Mission Climat</h5>
 
-        <h5>Modèle de calcul des émissions</h5>
+            <p>Stack : JS / React / NodeJS
+                <br />
+                API : Google Sheet et Drive
+                <br />
+                Librairies : rechart, material UI
+            </p>
+            <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
+            <p>Le site est sous licence CC ...</p>
+            <p>Lien github</p>
+          </div>
 
-        <p>Auteurs : BL évolution</p>
-        <p>Le modèle est sous licence CC ...</p>
-        <p>Lien téléchargement</p>
+        
+          <div>
+            <h5>Modèle de calcul des émissions</h5>
+
+            <p>Auteurs : BL évolution</p>
+            <p>Le modèle est sous licence CC ...</p>
+            <p>Lien téléchargement</p>
+
+            </div>
+          </div>
         
       </article>
 
