@@ -52,8 +52,14 @@
     text-align: right;
 }
 
+#hero-img-container {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
 .hero-img{
-    max-height: 90%;
+    width: 100%;
 }
 
 .hero-btn{

@@ -6,8 +6,10 @@ import {PieChart, Pie, Sector, Cell, Legend, Label, Tooltip, ResponsiveContainer
 const SunburstChart = React.forwardRef(({datas}, ref) => {
 
   function toolTipContent(e) {
-    return e.payload[0] ? <p className="chart-tooltip" style={{backgroundColor:'white',color:e.payload[0].payload.payload.color}}>{e.payload[0].name} : {Math.round(e.payload[0].value)} MtCO2</p> : ""
+    return e.payload[0] ? <p className="chart-tooltip" style={{backgroundColor:'white',color:'#163E59'}}>{e.payload[0].name} : {Math.round(e.payload[0].value)} MtCO2</p> : ""
   }
+
+  // e.payload[0].payload.payload.color
 
   return (
     <ResponsiveContainer width="100%" height="100%" >

@@ -2,7 +2,7 @@
 .sim-page {
   height: 90vh;
   background-color: #e5e5e5;
-  color: var(--darkblue);
+  color: #163E59;
   padding: 10px;
 }
 
@@ -252,6 +252,7 @@
   align-items: center;
   padding: 20px;
   border-radius: 10px;
+  color: #163E59;
 }
 
 #scrollOptions > div {
@@ -273,7 +274,6 @@
 .sim-option-box p {
   margin-bottom: 0.5em;
   font-size: 0.8em;
-  color: rgb(114, 114, 114);
 }
 
 .sim-option-box label {
@@ -296,7 +296,7 @@
 .sticky {
   margin-right: -0.3em;
   z-index: 2;
-  background-color: rgb(207, 231, 223);
+  background-color:#B0E0E6;
   position: sticky;
   position: -webkit-sticky;
   padding-bottom: 20px;
@@ -309,7 +309,7 @@
 }
 
 .sticky .sim-categorie {
-  background: rgb(207, 231, 223);
+  background:#B0E0E6);
 }
 
 .sim-param-box {
@@ -403,19 +403,41 @@ input[type="radio"] {
   height: 100%;
 }
 
+#area-tooltip {
+  padding: 10px;
+  align-items: flex-start;
+}
+
+#area-tooltip .legend-point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+#area-tooltip > div {
+  align-items: center;
+}
+
 .chart-tooltip {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  border-radius: 5px;
   border: 1px solid lightgrey;
-  box-shadow: 5px 5px 5px lightgrey;
+  box-shadow: 3px 3px 3px #163E59;
   font-size: 0.8em;
 }
 
 .chart-tooltip h4 {
-  font-size: 1.2em;
-  margin-bottom: 5px;
+  font-size: 1.1em;
+  align-self: center;
+}
+
+.chart-tooltip p {
+  font-size: 0.9em;
+  align-self: center;
 }
 
 /* .chart-tooltip p {
@@ -435,7 +457,7 @@ input[type="radio"] {
 }
 
 .results-legend {
-  font-size: 0.6em;
+  font-size: 0.65em;
   text-align: center;
 }
 

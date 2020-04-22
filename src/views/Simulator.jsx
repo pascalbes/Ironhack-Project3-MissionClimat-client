@@ -275,7 +275,7 @@ const Simulator = (props) => {
                                 <div className="sim-option-box">
                                     <h6 className="param-name">Mode Expert</h6>
                                     <p>Le mode expert permet d'accéder à un plus grand nombre de paramètres, pour régler son scénario avec davantage de finesse</p>
-                                    <FormControlLabel className="nomarge nopad" onChange={e => setModeExpert(e.target.checked)} value="end" control={<Switch color="Secondary"/>} /><label>Mode Expert</label>
+                                    <FormControlLabel className="nomarge nopad" onChange={e => setModeExpert(e.target.checked)} value="end" control={<Switch color="Secondary"/>} /><label>Activer</label>
                                 </div>
                             </div>
                         </div> 
@@ -305,14 +305,14 @@ const Simulator = (props) => {
                             <div className="results-figure flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
                                 +{results.impacts.temperature}°C
                             </div>
-                            <p className="results-legend">Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange})</p>                    
+                            <p className="results-legend">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
                             <p className="results-title">Scénario GIEC</p>
                             <div className="results-figure flex-item">
                                 {results.impacts.RCP}
                             </div>
-                            <p className="results-legend">Scénario GIEC correspondant à vos paramètres (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>                    
+                            <p className="results-legend">Scénario GIEC de vos mesures (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>                    
                         </div>
                         <div className="tag-container flex-item flex-column">
                             <p className="results-title">Empreinte carbone</p>
@@ -382,7 +382,7 @@ const Simulator = (props) => {
                     </div>
 
                     <div id="results-button" className="flex-item">
-                        <Link to={{pathname: "/results",state: {results: results}}}><button className="sim-init-button green-btn">Résultats complets</button></Link>
+                        <Link to={{pathname: "/results",state: {results: results}}}><button className="blue-btn">Résultats complets</button></Link>
                     </div>
 
                 </div>

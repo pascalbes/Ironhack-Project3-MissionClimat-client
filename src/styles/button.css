@@ -14,6 +14,14 @@ button{
     border: 2px solid transparent;
 }
 
+.blue-btn {
+    background-color: #163E59;
+    color: white;
+    background-size: 120% 120%;
+    background-position: center;
+    border: 2px solid transparent;
+}
+
 #cta-btn {
     font-size: 1.3em;
     color: #021438;

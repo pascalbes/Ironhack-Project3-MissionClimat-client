@@ -18,10 +18,14 @@ const Header = ({location}) => {
         return location.pathname==="/simulator" ? "#163e59" : "white"
     }
 
+    function handleLogo() {
+        return location.pathname==="/simulator" ? "../../../images/logo/missionclimat_blue.svg" : "../../../images/logo/missionclimat.svg"
+    }
+
     return (
         <header id={handleId()} className="flex-item">
             <div className="header-left flex-item">
-                <Link className="header-link flex-item" to="/"><img src="../../../images/logo/missionclimat.svg" alt="Home logo" className="header-logo"/>
+                <Link className="header-link flex-item" to="/"><img src={handleLogo()} alt="Home logo" className="header-logo"/>
                 {location.pathname !=="/" && <h4>mission climat</h4>}</Link>
             </div>
             <NavMain color={handleColor()}/>

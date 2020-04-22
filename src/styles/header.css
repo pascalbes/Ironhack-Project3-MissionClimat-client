@@ -8,6 +8,10 @@ header{
     margin: 0;
 }
 
+header button {
+    font-family: 'Circular Std';
+}
+
 #header-simulator {
     color: #163e59;
     background-color: white;
@@ -29,4 +33,8 @@ header{
 
 .header h4{
     display: inline-block;
+}
+
+nav > a:first-child button {
+    font-weight: bold;
 }

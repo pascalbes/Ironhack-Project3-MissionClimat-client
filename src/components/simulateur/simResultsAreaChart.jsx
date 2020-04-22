@@ -9,11 +9,17 @@ const simResultsAreaChart = ({datas}) => {
     const data = datas.data.data
 
     function toolTipContent(e) {
+      console.log(e)
+      var annualEmi = 0;
+      e.payload.forEach(data => annualEmi+=data.value)
       return (
-        <div className="chart-tooltip" style={{backgroundColor:'white'}}>
-          <h4>Année : {e.label}</h4>
-          {e.payload.map((area) => (
-            <p style={{color:area.color}}>{area.name} : {area.value} MtCO2</p>
+        <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white'}}>
+          <h4>Année : {e.label} / {Math.round(annualEmi)} MtCO2</h4>
+          {e.payload.reverse().map((area) => (
+            <div className="flex-item">
+                <div className="legend-point" style={{backgroundColor:area.color}}></div>
+                <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
+            </div>
           ))}
         </div>
         )

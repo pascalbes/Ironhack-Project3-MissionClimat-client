@@ -282,7 +282,7 @@ const Results = (props) => {
                                 <div className="results-figure flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
                                     +{results.impacts.temperature}°C
                                 </div>
-                                <p className="results-legend">Hausse moy. mondiale pour 2100 (scénarios possibles : de {results.impacts.temperatureRange})</p>                    
+                                <p className="results-legend">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>                    
                             </div>
                             <div className="tag-container flex-item flex-column">
                                 <p className="results-title">Évolution émissions</p>
