@@ -4,7 +4,6 @@ import {useAuth} from "../../auth/useAuth"
 
 const NavMain = (props) => {
     useAuth();
-    console.log(props)
     return (
         <nav>
             <Link to="/simulator"><button className="border-btn left-btn" style={{color:props.color}}>Simulateur</button></Link>

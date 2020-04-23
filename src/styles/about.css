@@ -17,7 +17,7 @@
 }
 
 .about-page p {
-  font-family:  'Circular Std Book';
+  font-family:  'Lato', sans-serif;
   font-weight: 300;
 }
 
@@ -28,6 +28,23 @@
   margin-bottom: 3em;
   justify-content: space-between;
 }
+
+#about-articles {
+  width: 100%;
+  padding: 20px 5%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#about-articles > div {
+  align-items: center;
+}
+
+#about-articles img {
+  width: 70px;
+}
+
+
 
 .separator {
   margin-bottom: 35px;

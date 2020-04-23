@@ -71,15 +71,6 @@ const Results = (props) => {
             if (categorie.data.name === "Transports de personnes") {
                 resultsTemp=results.emiParSecteur.transports
             }
-            // else if (categorie.data.name == "Énergie") {
-            //     resultsTemp=results.emiParSecteur.energie
-            // }
-            // else if (categorie.data.name == "Agriculture et alimentation") {
-            //     resultsTemp=results.emiParSecteur.agriculture
-            // }
-            // else if (categorie.data.name == "Logement") {
-            //     resultsTemp=results.emiParSecteur.batiments
-            // }
 
             graphParam.push(<SectorLinearChart key={i} data={categorie} results={resultsTemp}/>)
         });
@@ -105,28 +96,7 @@ const Results = (props) => {
             console.error(err);
           }
     }
-
-    const editResults = async e => {
-        e.preventDefault();
-        try {
-            var rv = await APIHandler.patch('users/edit-scenario', {resultsToSave});
-            return setScenarioExists(rv.data.msg, console.log(scenarioExists));
-
-        }
-        catch (err) {
-            console.error(err);
-          }
-    }
-
     
-
-    const onChange = async e => {
-        setResultsToSave({...resultsToSave, [e.target.name]: e.target.value });
-    }
-
-    function handleTempColor(){
-        return "color"
-    }
 
     function handleImageEurope() {
         if (results.impacts.RCP =="RCP 2.6") {
@@ -221,16 +191,13 @@ const Results = (props) => {
 
         <div className="results-page flex-item flex-column">
 
-
-            
-
             <article id="hero-article">
                 <div class="flex-item full-width">
 
                     <div class="flex-column">
                         <a href="#res-synthese">
                             <div className="chapter-selection">            
-                            <img src="../../images/logo/Idea.svg" />
+                            <img src="../../images/results/fiche synthèse - blanc.svg" />
                             <br />
                             <span>Synthèse</span>
                             </div>
@@ -240,7 +207,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-emi-fr">
                             <div className="chapter-selection">            
-                            <img src="../../images/logo/Idea.svg" />
+                            <img src="../../images/results/nuage CO2 - blanc.svg" />
                             <br />
                             <span>Emissions françaises</span>
                             </div>
@@ -250,7 +217,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-emi-world">
                             <div className="chapter-selection">            
-                            <img src="../../images/logo/Idea.svg" />
+                            <img src="../../images/results/emission monde - blanc.svg" />
                             <br />
                             <span>Emissions mondiales</span>
                             </div>
@@ -260,7 +227,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-impacts">
                             <div className="chapter-selection">            
-                            <img src="../../images/logo/Idea.svg" />
+                            <img src="../../images/results/impact - blanc.svg" />
                             <br />
                             <span>Impacts</span>
                             </div>
@@ -317,28 +284,31 @@ const Results = (props) => {
                 </section>
             </article>
 
+            {/* *************************
+            ********************MONDE
+            ************************* */}
+
             <article id="res-emi-fr" className="flex-item flex-column">
 
                 <h1>Emissions françaises</h1>
 
                 <div className="flex-item flex-column res-emi-fr-container">
                     <h2>Evolution des émissions</h2>
-                    <p className="chart-short-desc">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures.</p>
+                    <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures.</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
                             <AreaChart datas={results.emiSecteurGnl}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">
-                                <p>Légende</p>
                                 <table>
                                     <tbody>
                                     {areaDatas.map((data,i) => (
                                         <tr>
                                             <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
                                             <td>
-                                                <p>{data.name}</p>
-                                                <p>{Math.round(data.value)} MtCO2 / Evolution : {handleEvolution(data.name)}</p>
+                                                <p className="bold-text">{data.name}</p>
+                                                <p className="light-text">{Math.round(data.value)} MtCO2 / Evolution : {handleEvolution(data.name)}</p>
                                             </td>
                                         </tr>
                                     ))}
@@ -353,16 +323,45 @@ const Results = (props) => {
 
                 <div className="flex-item flex-column res-emi-fr-container">
                     <h2>Emissions sectorielles françaises en 2030</h2>
-                    <p className="chart-short-desc">Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs</p>
+                    <p className="chart-short-desc light-text">Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
                             <Sunburst datas={results.emiSecteurPie}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">
-                                <p>Légende</p>
                                 <table>
                                     <tbody>
+                                    {results.emiSecteurPie.data01.map((data,i) => (
+                                        <tr>
+                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
+                                            <td>
+                                                <p className="bold-text">{data.name}</p>
+                                                <p className="light-text">{Math.round(data.value)} MtCO2</p>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                        
+                                    </tbody>
+                                </table>
+                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h2>{results.dataFrance.batiment.graph1.title}</h2>
+                    <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
+                    <p className="bold-text">{results.dataFrance.batiment.text}</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                        <GenLinearChart datas={results.dataFrance.batiment.graph1}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <table>
+                                    {/* <tbody>
                                     {results.emiSecteurPie.data01.map((data,i) => (
                                         <tr>
                                             <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
@@ -373,15 +372,19 @@ const Results = (props) => {
                                         </tr>
                                     ))}
                                         
-                                    </tbody>
+                                    </tbody> */}
                                 </table>
                             </div>
                             <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
                         </div>
                     </div>
                 </div>
+
             </article>
 
+{/* *************************
+********************MONDE
+************************* */}
 
             <article id="res-emi-world" className="flex-item flex-column">
 
@@ -389,7 +392,7 @@ const Results = (props) => {
 
                 <div className="flex-item flex-column res-emi-fr-container">
                     <h2>Evolution des émissions</h2>
-                    <p className="chart-short-desc">Ce graphique représente l'évolution des émissions mondiales de 2020 à 2030, fonction de vos mesures.</p>
+                    <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions mondiales de 2020 à 2030, fonction de vos mesures.</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
                             <GenLinearChart datas={results.emiMonde}/>
@@ -413,19 +416,18 @@ const Results = (props) => {
 
                 <div className="flex-item flex-column res-emi-fr-container">
                     <h2>Augmentation de températures en Europe</h2>
-                    <p className="chart-short-desc">Cette carte représente l'évolution des températures, en Europe, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
+                    <p className="chart-short-desc light-text">Cette carte représente l'évolution des températures, en Europe, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
                             <img src={handleImageEurope()}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">
-                                <p>Légende</p>
                                 <div className="flex-item">
                                     {mapLegendInfos.map((data,i) => (
                                         <div className="flex-item">
                                             <div className="legend-point" style={{backgroundColor:data[0]}}></div>
-                                            <p>{data[1]}</p>
+                                            <p className="light-text">{data[1]}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -437,19 +439,18 @@ const Results = (props) => {
 
                 <div className="flex-item flex-column res-emi-fr-container">
                     <h2>Augmentation de températures dans le Monde</h2>
-                    <p className="chart-short-desc">Cette carte représente l'évolution des températures, dans le Monde, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
+                    <p className="chart-short-desc light-text">Cette carte représente l'évolution des températures, dans le Monde, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
                             <img src={handleImageWorld()}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">
-                                <p>Légende</p>
                                 <div className="flex-item">
                                     {mapLegendInfos.map((data,i) => (
                                         <div className="flex-item">
                                             <div className="legend-point" style={{backgroundColor:data[0]}}></div>
-                                            <p>{data[1]}</p>
+                                            <p className="light-text">{data[1]}</p>
                                         </div>
                                     ))}
                                 </div>

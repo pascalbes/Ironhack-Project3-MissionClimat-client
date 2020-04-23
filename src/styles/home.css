@@ -42,11 +42,10 @@
 .hero-text{
     width: 90%;
     margin-bottom: 2em;
-    text-align: justify;
+    text-align: left;
 }
 
-.hero-bold{
-    font-weight: bold;
+.hero-text+.bold-text {
     text-align: right;
 }
 
@@ -57,7 +56,7 @@
 }
 
 .hero-img{
-    width: 100%;
+    width: 90%;
 }
 
 .hero-btn{

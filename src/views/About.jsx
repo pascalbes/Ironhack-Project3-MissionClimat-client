@@ -26,9 +26,37 @@ export const AboutUs = () => {
            l’étude donne à voir l'importance des mesures permettant de réduire les émissions de gaz à effet de serre
           de la France pour s’aligner sur les recommandations du GIEC.
         </p>
-        <p>
-          Liens étude et articles de presse
-        </p>
+        <div id="about-articles" className="flex-item">
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="http://bl-evolution.com/portfolio/comment-saligner-sur-une-trajectoire-compatible-avec-les-15c/" >
+              <img src="../../images/about/etude BL - vert.svg"></img>
+            </a>
+            <p>Etude 1.5 de BL évolution</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://reporterre.net/Climat-rester-sous-la-barre-de-1-5-oC-impose-des-choix-radicaux-sur-la" >
+              <img src="../../images/about/liens articles - vert.svg"></img>
+            </a>
+            <p>Article de Reporterre</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://www.novethic.fr/actualite/environnement/climat/isr-rse/infographie-interdiction-d-acheter-une-voiture-neuve-ou-de-prendre-un-long-courrier-couvre-feu-thermique-quotas-sur-les-produits-importes-les-mesures-chocs-pour-rester-sous-1-5-c-146877.html" >
+              <img src="../../images/about/liens articles - vert.svg"></img>
+            </a>
+            <p>Article de Novethic</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://www.marianne.net/societe/rechauffement-climatique-scenario-noir" >
+              <img src="../../images/about/liens articles - vert.svg"></img>
+            </a>
+            <p>Article de Marianne</p> 
+          </div>
+
+        </div>
         <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
           En janvier 2020, Guillaume Martin, l'un des 2 co-auteurs de l'étude, et Pascal Besson
