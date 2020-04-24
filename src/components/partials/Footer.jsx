@@ -6,10 +6,9 @@ const Footer = () => {
     return (
         <footer className="flex-item nomarge flex-item">
             <div className="footer-item flex-item">
-                <img className="footer-logo" src="../../images/logo/logoIH.svg" alt="Logo Ironhack"/>
                 <img className="footer-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
-                <img className="footer-logo" src="../../images/logo/AC.png" alt="Logo Avenir Climatique"/>
-                <img className="footer-logo" src="../../images/logo/PG.svg" alt="Logo Avenir Climatique"/>
+                <p>logo pb</p>
+                <p>logo ng</p>
             </div>
             <div className="footer-item flex-item">
                 <EmailShareButton url={window.location.href} className="left-btn" subject="Mission Climat : mon plan climat pour 2030"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"var(--green)"}/></EmailShareButton>

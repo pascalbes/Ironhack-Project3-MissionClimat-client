@@ -61,23 +61,23 @@ const Results = (props) => {
     }
 // travailler sur paramètre et les données à lui envoyer
 
-    const graphParam = [];
+    // const graphParam = [];
 
-    function setGraphParam() {
-        checkScope(jsonFile.categories).map((categorie, i) => {
-            //envoyer le bon graphe à la bonne catégorie
-            var resultsTemp = {}
+    // function setGraphParam() {
+    //     checkScope(jsonFile.categories).map((categorie, i) => {
+    //         //envoyer le bon graphe à la bonne catégorie
+    //         var resultsTemp = {}
 
-            if (categorie.data.name === "Transports de personnes") {
-                resultsTemp=results.emiParSecteur.transports
-            }
+    //         if (categorie.data.name === "Transports de personnes") {
+    //             resultsTemp=results.emiParSecteur.transports
+    //         }
 
-            graphParam.push(<SectorLinearChart key={i} data={categorie} results={resultsTemp}/>)
-        });
-        graphParam.splice(-2,2);
-    }
+    //         graphParam.push(<SectorLinearChart key={i} data={categorie} results={resultsTemp}/>)
+    //     });
+    //     graphParam.splice(-2,2);
+    // }
 
-    setGraphParam();
+    // setGraphParam();
 
     // console.log("the results =>", results)
 
@@ -85,18 +85,28 @@ const Results = (props) => {
 
     resultsToSave.url = results.url
 
-    const saveResults = async e => {
-        e.preventDefault();
-        try {
-        var rv = await APIHandler.patch('users/save', {resultsToSave}); 
-        setScenarioExists(rv.data.msg, console.log(scenarioExists))
-        return  console.log(rv.data.msg)
-        }
-        catch (err) {
-            console.error(err);
-          }
+    // const saveResults = async e => {
+    //     e.preventDefault();
+    //     try {
+    //     var rv = await APIHandler.patch('users/save', {resultsToSave}); 
+    //     setScenarioExists(rv.data.msg, console.log(scenarioExists))
+    //     return  console.log(rv.data.msg)
+    //     }
+    //     catch (err) {
+    //         console.error(err);
+    //       }
+    // }
+
+    function tempColor(){
+        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
+        return (results.impacts.temperature < 1.5) ? tempColors[0]
+        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
+        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
+        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
+        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
+        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
+        : tempColors[6]
     }
-    
 
     function handleImageEurope() {
         if (results.impacts.RCP =="RCP 2.6") {
@@ -111,17 +121,6 @@ const Results = (props) => {
         if (results.impacts.RCP =="RCP 8.5") {
             return './images/europeRCP85.png'
         }
-    }
-
-    function tempColor(){
-        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
-        return (results.impacts.temperature < 1.5) ? tempColors[0]
-        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
-        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
-        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
-        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
-        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
-        : tempColors[6]
     }
 
     function handleImageWorld() {
@@ -139,13 +138,7 @@ const Results = (props) => {
         }
     }
 
-    const toggleNew = async e => {
-        if( e.target.value === "new") return setIsNew(true);
-        if (e.target.value === "edit") return setIsNew(false);
-    }
-
     function handleEvolution(sector) {
-        // results.emiSecteurGnl
         let datas = results.emiSecteurGnl.data.data;
         let evolution = Math.round((datas[datas.length-1][sector]-datas[0][sector])/datas[0][sector]*10000)/100
         return evolution >= 0 ? "+" + evolution + "%" : evolution  + "%" 
@@ -175,6 +168,10 @@ const Results = (props) => {
             document.execCommand('copy');
             alert("Url copied to clipboard")
         }
+    }
+
+    function handleInnerHTML(text) {
+        return {__html: text};
     }
 
     // function downloadModel() {
@@ -285,21 +282,29 @@ const Results = (props) => {
             </article>
 
             {/* *************************
-            ********************MONDE
+            ********************FRANCE
             ************************* */}
 
             <article id="res-emi-fr" className="flex-item flex-column">
 
-                <h1>Emissions françaises</h1>
+                {/* Titre grande partie / nav */}
+                <h1>Emissions françaises</h1> 
+
+                {/* Titre sous partie */}
+                <h2>Emissions totales</h2>
+                <p>{results.emiFrance.intro}</p>
 
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>Evolution des émissions</h2>
+
+                    {/* Titre graphe */}
+                    <h3>{results.emiFrance.sansRupture.graph.data.title}</h3>
                     <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures.</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <AreaChart datas={results.emiSecteurGnl}/>
+                            <AreaChart datas={results.emiFrance.sansRupture.graph}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
+                            <p>{results.emiFrance.sansRupture.text}</p>
                             <div className="res-chart-legend">
                                 <table>
                                     <tbody>
@@ -322,7 +327,39 @@ const Results = (props) => {
                 </div>
 
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>Emissions sectorielles françaises en 2030</h2>
+
+                    {/* Titre graphe */}
+                    <h3>{results.emiFrance.avecRupture.graph.data.title}</h3>
+                    <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures, avec rupture.</p>
+                    <div className="flex-item res-chart-container">
+                        <div className="res-chart">
+                            <AreaChart datas={results.emiFrance.avecRupture.graph}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <p>{results.emiFrance.avecRupture.text}</p>
+                            <div className="res-chart-legend">
+                                <table>
+                                    <tbody>
+                                    {areaDatas.map((data,i) => (
+                                        <tr>
+                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
+                                            <td>
+                                                <p className="bold-text">{data.name}</p>
+                                                <p className="light-text">{Math.round(data.value)} MtCO2 / Evolution : {handleEvolution(data.name)}</p>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                        
+                                    </tbody>
+                                </table>
+                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h3>Emissions sectorielles françaises en 2030</h3>
                     <p className="chart-short-desc light-text">Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
@@ -350,29 +387,43 @@ const Results = (props) => {
                     </div>
                 </div>
 
+                {/* Titre sous partie */}
+                <h2>Secteur du Bâtiment</h2>
+                <p>{results.dataFrance.batiment.intro}</p>
+
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>{results.dataFrance.batiment.graph1.title}</h2>
+                    <h2>{results.dataFrance.batiment.perf.graph.data.title}</h2>
                     <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
-                    <p className="bold-text">{results.dataFrance.batiment.text}</p>
+                    <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.perf.text)}></p>
                     <div className="flex-item res-chart-container">
+                        <p>{results.dataFrance.batiment.perf.text}</p>
                         <div className="res-chart">
-                        <GenLinearChart datas={results.dataFrance.batiment.graph1}/>
+                        <AreaChart datas={results.dataFrance.batiment.perf.graph}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">
                                 <table>
-                                    {/* <tbody>
-                                    {results.emiSecteurPie.data01.map((data,i) => (
-                                        <tr>
-                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
-                                            <td>
-                                                <p>{data.name}</p>
-                                                <p>{Math.round(data.value)} MtCO2</p>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                        
-                                    </tbody> */}
+                                    {/* légende à ajouter */}
+                                </table>
+                            </div>
+                            <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex-item flex-column res-emi-fr-container">
+                    <h2>{results.dataFrance.batiment.chauffage.graph.data.title}</h2>
+                    <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
+                    <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.chauffage.text)}></p>
+                    <div className="flex-item res-chart-container">
+                        <p>{results.dataFrance.batiment.chauffage.text}</p>
+                        <div className="res-chart">
+                        <AreaChart datas={results.dataFrance.batiment.chauffage.graph}/>
+                        </div>
+                        <div className="res-chart-infos flex-item flex-column">
+                            <div className="res-chart-legend">
+                                <table>
+                                    {/* légende à ajouter */}
                                 </table>
                             </div>
                             <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
@@ -386,7 +437,7 @@ const Results = (props) => {
 ********************MONDE
 ************************* */}
 
-            <article id="res-emi-world" className="flex-item flex-column">
+            {/* <article id="res-emi-world" className="flex-item flex-column">
 
                 <h1>Emissions Mondiales</h1>
 
@@ -408,7 +459,7 @@ const Results = (props) => {
                         </div>
                     </div>
                 </div>
-            </article>
+            </article> */}
 
             <article id="res-impacts" className="flex-item flex-column">
 
