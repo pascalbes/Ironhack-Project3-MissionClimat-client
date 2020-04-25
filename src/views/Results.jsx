@@ -337,7 +337,7 @@ const Results = (props) => {
 
                 {/* Titre sous partie */}
                 <div className="res-title-box">
-                    <h2>Secteur du Bâtiment</h2>
+                    <h2>Bâtiment</h2>
                     <p>{results.dataFrance.batiment.intro}</p>
                 </div>
 
@@ -360,6 +360,113 @@ const Results = (props) => {
                     legendData = {areaLegend(results.dataFrance.batiment.chauffage.graph)}
                     sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
                 />  
+
+                {/* Titre sous partie */}
+                <div className="res-title-box">
+                    <h2>Transports</h2>
+                    <p>{results.dataFrance.transports.intro}</p>
+                </div>
+
+                <ChartContainer 
+                    title = {results.dataFrance.transports.distance.graph.data.title}
+                    subtitle = "Ce graphique représente la distance type de transport."
+                    graphData = {results.dataFrance.transports.distance.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.transports.distance.text}
+                    legendData = {areaLegend(results.dataFrance.transports.distance.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                <ChartContainer 
+                    title = {results.dataFrance.transports.emissions.graph.data.title}
+                    subtitle = "Ce graphique représente les émissions par type de transport."
+                    graphData = {results.dataFrance.transports.emissions.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.transports.emissions.text}
+                    legendData = {areaLegend(results.dataFrance.transports.emissions.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                {/* Titre sous partie */}
+                <div className="res-title-box">
+                    <h2>Agriculture</h2>
+                    <p>{results.dataFrance.agriculture.intro}</p>
+                </div>
+
+                <ChartContainer 
+                    title = {results.dataFrance.agriculture.parcelles.graph.data.title}
+                    subtitle = "Ce graphique représente la distance type de transport."
+                    graphData = {results.dataFrance.agriculture.parcelles.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.agriculture.parcelles.text}
+                    legendData = {areaLegend(results.dataFrance.agriculture.parcelles.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                <ChartContainer 
+                    title = {results.dataFrance.agriculture.emissions.graph.data.title}
+                    subtitle = "Ce graphique représente les émissions par type de transport."
+                    graphData = {results.dataFrance.agriculture.emissions.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.agriculture.emissions.text}
+                    legendData = {areaLegend(results.dataFrance.agriculture.emissions.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+
+
+                {/* Titre sous partie */}
+                <div className="res-title-box">
+                    <h2>Consommation</h2>
+                    <p>{results.dataFrance.conso.intro}</p>
+                </div>
+
+                <ChartContainer 
+                    title = {results.dataFrance.conso.quantites.graph.data.title}
+                    subtitle = "Ce graphique représente la distance type de transport."
+                    graphData = {results.dataFrance.conso.quantites.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.conso.quantites.text}
+                    legendData = {areaLegend(results.dataFrance.conso.quantites.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                <ChartContainer 
+                    title = {results.dataFrance.conso.emissions.graph.data.title}
+                    subtitle = "Ce graphique représente les émissions par type de transport."
+                    graphData = {results.dataFrance.conso.emissions.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.conso.emissions.text}
+                    legendData = {areaLegend(results.dataFrance.conso.emissions.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                {/* Titre sous partie */}
+                <div className="res-title-box">
+                    <h2>Energie</h2>
+                    <p>{results.dataFrance.energie.intro}</p>
+                </div>
+
+                <ChartContainer 
+                    title = {results.dataFrance.energie.facteurs.graph.data.title}
+                    subtitle = "Ce graphique représente la distance type de transport."
+                    graphData = {results.dataFrance.energie.facteurs.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.energie.facteurs.text}
+                    legendData = {areaLegend(results.dataFrance.energie.facteurs.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                <ChartContainer 
+                    title = {results.dataFrance.energie.emissions.graph.data.title}
+                    subtitle = "Ce graphique représente les émissions par type de transport."
+                    graphData = {results.dataFrance.energie.emissions.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.energie.emissions.text}
+                    legendData = {areaLegend(results.dataFrance.energie.emissions.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
 
 
 
