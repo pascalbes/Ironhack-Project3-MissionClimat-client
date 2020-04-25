@@ -1,6 +1,6 @@
 /* /// SECTIONS */
 .sim-page {
-  height: 90vh;
+  height: 92vh;
   background-color: #e5e5e5;
   color: #163E59;
   padding: 10px;
@@ -15,7 +15,6 @@
 }
 
 .sim-results-box {
-  /* box-shadow: -15px 0 15px -15px inset, 15px 0 15px -15px inset; */
   height: 100%;
   width: calc(40% - 10px);
 }
@@ -33,21 +32,20 @@
 /* /// SIM-NAV */
 #sim-nav-box {
   align-items: center;
-  height: 22%;
-  padding: 15px;
+  height: 25%;
+  padding: 8px;
   background-color: white;
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* @import "./font/fontCircular.css"; */
 
 #sim-nav-box h1, #results-top-box h1, #results-emissions h1 {
   font-family: "Circular Std";
   font-style: normal;
   font-weight: bold;
-  font-size: 25px;
-  line-height: 25px;
+  font-size: 22px;
+  line-height: 22px;
   color: #163e59;
   margin-bottom: 5px;
   padding-bottom: 0;
@@ -155,7 +153,7 @@
   scroll-behavior: smooth;
   overflow-y: auto;
   padding: 10px;
-  height: calc(78% - 10px);
+  height: calc(75% - 10px);
   width: 100%;
 }
 
@@ -348,11 +346,11 @@ input[type="radio"] {
 /* /// PROJECTION MONDIALE */
 #results-top-box {
   background-color: white;
-  height: 28%;
+  height: 25%;
   width: 100%;
   align-items: center;
   margin-bottom: 10px;
-  padding: 15px;
+  padding: 8px 8px 15px;
 }
 
 #results-impacts-box {
@@ -362,13 +360,77 @@ input[type="radio"] {
   margin-top: 10px;
 }
 
+.n1{
+  grid-area: title1;
+  text-align: center;
+  margin: 0;
+}
+
+.n4{
+  grid-area: title2;
+  text-align: center;
+  margin: 0;
+}
+
+.n7{
+  grid-area: title3;
+  text-align: center;
+  margin: 0;
+}
+
+.n2{
+  grid-area: tag1;
+  margin: 0;
+}
+
+.n5{
+  grid-area: tag2;
+  margin: 0;
+}
+
+.n8{
+  grid-area: tag3;
+  margin: 0;
+}
+
+.n3{
+  grid-area: legend1;
+  text-align: center;
+  margin: 0;
+}
+
+.n6{
+  grid-area: legend2;
+  text-align: center;
+  margin: 0;
+}
+
+.n9{
+  grid-area: legend3;
+  text-align: center;
+  margin: 0;
+}
+
+#results-impacts-box{
+  display: grid;
+  width: 100%;
+  margin: 0;
+  grid: auto auto auto / 1fr 1fr 1fr;
+  gap: 5px;
+  grid-template-areas: 
+  "title1 title2 title3"
+  "tag1 tag2 tag3"
+  "legend1 legend2 legend3";
+}
+
 /* /// PROJECTION FRANCAISE */
 
 #results-bottom-box {
   background-color: white;
-  height: calc(72% - 10px);
+  height: calc(75% - 10px);
   width: 100%;
-  padding: 15px;
+  padding: 8px 15px 8px;
+  justify-content: space-between;
 }
 
 #results-emissions {
@@ -377,25 +439,41 @@ input[type="radio"] {
 }
 
 #results-emissions-charts-container {
-  background-color: white;
-  height: 60%;
+  height: 55%;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin: 20px 0;
+  display: grid;
+  grid: 85% 13% / 49% 49%;
+  gap: 5px;
+  grid-template-areas:
+  "g1 g3"
+  "g2 g4";
 }
 
-.results-emissions-charts {
-  width: 50%;
+.g1{
+  grid-area: g1;
+  width: 100%;
   height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
 }
 
-.results-emissions-charts p {
+.g3{
+  grid-area: g3;
+  width: 100%;
+  height: 100%;
+}
+
+.g2{
+  grid-area: g2;
   text-align: center;
+}
+
+.g4{
+  grid-area: g4;
+  text-align: center;
+}
+
+#results-emissions-charts-container p {
+  text-align: center;
+  font-size: 0.9em;
 }
 
 .chart {
@@ -442,11 +520,67 @@ input[type="radio"] {
 
 
 /* /// COMPOSANT INDICATEUR AVEC TITRE BOX ET LEGENDE */
+#results-impacts-box2{
+  display: grid;
+  width: 100%;
+  margin: 0;
+  grid: auto auto auto / 1fr 1.2fr 1fr;
+  gap: 5px;
+  grid-template-areas: 
+  "title4 title5 title6"
+  "tag4 tag5 tag6"
+  "legend4 legend5 legend6";
+}
 
-.tag-container {
-  width: 30%;
-  justify-content: flex-start;
-  align-items: center;
+.b1{
+  grid-area: title4;
+  text-align: center;
+  margin: 0;
+}
+
+.b4{
+  grid-area: title5;
+  text-align: center;
+  margin: 0;
+}
+
+.b7{
+  grid-area: title6;
+  text-align: center;
+  margin: 0;
+}
+
+.b2{
+  grid-area: tag4;
+  margin: 0;
+}
+
+.b5{
+  grid-area: tag5;
+  margin: 0;
+}
+
+.b8{
+  grid-area: tag6;
+  margin: 0;
+}
+
+.b3{
+  grid-area: legend4;
+  text-align: center;
+  margin: 0;
+}
+
+.b6{
+  grid-area: legend5;
+  text-align: center;
+  margin: 0;
+}
+
+.b9{
+  grid-area: legend6;
+  text-align: center;
+  margin: 0;
 }
 
 .results-title {
@@ -461,14 +595,16 @@ input[type="radio"] {
 .results-figure {
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   border-radius: 0.5rem;
   line-height: normal;
+  padding: 0.1em 0.5em;
+  margin: 0.2em 0;
 }
 
 .figure-unit {
-  font-size: 0.6em;
+  font-size: 0.8em;
   font-weight:normal;
 }
 
@@ -481,12 +617,20 @@ input[type="radio"] {
 }
 
 .sim-results-box button {
-  padding: 1em 3em;
+  padding: 0.5em 2em;
   font-size: 1em;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1110px){
   body{
     font-size: 3px;
+  }
+
+  .sim-container-box{
+    width: 50%;
+  }
+
+  .sim-results-box{
+    width: calc(50% - 10px);
   }
 }
