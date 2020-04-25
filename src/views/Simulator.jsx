@@ -303,68 +303,56 @@ const Simulator = (props) => {
                 <div id="results-top-box" className="flex-item flex-column">
                     <h1>Ma projection mondiale</h1>
                     <div id="results-impacts-box" className="flex-item">
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Températures</p>
-                            <div className="results-figure flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
+                            <p className="results-title n1">Températures</p>
+                            <div className="results-figure n2 flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
                                 +{results.impacts.temperature}°C
                             </div>
-                            <p className="results-legend">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>                    
-                        </div>
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Scénario GIEC</p>
-                            <div className="results-figure flex-item">
+                            <p className="results-legend n3">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>
+                            <p className="results-title n4">Scénario GIEC</p>
+                            <div className="results-figure n5 flex-item">
                                 {results.impacts.RCP}
                             </div>
-                            <p className="results-legend">Scénario GIEC de vos mesures (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>                    
-                        </div>
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Empreinte carbone</p>
-                            <div className="results-figure flex-item" style={{backgroundColor:'#b0e0e6'}}>
+                            <p className="results-legend n6">Scénario GIEC de vos mesures (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>
+                            <p className="results-title n7">Empreinte carbone</p>
+                            <div className="results-figure n8 flex-item" style={{backgroundColor:'#b0e0e6'}}>
                                 {results.impacts.empreinteMonde}t
                             </div>
-                            <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
-                        </div>
+                            <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
                     </div>
                 </div>
                 
                 <div id="results-bottom-box" className="flex-item flex-column">
                     <div id="results-emissions" className="flex-item flex-column">
                         <h1>Ma projection française</h1>
-                        <div id="results-impacts-box" className="flex-item">
-                            <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Évolution émissions</p>
-                                <div className="results-figure flex-item" style={{backgroundColor:'#40E0D0', color:'#163E59'}}>
-                                    {results.impacts.reductionEmission2030}
-                                </div>
-                                <p className="results-legend">Entre 2020 et 2030</p>                    
+                        <div id="results-impacts-box2" className="flex-item">
+                            <p className="results-title b1">Évolution émissions</p>
+                            <div className="results-figure b2 flex-item" style={{backgroundColor:'#40E0D0', color:'#163E59'}}>
+                                {results.impacts.reductionEmission2030}
                             </div>
-                            <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Émissions annuelles</p>
-                                <div className="results-figure flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
-                                    <p>{results.impacts.emissionMoy}</p>
-                                    <p className="figure-unit">MtCO2</p>
-                                </div>
-                                <p className="results-legend">Entre 2020 et 2030</p>                    
+                            <p className="results-legend b3">Entre 2020 et 2030</p>
+                            
+                            <p className="results-title b4">Émissions annuelles</p>
+                            <div className="results-figure b5 flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
+                                <p>{results.impacts.emissionMoy}
+                                <span className="figure-unit"> MtCO2</span></p>
                             </div>
-                            <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Empreinte carbone</p>
-                                <div className="results-figure flex-item" style={{backgroundColor:'#b0e0e6'}}>
-                                    {results.impacts.empreinteFr}t
-                                </div>
-                                <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
+                            <p className="results-legend b6">Entre 2020 et 2030</p>                    
+                        
+                            <p className="results-title b7">Empreinte carbone</p>
+                            <div className="results-figure b8 flex-item" style={{backgroundColor:'#b0e0e6'}}>
+                                {results.impacts.empreinteFr}t
                             </div>
+                            <p className="results-legend b9">tCO2e / an / hab. en 2030</p> 
                         </div>
                     </div>
                 
 
-                    <div id="results-emissions-charts-container" className="flex-item">
+                    <div id="results-emissions-charts-container">
 
-                        <div className="flex-item flex-column results-emissions-charts">
-                            <div className="chart">
-                                <AreaChart datas={results.emiSecteurGnl}/>
-                            </div>
-                            <p>Emissions Totales</p>
+                        <div className="chart g1">
+                            <AreaChart datas={results.emiSecteurGnl}/>
                         </div>
+                        <p className="g2">Emissions Totales</p>
                         {/* 
                         BAR CHART
                         <div className="flex-item flex-column results-emissions-charts">
@@ -374,13 +362,10 @@ const Simulator = (props) => {
                             <p>Emissions Totales</p>
                         </div> */}
 
-                        <div className="flex-item flex-column results-emissions-charts">
-                            {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
-                            <div className="chart">
-                                <Sunburst datas={results.emiSecteurPie}/>  
-                            </div>
-                            <p>Emissions par Secteur / 2030</p>
-                        </div>  
+                        <div className="chart g3">
+                            <Sunburst datas={results.emiSecteurPie}/>  
+                        </div>
+                        <p className="g4">Emissions par Secteur / 2030</p>  
 
                     </div>
 
