@@ -8,9 +8,9 @@ import Header from "../components/partials/Header";
 
 export const AboutUs = () => {
   return (
-    <div className="about-page flex-item flex-column">
+    <div className="about-page flex-item flex-column light-text">
       <Header />
-      <article className="about-card about-conception border-btn  flex-item flex-column">
+      <section className="about-card flex-item flex-column">
         <div className="about-card-head flex-item">
           <img
             className="team-logo"
@@ -22,9 +22,7 @@ export const AboutUs = () => {
         <h5>L'étude 1.5 de BL évolution / Février 2019</h5>
         <p>
           L'histoire de ce projet débute avec la publication, en février 2019,
-          de l'étude <i><b>«Comment la France peut s’aligner sur une trajectoire compatible avec les
-          1,5°C»</b></i> par le cabinet de conseil BL évolution. S’appuyant sur les données du rapport <i><b>«Réchauffement planétaire de 1,5°C»</b></i>
-           du <b>Groupe d’Experts Intergouvernemental sur l’Evolution du Climat (GIEC)</b>, 
+          de l'étude <i><b>«Comment la France peut s’aligner sur une trajectoire compatible avec les 1,5°C»</b></i> par le cabinet de conseil BL évolution. S’appuyant sur les données du rapport <i><b>«Réchauffement planétaire de 1,5°C»</b></i> du <b>Groupe d’Experts Intergouvernemental sur l’Evolution du Climat (GIEC)</b>, 
            l’étude donne à voir l'importance des mesures permettant de réduire les émissions de gaz à effet de serre
           de la France pour s’aligner sur les recommandations du GIEC.
         </p>
@@ -66,7 +64,8 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/iCDYAunYQFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iCDYAunYQFA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <p className="frame-legend">Interview de Guillaume Martin pour Brut</p>
 
         <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
@@ -75,187 +74,139 @@ export const AboutUs = () => {
           est développée en 2 semaines avec Nina Gautreau et Paul Carillion, 
           pour le projet final du bootcamp Ironhack Paris. En parallèle, Charles-Adrien Louis, Célian Niclot 
           et Guillaume Martin simplifient et améliorent le modèle pour le rendre accessible au public. Le projet est finalement honoré en étant élu meilleur projet web par la promotion
-          de dev web puis lors du hackshow du 9 mars de Ironhack. Champagne!
+          de dev web puis lors du hackshow du 9 mars de Ironhack. Champagne !
         </p>
 
         <h5>Développement Mission Climat / Avril 2020</h5>
         <p>
-          Après un cours repos une petite équipe est montée pour finaliser le projet.
+          Après un court repos une petite équipe est montée pour finaliser le projet.
           Oriana Berthomieu définit l'UI finale et Emmanuel Bernard rejoint Pascal pour finaliser le développement. Le site sort enfin le 3 mai 2020, au grand bonheur de tout ce joli monde, et nous l'espérons, au vôtre également !
         </p>
-      </article>
+      </section>
 
-      <section className="about-lead-team flex-item flex-column">
-        <article className="about-card-lead border-btn flex-item flex-column">
+      <section className="about-card flex-item flex-column">
+        <article className="about-card-lead flex-item flex-column">
           <div className="about-card-head flex-item">
-            {/* <img
+            <img
               className="team-logo"
-              src="../../images/logo/logoIH.svg"
-              alt="Logo Ironhack"
-            /> */}
+              src="../../images/logo/Team.svg"
+              alt="Logo Equipe"
+            />
             <h3 className="nomarge">L'équipe</h3>
           </div>
 
-          <p>L'ensemble de l'équipe s'est investie bénévolement.</p>
-          <p> Vous souhaitez les rejoindre ? les soutenir dans leur futur projet "Mission Transition" ? C'est ici !</p>
+          <p>L'ensemble de l'équipe s'est investie bénévolement. <br/>Vous souhaitez les rejoindre ? Les soutenir dans leur futur projet "Mission Transition" ? C'est ici !</p>
 
           <h5>Pilotage Projet</h5>
 
           <div className="flex-item about-team-section">
-
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
                   <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
                   Pascal Besson
-                </a>
-                <br />Ingénieur / RSE / Dev Fullstack<br />
-                Rôle : pilotage projet, dev
-              </div>
+              </a>
+              <p className="dev-box-desc">Ingénieur / RSE / Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, dev front & back</p>
             </div>
 
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
                   <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
-                Guillaume Martin
-                </a>
-                <br />Expert Climat / Energie @ BL évolution<br />
-                Rôle : pilotage projet, modèle émissions<br />
-                <img className="bl-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
-              </div>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
+                  Guillaume Martin <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+              </a>
+              <p className="dev-box-desc">Expert Climat / Energie @ B&L évolution</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, modèle émissions</p>
             </div>
-
           </div>
 
           <h5>Data : modèle de calcul des émissions</h5>
 
-          <p>Le modèle de calcul a été réalisé par BL évolution.</p>
+          <p>Le modèle de calcul a été réalisé par B&L Évolution.</p>
 
           <div className="flex-item about-team-section">
-
-            <div class="flex-item dev-team">
-                <div class="flex-column dev-team-linkedin-icon">
-                  <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
+              <div className="dev-team">
+                <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
                     <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                  </a>
-                </div>
-                <div class="flex-column">
-                  <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
-                  Charles-Adrien Louis
-                  </a>
-                  <br />Co-fondateur et co-dirigeant BL évolution<br />
-                  Rôle : modèle émission<br />
-                  <img className="bl-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
-                </div>
+                </a>
+                <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
+                    Charles-Adrien Louis <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                </a>
+                <p className="dev-box-desc">Co-fondateur et co-dirigeant B&L Évolution</p>
+                <p className="dev-box-role">Rôle : Modèle émissions</p>
               </div>
 
-              <div class="flex-item dev-team">
-                <div class="flex-column dev-team-linkedin-icon">
-                  <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
+              <div className="dev-team">
+                <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
                     <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                  </a>
-                </div>
-                <div class="flex-column">
-                  <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
-                  Célian Niclot
-                  </a>
-                  <br />Consultant énergie climat @ BL évolution<br />
-                  Rôle : modèle émission<br />
-                  <img className="bl-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
-                </div>
+                </a>
+                <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
+                    Célian Niclot <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                </a>
+                <p className="dev-box-desc">Consultant énergie climat @ B&L Évolution</p>
+                <p className="dev-box-role">Rôle : Modèle émissions</p>
               </div>
-            
           </div>
 
-          <h5>Dev, UX/UI</h5>
+          <h5>Développement, UX/UI</h5>
 
           <div className="flex-item about-team-section">
-
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
                   <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
-                Nina Gautreau
-                </a>
-                <br />Dev Fullstack<br />
-                Rôle : UX-UI, CSS, dev front
-              </div>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
+                  Nina Gautreau <img className="dev-box-logo" src="../../images/logo/Nina-logo.svg" alt="Logo Nina Gautreau"/>
+              </a>
+              <p className="dev-box-desc">Teacher Assistant / Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Dev Front, UX-UI</p>
             </div>
 
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
                   <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
-                Oriana Berthomieu
-                </a>
-                <br />Product designer<br />
-                Rôle : UI
-              </div>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
+                  Oriana Berthomieu 
+              </a>
+              <p className="dev-box-desc">Product designer</p>
+              <p className="dev-box-role">Rôle : UI</p>
             </div>
 
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/emmbernard/">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/emmbernard/">
                   <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/emmbernard/">
-                Emmanuel Bernard
-                </a>
-                <br />Entrepreneur, dev Fullstack<br />
-                Rôle : dev, déploiement
-              </div>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/emmbernard/">
+                  Emmanuel Bernard
+              </a>
+              <p className="dev-box-desc">Entrepreneur / Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Dev, déploiement</p>
             </div>
 
-            <div class="flex-item dev-team">
-              <div class="flex-column dev-team-linkedin-icon">
-                <a target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
                   <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
-                </a>
-              </div>
-              <div class="flex-column">
-                <a target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
-                Paul Carillion
-                </a>
-                <br />Dev Fullstack<br />
-                Rôle : graphiques, dev
-              </div>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
+                  Paul Carillon
+              </a>
+              <p className="dev-box-desc">Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Dev, graphiques</p>
             </div>
-
           </div>
 
           {/* <h5>Equipe tests</h5>
           <p>Tom Nico, Estelle Payan, Pacco Bailly</p> */}
-
-          <hr className="border-btn" />
-    
-
-          <img
-            className="hero-img"
-            src="../../images/team.svg"
-            alt="landing-visual"
-          />
         </article>
 
-        <article className="about-card about-card-lead border-btn  flex-item flex-column">
+        <div className="separator"></div>
+        <div className="separator"></div>
+
+        <article className="about-card-lead flex-item flex-column">
           <div className="about-card-head flex-item">
             <img
               className="team-logo"
@@ -274,92 +225,16 @@ export const AboutUs = () => {
             associant une vision fortement participative à une prise de
             conscience réaliste et éclairée des enjeux du XXIe siècle.
           </p>
-          {/* <p>
-            Consultant énergie climat et mobilités au sein de B&L évolution,
-            Guillaume accompagne des entreprises et des territoires dans leur
-            transition écologique. Ingénieur (Grenoble INP - ENSE3) il est aussi
-            membre actif de l'association Avenir Climatique et co-auteur avec
-            Charles-Adrien Louis de l'étude B&L évolution "Comment la France
-            peut s'aligner sur une trajectoire compatible avec les 1,5°C"
-            publiée en 2019.{" "}
-          </p>
-          <p>
-            Après une Licence Physique-Chimie, un Master Sciences de l'Océan, de
-            l'Atmosphère et du Climat, Célian est consultant énergie climat au
-            sein de B&L Evolution. C'est le créateur de la base de données pour
-            Mission Climat.
-          </p> */}
-          <div className="about-links flex-item">
-            <div class="flex-column ">
-              <div class="flex-item ">
-                <div class="flex-column dev-team-linkedin-iconsmall">
-                  <a target="_blank" href="https://bl-evolution.com/">
-                    <img
-                      className="linkedin-small"
+          <a className="link-team-about" target="_blank" href="https://bl-evolution.com/"><img
                       src="../../images/logo/Web.svg"
                       alt="LinkedIn "
-                    />
-                  </a>
-                </div>
-                <div class="flex-column  dev-team-linkedin-iconsmall-name">
-                  <a target="_blank" href="https://bl-evolution.com/">
-                    bl-evolution.com
-                  </a>
-                </div>
-              </div>
-            </div>
-{/* 
-            <div class="flex-column ">
-              <div class="flex-item ">
-                <div class="flex-column dev-team-linkedin-iconsmall">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/guillaume-martin-86662989/"
-                  >
-                    <img
-                      className="linkedin-small"
-                      src="../../images/logo/linkedin.svg"
-                      alt="LinkedIn "
-                    />
-                  </a>
-                </div>
-                <div class="flex-column  dev-team-linkedin-iconsmall-name">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/guillaume-martin-86662989/"
-                  >
-                    Guillaume Martin
-                  </a>
-                </div>
-              </div>
-            </div>
+                    /> bl-evolution.com
+          </a>
 
-            <div class="flex-column ">
-              <div class="flex-item ">
-                <div class="flex-column dev-team-linkedin-iconsmall">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/c%C3%A9lian-niclot/"
-                  >
-                    <img
-                      className="linkedin-small"
-                      src="../../images/logo/linkedin.svg"
-                      alt="LinkedIn "
-                    />
-                  </a>
-                </div>
-                <div class="flex-column  dev-team-linkedin-iconsmall-name">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/c%C3%A9lian-niclot/"
-                  >
-                    Célian Niclot
-                  </a>
-                </div>
-              </div>
-            </div> */}
-          </div>
-          <div class="separator"></div>
+
+          <div className="separator"></div>
+          <div className="separator"></div>
+
           <div className="about-card-head flex-item ac">
             <img
               className="team-logo"
@@ -382,27 +257,15 @@ export const AboutUs = () => {
             fonctionnement holacratique...){" "}
           </p>
           <p>Merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle...</p>
-
-          <div class="flex-item ">
-            <div class="flex-column dev-team-linkedin-iconsmall">
-              <a target="_blank" href="https://avenirclimatique.org/">
-                <img
-                  className="linkedin-small"
-                  src="../../images/logo/Web.svg"
-                  alt="LinkedIn "
-                />
-              </a>
-            </div>
-            <div class="flex-column  dev-team-linkedin-iconsmall-name">
-              <a target="_blank" href="https://avenirclimatique.org/">
-                avenirclimatique.org
-              </a>
-            </div>
-          </div>
+          <a className="link-team-about" target="_blank" href="https://avenirclimatique.org/"><img
+                      src="../../images/logo/Web.svg"
+                      alt="LinkedIn "
+                    /> avenirclimatique.org
+          </a>
         </article>
       </section>
 
-      <article className="about-card border-btn  flex-item flex-column">
+      <article className="about-card flex-item flex-column">
         <div className="about-card-head flex-item">
           <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart} />
           <h3 className="nomarge">Remerciements</h3>
@@ -432,14 +295,13 @@ export const AboutUs = () => {
         </ul>
       </article>
 
-      <article className="about-card border-btn  flex-item flex-column">
+      <article className="about-card flex-item flex-column">
         <div className="about-card-head flex-item">
           <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart} />
           <h3 className="nomarge">Droits, licences et spécifications</h3>
         </div>
 
-        <div className="flex-item">
-
+        <div className="flex-item between">
           <div>
             <h5>Site Mission Climat</h5>
 
@@ -464,10 +326,13 @@ export const AboutUs = () => {
 
             </div>
           </div>
-        
       </article>
 
-
+      <img
+            className="hero-img"
+            src="../../images/team.svg"
+            alt="landing-visual"
+          />
 
     </div>
   );

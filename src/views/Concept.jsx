@@ -7,7 +7,7 @@ const Concept = () => {
   const [selectedChapter, setSelectedChapter] = useState("concept");
 
   return (
-    <div className="concept-page flex-item flex-column">
+    <div className="concept-page flex-item flex-column light-text">
       <Header/>
       <div className="flex-item full-width">
         <div className="flex-column">

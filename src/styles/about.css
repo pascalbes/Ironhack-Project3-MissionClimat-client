@@ -17,14 +17,12 @@
 }
 
 .about-page p {
-  font-family:  'Lato', sans-serif;
   font-weight: 300;
 }
 
 .about-card {
   width: 80%;
   padding: 1.5em;
-  border-radius: 1em;
   margin-bottom: 3em;
   justify-content: space-between;
 }
@@ -46,8 +44,14 @@
 
 iframe{
   align-self: center;
-  margin: 1em 0;
-  box-shadow: 0 0 10px 0 black;
+  margin: 2em 0 0;
+}
+
+.frame-legend{
+  color: rgba(255, 255, 255, 0.8);
+  align-self: center;
+  font-style: italic;
+  padding-bottom: 2em;
 }
 
 .separator {
@@ -57,6 +61,8 @@ iframe{
 .about-team-section {
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-evenly;
+  margin: 1em 0;
 }
 
 .about-card-lead > p:last-of-type {
@@ -67,48 +73,49 @@ iframe{
   width: 80px;
 }
 
+.dev-box-img{
+  grid-area: img;
+}
+
+.dev-box-name{
+  grid-area: name;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.dev-box-desc{
+  grid-area: desc;
+}
+
+.dev-box-role{
+  grid-area: role;
+}
+
+.dev-box-logo{
+  height: 1.2rem;
+  width: auto;
+  margin-left: 0.5em;
+}
+
 .dev-team {
-  margin-bottom: 0.7em;
-  width: 48%;
+  margin-bottom: 2em;
   margin-right: 2%;
+  width: 35%;
+  display: grid;
+  grid: 2em 1.5em 1.5em / 40px auto;
+  grid-template-areas:
+  "img name"
+  ". desc"
+  ". role";
 }
 
-.about-page a {
+.about-page a:not(:first-child) {
   color: #7fffd4;
-}
-
-.dev-team-linkedin-icon {
-  padding-right: 10px;
-}
-
-.dev-team-linkedin-iconsmall {
-  padding-right: 5px;
-}
-
-.dev-team-linkedin-iconsmall-name {
-  padding-top: 5px;
 }
 
 .linkedin {
   width: 30px;
-}
-
-.linkedin-small {
-  width: 30px;
-}
-
-hr {
-  margin: 2.5em 0;
-}
-
-.about-lead-team {
-  width: 80%;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.about-card-lead {
-  width: 100%;
+  margin: 0;
 }
 
 .about-card-head {
@@ -151,4 +158,23 @@ ul {
 ul > li > span {
   font-weight: bold;
   color: var(--green);
+}
+
+.hero-img{
+  width: 50%;
+  height: auto;
+  margin-bottom: 3em;
+  align-self: flex-start;
+  padding-left: 10%;
+}
+
+.between{
+  justify-content: space-evenly;
+}
+
+.link-team-about, .link-team-about>img{
+  line-height: 1em;
+  font-size: 1em;
+  height: 1em;
+  margin-top: 0.5em;
 }
