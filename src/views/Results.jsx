@@ -21,7 +21,6 @@ import "./../styles/simulator.css"
 import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
-import UserContext from "../auth/UserContext";
 import Popup from "reactjs-popup";
 
 const Results = (props) => {
