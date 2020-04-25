@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "../components/partials/Header";
 
 import "../styles/concept.css";
 
@@ -7,8 +8,9 @@ const Concept = () => {
 
   return (
     <div className="concept-page flex-item flex-column">
-      <div class="flex-item full-width">
-        <div class="flex-column">
+      <Header/>
+      <div className="flex-item full-width">
+        <div className="flex-column">
           <div
             className={`chapter-selection ${
               selectedChapter === "concept" ? "active" : ""
@@ -20,7 +22,7 @@ const Concept = () => {
             <span>Le concept</span>
           </div>
         </div>
-        <div class="flex-column">
+        <div className="flex-column">
           <div
             className={`chapter-selection ${
               selectedChapter === "enjeux" ? "active" : ""
@@ -32,7 +34,7 @@ const Concept = () => {
             <span>Les enjeux</span>
           </div>
         </div>
-        <div class="flex-column">
+        <div className="flex-column">
           <div
             className={`chapter-selection ${
               selectedChapter === "qna" ? "active" : ""
@@ -101,7 +103,7 @@ const Concept = () => {
             de paramètres, préremplis par défaut.
           </p>
 
-          <p>
+          <div>
             Pour guider l’utilisateur, plusieurs informations sont disponibles,
             pour chaque paramètre :
             <ul>
@@ -122,7 +124,7 @@ const Concept = () => {
                 rapide des émissions de ce secteur
               </li>
             </ul>
-          </p>
+          </div>
 
           <h5>> Vers une trajectoire de réchauffement climatique mondiale ?</h5>
           <p>
@@ -134,7 +136,7 @@ const Concept = () => {
             habitant.
           </p>
 
-          <p>
+          <div>
             Une deuxième étape consiste à extrapoler à l’ensemble de la planète,
             la trajectoire d’émissions suivie par la France. Plusieurs
             hypothèses sont envisageables :
@@ -150,7 +152,7 @@ const Concept = () => {
                 les 90,1% restant évoluent selon la même trajectoire
               </li>
             </ul>
-          </p>
+          </div>
         </div>
       )}
       {selectedChapter == "enjeux" && (

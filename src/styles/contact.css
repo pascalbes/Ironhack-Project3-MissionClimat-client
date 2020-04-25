@@ -1,12 +1,13 @@
 .form-page{
     align-items: center;
     justify-content: flex-start;
-    padding: 2em 0;
+    padding: 0 0 2em;
+    height: 92vh;
 }
 
 .form{
     width: 375px;
-    margin: 2em;
+    margin: 0 0 2em;
 }
 
 .form-save{
@@ -21,24 +22,13 @@
     border-radius: 1em;
 }
 
-.news-box{
-    align-items: center;
-    margin-bottom: 2em;
-}
-
-.form input[type=checkbox]{
-    margin-right: 1em;
-}
-
 .form-page p a{
     color: var(--green);
     font-weight: bold;
 }
 
-.error-message {
-    height: 2em
-}
-
-.error-message {
-    color: indianred
+@media (max-width: 800px) and (orientation: portrait) {
+    .form-page{
+        height: 92vw;
+    }
 }

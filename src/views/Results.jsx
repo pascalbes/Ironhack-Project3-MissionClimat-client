@@ -1,4 +1,5 @@
 import React, { useState, setState, useContext} from 'react'
+import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -17,13 +18,11 @@ import SimBarChart from './../components/simulateur/simBarChart'
 import Sunburst from './../components/simulateur/sunburstChart'
 
 import './../styles/results.css'
-import "./../styles/form.css"
 import "./../styles/simulator.css"
 import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 import APIHandler from "../api/APIHandler";
-import UserContext from "../auth/UserContext";
 import Popup from "reactjs-popup";
 import Pdf from "react-to-pdf";
 
@@ -34,8 +33,6 @@ const Results = (props) => {
 
     // console.log(props)
 
-    const userContext = useContext(UserContext);
-    let { currentUser } = userContext;
 
     const [isNew, setIsNew] = useState(true)
     const [scenarioExists, setScenarioExists] = useState("")
@@ -187,7 +184,7 @@ const Results = (props) => {
 
 
         <div className="results-page flex-item flex-column">
-
+            <Header/>
             <article id="hero-article">
                 <div class="flex-item full-width">
 
@@ -297,14 +294,14 @@ const Results = (props) => {
                 <div className="flex-item flex-column res-emi-fr-container">
 
                     {/* Titre graphe */}
-                    <h3>{results.emiFrance.sansRupture.graph.data.title}</h3>
+                    {/* <h3>{results.emiFrance.sansRupture.graph.data.title}</h3> */}
                     <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures.</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <AreaChart datas={results.emiFrance.sansRupture.graph}/>
+                            {/* <AreaChart datas={results.emiFrance.sansRupture.graph}/> */}
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
-                            <p>{results.emiFrance.sansRupture.text}</p>
+                            {/* <p>{results.emiFrance.sansRupture.text}</p> */}
                             <div className="res-chart-legend">
                                 <table>
                                     <tbody>
@@ -329,14 +326,14 @@ const Results = (props) => {
                 <div className="flex-item flex-column res-emi-fr-container">
 
                     {/* Titre graphe */}
-                    <h3>{results.emiFrance.avecRupture.graph.data.title}</h3>
+                    {/* <h3>{results.emiFrance.avecRupture.graph.data.title}</h3> */}
                     <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures, avec rupture.</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <AreaChart datas={results.emiFrance.avecRupture.graph}/>
+                            {/* <AreaChart datas={results.emiFrance.avecRupture.graph}/> */}
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
-                            <p>{results.emiFrance.avecRupture.text}</p>
+                            {/* <p>{results.emiFrance.avecRupture.text}</p> */}
                             <div className="res-chart-legend">
                                 <table>
                                     <tbody>
@@ -389,16 +386,16 @@ const Results = (props) => {
 
                 {/* Titre sous partie */}
                 <h2>Secteur du Bâtiment</h2>
-                <p>{results.dataFrance.batiment.intro}</p>
+                {/* <p>{results.dataFrance.batiment.intro}</p> */}
 
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>{results.dataFrance.batiment.perf.graph.data.title}</h2>
+                    {/* <h2>{results.dataFrance.batiment.perf.graph.data.title}</h2> */}
                     <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
-                    <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.perf.text)}></p>
+                    {/* <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.perf.text)}></p> */}
                     <div className="flex-item res-chart-container">
-                        <p>{results.dataFrance.batiment.perf.text}</p>
+                        {/* <p>{results.dataFrance.batiment.perf.text}</p> */}
                         <div className="res-chart">
-                        <AreaChart datas={results.dataFrance.batiment.perf.graph}/>
+                        {/* <AreaChart datas={results.dataFrance.batiment.perf.graph}/> */}
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">
@@ -412,13 +409,13 @@ const Results = (props) => {
                 </div>
 
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>{results.dataFrance.batiment.chauffage.graph.data.title}</h2>
+                    {/* <h2>{results.dataFrance.batiment.chauffage.graph.data.title}</h2> */}
                     <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
-                    <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.chauffage.text)}></p>
+                    {/* <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.chauffage.text)}></p> */}
                     <div className="flex-item res-chart-container">
-                        <p>{results.dataFrance.batiment.chauffage.text}</p>
+                        {/* <p>{results.dataFrance.batiment.chauffage.text}</p> */}
                         <div className="res-chart">
-                        <AreaChart datas={results.dataFrance.batiment.chauffage.graph}/>
+                        {/* <AreaChart datas={results.dataFrance.batiment.chauffage.graph}/> */}
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <div className="res-chart-legend">

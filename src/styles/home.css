@@ -9,7 +9,7 @@
 
 /* /// HERO LANDING */
 .hero-landing{
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 92vh;
 }
@@ -92,10 +92,20 @@
 /* BLINKING BTN */
 .blinking{
     animation: blinker 2s linear infinite;
+    margin-bottom: 2rem;
+    color: var(--lightgreen);
+    font-size: 1em;
+    border: none;
 }
 
 @keyframes blinker {
     50% {
       opacity: 0;
+    }
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+    .hero-landing{
+        height: 92vw
     }
 }

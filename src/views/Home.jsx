@@ -1,6 +1,9 @@
 import React from 'react'
+import Header from "../components/partials/Header";
 import Footer from "../components/partials/Footer"
 import { Link } from "react-router-dom"
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../styles/home.css"
 import "../styles/footer.css"
@@ -9,8 +12,9 @@ import "../styles/footer.css"
 const Home = () => {
     return (
         <div className="home-page flex-item flex-column">
+            <Header />
             <article className="hero-landing flex-item flex-column">
-                {/* <div className="hidden"></div> */}
+                <div className="hidden"></div>
                 <div className="hero-box flex-item">
                     <div className="hero-left">
                         <h1 className="border"><span className="hero-mission">mission</span><br/><span className="hero-temp">Climat</span></h1>
@@ -26,7 +30,7 @@ const Home = () => {
                     </div>
                     
                 </div>
-                {/* <button className="blinking border-btn down-btn"><a href="#next-landing">Plus...</a></button> */}
+                <button className="blinking"><a href="#next-landing"><FontAwesomeIcon icon={faChevronDown} /></a></button>
             </article>
 
             <article id="next-landing" className="next-landing flex-item">

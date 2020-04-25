@@ -2,7 +2,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  padding: 0 0 2em;
 }
 
 .about-page h3 {
@@ -44,7 +44,11 @@
   width: 70px;
 }
 
-
+iframe{
+  align-self: center;
+  margin: 1em 0;
+  box-shadow: 0 0 10px 0 black;
+}
 
 .separator {
   margin-bottom: 35px;

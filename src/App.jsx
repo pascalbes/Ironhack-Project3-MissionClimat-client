@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { ProtectedRoute } from "./auth/ProtectedRoute";
-
 
 /// PAGES
 import Home from "./views/Home";
@@ -12,9 +10,6 @@ import Contact from "./views/Contact.jsx";
 import Concept from "./views/Concept";
 import Simulator from "./views/Simulator";
 import Results from "./views/Results";
-import Dashboard from "./views/Dashboard";
-import Signin from "./views/Signin";
-import Signup from "./views/Signup";
 import NotFound from "./views/NotFound";
 import api from "./api/APIHandler"
 // import { Beforeunload , useBeforeunload } from 'react-beforeunload';
@@ -25,18 +20,10 @@ import Header from "./components/partials/Header";
 /// STYLES
 import "./styles/app.css";
 import "./styles/reset.css";
-import UserContext from "./auth/UserContext"
 
 
 
 function App() {
-
-const [currentUser,setCurrentUser] = useState(null);
-
-const UserContextValue = {
-  currentUser, 
-  setCurrentUser
-}
 
 
   // function deleteSheet(e) {
@@ -58,8 +45,8 @@ const UserContextValue = {
   // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
 
   return (
-    <UserContext.Provider value={UserContextValue}>
-      <Header />
+    <>
+      {/* <Header /> */}
       <main id="content-main">
         <Switch>
           {/* BASIC */}
@@ -68,19 +55,13 @@ const UserContextValue = {
           <Route path="/contact" component={Contact} /> 
           {/* SIMULATOR */}
           <Route path="/concept" component={Concept} />
-          <Route path="/simulator/favorites/:urlParams" component={Simulator} />
           <Route path="/simulator" component={Simulator} />        
           <Route path="/results" component={Results} />
-          {/* AUTH */}
-          <ProtectedRoute path="/dashboard" component={Dashboard} />
-          {/* <Route path="/dashboard" component={Dashboard} /> */}
-          <Route path="/signin" component={Signin} />
-          <Route path="/signup" component={Signup} />
           {/* NOT FOUND */}
           <Route path="*" component={NotFound} />
         </Switch>
       </main>
-</UserContext.Provider>
+    </>
   );
 }
 

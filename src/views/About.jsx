@@ -4,10 +4,12 @@ import "../styles/about.css";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Header from "../components/partials/Header";
 
 export const AboutUs = () => {
   return (
     <div className="about-page flex-item flex-column">
+      <Header />
       <article className="about-card about-conception border-btn  flex-item flex-column">
         <div className="about-card-head flex-item">
           <img
@@ -56,7 +58,16 @@ export const AboutUs = () => {
             <p>Article de Marianne</p> 
           </div>
 
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://reporterre.net/Rester-sous-les-1-5-oC-voici-comment-nos-vies-pourraient-changer" >
+              <img src="../../images/about/megaphone - vert.svg"></img>
+            </a>
+            <p>Tribune dans Reporterre</p>
+          </div>
         </div>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iCDYAunYQFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
           En janvier 2020, Guillaume Martin, l'un des 2 co-auteurs de l'étude, et Pascal Besson

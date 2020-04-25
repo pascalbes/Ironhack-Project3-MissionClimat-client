@@ -1,5 +1,6 @@
 /// BASIC
 import React, {  useState, useEffect } from 'react'
+import Header from "../components/partials/Header";
 import "./../styles/simulator.css"
 import "./../styles/app.css"
 
@@ -228,6 +229,8 @@ const Simulator = (props) => {
     return (
         values ?
 
+        <>
+        <Header/>
         <div className="sim-page flex-item">
             <section className="sim-container-box">
                 <div id="sim-nav-box" className="flex-item flex-column">
@@ -389,6 +392,7 @@ const Simulator = (props) => {
                          
             </section>
         </div>
+        </>
 
         :
 

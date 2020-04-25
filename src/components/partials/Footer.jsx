@@ -7,8 +7,8 @@ const Footer = () => {
         <footer className="flex-item nomarge flex-item">
             <div className="footer-item flex-item">
                 <img className="footer-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
-                <img className="footer-logo" src="../../images/logo/logopb.svg" style={{color:'white'}} alt="Logo pb"/>
-                <p>logo ng</p>
+                <img className="footer-logo" src="../../images/logo/Pascal-logo.svg" alt="Logo pb"/>
+                <img className="footer-logo" src="../../images/logo/Nina-logo.svg" alt="Nina Gautreau" />
             </div>
             <div className="footer-item flex-item">
 

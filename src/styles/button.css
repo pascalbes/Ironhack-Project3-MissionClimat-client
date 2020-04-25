@@ -1,4 +1,4 @@
-button{
+button {
     padding: 0.5em 1em;
     border-radius: 2em;
     font-size: 0.8em;
@@ -7,7 +7,7 @@ button{
     font-weight: bold;
 }
 
-.green-btn{
+.green-btn {
     background-image: var(--backgreen);
     background-size: 120% 120%;
     background-position: center;
@@ -27,15 +27,15 @@ button{
     color: #021438;
 }
 
-.border-btn{
+.border-btn {
     /* border: 2px solid var(--lightgreen); */
-    color:white;
+    color: white;
     border: none;
     font-weight: lighter;
     font-size: 0.9em;
 }
 
-.see-more-btn{
+.see-more-btn {
     /* border-color: var(--darkblue); */
     color: var(--darkblue);
     padding: 0 0.2em;
@@ -43,18 +43,20 @@ button{
     font-size: 1.5em;
 }
 
-.left-btn{
+.left-btn {
     margin-left: 1em;
 }
 
-.right-btn{
+.right-btn {
     margin-right: 1em;
 }
 
-.down-btn{
-    margin-bottom: 3em;
+.down-btn {
+    margin-bottom: 3rem;
+    color: var(--lightgreen);
+    font-size: 1em;
 }
 
-.up-btn{
+.up-btn {
     margin-top: 3em;
 }
