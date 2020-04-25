@@ -11,10 +11,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import jsonFile from "../ressources/initialDatas.json"
 
 import AreaChart from './../components/simulateur/simResultsAreaChart'
-import GenLinearChart from './../components/resultats/resGenLinearChart'
-import SectorLinearChart from './../components/resultats/resSectorLinearChart'
-import SimBarChart from './../components/simulateur/simBarChart'
 import Sunburst from './../components/simulateur/sunburstChart'
+
+import ChartContainer from './../components/resultats/chartContainer'
 
 import './../styles/results.css'
 import "./../styles/form.css"
@@ -22,23 +21,17 @@ import "./../styles/simulator.css"
 import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
-import APIHandler from "../api/APIHandler";
 import UserContext from "../auth/UserContext";
 import Popup from "reactjs-popup";
-import Pdf from "react-to-pdf";
-
-
-
 
 const Results = (props) => {
 
-    // console.log(props)
+    // const userContext = useContext(UserContext);
+    // let { currentUser } = userContext;
 
-    const userContext = useContext(UserContext);
-    let { currentUser } = userContext;
+    // const [isNew, setIsNew] = useState(true)
+    // const [scenarioExists, setScenarioExists] = useState("")
 
-    const [isNew, setIsNew] = useState(true)
-    const [scenarioExists, setScenarioExists] = useState("")
     const [textArea, setTextArea] = useState()
 
     var results={}
@@ -51,14 +44,14 @@ const Results = (props) => {
         localStorage.setItem('results', JSON.stringify(results))
     }
 
-    const checkScope = (categories) => {
-        var frenchCategories = [];
-        categories.map((categorie) => {
-            if (categorie.data.scope !== ("Répartition mondiale")) {
-                return frenchCategories.push(categorie)}
-        })
-        return frenchCategories
-    }
+    // const checkScope = (categories) => {
+    //     var frenchCategories = [];
+    //     categories.map((categorie) => {
+    //         if (categorie.data.scope !== ("Répartition mondiale")) {
+    //             return frenchCategories.push(categorie)}
+    //     })
+    //     return frenchCategories
+    // }
 // travailler sur paramètre et les données à lui envoyer
 
     // const graphParam = [];
@@ -138,11 +131,7 @@ const Results = (props) => {
         }
     }
 
-    function handleEvolution(sector) {
-        let datas = results.emiSecteurGnl.data.data;
-        let evolution = Math.round((datas[datas.length-1][sector]-datas[0][sector])/datas[0][sector]*10000)/100
-        return evolution >= 0 ? "+" + evolution + "%" : evolution  + "%" 
-    }
+    
 
     //légende cartes températures
     const mapLegendInfos = [["#FFF5CC", "de 0 à 0,5°C"],
@@ -158,8 +147,6 @@ const Results = (props) => {
     ["#6C0000", "de 9 à 11°C"],
     ["#6E0046", "plus de 11°C"]]
 
-    const areaDatas = [...results.emiSecteurPie.data01.reverse()];
-    results.emiSecteurPie.data01.reverse();
 
     function copyUrl() {
         if (textArea) {
@@ -174,17 +161,38 @@ const Results = (props) => {
         return {__html: text};
     }
 
-    // function downloadModel() {
-    //     2020-04-09_Scenario1.5.xlsx
-    // }
+    function areaLegend(datas) {
+        
+        let dataValues = datas.data.data
+        
+        datas.areaDatas.map(data => {
+            data.subText = dataValues[dataValues.length-1][data.dataKey] + " " + datas.data.yTitle + " / Evolution : "
+            let evolution = Math.round((dataValues[dataValues.length-1][data.dataKey]-dataValues[0][data.dataKey])/dataValues[0][data.dataKey]*100)
+            evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
+            return data
+        })
 
+        let dataReversed = [...datas.areaDatas];
+        dataReversed.reverse()
 
+        return dataReversed
+    }
+
+    function pieLegend(datas) {
+
+        datas.data01.map(data => {
+            data.dataKey = data.name
+            data.subText = data.value + " MtCO2"
+            return data
+        })
+
+        return datas.data01
+
+    }
+
+    console.log(results)
 
     return (
-
-      
-        
-
 
         <div className="results-page flex-item flex-column">
 
@@ -291,145 +299,70 @@ const Results = (props) => {
                 <h1>Emissions françaises</h1> 
 
                 {/* Titre sous partie */}
-                <h2>Emissions totales</h2>
-                <p>{results.emiFrance.intro}</p>
-
-                <div className="flex-item flex-column res-emi-fr-container">
-
-                    {/* Titre graphe */}
-                    <h3>{results.emiFrance.sansRupture.graph.data.title}</h3>
-                    <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures.</p>
-                    <div className="flex-item res-chart-container">
-                        <div className="res-chart">
-                            <AreaChart datas={results.emiFrance.sansRupture.graph}/>
-                        </div>
-                        <div className="res-chart-infos flex-item flex-column">
-                            <p>{results.emiFrance.sansRupture.text}</p>
-                            <div className="res-chart-legend">
-                                <table>
-                                    <tbody>
-                                    {areaDatas.map((data,i) => (
-                                        <tr>
-                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
-                                            <td>
-                                                <p className="bold-text">{data.name}</p>
-                                                <p className="light-text">{Math.round(data.value)} MtCO2 / Evolution : {handleEvolution(data.name)}</p>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                        
-                                    </tbody>
-                                </table>
-                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="flex-item flex-column res-emi-fr-container">
-
-                    {/* Titre graphe */}
-                    <h3>{results.emiFrance.avecRupture.graph.data.title}</h3>
-                    <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures, avec rupture.</p>
-                    <div className="flex-item res-chart-container">
-                        <div className="res-chart">
-                            <AreaChart datas={results.emiFrance.avecRupture.graph}/>
-                        </div>
-                        <div className="res-chart-infos flex-item flex-column">
-                            <p>{results.emiFrance.avecRupture.text}</p>
-                            <div className="res-chart-legend">
-                                <table>
-                                    <tbody>
-                                    {areaDatas.map((data,i) => (
-                                        <tr>
-                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
-                                            <td>
-                                                <p className="bold-text">{data.name}</p>
-                                                <p className="light-text">{Math.round(data.value)} MtCO2 / Evolution : {handleEvolution(data.name)}</p>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                        
-                                    </tbody>
-                                </table>
-                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div className="res-title-box">
+                    <h2>Emissions totales</h2>
+                    <p>{results.emiFrance.intro}</p>
                 </div>
                 
-                <div className="flex-item flex-column res-emi-fr-container">
-                    <h3>Emissions sectorielles françaises en 2030</h3>
-                    <p className="chart-short-desc light-text">Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs</p>
-                    <div className="flex-item res-chart-container">
-                        <div className="res-chart">
-                            <Sunburst datas={results.emiSecteurPie}/>
-                        </div>
-                        <div className="res-chart-infos flex-item flex-column">
-                            <div className="res-chart-legend">
-                                <table>
-                                    <tbody>
-                                    {results.emiSecteurPie.data01.map((data,i) => (
-                                        <tr>
-                                            <td><div className="legend-point" style={{backgroundColor:data.color}}></div></td>
-                                            <td>
-                                                <p className="bold-text">{data.name}</p>
-                                                <p className="light-text">{Math.round(data.value)} MtCO2</p>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                        
-                                    </tbody>
-                                </table>
-                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
-                            </div>    
-                        </div>
-                    </div>
-                </div>
+
+                <ChartContainer 
+                    title = {results.emiFrance.sansRupture.graph.data.title}
+                    subtitle = "Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures. sans rupture."
+                    graphData = {results.emiFrance.sansRupture.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.emiFrance.sansRupture.text}
+                    legendData = {areaLegend(results.emiFrance.sansRupture.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />
+
+                <ChartContainer 
+                    title = {results.emiFrance.avecRupture.graph.data.title}
+                    subtitle = "Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures. avec rupture."
+                    graphData = {results.emiFrance.avecRupture.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.emiFrance.avecRupture.text}
+                    legendData = {areaLegend(results.emiFrance.avecRupture.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                <ChartContainer 
+                    title = {"Emissions sectorielles françaises en 2030"}
+                    subtitle = "Ce graphique représente les émissions sectorielles pour la France en 2030, fonction de vos mesures. Pour chaque secteurs, vous retrouvez également les émissions des sous-secteurs."
+                    graphData = {results.emiSecteurPie}
+                    graphType = "Sunburst"
+                    graphText = {"TBD"}
+                    legendData = {pieLegend(results.emiSecteurPie)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
 
                 {/* Titre sous partie */}
-                <h2>Secteur du Bâtiment</h2>
-                <p>{results.dataFrance.batiment.intro}</p>
-
-                <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>{results.dataFrance.batiment.perf.graph.data.title}</h2>
-                    <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
-                    <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.perf.text)}></p>
-                    <div className="flex-item res-chart-container">
-                        <p>{results.dataFrance.batiment.perf.text}</p>
-                        <div className="res-chart">
-                        <AreaChart datas={results.dataFrance.batiment.perf.graph}/>
-                        </div>
-                        <div className="res-chart-infos flex-item flex-column">
-                            <div className="res-chart-legend">
-                                <table>
-                                    {/* légende à ajouter */}
-                                </table>
-                            </div>
-                            <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
-                        </div>
-                    </div>
+                <div className="res-title-box">
+                    <h2>Secteur du Bâtiment</h2>
+                    <p>{results.dataFrance.batiment.intro}</p>
                 </div>
 
-                <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>{results.dataFrance.batiment.chauffage.graph.data.title}</h2>
-                    <p className="chart-short-desc light-text">Ce graphique représente le nombre de logements par type de performance</p>
-                    <p className="bold-text" dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.chauffage.text)}></p>
-                    <div className="flex-item res-chart-container">
-                        <p>{results.dataFrance.batiment.chauffage.text}</p>
-                        <div className="res-chart">
-                        <AreaChart datas={results.dataFrance.batiment.chauffage.graph}/>
-                        </div>
-                        <div className="res-chart-infos flex-item flex-column">
-                            <div className="res-chart-legend">
-                                <table>
-                                    {/* légende à ajouter */}
-                                </table>
-                            </div>
-                            <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
-                        </div>
-                    </div>
-                </div>
+                <ChartContainer 
+                    title = {results.dataFrance.batiment.perf.graph.data.title}
+                    subtitle = "Ce graphique représente le nombre de logements par type de performance."
+                    graphData = {results.dataFrance.batiment.perf.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.batiment.perf.text}
+                    legendData = {areaLegend(results.dataFrance.batiment.perf.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+                <ChartContainer 
+                    title = {results.dataFrance.batiment.chauffage.graph.data.title}
+                    subtitle = "Ce graphique représente le nombre de logements par type de chauffage."
+                    graphData = {results.dataFrance.batiment.chauffage.graph}
+                    graphType = "AreaChart"
+                    graphText = {results.dataFrance.batiment.chauffage.text}
+                    legendData = {areaLegend(results.dataFrance.batiment.chauffage.graph)}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />  
+
+
 
             </article>
 

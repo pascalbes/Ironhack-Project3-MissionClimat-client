@@ -13,11 +13,18 @@
     color: #7fffd4;
     font-size: 3em;
     border-bottom: #7fffd4 solid 4px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .results-page h2 {
+    color: #7fffd4;
     font-size: 2em;
+    align-self: flex-start;
+}
+
+.results-page h3 {
+    font-size: 1.5em;
+    align-self: flex-start;
 }
 
 /* /// HERO RESULTS */
@@ -174,17 +181,24 @@
 
 /* /// PIE */
 #res-emi-fr {
-    width: 100%;
+    width: 80%;
     align-items: center;
 }
 
 .res-emi-fr-container {
-    height: 100vh;
-    width: 80%;
+    min-height: 100vh;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.res-title-box {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    margin-bottom: 30px;
 }
 
 .chart-short-desc {
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin-bottom: 20px;
     font-style: italic;
 }
@@ -197,29 +211,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 70vh;
+    width: 55%;
+    height: 75vh;
 }
 
 .res-chart img {
     max-width: 98%;
 }
 
-
 .res-chart-infos {
-    width: 40%;
-    justify-content: center;
+    width: 45%;
+    justify-content: space-around;
+    padding-left: 15px
 }
 
-.res-chart-source {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+.res-chart-infos p {
     font-size: 0.9em;
-    margin-top: 20px;
 }
 
 .res-chart-legend {
-    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.res-chart-legend > div {
+    width: 45%;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.res-chart-legend > div div {
+    padding: 5px 10px 5px 0;
 }
 
 .res-chart-legend > p {
@@ -234,6 +255,13 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    margin-right: 10px;
+}
+
+.res-chart-source {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9em;
 }
 
 
