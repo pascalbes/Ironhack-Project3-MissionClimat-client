@@ -302,7 +302,16 @@ const Results = (props) => {
                     <h2>Emissions totales</h2>
                     <p>{results.emiFrance.intro}</p>
                 </div>
-                
+
+                <ChartContainer 
+                    title = {results.emiFrance.total.graph.data.title}
+                    subtitle = "Ce graphique représente l'évolution des émissions sectorielles pour la France de 2020 à 2030, fonction de vos mesures. sans rupture."
+                    graphData = {results.emiFrance.total.graph}
+                    graphType = "CompoChart"
+                    graphText = {results.emiFrance.total.text}
+                    legendData = {results.emiFrance.total.graph.graphDatas}
+                    sourceData = "Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page."
+                />
 
                 <ChartContainer 
                     title = {results.emiFrance.sansRupture.graph.data.title}

@@ -2,6 +2,7 @@ import React from 'react'
 
 import AreaChart from './../simulateur/simResultsAreaChart'
 import Sunburst from './../simulateur/sunburstChart'
+import CompoChart from './compoChart';
 
 
 const chartContainer = ({title, subtitle, graphData, graphType, graphText, legendData, sourceData}) => {
@@ -19,6 +20,7 @@ const chartContainer = ({title, subtitle, graphData, graphType, graphText, legen
                 <div className="res-chart">
                     {graphType==="AreaChart" && <AreaChart datas={graphData}/>}
                     {graphType==="Sunburst" && <Sunburst datas={graphData}/>}
+                    {graphType==="CompoChart" && <CompoChart datas={graphData}/>}
                 </div>
                 <div className="res-chart-infos flex-item flex-column">
                     <p dangerouslySetInnerHTML={handleInnerHTML(graphText)} className="light-text"></p>
