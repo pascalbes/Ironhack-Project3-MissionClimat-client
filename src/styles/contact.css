@@ -2,7 +2,10 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 0 2em;
-    height: 92vh;
+}
+
+.form-page>h2{
+    margin-top: 2rem;
 }
 
 .form{
@@ -15,11 +18,15 @@
     width: 100%;
 }
 
-.input, .form select, .form textarea{
+.input{
     margin: 1em 0 1em;
     padding: 0.5em 1em;
-    font-size: 1em;
+    font-size: 1rem;
     border-radius: 1em;
+    outline: none;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
 .form-page p a{

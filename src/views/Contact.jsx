@@ -5,7 +5,7 @@ import Header from "../components/partials/Header";
 
 const Contact = () => {
     return (
-        <div className="form-page flex-item flex-column">
+        <div className="form-page flex-item flex-column light-text">
             <Header/>
             <h2>Contact</h2>
             <ContactForm/>

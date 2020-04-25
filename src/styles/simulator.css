@@ -440,9 +440,6 @@ input[type="radio"] {
   align-self: center;
 }
 
-/* .chart-tooltip p {
-  font-size: 0.8em;
-} */
 
 /* /// COMPOSANT INDICATEUR AVEC TITRE BOX ET LEGENDE */
 
@@ -461,21 +458,11 @@ input[type="radio"] {
   text-align: center;
 }
 
-.tag-temp {
-  background-color: white;
-  box-shadow: inset 0 0 50px mintcream, inset 20px 0 80px var(--tempyellowgreen),
-    inset -20px 0 80px var(--tempyellowgreen),
-    inset 20px 0 300px var(--tempyellowgreen),
-    inset -20px 0 300px var(--tempyellowgreen);
-}
-
 .results-figure {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
-  height: 3rem;
-  width: 5em;
   border-radius: 0.5rem;
   line-height: normal;
 }
@@ -496,4 +483,10 @@ input[type="radio"] {
 .sim-results-box button {
   padding: 1em 3em;
   font-size: 1em;
+}
+
+@media screen and (max-width: 1000px){
+  body{
+    font-size: 3px;
+  }
 }

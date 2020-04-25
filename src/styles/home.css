@@ -106,6 +106,6 @@
 
 @media (max-width: 800px) and (orientation: portrait) {
     .hero-landing{
-        height: 92vw
+        height: 92vw;
     }
 }

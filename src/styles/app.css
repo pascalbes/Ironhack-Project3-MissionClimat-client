@@ -141,6 +141,10 @@ h4{
     margin: 0;
 }
 
+.margeup{
+    padding-top: 2rem !important;
+}
+
 @media (max-width: 800px) and (orientation: portrait) {
     body{
         transform: rotate(-90deg);

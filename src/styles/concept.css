@@ -7,7 +7,7 @@
 
 .concept-box {
   width: 80%;
-  padding: 3em 4em !important;
+  padding: 2em 2em;
   border-radius: 1em;
   margin-bottom: 3em;
   justify-content: space-between;
@@ -15,8 +15,6 @@
 
 img.border-btn {
   background: white;
-}
-.full-width {
 }
 
 .chapter-selection {
@@ -28,6 +26,11 @@ img.border-btn {
 
 .chapter-selection.active {
   color: #7fffd4;
+}
+
+a:not(:first-of-type) {
+  color: #7fffd4;
+  font-weight: bolder;
 }
 
 .chapter-selection span {
@@ -48,14 +51,25 @@ img.border-btn {
 }
 
 .concept-box p {
-  margin: 0.8em 0;
+  margin: 1em 0;
   text-align: justify;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.concept-page h3 {
+  color: #7fffd4;
 }
 
 .concept-box h5 {
-  margin: 0.8em 0;
-  color: var(--green);
-  font-size: 1em;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #7fffd4;
+  font-size: 1.2em;
+}
+
+.question h5{
+  font-style: italic;
 }
 
 .concept-img-box {
@@ -68,17 +82,11 @@ img.border-btn {
   height: auto;
 }
 
-.concept-box a {
-  color: var(--green);
-  text-decoration: underline;
-  font-weight: bold;
-}
-
 ul {
   margin: 1em 0 0;
 }
 
-.concept-box .border-btn {
+img.border-btn {
   border-radius: 1em;
   padding: 1em 2em;
 }

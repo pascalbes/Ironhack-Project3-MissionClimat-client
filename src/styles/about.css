@@ -160,12 +160,10 @@ ul > li > span {
   color: var(--green);
 }
 
-.hero-img{
-  width: 50%;
+.about-img{
+  width: 40%;
   height: auto;
   margin-bottom: 3em;
-  align-self: flex-start;
-  padding-left: 10%;
 }
 
 .between{

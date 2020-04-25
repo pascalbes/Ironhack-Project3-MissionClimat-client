@@ -11,7 +11,7 @@ export const AboutUs = () => {
     <div className="about-page flex-item flex-column light-text">
       <Header />
       <section className="about-card flex-item flex-column">
-        <div className="about-card-head flex-item">
+        <div className="about-card-head flex-item margeup">
           <img
             className="team-logo"
             src="../../images/logo/Conception.svg"
@@ -329,7 +329,7 @@ export const AboutUs = () => {
       </article>
 
       <img
-            className="hero-img"
+            className="about-img"
             src="../../images/team.svg"
             alt="landing-visual"
           />
