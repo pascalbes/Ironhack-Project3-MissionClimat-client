@@ -2,9 +2,10 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 0 2em;
+    height: 100vh;
 }
 
-.form-page>h2{
+.form-page>h3{
     margin-top: 2rem;
 }
 
@@ -32,10 +33,4 @@
 .form-page p a{
     color: var(--green);
     font-weight: bold;
-}
-
-@media (max-width: 800px) and (orientation: portrait) {
-    .form-page{
-        height: 92vw;
-    }
 }
