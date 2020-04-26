@@ -1,35 +1,17 @@
 import React, { useState, setState, useContext} from 'react'
 import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
-import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
-import { faWrench } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import jsonFile from "../ressources/initialDatas.json"
-
-import AreaChart from './../components/simulateur/simResultsAreaChart'
-import Sunburst from './../components/simulateur/sunburstChart'
 
 import ChartContainer from './../components/resultats/chartContainer'
 
 import './../styles/results.css'
 import "./../styles/simulator.css"
-import { Link } from 'react-router-dom'
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
 import Popup from "reactjs-popup";
 
 const Results = (props) => {
-
-    // const userContext = useContext(UserContext);
-    // let { currentUser } = userContext;
-
-    // const [isNew, setIsNew] = useState(true)
-    // const [scenarioExists, setScenarioExists] = useState("")
 
     const [textArea, setTextArea] = useState()
 
@@ -42,52 +24,6 @@ const Results = (props) => {
         results = props.location.state.results
         localStorage.setItem('results', JSON.stringify(results))
     }
-
-    // const checkScope = (categories) => {
-    //     var frenchCategories = [];
-    //     categories.map((categorie) => {
-    //         if (categorie.data.scope !== ("Répartition mondiale")) {
-    //             return frenchCategories.push(categorie)}
-    //     })
-    //     return frenchCategories
-    // }
-// travailler sur paramètre et les données à lui envoyer
-
-    // const graphParam = [];
-
-    // function setGraphParam() {
-    //     checkScope(jsonFile.categories).map((categorie, i) => {
-    //         //envoyer le bon graphe à la bonne catégorie
-    //         var resultsTemp = {}
-
-    //         if (categorie.data.name === "Transports de personnes") {
-    //             resultsTemp=results.emiParSecteur.transports
-    //         }
-
-    //         graphParam.push(<SectorLinearChart key={i} data={categorie} results={resultsTemp}/>)
-    //     });
-    //     graphParam.splice(-2,2);
-    // }
-
-    // setGraphParam();
-
-    // console.log("the results =>", results)
-
-    const [resultsToSave, setResultsToSave] = useState({})
-
-    resultsToSave.url = results.url
-
-    // const saveResults = async e => {
-    //     e.preventDefault();
-    //     try {
-    //     var rv = await APIHandler.patch('users/save', {resultsToSave}); 
-    //     setScenarioExists(rv.data.msg, console.log(scenarioExists))
-    //     return  console.log(rv.data.msg)
-    //     }
-    //     catch (err) {
-    //         console.error(err);
-    //       }
-    // }
 
     function tempColor(){
         const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
