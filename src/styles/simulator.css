@@ -307,7 +307,7 @@
 }
 
 .sticky .sim-categorie {
-  background:#B0E0E6);
+  background:#B0E0E6;
 }
 
 .sim-param-box {
@@ -363,33 +363,39 @@ input[type="radio"] {
 .n1{
   grid-area: title1;
   text-align: center;
+  align-self: center;
   margin: 0;
 }
 
 .n4{
   grid-area: title2;
   text-align: center;
+  align-self: center;
   margin: 0;
 }
 
 .n7{
   grid-area: title3;
   text-align: center;
+  align-self: center;
   margin: 0;
 }
 
 .n2{
   grid-area: tag1;
+  justify-self: center;
   margin: 0;
 }
 
 .n5{
   grid-area: tag2;
+  justify-self: center;
   margin: 0;
 }
 
 .n8{
   grid-area: tag3;
+  justify-self: center;
   margin: 0;
 }
 
@@ -535,33 +541,39 @@ input[type="radio"] {
 .b1{
   grid-area: title4;
   text-align: center;
+  align-self: center;
   margin: 0;
 }
 
 .b4{
   grid-area: title5;
   text-align: center;
+  align-self: center;
   margin: 0;
 }
 
 .b7{
   grid-area: title6;
   text-align: center;
+  align-self: center;
   margin: 0;
 }
 
 .b2{
   grid-area: tag4;
+  justify-self: center;
   margin: 0;
 }
 
 .b5{
   grid-area: tag5;
+  justify-self: center;
   margin: 0;
 }
 
 .b8{
   grid-area: tag6;
+  justify-self: center;
   margin: 0;
 }
 
@@ -599,7 +611,7 @@ input[type="radio"] {
   font-weight: bold;
   border-radius: 0.5rem;
   line-height: normal;
-  padding: 0.1em 0.5em;
+  padding: 0.2em 0.8em;
   margin: 0.2em 0;
 }
 
