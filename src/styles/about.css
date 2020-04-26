@@ -102,7 +102,7 @@ iframe{
   margin-right: 2%;
   width: 35%;
   display: grid;
-  grid: 2em 1.5em 1.5em / 40px auto;
+  grid: 2em auto auto / 40px auto;
   grid-template-areas:
   "img name"
   ". desc"
@@ -175,4 +175,10 @@ ul > li > span {
   font-size: 1em;
   height: 1em;
   margin-top: 0.5em;
+}
+
+@media screen and (max-width: 1100px){
+  .dev-team{
+    width: 60%;
+  }
 }
