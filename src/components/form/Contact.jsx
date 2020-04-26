@@ -9,6 +9,7 @@ class Contact extends Component {
         const email = document.getElementById('email').value;
         const topic = document.getElementById('topic').value;
         const message = document.getElementById('message').value;
+        
         axios({
             method: "POST", 
             url:`http://localhost:3000/contact`, // HELP JE SAIS PAS LEQUEL METTRE

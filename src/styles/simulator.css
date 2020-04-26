@@ -32,7 +32,7 @@
 /* /// SIM-NAV */
 #sim-nav-box {
   align-items: center;
-  height: 22%;
+  height: 19%;
   padding: 8px;
   background-color: white;
   width: 100%;
@@ -44,8 +44,8 @@
   font-family: "Circular Std";
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
-  line-height: 22px;
+  font-size: 25px;
+  line-height: 25px;
   color: #163e59;
   margin-bottom: 5px;
   padding-bottom: 0;
@@ -62,15 +62,16 @@
 #sim-nav-box > div {
   width: 100%;
   justify-content: space-between;
+  margin-top: 0.3em;
 }
 
 #sim-nav-fr {
-  width: 68%;
+  width: 72%;
   justify-content: space-between;
 }
 
 #sim-nav-world {
-  width: 12%;
+  width: 13%;
 }
 
 .sim-nav {
@@ -87,7 +88,7 @@
 .sim-nav-category {
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 5px;
   position: relative;
   display: inline-block;
   height: 45px;
@@ -117,6 +118,7 @@
   text-align: center;
   display: inline-block;
   vertical-align: middle;
+  width: 100%;
 }
 .sim-nav-category .sim-nav-category-icon-helper {
   display: inline-block;
@@ -136,12 +138,12 @@
 }
 
 #sim-nav-world .sim-nav-category {
-  width: 90%;
+  width: 95%;
 }
 
 #options {
-  width: 11%;
-  margin-top: 32px;
+  width: 12%;
+  margin-top: 31px;
   background-color: #b0e0e6;
 }
 
@@ -153,7 +155,7 @@
   scroll-behavior: smooth;
   overflow-y: auto;
   padding: 10px;
-  height: calc(78% - 10px);
+  height: calc(81% - 10px);
   width: 100%;
 }
 
@@ -311,7 +313,7 @@
 }
 
 .sim-param-box {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   margin-bottom: 2%;
@@ -346,7 +348,7 @@ input[type="radio"] {
 /* /// PROJECTION MONDIALE */
 #results-top-box {
   background-color: white;
-  height: 25%;
+  height: 22%;
   width: 100%;
   align-items: center;
   margin-bottom: 10px;
@@ -357,7 +359,7 @@ input[type="radio"] {
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: 10px;
+  margin-top: 0.5em;
 }
 
 .n1{
@@ -422,20 +424,21 @@ input[type="radio"] {
   width: 100%;
   margin: 0;
   grid: auto auto auto / 1fr 1fr 1fr;
-  gap: 5px;
+  gap: 2px;
   grid-template-areas: 
   "title1 title2 title3"
   "tag1 tag2 tag3"
   "legend1 legend2 legend3";
+  margin-top: 0.5em;
 }
 
 /* /// PROJECTION FRANCAISE */
 
 #results-bottom-box {
   background-color: white;
-  height: calc(75% - 10px);
+  height: calc(78% - 10px);
   width: 100%;
-  padding: 8px 15px 8px;
+  padding: 8px 15px 15px;
   justify-content: space-between;
 }
 
@@ -445,11 +448,11 @@ input[type="radio"] {
 }
 
 #results-emissions-charts-container {
-  height: 55%;
+  height: 62%;
   width: 100%;
   display: grid;
   grid: 85% 13% / 49% 49%;
-  gap: 5px;
+  gap: 5px 10px;
   grid-template-areas:
   "g1 g3"
   "g2 g4";
@@ -479,7 +482,7 @@ input[type="radio"] {
 
 #results-emissions-charts-container p {
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
 
 .chart {
@@ -531,11 +534,12 @@ input[type="radio"] {
   width: 100%;
   margin: 0;
   grid: auto auto auto / 1fr 1.2fr 1fr;
-  gap: 5px;
+  gap: 2px;
   grid-template-areas: 
   "title4 title5 title6"
   "tag4 tag5 tag6"
   "legend4 legend5 legend6";
+  margin-top: 0.5em;
 }
 
 .b1{
@@ -568,6 +572,7 @@ input[type="radio"] {
 .b5{
   grid-area: tag5;
   justify-self: center;
+  text-align: center;
   margin: 0;
 }
 
@@ -607,17 +612,18 @@ input[type="radio"] {
 .results-figure {
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   line-height: normal;
   padding: 0.2em 0.8em;
-  margin: 0.2em 0;
+  margin: 0 0;
 }
 
 .figure-unit {
-  font-size: 0.8em;
-  font-weight:normal;
+  font-size: 0.7em;
+  font-weight:lighter;
+  margin-top: -0.2em;
 }
 
 #results-button {
@@ -630,7 +636,7 @@ input[type="radio"] {
 
 .sim-results-box button {
   padding: 0.5em 2em;
-  font-size: 1em;
+  font-size: 1.4em;
 }
 
 @media screen and (max-width: 1110px){

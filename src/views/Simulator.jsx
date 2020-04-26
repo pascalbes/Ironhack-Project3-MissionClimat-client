@@ -365,8 +365,8 @@ const Simulator = (props) => {
                             
                             <p className="results-title b4">Émissions annuelles</p>
                             <div className="results-figure b5 flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
-                                <p>{results.impacts.emissionMoy}
-                                <span className="figure-unit"> MtCO2</span></p>
+                                <p>{results.impacts.emissionMoy}</p>
+                                <p className="figure-unit">MtCO2</p>
                             </div>
                             <p className="results-legend b6">Entre 2020 et 2030</p>                    
                         
