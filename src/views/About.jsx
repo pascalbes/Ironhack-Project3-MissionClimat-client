@@ -4,12 +4,14 @@ import "../styles/about.css";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Header from "../components/partials/Header";
 
 export const AboutUs = () => {
   return (
-    <div className="about-page flex-item flex-column">
-      <article className="about-card about-conception border-btn  flex-item flex-column">
-        <div className="about-card-head flex-item">
+    <div className="about-page flex-item flex-column light-text">
+      <Header />
+      <section className="about-card flex-item flex-column">
+        <div className="about-card-head flex-item margeup">
           <img
             className="team-logo"
             src="../../images/logo/Conception.svg"
@@ -20,197 +22,191 @@ export const AboutUs = () => {
         <h5>L'étude 1.5 de BL évolution / Février 2019</h5>
         <p>
           L'histoire de ce projet débute avec la publication, en février 2019,
-          de l'étude <i><b>«Comment la France peut s’aligner sur une trajectoire compatible avec les
-          1,5°C»</b></i> par le cabinet de conseil BL évolution.
+          de l'étude <i><b>«Comment la France peut s’aligner sur une trajectoire compatible avec les 1,5°C»</b></i> par le cabinet de conseil BL évolution. S’appuyant sur les données du rapport <i><b>«Réchauffement planétaire de 1,5°C»</b></i> du <b>Groupe d’Experts Intergouvernemental sur l’Evolution du Climat (GIEC)</b>, 
+           l’étude donne à voir l'importance des mesures permettant de réduire les émissions de gaz à effet de serre
+          de la France pour s’aligner sur les recommandations du GIEC.
         </p>
-        <p>
-          S’appuyant sur les données scientifiques du rapport du <b>Groupe
-          d’Experts Intergouvernemental sur l’Evolution du Climat (GIEC)</b> intitulé
-          <i><b>«Réchauffement planétaire de 1,5°C»</b></i>, l’étude donne à voir l'importance
-          des mesures concrètes permettant de réduire les émissions de gaz à effet de serre
-          de la France pour s’aligner sur les recommandations du GIEC, et limiter l'impact des conséquences du réchauffement climatique
-          à un niveau à peu près soutenable.
-        </p>
-        <p>
-          Liens étude et articles de presse
-        </p>
-        <h5>Développement v0 @Ironhack Paris / Février 2020</h5>
+        <div id="about-articles" className="flex-item">
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="http://bl-evolution.com/portfolio/comment-saligner-sur-une-trajectoire-compatible-avec-les-15c/" >
+              <img src="../../images/about/etude BL - vert.svg"></img>
+            </a>
+            <p>Etude 1.5 de BL évolution</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://reporterre.net/Climat-rester-sous-la-barre-de-1-5-oC-impose-des-choix-radicaux-sur-la" >
+              <img src="../../images/about/liens articles - vert.svg"></img>
+            </a>
+            <p>Article de Reporterre</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://www.novethic.fr/actualite/environnement/climat/isr-rse/infographie-interdiction-d-acheter-une-voiture-neuve-ou-de-prendre-un-long-courrier-couvre-feu-thermique-quotas-sur-les-produits-importes-les-mesures-chocs-pour-rester-sous-1-5-c-146877.html" >
+              <img src="../../images/about/liens articles - vert.svg"></img>
+            </a>
+            <p>Article de Novethic</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://www.marianne.net/societe/rechauffement-climatique-scenario-noir" >
+              <img src="../../images/about/liens articles - vert.svg"></img>
+            </a>
+            <p>Article de Marianne</p> 
+          </div>
+
+          <div className="flex-item flex-column">
+            <a target="_blank" href="https://reporterre.net/Rester-sous-les-1-5-oC-voici-comment-nos-vies-pourraient-changer" >
+              <img src="../../images/about/megaphone - vert.svg"></img>
+            </a>
+            <p>Tribune dans Reporterre</p>
+          </div>
+        </div>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iCDYAunYQFA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <p className="frame-legend">Interview de Guillaume Martin pour Brut</p>
+
+        <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
           En janvier 2020, Guillaume Martin, l'un des 2 co-auteurs de l'étude, et Pascal Besson
-          décident de démocratiser et valoriser ce modèle autour d'un simulateur web. Une première maquette 
-          est alors développée en 2 semaines, dans le cadre du projet final
-          du bootcamp Ironhack Paris, auquel Pascal participe, avec Nina Gautreau et Paul Carillion.
-          En parallèle, Charles-Adrien Louis, Célian Niclot et Guillaume Martin simplifient et 
-          améliorent le modèle pour le rendre accessible au public.
-        </p>
-        <p>
-          Le projet, appelé tour à tour "Mon Scénario Climat", "Mission 1.5" puis "Mission Climat",
-          est finalement honoré en étant élu meilleur projet web par la promotion
-          de dev web puis lors du hackshow du 9 mars. Champagne! Et repos...
+          décident de démocratiser et valoriser ce modèle autour d'un simulateur web. Une maquette 
+          est développée en 2 semaines avec Nina Gautreau et Paul Carillion, 
+          pour le projet final du bootcamp Ironhack Paris. En parallèle, Charles-Adrien Louis, Célian Niclot 
+          et Guillaume Martin simplifient et améliorent le modèle pour le rendre accessible au public. Le projet est finalement honoré en étant élu meilleur projet web par la promotion
+          de dev web puis lors du hackshow du 9 mars de Ironhack. Champagne !
         </p>
 
-        <h5>Développement Mission Transition / Avril 2020</h5>
+        <h5>Développement Mission Climat / Avril 2020</h5>
         <p>
-          Après un cours repos une petite équipe est montée pour finaliser le projet.
-          Oriana Berthomieu définit l'UI finale du projet, en s'inspirant du travail déjà réalisé par Nina,
-          et Emmanuel Bernard rejoint Pascal pour finaliser le développement.
+          Après un court repos une petite équipe est montée pour finaliser le projet.
+          Oriana Berthomieu définit l'UI finale et Emmanuel Bernard rejoint Pascal pour finaliser le développement. Le site sort enfin le 3 mai 2020, au grand bonheur de tout ce joli monde, et nous l'espérons, au vôtre également !
         </p>
-        <p>
-          Le site sort enfin le 3 mai 2020, au grand bonheur de tout ce joli monde, et nous l'espérons,
-          au vôtre également !
-        </p>
-      </article>
+      </section>
 
-      <section className="about-lead-team flex-item">
-        <article className="about-card about-card-lead border-btn  flex-item flex-column">
+      <section className="about-card flex-item flex-column">
+        <article className="about-card-lead flex-item flex-column">
           <div className="about-card-head flex-item">
-            {/* <img
+            <img
               className="team-logo"
-              src="../../images/logo/logoIH.svg"
-              alt="Logo Ironhack"
-            /> */}
+              src="../../images/logo/Team.svg"
+              alt="Logo Equipe"
+            />
             <h3 className="nomarge">L'équipe</h3>
           </div>
 
+          <p>L'ensemble de l'équipe s'est investie bénévolement. <br/>Vous souhaitez les rejoindre ? Les soutenir dans leur futur projet "Mission Transition" ? C'est ici !</p>
+
           <h5>Pilotage Projet</h5>
-          <p><a target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
-                Pascal Besson
-              </a> et <a target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
-                    Guillaume Martin
+
+          <div className="flex-item about-team-section">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
+                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
               </a>
-          </p>
-
-          <h5>Equipe développement</h5>
-
-          <p>Pascal Besson, <a target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
-                    Nina Gautreau
-              </a>, <a target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
-                    Paul Carillion
-              </a> et <a target="_blank" href="https://www.linkedin.com/in/emmbernard/">
-                    Emmanuel Bernard
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
+                  Pascal Besson
               </a>
-          </p>
-
-          <h5>Equipe données / modèle émissions</h5>
-          <p>Guillaume Martin, <a target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
-                    Charles-Adrien Louis
-              </a> et <a target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
-                    Célian Niclot
-              </a>
-          </p>
-
-          <h5>UX / UI</h5>
-          <p>Nina Gautreau et <a target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
-                    Oriana Berthomieu
-              </a>
-          </p>
-
-          <h5>Equipe tests</h5>
-          <p>Tom Nico, Estelle Payan, Pacco Bailly</p>
-
-          <p>L'ensemble de l'équipe s'est investie bénévolement.</p>
-
-          <p>
-            Mission Climat a été développé en 2 semaines par 3 étudiants du
-            bootcamp Ironhack Paris, dans le cadre du projet de fin d'étude.
-          </p>
-          <p>
-            Stack : JS / React / NodeJS / Mongoose
-            <br />
-            API : Google Sheet et Drive
-            <br />
-            Librairies : rechart, nivo, material UI
-          </p>
-
-          <hr className="border-btn" />
-          <div class="flex-item dev-team">
-            <div class="flex-column dev-team-linkedin-icon">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/pascal-besson/"
-              >
-                <img
-                  className="linkedin"
-                  src="../../images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
-              </a>
+              <p className="dev-box-desc">Ingénieur / RSE / Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, dev front & back</p>
             </div>
-            <div class="flex-column">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/pascal-besson/"
-              >
-                Pascal Besson
+
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
+                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
               </a>
-              <br />
-              Historique : Ingénieur / Master RSE / Dev Fullstack
-              <br />
-              Rôle : Chef de projet, dev back & front
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
+                  Guillaume Martin <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+              </a>
+              <p className="dev-box-desc">Expert Climat / Energie @ B&L évolution</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, modèle émissions</p>
             </div>
           </div>
 
-          <div class="flex-item dev-team">
-            <div class="flex-column dev-team-linkedin-icon">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/paul-carillion-3826041a1/"
-              >
-                <img
-                  className="linkedin"
-                  src="../../images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+          <h5>Data : modèle de calcul des émissions</h5>
+
+          <p>Le modèle de calcul a été réalisé par B&L Évolution.</p>
+
+          <div className="flex-item about-team-section">
+              <div className="dev-team">
+                <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
+                    <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
+                </a>
+                <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
+                    Charles-Adrien Louis <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                </a>
+                <p className="dev-box-desc">Co-fondateur et co-dirigeant B&L Évolution</p>
+                <p className="dev-box-role">Rôle : Modèle émissions</p>
+              </div>
+
+              <div className="dev-team">
+                <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
+                    <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
+                </a>
+                <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
+                    Célian Niclot <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                </a>
+                <p className="dev-box-desc">Consultant énergie climat @ B&L Évolution</p>
+                <p className="dev-box-role">Rôle : Modèle émissions</p>
+              </div>
+          </div>
+
+          <h5>Développement, UX/UI</h5>
+
+          <div className="flex-item about-team-section">
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
+                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
               </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
+                  Nina Gautreau <img className="dev-box-logo" src="../../images/logo/Nina-logo.svg" alt="Logo Nina Gautreau"/>
+              </a>
+              <p className="dev-box-desc">Teacher Assistant / Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Dev Front, UX-UI</p>
             </div>
-            <div class="flex-column">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/paul-carillion-3826041a1/"
-              >
-                Paul Carillion
+
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
+                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
               </a>
-              <br />
-              Historique : Études de lettres / Dev Fullstack
-              <br /> Rôle : Graphiques, dev back & front
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/">
+                  Oriana Berthomieu 
+              </a>
+              <p className="dev-box-desc">Product designer</p>
+              <p className="dev-box-role">Rôle : UI</p>
+            </div>
+
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/emmbernard/">
+                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/emmbernard/">
+                  Emmanuel Bernard
+              </a>
+              <p className="dev-box-desc">Entrepreneur / Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Dev, déploiement</p>
+            </div>
+
+            <div className="dev-team">
+              <a className="dev-box-img" target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
+                  <img className="linkedin" src="../../images/logo/linkedin.svg" alt="LinkedIn"/>
+              </a>
+              <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
+                  Paul Carillon
+              </a>
+              <p className="dev-box-desc">Dev Fullstack</p>
+              <p className="dev-box-role">Rôle : Dev, graphiques</p>
             </div>
           </div>
 
-          <div class="flex-item dev-team">
-            <div class="flex-column dev-team-linkedin-icon">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/ninagautreau/"
-              >
-                <img
-                  className="linkedin"
-                  src="../../images/logo/linkedin.svg"
-                  alt="LinkedIn "
-                />
-              </a>
-            </div>
-            <div class="flex-column">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/ninagautreau/"
-              >
-                Nina Gautreau
-              </a>
-              <br />
-              Historique : Mode & Luxe / Dev Fullstack
-              <br />
-              Rôle : UX-UI, CSS, dev front
-            </div>
-          </div>
-
-          <img
-            className="hero-img"
-            src="../../images/team.svg"
-            alt="landing-visual"
-          />
+          {/* <h5>Equipe tests</h5>
+          <p>Tom Nico, Estelle Payan, Pacco Bailly</p> */}
         </article>
 
-        <article className="about-card about-card-lead border-btn  flex-item flex-column">
+        <div className="separator"></div>
+        <div className="separator"></div>
+
+        <article className="about-card-lead flex-item flex-column">
           <div className="about-card-head flex-item">
             <img
               className="team-logo"
@@ -229,92 +225,16 @@ export const AboutUs = () => {
             associant une vision fortement participative à une prise de
             conscience réaliste et éclairée des enjeux du XXIe siècle.
           </p>
-          <p>
-            Consultant énergie climat et mobilités au sein de B&L évolution,
-            Guillaume accompagne des entreprises et des territoires dans leur
-            transition écologique. Ingénieur (Grenoble INP - ENSE3) il est aussi
-            membre actif de l'association Avenir Climatique et co-auteur avec
-            Charles-Adrien Louis de l'étude B&L évolution "Comment la France
-            peut s'aligner sur une trajectoire compatible avec les 1,5°C"
-            publiée en 2019.{" "}
-          </p>
-          <p>
-            Après une Licence Physique-Chimie, un Master Sciences de l'Océan, de
-            l'Atmosphère et du Climat, Célian est consultant énergie climat au
-            sein de B&L Evolution. C'est le créateur de la base de données pour
-            Mission Climat.
-          </p>
-          <div className="about-links flex-item">
-            <div class="flex-column ">
-              <div class="flex-item ">
-                <div class="flex-column dev-team-linkedin-iconsmall">
-                  <a target="_blank" href="https://bl-evolution.com/">
-                    <img
-                      className="linkedin-small"
+          <a className="link-team-about" target="_blank" href="https://bl-evolution.com/"><img
                       src="../../images/logo/Web.svg"
                       alt="LinkedIn "
-                    />
-                  </a>
-                </div>
-                <div class="flex-column  dev-team-linkedin-iconsmall-name">
-                  <a target="_blank" href="https://bl-evolution.com/">
-                    bl-evolution.com
-                  </a>
-                </div>
-              </div>
-            </div>
+                    /> bl-evolution.com
+          </a>
 
-            <div class="flex-column ">
-              <div class="flex-item ">
-                <div class="flex-column dev-team-linkedin-iconsmall">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/guillaume-martin-86662989/"
-                  >
-                    <img
-                      className="linkedin-small"
-                      src="../../images/logo/linkedin.svg"
-                      alt="LinkedIn "
-                    />
-                  </a>
-                </div>
-                <div class="flex-column  dev-team-linkedin-iconsmall-name">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/guillaume-martin-86662989/"
-                  >
-                    Guillaume Martin
-                  </a>
-                </div>
-              </div>
-            </div>
 
-            <div class="flex-column ">
-              <div class="flex-item ">
-                <div class="flex-column dev-team-linkedin-iconsmall">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/c%C3%A9lian-niclot/"
-                  >
-                    <img
-                      className="linkedin-small"
-                      src="../../images/logo/linkedin.svg"
-                      alt="LinkedIn "
-                    />
-                  </a>
-                </div>
-                <div class="flex-column  dev-team-linkedin-iconsmall-name">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/c%C3%A9lian-niclot/"
-                  >
-                    Célian Niclot
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="separator"></div>
+          <div className="separator"></div>
+          <div className="separator"></div>
+
           <div className="about-card-head flex-item ac">
             <img
               className="team-logo"
@@ -336,35 +256,23 @@ export const AboutUs = () => {
             d'exemplarité (baisse de l'empreinte carbone, inclusion,
             fonctionnement holacratique...){" "}
           </p>
-          <p>Merci à Estelle, Pacco, Baptise, Gaëlle...</p>
-
-          <div class="flex-item ">
-            <div class="flex-column dev-team-linkedin-iconsmall">
-              <a target="_blank" href="https://avenirclimatique.org/">
-                <img
-                  className="linkedin-small"
-                  src="../../images/logo/Web.svg"
-                  alt="LinkedIn "
-                />
-              </a>
-            </div>
-            <div class="flex-column  dev-team-linkedin-iconsmall-name">
-              <a target="_blank" href="https://avenirclimatique.org/">
-                avenirclimatique.org
-              </a>
-            </div>
-          </div>
+          <p>Merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle...</p>
+          <a className="link-team-about" target="_blank" href="https://avenirclimatique.org/"><img
+                      src="../../images/logo/Web.svg"
+                      alt="LinkedIn "
+                    /> avenirclimatique.org
+          </a>
         </article>
       </section>
 
-      <article className="about-card border-btn  flex-item flex-column">
+      <article className="about-card flex-item flex-column">
         <div className="about-card-head flex-item">
           <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart} />
           <h3 className="nomarge">Remerciements</h3>
         </div>
         <ul>
           <li>
-            <span>Ironhack</span> pour nous avoir accompagnés tout le long du
+            <span>Ironhack Paris</span> pour nous avoir accompagnés tout le long du
             bootcamp dans la préparation puis le développement de ce projet,
             avec des remerciements particuliers à Katya, Guillaume, Franck, PH,
             Clara et Tatijana.
@@ -374,16 +282,11 @@ export const AboutUs = () => {
             web.
           </li>
           <li>
-            <span>Emmanuel Bernard</span> pour ses conseils et en particulier
-            celui déterminant de travailler avec un modèle calculatoire
-            externalisé.
-          </li>
-          <li>
             <span>Ingrid Thonet, Cédric Bernoux et Pierre-Etienne Delfly</span>{" "}
             pour leurs regards avisés UX/UI.
           </li>
           <li>
-            <span>Pauline Gautreau</span> pour avoir créé notre logo.
+            <span>Pauline Gautreau</span> pour la création de notre logo.
           </li>
           <li>
             <span>Minh Cuong Le Quan</span> pour les multiples versions futures
@@ -391,6 +294,46 @@ export const AboutUs = () => {
           </li>
         </ul>
       </article>
+
+      <article className="about-card flex-item flex-column">
+        <div className="about-card-head flex-item">
+          <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart} />
+          <h3 className="nomarge">Droits, licences et spécifications</h3>
+        </div>
+
+        <div className="flex-item between">
+          <div>
+            <h5>Site Mission Climat</h5>
+
+            <p>Stack : JS / React / NodeJS
+                <br />
+                API : Google Sheet et Drive
+                <br />
+                Librairies : rechart, material UI
+            </p>
+            <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
+            <p>Le site est sous licence CC ...</p>
+            <p>Lien github</p>
+          </div>
+
+        
+          <div>
+            <h5>Modèle de calcul des émissions</h5>
+
+            <p>Auteurs : BL évolution</p>
+            <p>Le modèle est sous licence CC ...</p>
+            <p>Lien téléchargement</p>
+
+            </div>
+          </div>
+      </article>
+
+      <img
+            className="about-img"
+            src="../../images/team.svg"
+            alt="landing-visual"
+          />
+
     </div>
   );
 };

@@ -9,7 +9,6 @@ const simResultsAreaChart = ({datas}) => {
     const data = datas.data.data
 
     function toolTipContent(e) {
-      console.log(e)
       var annualEmi = 0;
       e.payload.forEach(data => annualEmi+=data.value)
       return (

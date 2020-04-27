@@ -7,8 +7,6 @@ import { useEffect } from 'react'
 import {withRouter} from 'react-router-dom'
 
 const Header = ({location}) => {
-    
-    console.log(location)
 
     function handleId() {
         return location.pathname==="/simulator" ? "header-simulator" : ""

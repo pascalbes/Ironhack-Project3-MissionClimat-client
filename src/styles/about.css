@@ -2,7 +2,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  padding: 0 0 2em;
 }
 
 .about-page h3 {
@@ -11,64 +11,111 @@
 
 .about-page h5 {
   font-size: 1.2em;
+  margin-top: 15px;
+  margin-bottom: 10px;
   color: #7fffd4;
 }
 
 .about-page p {
-  font-family:  'Circular Std Book';
   font-weight: 300;
 }
 
 .about-card {
   width: 80%;
-  padding: 2em;
-  border-radius: 1em;
+  padding: 1.5em;
   margin-bottom: 3em;
   justify-content: space-between;
+}
+
+#about-articles {
+  width: 100%;
+  padding: 20px 5%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#about-articles > div {
+  align-items: center;
+}
+
+#about-articles img {
+  width: 70px;
+}
+
+iframe{
+  align-self: center;
+  margin: 2em 0 0;
+}
+
+.frame-legend{
+  color: rgba(255, 255, 255, 0.8);
+  align-self: center;
+  font-style: italic;
+  padding-bottom: 2em;
 }
 
 .separator {
   margin-bottom: 35px;
 }
+
+.about-team-section {
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 1em 0;
+}
+
+.about-card-lead > p:last-of-type {
+  margin-bottom: 15px;
+}
+
+.bl-logo {
+  width: 80px;
+}
+
+.dev-box-img{
+  grid-area: img;
+}
+
+.dev-box-name{
+  grid-area: name;
+  align-self: center;
+  font-size: 1.2em;
+}
+
+.dev-box-desc{
+  grid-area: desc;
+}
+
+.dev-box-role{
+  grid-area: role;
+}
+
+.dev-box-logo{
+  height: 1.2rem;
+  width: auto;
+  margin-left: 0.5em;
+}
+
 .dev-team {
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
+  margin-right: 2%;
+  width: 35%;
+  display: grid;
+  grid: 2em auto auto / 40px auto;
+  grid-template-areas:
+  "img name"
+  ". desc"
+  ". role";
 }
 
-.about-page a {
-  color: #DB7093;
+.about-page a:not(:first-child) {
+  color: #7fffd4;
 }
 
-.dev-team-linkedin-icon {
-  padding-right: 20px;
-}
-
-.dev-team-linkedin-iconsmall {
-  padding-right: 5px;
-}
-
-.dev-team-linkedin-iconsmall-name {
-  padding-top: 5px;
-}
-
-.linkedin-small {
+.linkedin {
   width: 30px;
-}
-
-hr {
-  margin: 2.5em 0;
-}
-
-.about-lead-team {
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.about-card-lead {
-  width: 38%;
-}
-
-.about-card-lead:first-of-type {
-  margin-right: 4%;
+  margin: 0;
 }
 
 .about-card-head {
@@ -111,4 +158,27 @@ ul {
 ul > li > span {
   font-weight: bold;
   color: var(--green);
+}
+
+.about-img{
+  width: 40%;
+  height: auto;
+  margin-bottom: 3em;
+}
+
+.between{
+  justify-content: space-evenly;
+}
+
+.link-team-about, .link-team-about>img{
+  line-height: 1em;
+  font-size: 1em;
+  height: 1em;
+  margin-top: 0.5em;
+}
+
+@media screen and (max-width: 1100px){
+  .dev-team{
+    width: 60%;
+  }
 }

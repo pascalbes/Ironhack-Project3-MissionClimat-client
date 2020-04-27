@@ -1,12 +1,17 @@
 .form-page{
     align-items: center;
     justify-content: flex-start;
-    padding: 2em 0;
+    padding: 0 0 2em;
+    height: 100vh;
+}
+
+.form-page>h3{
+    margin-top: 2rem;
 }
 
 .form{
     width: 375px;
-    margin: 2em;
+    margin: 0 0 2em;
 }
 
 .form-save{
@@ -14,31 +19,18 @@
     width: 100%;
 }
 
-.input, .form select, .form textarea{
+.input{
     margin: 1em 0 1em;
     padding: 0.5em 1em;
-    font-size: 1em;
+    font-size: 1rem;
     border-radius: 1em;
-}
-
-.news-box{
-    align-items: center;
-    margin-bottom: 2em;
-}
-
-.form input[type=checkbox]{
-    margin-right: 1em;
+    outline: none;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
 .form-page p a{
     color: var(--green);
     font-weight: bold;
-}
-
-.error-message {
-    height: 2em
-}
-
-.error-message {
-    color: indianred
 }

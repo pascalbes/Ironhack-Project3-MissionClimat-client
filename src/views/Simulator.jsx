@@ -1,5 +1,6 @@
 /// BASIC
 import React, {  useState, useEffect } from 'react'
+import Header from "../components/partials/Header";
 import "./../styles/simulator.css"
 import "./../styles/app.css"
 
@@ -27,9 +28,13 @@ import api from '../api/APIHandler'
 const Simulator = (props) => {
 
     const [values, setValues] = useState()
-    const [results, setResults] = useState(jsonFile.results)
+    const [results, setResults] = useState() // jsonFile.results
     const [modeExpert, setModeExpert] = useState(false)
     const [visibleOptions, setVisibleOptions] = useState(false);
+
+    console.log("-----------------------------------")
+    console.log(values)
+    console.log(results)
 
     //Gestion d'une route avec paramêtres spécifiques
     //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -75,6 +80,8 @@ const Simulator = (props) => {
 
     useEffect(() => {
 
+        console.log("useffect []")
+
         async function initDatas() {
 
             var res={}
@@ -87,8 +94,8 @@ const Simulator = (props) => {
 
                 //cas où appel normal de la page simulateur
                 if (!props.match.params.urlParams) {
+                    console.log("appel page simu / récupération données sheet et setvalues")
                     res = await api.get("/sheet/values/"+idSheet)
-                    console.log(res.data.values)
                     setValues(res.data.values)
                 }
 
@@ -112,6 +119,7 @@ const Simulator = (props) => {
                     setValues(valuesURL)
                 }
                 else { // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
+                    console.log('appel normal, vINit')
                     setValues(jsonFile.options.vInit)
                 }
             }
@@ -124,16 +132,6 @@ const Simulator = (props) => {
 
     }, [])
 
-    function tempColor(){
-        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
-        return (results.impacts.temperature < 1.5) ? tempColors[0]
-        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
-        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
-        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
-        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
-        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
-        : tempColors[6]
-    }
 
     function getUrl(values, parameters) {
 
@@ -161,7 +159,9 @@ const Simulator = (props) => {
         
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
+        console.log("Useffect [valeurs]")
         if (values) {
+            console.log("in values")
             var idSheet = localStorage.getItem('idSheet')
             var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
             if (idSheet) {
@@ -171,8 +171,11 @@ const Simulator = (props) => {
                     resTemp.url= getUrl(values, jsonFile.parameters)
                     setResults(resTemp)
                 })
-            .catch(err => console.log(err))
+                .catch(err => console.log(err))
             }
+        }
+        else {
+            console.log("not in values")
         }
     }, [values])
 
@@ -180,6 +183,17 @@ const Simulator = (props) => {
         var newValues=[...values]
         newValues[index][0]=value
         setValues(newValues)
+    }
+
+    function tempColor(){
+        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
+        return (results.impacts.temperature < 1.5) ? tempColors[0]
+        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
+        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
+        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
+        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
+        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
+        : tempColors[6]
     }
 
     function handleParameterType(cat, param, j, values) {
@@ -198,17 +212,35 @@ const Simulator = (props) => {
     }
 
     function handleInitValues(e) {
+        
         var initMode = e.target.value
+        var valuesTemp = [];
+
         if (initMode === "init") {
-            setValues(jsonFile.options.vInit)
+            valuesTemp=jsonFile.options.vInit
+        }
+        else if (initMode === "vMin") {
+            valuesTemp = jsonFile.options.vMin
         }
         else if (initMode === "1degre5") {
-            setValues(jsonFile.options.v15)
+            valuesTemp = jsonFile.options.v15
         }
-        else if (initMode === "mad-max") {
-            setValues(jsonFile.options.vBaU)
+        else if (initMode === "bau") {
+            valuesTemp = jsonFile.options.vBaU
         }
-        window.location.reload();
+        else if (initMode === "vMax") {
+            valuesTemp = jsonFile.options.vMax
+        }
+
+        var idSheet = localStorage.getItem('idSheet')
+        var valuesFormatted = getValuesFormatted(valuesTemp, jsonFile.options.unit)
+        
+        api.patch("/sheet/updateonly/"+idSheet, {values: valuesFormatted})
+        .then(res => {
+            window.location.reload();
+        })
+        .catch(err => console.log(err))
+
     }
 
 
@@ -222,12 +254,13 @@ const Simulator = (props) => {
       setVisibleOptions(false);
     }
 
-    console.log(values)
-    console.log(results)
+    console.log(jsonFile.options)
 
     return (
-        values ?
+        values && results ?
 
+        <>
+        <Header/>
         <div className="sim-page flex-item">
             <section className="sim-container-box">
                 <div id="sim-nav-box" className="flex-item flex-column">
@@ -268,8 +301,10 @@ const Simulator = (props) => {
                                     <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
                                     <form className="sim-option-form flex-item" onChange={e=>handleInitValues(e)}>
                                         <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div>
                                         <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Scénario 1.5°C</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="mad-max" type="radio"></input><label>Mad Max</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Business as Usual</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div>
                                     </form>
                                 </div>
                                 <div className="sim-option-box">
@@ -300,68 +335,56 @@ const Simulator = (props) => {
                 <div id="results-top-box" className="flex-item flex-column">
                     <h1>Ma projection mondiale</h1>
                     <div id="results-impacts-box" className="flex-item">
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Températures</p>
-                            <div className="results-figure flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
+                            <p className="results-title n1">Températures</p>
+                            <div className="results-figure n2 flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
                                 +{results.impacts.temperature}°C
                             </div>
-                            <p className="results-legend">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>                    
-                        </div>
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Scénario GIEC</p>
-                            <div className="results-figure flex-item">
+                            <p className="results-legend n3">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>
+                            <p className="results-title n4">Scénario GIEC</p>
+                            <div className="results-figure n5 flex-item">
                                 {results.impacts.RCP}
                             </div>
-                            <p className="results-legend">Scénario GIEC de vos mesures (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>                    
-                        </div>
-                        <div className="tag-container flex-item flex-column">
-                            <p className="results-title">Empreinte carbone</p>
-                            <div className="results-figure flex-item" style={{backgroundColor:'#b0e0e6'}}>
+                            <p className="results-legend n6">Scénario GIEC de vos mesures (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>
+                            <p className="results-title n7">Empreinte carbone</p>
+                            <div className="results-figure n8 flex-item" style={{backgroundColor:'#b0e0e6'}}>
                                 {results.impacts.empreinteMonde}t
                             </div>
-                            <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
-                        </div>
+                            <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
                     </div>
                 </div>
                 
                 <div id="results-bottom-box" className="flex-item flex-column">
                     <div id="results-emissions" className="flex-item flex-column">
                         <h1>Ma projection française</h1>
-                        <div id="results-impacts-box" className="flex-item">
-                            <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Évolution émissions</p>
-                                <div className="results-figure flex-item" style={{backgroundColor:'#40E0D0', color:'#163E59'}}>
-                                    {results.impacts.reductionEmission2030}
-                                </div>
-                                <p className="results-legend">Entre 2020 et 2030</p>                    
+                        <div id="results-impacts-box2" className="flex-item">
+                            <p className="results-title b1">Évolution émissions</p>
+                            <div className="results-figure b2 flex-item" style={{backgroundColor:'#40E0D0', color:'#163E59'}}>
+                                {results.impacts.reductionEmission2030}
                             </div>
-                            <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Émissions annuelles</p>
-                                <div className="results-figure flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
-                                    <p>{results.impacts.emissionMoy}</p>
-                                    <p className="figure-unit">MtCO2</p>
-                                </div>
-                                <p className="results-legend">Entre 2020 et 2030</p>                    
+                            <p className="results-legend b3">Entre 2020 et 2030</p>
+                            
+                            <p className="results-title b4">Émissions annuelles</p>
+                            <div className="results-figure b5 flex-item flex-column" style={{backgroundColor:'#40E0D0', color:"#163E59"}}>
+                                <p>{results.impacts.emissionMoy}</p>
+                                <p className="figure-unit">MtCO2</p>
                             </div>
-                            <div className="tag-container flex-item flex-column">
-                                <p className="results-title">Empreinte carbone</p>
-                                <div className="results-figure flex-item" style={{backgroundColor:'#b0e0e6'}}>
-                                    {results.impacts.empreinteFr}t
-                                </div>
-                                <p className="results-legend">tCO2e / an / hab. en 2030</p>                    
+                            <p className="results-legend b6">Entre 2020 et 2030</p>                    
+                        
+                            <p className="results-title b7">Empreinte carbone</p>
+                            <div className="results-figure b8 flex-item" style={{backgroundColor:'#b0e0e6'}}>
+                                {results.impacts.empreinteFr}t
                             </div>
+                            <p className="results-legend b9">tCO2e / an / hab. en 2030</p> 
                         </div>
                     </div>
                 
 
-                    <div id="results-emissions-charts-container" className="flex-item">
+                    <div id="results-emissions-charts-container">
 
-                        <div className="flex-item flex-column results-emissions-charts">
-                            <div className="chart">
-                                <AreaChart datas={results.emiSecteurGnl}/>
-                            </div>
-                            <p>Emissions Totales</p>
+                        <div className="chart g1">
+                            <AreaChart datas={results.emiSecteurGnl}/>
                         </div>
+                        <p className="g2">Emissions Totales</p>
                         {/* 
                         BAR CHART
                         <div className="flex-item flex-column results-emissions-charts">
@@ -371,13 +394,10 @@ const Simulator = (props) => {
                             <p>Emissions Totales</p>
                         </div> */}
 
-                        <div className="flex-item flex-column results-emissions-charts">
-                            {/* <SimResultsAreaChart datas={results.emiSecteur}/> */}
-                            <div className="chart">
-                                <Sunburst datas={results.emiSecteurPie}/>  
-                            </div>
-                            <p>Emissions par Secteur / 2030</p>
-                        </div>  
+                        <div className="chart g3">
+                            <Sunburst datas={results.emiSecteurPie}/>  
+                        </div>
+                        <p className="g4">Par Secteur / 2030</p>  
 
                     </div>
 
@@ -389,6 +409,7 @@ const Simulator = (props) => {
                          
             </section>
         </div>
+        </>
 
         :
 

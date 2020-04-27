@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "../components/partials/Header";
 
 import "../styles/concept.css";
 
@@ -6,9 +7,10 @@ const Concept = () => {
   const [selectedChapter, setSelectedChapter] = useState("concept");
 
   return (
-    <div className="concept-page flex-item flex-column">
-      <div class="flex-item full-width">
-        <div class="flex-column">
+    <div className="concept-page flex-item flex-column light-text">
+      <Header/>
+      <div className="flex-item full-width margeup">
+        <div className="flex-column">
           <div
             className={`chapter-selection ${
               selectedChapter === "concept" ? "active" : ""
@@ -20,7 +22,7 @@ const Concept = () => {
             <span>Le concept</span>
           </div>
         </div>
-        <div class="flex-column">
+        <div className="flex-column">
           <div
             className={`chapter-selection ${
               selectedChapter === "enjeux" ? "active" : ""
@@ -32,7 +34,7 @@ const Concept = () => {
             <span>Les enjeux</span>
           </div>
         </div>
-        <div class="flex-column">
+        <div className="flex-column">
           <div
             className={`chapter-selection ${
               selectedChapter === "qna" ? "active" : ""
@@ -48,7 +50,8 @@ const Concept = () => {
 
       {selectedChapter == "concept" && (
         <div className="concept-box border-btn  flex-item flex-column">
-          <h5>> Modèle de calcul</h5>
+          <h3 className="nomarge">Le concept</h3>
+          <h5>Modèle de calcul</h5>
           <p>
             Le modèle de calcul utilisé sur ce simulateur reprend celui à la
             base de l’étude «Comment la France peut s’aligner sur une
@@ -61,7 +64,7 @@ const Concept = () => {
             paramétrable par les utilisateurs du site.{" "}
           </p>
 
-          <h5>> Comment sont calculées les émissions françaises ? </h5>
+          <h5>Comment sont calculées les émissions françaises ? </h5>
 
           <div className="concept-img-box flex-item">
             <img
@@ -101,7 +104,7 @@ const Concept = () => {
             de paramètres, préremplis par défaut.
           </p>
 
-          <p>
+          <div>
             Pour guider l’utilisateur, plusieurs informations sont disponibles,
             pour chaque paramètre :
             <ul>
@@ -122,9 +125,9 @@ const Concept = () => {
                 rapide des émissions de ce secteur
               </li>
             </ul>
-          </p>
+          </div>
 
-          <h5>> Vers une trajectoire de réchauffement climatique mondiale ?</h5>
+          <h5>Vers une trajectoire de réchauffement climatique mondiale ?</h5>
           <p>
             Une première étape consiste à estimer l’évolution de la population
             française et mondiale. On estime que la population mondiale peut
@@ -134,7 +137,7 @@ const Concept = () => {
             habitant.
           </p>
 
-          <p>
+          <div>
             Une deuxième étape consiste à extrapoler à l’ensemble de la planète,
             la trajectoire d’émissions suivie par la France. Plusieurs
             hypothèses sont envisageables :
@@ -150,11 +153,12 @@ const Concept = () => {
                 les 90,1% restant évoluent selon la même trajectoire
               </li>
             </ul>
-          </p>
+          </div>
         </div>
       )}
       {selectedChapter == "enjeux" && (
         <div className="concept-box border-btn  flex-item flex-column">
+          <h3 className="nomarge">Les enjeux</h3>
           <p>
             En 2017, Avenir Climatique a développé une série de vidéos pour
             décrypter les enjeux énergie climat. Si tu n'as pas envie de lire
@@ -174,11 +178,11 @@ const Concept = () => {
 
           <div className="concept-img-box flex-item">
             <a href="https://www.conventioncitoyennepourleclimat.fr/wp-content/uploads/2019/10/03102019-convcit-socledoc-web.pdf">
-              MOOC
+              > MOOC
             </a>
             <div className="hidden">||</div>
             <a href="https://www.conventioncitoyennepourleclimat.fr/wp-content/uploads/2019/10/03102019-convcit-socledoc-web.pdf">
-              Autres sources
+              > Autres sources
             </a>
           </div>
 
@@ -322,7 +326,7 @@ const Concept = () => {
             l’impact carbone de votre mode et de vie et identifier les actions
             pertinentes pour faire baisser votre empreinte carbone.{" "}
             <a href="http://avenirclimatique.org/les-outils/">
-              (>> Boîte à Outils)
+              > Boîte à Outils
             </a>
           </p>
 
@@ -334,9 +338,10 @@ const Concept = () => {
         </div>
       )}
       {selectedChapter == "qna" && (
-        <div className="concept-box border-btn  flex-item flex-column">
+        <div className="concept-box border-btn  flex-item flex-column question">
+          <h3 className="nomarge">Questions & réponses</h3>
           <h5>
-            > Mais si la France ne représente que 1% des émissions mondiales, à
+            Mais si la France ne représente que 1% des émissions mondiales, à
             quoi ça sert ?{" "}
           </h5>
           <p>
@@ -365,7 +370,7 @@ const Concept = () => {
           </p>
 
           <h5>
-            > N'y a t-il pas des technologies que vous n'avez pas intégrées dans
+            N'y a t-il pas des technologies que vous n'avez pas intégrées dans
             votre modèle ?{" "}
           </h5>
           <p>
@@ -381,7 +386,7 @@ const Concept = () => {
             rapidement si on souhaite limiter le réchauffement climatique.{" "}
           </p>
 
-          <h5>> La transition va t-elle assez vite ? </h5>
+          <h5>La transition va t-elle assez vite ? </h5>
           <p>
             Clairement, non. Les émissions mondiales ne cessent d'augmenter.
             D'après les scénarios du GIEC, pour limiter le réchauffement
@@ -391,7 +396,7 @@ const Concept = () => {
           </p>
 
           <h5>
-            > Se fixer un objectif 1,5°C : c’est envisager un changement global
+            Se fixer un objectif 1,5°C : c’est envisager un changement global
             de système ?
           </h5>
           <p>
@@ -407,7 +412,7 @@ const Concept = () => {
             qui lui fournissent des biens et services.{" "}
           </p>
 
-          <h5>> Donc chaque année compte ?</h5>
+          <h5>Donc chaque année compte ?</h5>
           <p>
             En 2018, le GIEC estimait le budget carbone restant associé à une
             limitation du réchauffement climatique de 420 à 580 milliards de
