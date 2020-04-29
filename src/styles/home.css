@@ -109,3 +109,17 @@
         height: 92vw;
     }
 }
+
+@media (min-height: 1100px) {
+
+    .hero-landing{
+        height: auto;
+        margin: 10vh 0;
+    }
+
+    .next-landing{
+        height: auto;
+        margin-bottom: 10vh;
+    }
+
+}
