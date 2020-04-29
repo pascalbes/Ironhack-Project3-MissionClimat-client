@@ -123,6 +123,10 @@ iframe{
   font-weight: 600;
 }
 
+header a {
+  color: white;
+}
+
 .about-page a {
   color: #7fffd4;
 }
