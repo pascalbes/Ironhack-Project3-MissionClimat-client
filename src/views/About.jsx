@@ -216,7 +216,11 @@ export const AboutUs = () => {
             <h3 className="nomarge">B&L Évolution</h3>
           </div>
           <p>
-            Les entreprises et territoires qui ont l’ambition de se développer
+            B&L Évolution est co-auteur de ce site et auteur du modèle de calcul utilisé,
+            et partagé selon les modalités présentées à la section "Droits et licences".
+          </p>
+          <p>
+            <b>Présentation du cabinet : </b>les entreprises et territoires qui ont l’ambition de se développer
             de manière durable font confiance à l'équipe d’experts de B&L
             évolution depuis plus de 9 ans. B&L évolution est un bureau d’études
             et de conseils en développement durable. Au service de la société,
@@ -241,10 +245,21 @@ export const AboutUs = () => {
               src="../../images/logo/AC.png"
               alt="Logo Avenir Climatique"
             />
-            <h3 className="nomarge">Avenir climatique</h3>
+            <h3 className="nomarge">Avenir Climatique</h3>
           </div>
           <p>
-            L'association Avenir Climatique a pour objectif de faire des enjeux
+            L'association Avenir Climatique a eu plusieurs rôles sur le projet Mission Climat :
+            <ul>
+              <li>Elle a d'abord été un lieu de rencontre, pour Guillaume Martin, Pascal Besson et Emmanuel Bernard,
+            en particulier sur le projet <u><b><a href="https://www.educlimat.fr/" target="_blank">ÉduClimat</a></b></u> pour ces 2 derniers.</li>
+              <li>Elle a été d'une aide précieuse pour tester le site et proposer des corrections, des évolutions.
+              Pour cela <b>un énorme merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle Leloup</b></li>
+              <li>Elle a enfin fourni la majeure partie des textes disponibles à la page "Concept"</li>
+            </ul>
+          </p>
+          <p>
+            <b>Présentation de l'association : </b>
+            Avenir Climatique a pour objectif de faire des enjeux
             énergie / climat une priorité nationale en formant les citoyens et
             citoyennes. L'association développe des actions de sensibilisation
             et de formation adaptées et attractives pour tous les publics (MOOC,
@@ -256,7 +271,6 @@ export const AboutUs = () => {
             d'exemplarité (baisse de l'empreinte carbone, inclusion,
             fonctionnement holacratique...){" "}
           </p>
-          <p>Merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle...</p>
           <a className="link-team-about" target="_blank" href="https://avenirclimatique.org/"><img
                       src="../../images/logo/Web.svg"
                       alt="LinkedIn "
@@ -273,7 +287,7 @@ export const AboutUs = () => {
         <ul>
           <li>
             <span>Ironhack Paris</span> pour nous avoir accompagnés tout le long du
-            bootcamp dans la préparation puis le développement de ce projet,
+            bootcamp dans la préparation puis le développement de la maquette de ce projet,
             avec des remerciements particuliers à Katya, Guillaume, Franck, PH,
             Clara et Tatijana.
           </li>
@@ -304,16 +318,16 @@ export const AboutUs = () => {
         <div className="flex-item between">
           <div>
             <h5>Site Mission Climat</h5>
-
-            <p>Stack : JS / React / NodeJS
-                <br />
-                API : Google Sheet et Drive
-                <br />
-                Librairies : rechart, material UI
-            </p>
             <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
             <p>Le site est sous licence CC ...</p>
-            <p>Lien github</p>
+            <p>Lien github : </p>
+            <p>Spécifications :
+              <ul>
+                <li>Stack : React, NodeJS</li>
+                <li>APIs : Google Sheet, Google Drive</li>
+                <li>Librairies : rechart, material UI</li>
+              </ul>
+            </p>
           </div>
 
         

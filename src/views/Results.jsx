@@ -466,7 +466,7 @@ const Results = (props) => {
                                         </div>
                                     ))}
                                 </div>
-                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}}>(lien)</a></p>
+                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
                             </div>
                         </div>
                     </div>
@@ -489,7 +489,7 @@ const Results = (props) => {
                                         </div>
                                     ))}
                                 </div>
-                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}}>(lien)</a></p>
+                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
                             </div>
                         </div>
                     </div>
