@@ -169,6 +169,8 @@ const Simulator = (props) => {
                 .then(res => {
                     var resTemp = res.data.results
                     resTemp.url= getUrl(values, jsonFile.parameters)
+                    //correction des data area pour affichage ok
+                    handleAreaData(resTemp.emiSecteurGnl)
                     setResults(resTemp)
                 })
                 .catch(err => console.log(err))
@@ -254,7 +256,13 @@ const Simulator = (props) => {
       setVisibleOptions(false);
     }
 
-    console.log(jsonFile.options)
+    function handleAreaData(datas) {
+        let dataReversed = [...datas.areaDatas];
+        dataReversed.reverse()
+        datas.areaDatas = [...dataReversed]
+
+        return datas
+    }
 
     return (
         values && results ?
@@ -416,7 +424,9 @@ const Simulator = (props) => {
         <div id="loader">
             <Loader type="BallTriangle" color="white" height={100} width={100} />
             <div className="hidden">||</div>
-            <h4>Initialisation...</h4>
+            <h3 style={{color:'#7fffd4'}}>Initialisation</h3>
+            <h4 className="light-text">Nous préparons votre environnement de travail.</h4>
+            <h4 className="light-text">L'attente ne devrait pas durer plus de 5 secondes</h4>
         </div>
  
     )

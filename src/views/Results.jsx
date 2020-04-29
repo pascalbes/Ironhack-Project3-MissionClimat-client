@@ -70,7 +70,6 @@ const Results = (props) => {
 
     //légende cartes températures
     const mapLegendInfos = [["#FFF5CC", "de 0 à 0,5°C"],
-    ["#FFF5CC", "de 0 à 0,5°C"],
     ["#FFE099", "de 0,5 à 1°C"],
     ["#FFCB66", "de 1 à 1,5°C"],
     ["#FFB433", "de 1,5 à 2°C"],
@@ -236,7 +235,7 @@ const Results = (props) => {
                 {/* Titre sous partie */}
                 <div className="res-title-box">
                     <h2>Emissions totales</h2>
-                    <p>{results.emiFrance.intro}</p>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.emiFrance.intro)}></p>
                 </div>
 
                 <ChartContainer 
@@ -283,7 +282,7 @@ const Results = (props) => {
                 {/* Titre sous partie */}
                 <div className="res-title-box">
                     <h2>Bâtiment</h2>
-                    <p>{results.dataFrance.batiment.intro}</p>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.intro)}></p>
                 </div>
 
                 <ChartContainer 
@@ -309,7 +308,7 @@ const Results = (props) => {
                 {/* Titre sous partie */}
                 <div className="res-title-box">
                     <h2>Transports</h2>
-                    <p>{results.dataFrance.transports.intro}</p>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.transports.intro)}></p>
                 </div>
 
                 <ChartContainer 
@@ -335,7 +334,7 @@ const Results = (props) => {
                 {/* Titre sous partie */}
                 <div className="res-title-box">
                     <h2>Agriculture</h2>
-                    <p>{results.dataFrance.agriculture.intro}</p>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.agriculture.intro)}></p>
                 </div>
 
                 <ChartContainer 
@@ -363,7 +362,7 @@ const Results = (props) => {
                 {/* Titre sous partie */}
                 <div className="res-title-box">
                     <h2>Consommation</h2>
-                    <p>{results.dataFrance.conso.intro}</p>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.conso.intro)}></p>
                 </div>
 
                 <ChartContainer 
@@ -389,7 +388,7 @@ const Results = (props) => {
                 {/* Titre sous partie */}
                 <div className="res-title-box">
                     <h2>Energie</h2>
-                    <p>{results.dataFrance.energie.intro}</p>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.energie.intro)}></p>
                 </div>
 
                 <ChartContainer 

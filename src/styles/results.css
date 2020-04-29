@@ -36,6 +36,11 @@
     margin: 0;
 }
 
+.chapter-selection:hover span {
+    color:#7fffd4;
+    border-bottom: 5px solid #7fffd4;
+  }
+
 .results-box{
     font-size: 1em;
     width: 80%;

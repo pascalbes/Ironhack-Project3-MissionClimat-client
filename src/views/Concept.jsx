@@ -131,7 +131,7 @@ const Concept = () => {
           <p>
             Une première étape consiste à estimer l’évolution de la population
             française et mondiale. On estime que la population mondiale peut
-            varier de 8 à 8,5 milliards d’individus en fonction des mesures
+            varier de 8 à 9 milliards d’individus en fonction des mesures
             prises à l’échelle mondiale. A partir de l’empreinte carbone totale
             de la France, il est alors facile d’estimer l’empreinte carbone par
             habitant.
@@ -261,8 +261,7 @@ const Concept = () => {
           <div className="concept-impact-box flex-item">
             <img src="../../images/concept-3.png" alt="picto" />
             <p>
-              A cause de la fonte des calottes polaires et des glaciers, l'eau va
-              monter. Et pas qu'un peu. Beaucoup de villes côtières risque de se
+              A cause de la fonte des calottes polaires et des glaciers, mais surtout du réchauffement de l'océan (et ainsi de sa dilatation), le niveau de la mer va augmenter. Et pas qu'un peu. Beaucoup de villes côtières risque de se
               retrouver sous 1m ou 2m d'eau. Des îles risquent tout simplement
               de disparaître
             </p>

@@ -491,10 +491,12 @@ input[type="radio"] {
 
 #area-tooltip {
   padding: 10px;
+  width: 350px;
   align-items: flex-start;
 }
 
 #area-tooltip .legend-point {
+  margin-left: 20px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
