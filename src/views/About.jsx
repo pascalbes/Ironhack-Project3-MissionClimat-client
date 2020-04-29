@@ -111,8 +111,8 @@ export const AboutUs = () => {
               <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/pascal-besson/">
                   Pascal Besson <img className="dev-box-logo" src="../../images/logo/Pascal-logo.svg" alt="Logo PB"/>
               </a>
-              <p className="dev-box-desc">Ingénieur / RSE / Dev Fullstack</p>
-              <p className="dev-box-role">Rôle : Pilotage projet, dev front & back</p>
+              <p className="dev-box-desc">Ingénieur / RSE / Développeur Fullstack</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, conception site, développement front et back</p>
             </div>
 
             <div className="dev-team">
@@ -122,8 +122,8 @@ export const AboutUs = () => {
               <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/guillaume-martin-86662989/">
                   Guillaume Martin <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
               </a>
-              <p className="dev-box-desc">Expert Climat / Energie @ B&L évolution</p>
-              <p className="dev-box-role">Rôle : Pilotage projet, modèle émissions</p>
+              <p className="dev-box-desc">Expert Energie-Climat à B&L évolution</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, définition modèle émissions</p>
             </div>
           </div>
 
@@ -139,8 +139,8 @@ export const AboutUs = () => {
                 <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/charles-adrien-louis-63863526/">
                     Charles-Adrien Louis <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
                 </a>
-                <p className="dev-box-desc">Co-fondateur et co-dirigeant B&L Évolution</p>
-                <p className="dev-box-role">Rôle : Modèle émissions</p>
+                <p className="dev-box-desc">Co-fondateur et co-gérant B&L Évolution</p>
+                <p className="dev-box-role">Rôle : définition modèle émissions</p>
               </div>
 
               <div className="dev-team">
@@ -150,8 +150,8 @@ export const AboutUs = () => {
                 <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/c%C3%A9lian-niclot/">
                     Célian Niclot <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
                 </a>
-                <p className="dev-box-desc">Consultant énergie climat @ B&L Évolution</p>
-                <p className="dev-box-role">Rôle : Modèle émissions</p>
+                <p className="dev-box-desc">Consultant Energie-Climat à B&L Évolution</p>
+                <p className="dev-box-role">Rôle : définition modèle émissions</p>
               </div>
           </div>
 
@@ -165,8 +165,8 @@ export const AboutUs = () => {
               <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/ninagautreau/">
                   Nina Gautreau <img className="dev-box-logo" src="../../images/logo/Nina-logo.svg" alt="Logo Nina Gautreau"/>
               </a>
-              <p className="dev-box-desc">Teacher Assistant / Dev Fullstack</p>
-              <p className="dev-box-role">Rôle : Dev Front, UX-UI</p>
+              <p className="dev-box-desc">Teacher Assistant / Développeuse Fullstack</p>
+              <p className="dev-box-role">Rôle : Développement front, UX-UI</p>
             </div>
 
             <div className="dev-team">
@@ -187,8 +187,8 @@ export const AboutUs = () => {
               <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/emmbernard/">
                   Emmanuel Bernard
               </a>
-              <p className="dev-box-desc">Entrepreneur / Dev Fullstack</p>
-              <p className="dev-box-role">Rôle : Dev, déploiement</p>
+              <p className="dev-box-desc">Entrepreneur / Développeur Fullstack</p>
+              <p className="dev-box-role">Rôle : Développement front, déploiement</p>
             </div>
 
             <div className="dev-team">
@@ -198,8 +198,8 @@ export const AboutUs = () => {
               <a className="dev-box-name" target="_blank" href="https://www.linkedin.com/in/paul-carillion-3826041a1/">
                   Paul Carillon
               </a>
-              <p className="dev-box-desc">Dev Fullstack</p>
-              <p className="dev-box-role">Rôle : Dev, graphiques</p>
+              <p className="dev-box-desc">Développeur Fullstack</p>
+              <p className="dev-box-role">Rôle : développement front et back</p>
             </div>
           </div>
 

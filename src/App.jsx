@@ -7,15 +7,11 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact.jsx";
+import Contribuer from "./views/Contribuer.jsx";
 import Concept from "./views/Concept";
 import Simulator from "./views/Simulator";
 import Results from "./views/Results";
 import NotFound from "./views/NotFound";
-import api from "./api/APIHandler"
-// import { Beforeunload , useBeforeunload } from 'react-beforeunload';
-
-/// SNIPPETS
-import Header from "./components/partials/Header";
 
 /// STYLES
 import "./styles/app.css";
@@ -53,6 +49,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} /> 
+          <Route path="/contribuer" component={Contribuer} /> 
           {/* SIMULATOR */}
           <Route path="/concept" component={Concept} />
           <Route path="/simulator" component={Simulator} />        
