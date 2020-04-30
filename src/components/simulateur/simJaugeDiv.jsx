@@ -14,16 +14,16 @@ const simJaugeDiv = ({results}) => {
 
     function handleColor() {
         if (results[0].measures[0] <= results[0].markers[0]) {
-            return 'green'
+            return 'linear-gradient(to right, #7FFFD4 , #77D9B5)'
         }
         else if (results[0].measures[0] <= results[0].markers[1]) {
-            return 'yellow'
+            return 'linear-gradient(to right, #F2F230 , #FFC53A)'
         }
         else if (results[0].measures[0] <= results[0].ranges[2]) {
-            return 'red'
+            return 'linear-gradient(to right, #FFB8B8 , #DB7093)'
         }
         else {
-            return 'purple'
+            return 'linear-gradient(to right, #DA8FFF , #663399)'
         }
 
     }
@@ -36,7 +36,7 @@ const simJaugeDiv = ({results}) => {
         <div className="jauge-ext" style={{height:'20px', width:'100%', backgroundColor:'white',border:'#C7C7C7 solid 1px', borderRadius:'10px'}}>
             <div className="marker1" style={{height:'18.5px', width:'2px', position:'relative', marginLeft:`${m1}`, backgroundColor:'#0b8c85'}}></div>
             <div className="marker2" style={{height:'18.5px', width:'2px', position:'relative', marginLeft:`${m2}`, backgroundColor:'#ff6868'}}></div>
-            <div className={handleClass()} style={{height:'18.5px', width:`${value}`, position:'relative', marginLeft:`${jaugeStart}`, transition:'1s', backgroundColor:handleColor()}}></div>
+            <div className={handleClass()} style={{height:'18.5px', width:`${value}`, position:'relative', marginLeft:`${jaugeStart}`, transition:'1s', backgroundImage:handleColor()}}></div>
         </div>
    
     )
