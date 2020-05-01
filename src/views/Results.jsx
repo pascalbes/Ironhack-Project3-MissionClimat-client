@@ -2,6 +2,7 @@ import React, { useState, setState, useContext} from 'react'
 import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 import ChartContainer from './../components/resultats/chartContainer'
 
@@ -9,11 +10,11 @@ import './../styles/results.css'
 import "./../styles/simulator.css"
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
-import Popup from "reactjs-popup";
 
 const Results = (props) => {
 
     const [textArea, setTextArea] = useState()
+    const [arrowVisibility, setArrowVisibility] = useState('hidden')
 
     var results={}
     if (localStorage.getItem('results')) {
@@ -124,13 +125,22 @@ const Results = (props) => {
 
     }
 
+    window.addEventListener('scroll', handleArrowVisibility);
+
+    function handleArrowVisibility() {
+        window.scrollY/window.innerHeight > 1 ? setArrowVisibility('visible') : setArrowVisibility('hidden')
+    }
+
     console.log(results)
 
     return (
 
         <div className="results-page flex-item flex-column">
+            
             <Header/>
+            
             <article id="hero-article">
+                
                 <div class="flex-item full-width">
 
                     <div class="flex-column">
@@ -178,6 +188,7 @@ const Results = (props) => {
             
                 <section id="res-synthese" className="flex-item flex-column">
 
+
                     <h1>Synthèse</h1>
                     
                     <div className="flex-item flex-column">
@@ -203,9 +214,9 @@ const Results = (props) => {
 
                         <div id="res-synthese-buttons" className="flex-item">
                             
-                            <div><button onClick={copyUrl}><FontAwesomeIcon icon={faLink}/></button></div>
+                            <div title="Copier l'url avec mes paramètres"><button onClick={copyUrl}><FontAwesomeIcon icon={faLink}/></button></div>
                             
-                            <div><a href='./2020-04-09_Scenario1.5.xlsx' download><FontAwesomeIcon icon={faDownload}/></a></div>
+                            <div title="Télécharger le modèle de calcul des données"><a href='./2020-04-09_Scenario1.5.xlsx' download><FontAwesomeIcon icon={faDownload}/></a></div>
 
                             <EmailShareButton url={results.url} className="left-btn" subject="Mission Climat : mon plan climat pour 2030"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></EmailShareButton>
 
@@ -219,9 +230,12 @@ const Results = (props) => {
                         </div> 
 
                     </div>
+                    
                 
                 </section>
             </article>
+
+            <button id="blinking-results" style={{visibility:arrowVisibility}}><a href="#hero-article"><FontAwesomeIcon icon={faAngleUp} /></a></button>
 
             {/* *************************
             ********************FRANCE

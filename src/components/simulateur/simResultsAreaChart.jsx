@@ -4,7 +4,7 @@ import {
 } from 'recharts';
 
 
-const simResultsAreaChart = ({datas}) => {
+const simResultsAreaChart = ({datas, xOffset, yOffset}) => {
 
   console.log(datas.areaDatas)
 
@@ -34,7 +34,7 @@ const simResultsAreaChart = ({datas}) => {
         <YAxis />
          <Tooltip
            content={e => toolTipContent(e)}
-           position={{ x: 10, y: -150}}
+           position={{ x: xOffset, y: yOffset}}
          />
         {datas.areaDatas.map((area, i) => (
           <Area fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}/>

@@ -399,7 +399,7 @@ const Simulator = (props) => {
                     <div id="results-emissions-charts-container">
 
                         <div className="chart g1">
-                            <AreaChart datas={results.emiSecteurGnl}/>
+                            <AreaChart datas={results.emiSecteurGnl} xOffset={0} yOffset={-150}/>
                         </div>
                         <p className="g2">Emissions Totales</p>
                         {/* 

@@ -91,10 +91,10 @@
 
 /* BLINKING BTN */
 .blinking{
-    animation: blinker 2s linear infinite;
+    animation: blinker 1s linear infinite;
     margin-bottom: 2rem;
     color: var(--lightgreen);
-    font-size: 1em;
+    font-size: 2em;
     border: none;
 }
 

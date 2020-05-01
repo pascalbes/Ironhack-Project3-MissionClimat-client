@@ -18,7 +18,7 @@ const chartContainer = ({title, subtitle, graphData, graphType, graphText, legen
             <p className="chart-short-desc light-text" dangerouslySetInnerHTML={handleInnerHTML(subtitle)}></p>
             <div className="flex-item res-chart-container">
                 <div className="res-chart">
-                    {graphType==="AreaChart" && <AreaChart datas={graphData}/>}
+                    {graphType==="AreaChart" && <AreaChart datas={graphData} xOffset={'auto'} yOffset={'auto'}/>}
                     {graphType==="Sunburst" && <Sunburst datas={graphData}/>}
                     {graphType==="CompoChart" && <CompoChart datas={graphData}/>}
                 </div>

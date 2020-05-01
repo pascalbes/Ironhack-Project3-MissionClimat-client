@@ -3,6 +3,9 @@ import "../styles/about.css";
 
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHistory } from "@fortawesome/free-solid-svg-icons";
+import { faGavel } from "@fortawesome/free-solid-svg-icons";
+import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../components/partials/Header";
 
@@ -10,13 +13,64 @@ export const AboutUs = () => {
   return (
     <div className="about-page flex-item flex-column light-text">
       <Header />
-      <section className="about-card flex-item flex-column">
+
+      <div class="flex-item full-width">
+        <div class="flex-column">
+            <a href="#about-history">
+                <div className="chapter-selection">            
+                <img src="../../images/results/nuage CO2 - blanc.svg" />
+                <br />
+                <span>Historique du projet</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex-column">
+            <a href="#about-team">
+                <div className="chapter-selection">            
+                <img src="../../images/results/nuage CO2 - blanc.svg" />
+                <br />
+                <span>L'équipe et partenaires</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex-column">
+            <a href="#about-law">
+                <div className="chapter-selection">            
+                <img src="../../images/results/impact - blanc.svg" />
+                <br />
+                <span>Droits, licences et specs.</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex-column">
+            <a href="#about-cgu">
+                <div className="chapter-selection">            
+                <img src="../../images/results/impact - blanc.svg" />
+                <br />
+                <span>CGU : liberté et réciprocité</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="flex-column">
+            <a href="#about-thanks">
+                <div className="chapter-selection">            
+                <img src="../../images/results/impact - blanc.svg" />
+                <br />
+                <span>Remerciements</span>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+
+
+      <section id="about-history" className="about-card flex-item flex-column">
         <div className="about-card-head flex-item margeup">
-          <img
-            className="team-logo"
-            src="../../images/logo/Conception.svg"
-            alt="Logo Ironhack"
-          />
+          <FontAwesomeIcon className="about-icon" icon={faHistory} />
           <h3 className="nomarge">Historique du Projet</h3>
         </div>
         <h5>L'étude 1.5 de BL évolution / Février 2019</h5>
@@ -64,7 +118,7 @@ export const AboutUs = () => {
         </div>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/iCDYAunYQFA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        <p className="frame-legend">Interview de Guillaume Martin pour Brut</p>
+        <p className="frame-legend">Présentation de l'étude 1.5°C par Brut</p>
 
         <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
@@ -233,7 +287,7 @@ export const AboutUs = () => {
             associant une vision fortement participative à une prise de
             conscience réaliste et éclairée des enjeux du XXIe siècle.
           </p>
-          <a className="link-team-about" target="_blank" href="https://bl-evolution.com/"><img
+          <a className="link-team-about" target="_blank" href="http://bl-evolution.com/"><img
                       src="../../images/logo/Web.svg"
                       alt="LinkedIn "
                     /> bl-evolution.com
@@ -284,6 +338,88 @@ export const AboutUs = () => {
       </section>
 
       <article className="about-card flex-item flex-column">
+        <div id="about-law" className="about-card-head flex-item">
+          <FontAwesomeIcon className="about-icon" icon={faGavel} />
+          <h3 className="nomarge">Droits, licences et spécifications</h3>
+        </div>
+
+        <div className="flex-item between">
+          <div>
+            <h5>Site Mission Climat</h5>
+            <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
+            <p>Le site est sous licence CC ...</p>
+            
+            <p>Spécifications :
+              <ul>
+                <li>Stack : React, NodeJS</li>
+                <li>APIs : Google Sheet, Google Drive</li>
+                <li>Librairies : rechart, material UI</li>
+              </ul>
+            </p>
+
+            <p>Repo Github </p>
+              <ul>
+                <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-client" target='_blank'>Front-End</a></b></u></li>
+                <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-server" target='_blank'>Back-End</a></b></u></li>
+              </ul>
+
+          </div>
+
+        
+          <div>
+            <h5>Modèle de calcul des émissions</h5>
+
+            <p>Auteurs : BL évolution</p>
+            <p>Le modèle est sous licence CC ...</p>
+            <p><u><b><a href='./2020-04-09_Scenario1.5.xlsx' download>Téléchargement</a></b></u></p>
+
+            </div>
+          </div>
+      </article>
+
+      <article id="about-cgu" className="about-card flex-item flex-column">
+        <div className="about-card-head flex-item">
+          <FontAwesomeIcon className="about-icon" icon={faHandshake} />
+          <h3 className="nomarge">Conditions Générales d'Utilisation : liberté et réciprocité</h3>
+        </div>
+
+        <div className="flex-item">
+          <div>
+            <h5>Liberté</h5>
+
+            <p>Le site est mise à disposition gratuitement, pour tout usage :</p>
+              <ul>
+                <li>évidemment pour <b>tout usage personnel</b>,</li>
+                <li>dans le cadre d'un <b>atelier de formation ou d'un cours</b>, rémunéré ou non,</li>
+                <li>pour <b>demander à Laurent Alexandre de réaliser son meilleur scénario 1.5°C</b> sans lancer de pièce en l'air (merci de partager la vidéo le cas échéant).</li>
+              </ul>
+
+            <h5>Réciprocité</h5>
+            <p>Dans l'équipe Mission Climat, nous sommes attachées à cette notion, et sa cousine "don / contre don" (poke Alain Caillé). Elle permet de fabriquer du commun en engageant un cycle vertueux :</p>
+              <ul>
+                <li>nous <b>donnons</b> du temps et de l'énergie pour vous fournir un outil utile,</li>
+                <li>vous le <b>recevez</b> et l'utilisez,</li>
+                <li>vous <b>rendez</b>, dans la mesure de votre possible,</li>
+                <li>vous recevons votre contribution en retour et pouvons améliorons l'outil, mis à disposition de tous</li>
+              </ul>
+
+            <h5>Retours bienvenus</h5>
+
+            <p>Nous accueillerons avec plaisir tout type de retour ! Vous pouvez par exemple :</p>
+              <ul>
+                <li>le <b>partager autour de vous</b>, l'utiliser pour animer des ateliers de sensibilisation, d'accompagnement au changement, etc,</li>
+                <li>nous <b>dire ce que vous pensez du projet</b>, partager vos idées pour l'améliorer,</li>
+                <li><b>contribuer</b> au développement du projet,</li>
+                <li><b><u><a href="https://www.helloasso.com/associations/avenir-climatique/formulaires/3/widget" target="_blank">donner à l'association Avenir Climatique</a></u></b> pour soutenir leur action, le développement de ce projet.</li>
+              </ul>
+
+          </div>
+
+  
+        </div>
+      </article>
+
+      <article id="about-thanks" className="about-card flex-item flex-column">
         <div className="about-card-head flex-item">
           <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart} />
           <h3 className="nomarge">Remerciements</h3>
@@ -311,39 +447,6 @@ export const AboutUs = () => {
             que ses idées alimentent.
           </li>
         </ul>
-      </article>
-
-      <article className="about-card flex-item flex-column">
-        <div className="about-card-head flex-item">
-          <FontAwesomeIcon className="about-icon" icon={faHandHoldingHeart} />
-          <h3 className="nomarge">Droits, licences et spécifications</h3>
-        </div>
-
-        <div className="flex-item between">
-          <div>
-            <h5>Site Mission Climat</h5>
-            <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
-            <p>Le site est sous licence CC ...</p>
-            <p>Lien github : </p>
-            <p>Spécifications :
-              <ul>
-                <li>Stack : React, NodeJS</li>
-                <li>APIs : Google Sheet, Google Drive</li>
-                <li>Librairies : rechart, material UI</li>
-              </ul>
-            </p>
-          </div>
-
-        
-          <div>
-            <h5>Modèle de calcul des émissions</h5>
-
-            <p>Auteurs : BL évolution</p>
-            <p>Le modèle est sous licence CC ...</p>
-            <p>Lien téléchargement</p>
-
-            </div>
-          </div>
       </article>
 
       <img

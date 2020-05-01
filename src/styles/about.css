@@ -9,9 +9,13 @@
   color: #7fffd4;
 }
 
+.about-page b {
+  font-weight: 600;
+}
+
 .about-page h5 {
   font-size: 1.2em;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 5px;
   color: #7fffd4;
 }
