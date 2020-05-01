@@ -50,6 +50,12 @@ a:not(:first-of-type) {
   margin-bottom: 20px;
 }
 
+.chapter-selection svg {
+  color: white;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
 .concept-box p {
   margin: 1em 0;
   text-align: justify;
@@ -80,10 +86,6 @@ a:not(:first-of-type) {
 .concept-img-box img {
   width: 50%;
   height: auto;
-}
-
-ul {
-  margin: 1em 0 0;
 }
 
 img.border-btn {

@@ -9,21 +9,21 @@ const compoChart = ({datas}) => {
 
     const data = datas.data.data
 
-    // function toolTipContent(e) {
-    //   var annualEmi = 0;
-    //   e.payload.forEach(data => annualEmi+=data.value)
-    //   return (
-    //     <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white'}}>
-    //       <h4>Année : {e.label} / {Math.round(annualEmi)} MtCO2</h4>
-    //       {e.payload.reverse().map((area) => (
-    //         <div className="flex-item">
-    //             <div className="legend-point" style={{backgroundColor:area.color}}></div>
-    //             <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
-    //         </div>
-    //       ))}
-    //     </div>
-    //     )
-    // }
+    function toolTipContent(e) {
+      var annualEmi = 0;
+      e.payload.forEach(data => annualEmi+=data.value)
+      return (
+        <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white', width:'400px'}}>
+          <h4 style={{color:'#163e59'}}>Année : {e.label}</h4>
+          {e.payload.reverse().map((area) => (
+            <div className="flex-item">
+                <div className="legend-point" style={{backgroundColor:area.color}}></div>
+                <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
+            </div>
+          ))}
+        </div>
+        )
+    }
 
     function handleGraphType(dat) {
         if (dat.type === "Area") {
@@ -46,7 +46,7 @@ const compoChart = ({datas}) => {
         <XAxis dataKey="name" />
         <YAxis domain={[-50, 1000]}/>
          <Tooltip
-        //    content={e => toolTipContent(e)}
+              content={e => toolTipContent(e)}
         //    position={{ x: 50, y: -150}}
          />
         {datas.graphDatas.map((dat, i) => (handleGraphType(dat)))}

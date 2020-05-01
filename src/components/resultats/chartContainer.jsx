@@ -14,11 +14,11 @@ const chartContainer = ({title, subtitle, graphData, graphType, graphText, legen
     return (
         <div className="flex-item flex-column res-emi-fr-container">
             {/* Titre graphe */}
-            <h3>{title}</h3>
-            <p className="chart-short-desc light-text">{subtitle}</p>
+            <h3 dangerouslySetInnerHTML={handleInnerHTML(title)}></h3>
+            <p className="chart-short-desc light-text" dangerouslySetInnerHTML={handleInnerHTML(subtitle)}></p>
             <div className="flex-item res-chart-container">
                 <div className="res-chart">
-                    {graphType==="AreaChart" && <AreaChart datas={graphData}/>}
+                    {graphType==="AreaChart" && <AreaChart datas={graphData} xOffset={'auto'} yOffset={'auto'}/>}
                     {graphType==="Sunburst" && <Sunburst datas={graphData}/>}
                     {graphType==="CompoChart" && <CompoChart datas={graphData}/>}
                 </div>

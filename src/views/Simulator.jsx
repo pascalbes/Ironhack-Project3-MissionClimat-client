@@ -169,6 +169,8 @@ const Simulator = (props) => {
                 .then(res => {
                     var resTemp = res.data.results
                     resTemp.url= getUrl(values, jsonFile.parameters)
+                    //correction des data area pour affichage ok
+                    handleAreaData(resTemp.emiSecteurGnl)
                     setResults(resTemp)
                 })
                 .catch(err => console.log(err))
@@ -186,14 +188,23 @@ const Simulator = (props) => {
     }
 
     function tempColor(){
-        const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
-        return (results.impacts.temperature < 1.5) ? tempColors[0]
-        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
-        : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
-        : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
-        : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
-        : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
-        : tempColors[6]
+
+        //version actuelle, en phase avec les jauges
+
+        return (results.impacts.temperature < 1.5) ? 'linear-gradient(to right, #7FFFD4 , #77D9B5)'
+        : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 2) ? 'linear-gradient(to right, #F2F230 , #FFC53A)'
+        : (results.impacts.temperature >= 2 && results.impacts.temperature < 3) ? 'linear-gradient(to right, #FFB8B8 , #DB7093)'
+        : 'linear-gradient(to right, #DA8FFF , #663399)'
+
+        //version initiale, pour du backgroundCOlor
+        // const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
+        // return (results.impacts.temperature < 1.5) ? tempColors[0]
+        // : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
+        // : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
+        // : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
+        // : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
+        // : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
+        // : tempColors[6]
     }
 
     function handleParameterType(cat, param, j, values) {
@@ -254,7 +265,13 @@ const Simulator = (props) => {
       setVisibleOptions(false);
     }
 
-    console.log(jsonFile.options)
+    function handleAreaData(datas) {
+        let dataReversed = [...datas.areaDatas];
+        dataReversed.reverse()
+        datas.areaDatas = [...dataReversed]
+
+        return datas
+    }
 
     return (
         values && results ?
@@ -336,7 +353,7 @@ const Simulator = (props) => {
                     <h1>Ma projection mondiale</h1>
                     <div id="results-impacts-box" className="flex-item">
                             <p className="results-title n1">Températures</p>
-                            <div className="results-figure n2 flex-item" style={{backgroundColor:tempColor(), color:'white'}}>
+                            <div className="results-figure n2 flex-item" style={{backgroundImage:tempColor(), color:'white'}}>
                                 +{results.impacts.temperature}°C
                             </div>
                             <p className="results-legend n3">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>
@@ -382,7 +399,7 @@ const Simulator = (props) => {
                     <div id="results-emissions-charts-container">
 
                         <div className="chart g1">
-                            <AreaChart datas={results.emiSecteurGnl}/>
+                            <AreaChart datas={results.emiSecteurGnl} xOffset={0} yOffset={-150}/>
                         </div>
                         <p className="g2">Emissions Totales</p>
                         {/* 
@@ -416,7 +433,9 @@ const Simulator = (props) => {
         <div id="loader">
             <Loader type="BallTriangle" color="white" height={100} width={100} />
             <div className="hidden">||</div>
-            <h4>Initialisation...</h4>
+            <h3 style={{color:'#7fffd4'}}>Initialisation</h3>
+            <h4 className="light-text">Nous préparons votre environnement de travail.</h4>
+            <h4 className="light-text">L'attente ne devrait pas durer plus de 5 secondes.</h4>
         </div>
  
     )

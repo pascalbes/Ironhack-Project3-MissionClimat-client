@@ -5,6 +5,8 @@ import '../../styles/simParametreSlide.css'
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Tooltip from '@material-ui/core/Tooltip';
+import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -12,35 +14,36 @@ const useStyles = makeStyles(theme => ({
     },
     margin: {
       height: 0,
-    },
+    }
   }));
+
 
 const MscSlider = withStyles({
         root: {
-          color: 'grey',
+          color: '#E4E4E4',
           height: 8,
         },
         thumb: {
-          height: 14,
-          width: 14,
+          height: 16,
+          width: 16,
+          border: '2px solid #1087a1',
           backgroundColor: '#1087a1',
-          marginTop: -4,
+          marginTop: -5,
           marginLeft: -7,
           '&:focus,&:hover,&$active': {
             boxShadow: 'inherit',
           },
         },
         active: {},
-        valueLabel: {//   left: 'calc(-50%)',
-        },
+        valueLabel: {},
         track: {
           height: 5,
           borderRadius: 4,
-          color: 'black'
+          color: '#C7C7C7'
         },
         rail: {
           height: 5,
-          borderRadius: 4,
+          borderRadius: 4
         },
         markActive: {
             display: 'none'
@@ -48,7 +51,40 @@ const MscSlider = withStyles({
         mark: {
             display: 'none'
           },
+        tooltip: {
+            backgroundColor: blue,
+            background: blue,
+        }
       })(Slider);
+
+
+const MSCTooltip =withStyles({
+    tooltip: {
+      color: "white",
+      backgroundColor: "#1087a1",
+      fontSize: '1.1em'
+    },
+    arrow: {
+        color: "#1087a1",
+      }
+  })(Tooltip);
+
+function ValueLabelComponent(props) {
+    const { children, open, value } = props;
+    console.log(props)
+
+    return (
+        <MSCTooltip 
+            open={open} 
+            enterTouchDelay={0} 
+            placement="top" 
+            title={value} 
+            arrow
+            >
+        {children}
+        </MSCTooltip>
+    );
+}
     
 const SimParametreSlide = ({data, value, setOneValue, cat}) => {
 
@@ -62,15 +98,6 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
         }
         else setComponentClass("param-container-normal")
     },[])
-
-    // useEffect(() => {
-    //     setValueState(value)
-    //     setDefaultVal(value)
-    // }, [])
-
-    // useEffect(() => {
-    //     setDefaultVal(valueState)
-    // },[valueState])
     
     const unit=data.unit
     const sliderStep = (data.max-data.min)/100
@@ -86,17 +113,10 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
         label: `${data.max}${data.unit}`,
     },
     ];
-    
-    function valuetext() {
-    return `${value}${unit}`;
-    }
-    
-    function valueLabelFormat(value) {
-    return marks.findIndex(mark => mark.value === value) + 1;
-    }
 
     const handleChange = (e, val) => {
-        setOneValue(val[0], data.index)
+        console.log(e,val)
+        setOneValue(val, data.index)
     }
 
     function toggleClass() {
@@ -109,6 +129,15 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
         else {
             setComponentClass(componentClassSt + " param-container-normal")
             setInfoClass("param-info-container-hidden") 
+        }
+    }
+
+    function handleValue() {
+        if (unit === "%") {
+            return Math.round(value)
+        }
+        else {
+            return value[0]
         }
     }
       
@@ -126,15 +155,14 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
             <div className={classes.root}>
                 <div className={classes.margin} />
                 <MscSlider 
-                    defaultValue={value || 0}
-                    //value={value}
-                    getAriaValueText={valuetext}
+                    defaultValue={handleValue()}
                     aria-labelledby="discrete-slider-always"
                     min={data.min}
                     max={data.max}
                     step={sliderStep}
                     marks={marks}
                     scale={x => x + data.unit}
+                    ValueLabelComponent={ValueLabelComponent}
                     valueLabelDisplay="auto"
                     onChangeCommitted={ (e, val) => handleChange(e, val)}
                     track="normal"

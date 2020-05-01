@@ -34,3 +34,54 @@
     color: var(--green);
     font-weight: bold;
 }
+
+.contact-choices{
+    margin-top: 2em;
+    display: grid;
+    grid: auto auto / 300px 300px;
+    grid-template-areas: "bug suggestion"
+    "contribution partenariat";
+    gap: 50px
+}
+
+#bug{
+    grid-area: bug;
+}
+
+#suggestion{
+    grid-area: suggestion;
+}
+
+#contribution{
+    grid-area: contribution;
+}
+
+#partenariat{
+    grid-area: partenariat;
+}
+
+.contactCard{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactCard img{
+    height: 35px;
+    width: auto;
+    margin-right: 1.5em;
+}
+
+.contactCard h4{
+    font-size: 1em;
+    color: #7fffd4;
+}
+
+.contactCard p{
+    margin: 1em 0;
+}
+
+.contactCard div{
+    display: flex;
+    align-items: center;
+}

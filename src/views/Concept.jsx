@@ -131,7 +131,7 @@ const Concept = () => {
           <p>
             Une première étape consiste à estimer l’évolution de la population
             française et mondiale. On estime que la population mondiale peut
-            varier de 8 à 8,5 milliards d’individus en fonction des mesures
+            varier de 8 à 9 milliards d’individus en fonction des mesures
             prises à l’échelle mondiale. A partir de l’empreinte carbone totale
             de la France, il est alors facile d’estimer l’empreinte carbone par
             habitant.
@@ -261,8 +261,7 @@ const Concept = () => {
           <div className="concept-impact-box flex-item">
             <img src="../../images/concept-3.png" alt="picto" />
             <p>
-              A cause de la fonte de la banquise et des glaciers, l'eau va
-              monter. Et pas qu'un peu. Beaucoup de villes côtières risque de se
+              A cause de la fonte des calottes polaires et des glaciers, mais surtout du réchauffement de l'océan (et ainsi de sa dilatation), le niveau de la mer va augmenter. Et pas qu'un peu. Beaucoup de villes côtières risque de se
               retrouver sous 1m ou 2m d'eau. Des îles risquent tout simplement
               de disparaître
             </p>
@@ -272,8 +271,7 @@ const Concept = () => {
             <img src="../../images/concept-4.png" alt="picto" />
             <p>
               L'acidification de l'océan à cause de tous ces gaz à effet de
-              serre menace de nombreux écosystèmes marins. Toi t'aimes peut-être
-              pas trop le poisson mais beaucoup d'humaines vivent de la pêche
+              serre menace de nombreux écosystèmes marins et les activités humaines qui en dépendent
             </p>
           </div>
 
@@ -292,7 +290,7 @@ const Concept = () => {
           <p>
             Même si cela nous est difficilement perceptible, une petite
             variation de température peut avoir des conséquences importantes.
-            Chaque 0,1°C compte. Chaque année d’émissions de gaz à effet de
+            Chaque 0,1°C compte. Chaque année d’émission de gaz à effet de
             serre compte. Chaque tonne de CO2 compte.
           </p>
 
@@ -364,7 +362,7 @@ const Concept = () => {
             représente moins de 1% de la population mondiale. Ce total est
             encore plus important si on intègre les émissions non énergétiques
             (agriculture, déchets...) et les émissions importées (ces émissions
-            représente plus de 30% de l'empreinte carbone des français). Enfin,
+            représentent plus de 30% de l'empreinte carbone des français). Enfin,
             par la capacité d'influence qu'elle possède, la France peut faire
             effet de levier et entrainer dans son sillage de nombreux pays.{" "}
           </p>
@@ -381,7 +379,7 @@ const Concept = () => {
             rêver beaucoup de gens. Certaines d'entre elles peuvent paraître
             prometeuses. Cependant, aucune n'est aujourd'hui mature à l'échelle
             industrielle pour être déployée, à bas coût, sur l'ensemble du
-            territoire, a fortiri à l'échelle mondiale. Cela montre qu'au delà
+            territoire, a fortiori à l'échelle mondiale. Cela montre qu'au delà
             de la technologie, c'est notre mode de vie qui doit changer très
             rapidement si on souhaite limiter le réchauffement climatique.{" "}
           </p>

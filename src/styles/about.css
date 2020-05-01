@@ -9,10 +9,14 @@
   color: #7fffd4;
 }
 
+.about-page b {
+  font-weight: 600;
+}
+
 .about-page h5 {
   font-size: 1.2em;
   margin-top: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #7fffd4;
 }
 
@@ -22,14 +26,14 @@
 
 .about-card {
   width: 80%;
-  padding: 1.5em;
+  padding: 1em;
   margin-bottom: 3em;
   justify-content: space-between;
 }
 
 #about-articles {
   width: 100%;
-  padding: 20px 5%;
+  padding: 15px 3%;
   justify-content: space-between;
   align-items: flex-end;
 }
@@ -39,19 +43,25 @@
 }
 
 #about-articles img {
-  width: 70px;
+  width: 50px;
+  max-height: 50px;
+}
+
+#about-articles p {
+  text-align: center;
+  font-size: 0.9em;
 }
 
 iframe{
   align-self: center;
-  margin: 2em 0 0;
+  margin: 1em 0 0;
 }
 
 .frame-legend{
   color: rgba(255, 255, 255, 0.8);
   align-self: center;
   font-style: italic;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .separator {
@@ -62,11 +72,15 @@ iframe{
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
-  margin: 1em 0;
+  margin: 0.3em 0 0.5em;
 }
 
 .about-card-lead > p:last-of-type {
   margin-bottom: 15px;
+}
+
+#about-team p {
+  margin: 0.1em 0;
 }
 
 .bl-logo {
@@ -98,7 +112,7 @@ iframe{
 }
 
 .dev-team {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   margin-right: 2%;
   width: 35%;
   display: grid;
@@ -109,7 +123,11 @@ iframe{
   ". role";
 }
 
-.about-page a:not(:first-child) {
+.dev-team > p:first-of-type {
+  font-weight: 600;
+}
+
+.about-card a {
   color: #7fffd4;
 }
 

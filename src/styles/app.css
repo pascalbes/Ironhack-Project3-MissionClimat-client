@@ -55,9 +55,12 @@
 }
 
 /* /// APP SETUP */
-#root{
-    margin: 0;
-    padding: 0;
+#root{  
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  max-width: 1400px;
 }
 
 html{
@@ -69,6 +72,8 @@ body{
     background-attachment: fixed;
     color: white;
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 #content-main{
@@ -142,7 +147,7 @@ h4{
 }
 
 .margeup{
-    padding-top: 2rem !important;
+    padding-top: 1rem !important;
 }
 
 @media (max-width: 800px) and (orientation: portrait) {

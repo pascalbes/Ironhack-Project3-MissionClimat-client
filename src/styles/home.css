@@ -91,10 +91,10 @@
 
 /* BLINKING BTN */
 .blinking{
-    animation: blinker 2s linear infinite;
+    animation: blinker 1s linear infinite;
     margin-bottom: 2rem;
     color: var(--lightgreen);
-    font-size: 1em;
+    font-size: 2em;
     border: none;
 }
 
@@ -108,4 +108,18 @@
     .hero-landing{
         height: 92vw;
     }
+}
+
+@media (min-height: 1100px) {
+
+    .hero-landing{
+        height: auto;
+        margin: 10vh 0;
+    }
+
+    .next-landing{
+        height: auto;
+        margin-bottom: 10vh;
+    }
+
 }
