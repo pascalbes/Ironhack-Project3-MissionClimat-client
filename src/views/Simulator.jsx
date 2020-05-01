@@ -23,6 +23,7 @@ import SimBarChart from './../components/simulateur/simBarChart'
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import ReactGA from 'react-ga';
 import api from '../api/APIHandler'
 
 const Simulator = (props) => {
@@ -31,6 +32,8 @@ const Simulator = (props) => {
     const [results, setResults] = useState() // jsonFile.results
     const [modeExpert, setModeExpert] = useState(false)
     const [visibleOptions, setVisibleOptions] = useState(false);
+
+    ReactGA.initialize(process.env.GAID);
 
     console.log("-----------------------------------")
     console.log(values)
@@ -182,6 +185,10 @@ const Simulator = (props) => {
     }, [values])
 
     function setOneValue(value, index) {
+        ReactGA.event({
+            category: "Parameters",
+            action: index + ":" + value,
+        });
         var newValues=[...values]
         newValues[index][0]=value
         setValues(newValues)
@@ -402,14 +409,6 @@ const Simulator = (props) => {
                             <AreaChart datas={results.emiSecteurGnl} xOffset={0} yOffset={-150}/>
                         </div>
                         <p className="g2">Emissions Totales</p>
-                        {/* 
-                        BAR CHART
-                        <div className="flex-item flex-column results-emissions-charts">
-                            <div className="chart">
-                                <SimBarChart datas={results.emiSecteur}/>
-                            </div>
-                            <p>Emissions Totales</p>
-                        </div> */}
 
                         <div className="chart g3">
                             <Sunburst datas={results.emiSecteurPie}/>  
