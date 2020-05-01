@@ -33,7 +33,7 @@ const Simulator = (props) => {
     const [modeExpert, setModeExpert] = useState(false)
     const [visibleOptions, setVisibleOptions] = useState(false);
 
-    ReactGA.initialize(process.env.GAID);
+    
 
     console.log("-----------------------------------")
     console.log(values)
@@ -188,6 +188,7 @@ const Simulator = (props) => {
         ReactGA.event({
             category: "Parameters",
             action: index + ":" + value,
+            label: 'test'
         });
         var newValues=[...values]
         newValues[index][0]=value
