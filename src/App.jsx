@@ -17,9 +17,14 @@ import NotFound from "./views/NotFound";
 import "./styles/app.css";
 import "./styles/reset.css";
 
+/// GOOGLE ANALYTICS
+import ReactGA from 'react-ga';
+
 
 
 function App() {
+
+  ReactGA.initialize(process.env.GAID);
 
 
   // function deleteSheet(e) {
