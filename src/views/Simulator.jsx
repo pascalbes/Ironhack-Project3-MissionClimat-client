@@ -402,7 +402,7 @@ const Simulator = (props) => {
                         <p className="g2">Emissions Totales</p>
 
                         <div className="chart g3">
-                            <Sunburst datas={results.emiSecteurPie}/>  
+                            <Sunburst datas={results.emiSecteurPie.graph}/>  
                         </div>
                         <p className="g4">Par Secteur / 2030</p>  
 

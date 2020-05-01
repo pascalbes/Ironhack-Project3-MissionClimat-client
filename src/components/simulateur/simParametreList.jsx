@@ -21,12 +21,10 @@ const SimParametreList = ({data, value, setOneValue, cat}) => {
     },[])
 
     useEffect(() => {
-        console.log("in list useeffect", hasInit)
         if (hasInit==0) {
             setHasInit(1)
         }
         else {
-            console.log(hasInit, "in list setonevalue")
             setOneValue(defaultValue, data.index)
         }
     }, [defaultValue])
