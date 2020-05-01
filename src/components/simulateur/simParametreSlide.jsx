@@ -70,8 +70,8 @@ const MSCTooltip =withStyles({
   })(Tooltip);
 
 function ValueLabelComponent(props) {
+    
     const { children, open, value } = props;
-    console.log(props)
 
     return (
         <MSCTooltip 

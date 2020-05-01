@@ -11,6 +11,7 @@ const SimParametreList = ({data, value, setOneValue, cat}) => {
     const possibleValues = data.possibleValues.split(', ')
     const [infosClass, setInfoClass] = useState("param-info-container-hidden")
     const [componentClass, setComponentClass] = useState("")
+    const [hasInit, setHasInit]=useState(0)
 
     useEffect(() => {
         if (data.expert) {
@@ -20,7 +21,14 @@ const SimParametreList = ({data, value, setOneValue, cat}) => {
     },[])
 
     useEffect(() => {
-        setOneValue(defaultValue, data.index)
+        console.log("in list useeffect", hasInit)
+        if (hasInit==0) {
+            setHasInit(1)
+        }
+        else {
+            console.log(hasInit, "in list setonevalue")
+            setOneValue(defaultValue, data.index)
+        }
     }, [defaultValue])
 
     function toggleClass() {

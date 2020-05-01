@@ -20,46 +20,10 @@ import "./styles/reset.css";
 /// GOOGLE ANALYTICS
 import ReactGA from 'react-ga';
 
-ReactGA.initialize(process.env.GAID, {
-  debug: true
-  // gaOptions: { cookieDomain: 'auto' }
-})
-
-ReactGA.set({
-  userId: "556632325",
-  // any data that is relevant to the user session
-  // that you would like to track with google analytics
-})
-
-const history = createBrowserHistory();
-history.listen(location => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
-});
+ReactGA.initialize('UA-165257322-1')
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {
-
-  useEffect(() => {
-    
-    ReactGA.pageview(window.location.pathname);
-
-    ReactGA.event({
-      category: "test",
-      action: "test",
-      label: 'test'
-    });
-
-  }, [])
-
-  ReactGA.event({
-    category: "test2",
-    action: "test",
-    label: 'test'
-  });
-
-
-  
-
 
   // function deleteSheet(e) {
   //   //e.preventDefault();

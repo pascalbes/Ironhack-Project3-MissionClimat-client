@@ -6,8 +6,6 @@ import {
 
 const simResultsAreaChart = ({datas, xOffset, yOffset}) => {
 
-  console.log(datas.areaDatas)
-
     const data = datas.data.data
 
     function toolTipContent(e) {

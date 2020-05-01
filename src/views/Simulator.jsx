@@ -83,8 +83,6 @@ const Simulator = (props) => {
 
     useEffect(() => {
 
-        console.log("useffect []")
-
         async function initDatas() {
 
             var res={}
@@ -97,7 +95,6 @@ const Simulator = (props) => {
 
                 //cas où appel normal de la page simulateur
                 if (!props.match.params.urlParams) {
-                    console.log("appel page simu / récupération données sheet et setvalues")
                     res = await api.get("/sheet/values/"+idSheet)
                     setValues(res.data.values)
                 }
@@ -122,7 +119,6 @@ const Simulator = (props) => {
                     setValues(valuesURL)
                 }
                 else { // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
-                    console.log('appel normal, vINit')
                     setValues(jsonFile.options.vInit)
                 }
             }
@@ -162,9 +158,7 @@ const Simulator = (props) => {
         
     //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
     useEffect(() => {
-        console.log("Useffect [valeurs]")
         if (values) {
-            console.log("in values")
             var idSheet = localStorage.getItem('idSheet')
             var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit)
             if (idSheet) {
@@ -179,16 +173,12 @@ const Simulator = (props) => {
                 .catch(err => console.log(err))
             }
         }
-        else {
-            console.log("not in values")
-        }
     }, [values])
 
     function setOneValue(value, index) {
         ReactGA.event({
             category: "Parameters",
             action: index + ":" + value,
-            label: 'test'
         });
         var newValues=[...values]
         newValues[index][0]=value
