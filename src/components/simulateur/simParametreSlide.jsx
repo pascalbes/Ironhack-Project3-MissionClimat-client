@@ -100,7 +100,7 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
     },[])
     
     const unit=data.unit
-    const sliderStep = (data.max-data.min)/100
+    const sliderStep = data.step //(data.max-data.min)/100
     const classes = useStyles()
 
     const marks = [
@@ -115,7 +115,6 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
     ];
 
     const handleChange = (e, val) => {
-        console.log(e,val)
         setOneValue(val, data.index)
     }
 
