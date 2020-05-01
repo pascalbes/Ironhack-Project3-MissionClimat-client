@@ -387,11 +387,12 @@ export const AboutUs = () => {
           <div>
             <h5>Liberté</h5>
 
-            <p>Le site est mise à disposition gratuitement, pour tout usage :</p>
+            <p>Le site est mis à disposition gratuitement, pour tout usage :</p>
               <ul>
                 <li>évidemment pour <b>tout usage personnel</b>,</li>
                 <li>dans le cadre d'un <b>atelier de formation ou d'un cours</b>, rémunéré ou non,</li>
-                <li>pour <b>demander à Laurent Alexandre de réaliser son meilleur scénario 1.5°C</b> sans lancer de pièce en l'air (merci de partager la vidéo le cas échéant).</li>
+                <li>pour <b>demander à Laurent Alexandre de réaliser son meilleur scénario 1.5°C</b> sans lancer de pièce en l'air (merci de partager la vidéo le cas échéant)?</li>
+                <li>etc.</li>
               </ul>
 
             <h5>Réciprocité</h5>
@@ -400,17 +401,17 @@ export const AboutUs = () => {
                 <li>nous <b>donnons</b> du temps et de l'énergie pour vous fournir un outil utile,</li>
                 <li>vous le <b>recevez</b> et l'utilisez,</li>
                 <li>vous <b>rendez</b>, dans la mesure de votre possible,</li>
-                <li>vous recevons votre contribution en retour et pouvons améliorons l'outil, mis à disposition de tous</li>
+                <li>nous recevons votre contribution en retour et pouvons améliorer l'outil, mis à disposition de tous.</li>
               </ul>
 
             <h5>Retours bienvenus</h5>
 
             <p>Nous accueillerons avec plaisir tout type de retour ! Vous pouvez par exemple :</p>
               <ul>
-                <li>le <b>partager autour de vous</b>, l'utiliser pour animer des ateliers de sensibilisation, d'accompagnement au changement, etc,</li>
-                <li>nous <b>dire ce que vous pensez du projet</b>, partager vos idées pour l'améliorer,</li>
-                <li><b>contribuer</b> au développement du projet,</li>
-                <li><b><u><a href="https://www.helloasso.com/associations/avenir-climatique/formulaires/3/widget" target="_blank">donner à l'association Avenir Climatique</a></u></b> pour soutenir leur action, le développement de ce projet.</li>
+                <li><b>partager le projet autour de vous</b>, l'utiliser pour animer des ateliers de sensibilisation, d'accompagnement au changement, etc,</li>
+                <li>nous <b>dire ce que vous en pensez</b>, partager vos idées pour l'améliorer,</li>
+                <li><b>contribuer</b> à son développement,</li>
+                <li><b><u><a href="https://www.helloasso.com/associations/avenir-climatique/formulaires/3/widget" target="_blank">donner à l'association Avenir Climatique</a></u></b> pour soutenir leur action et le développement de ce projet.</li>
               </ul>
 
           </div>
