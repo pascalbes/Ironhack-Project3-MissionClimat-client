@@ -188,19 +188,34 @@
 }
 
 .sim-categorie-markers {
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
 }
 
 .sim-categorie-markers > div {
   align-items: center;
+  width: 26%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.MuiTooltip-tooltipArrow {
+  background-color: blue;
+}
+
+.sim-categorie-markers > div > div {
+  width: 100%;
+}
+/* 
+.sim-categorie-markers > div > div:last-of-type {
+  width: 70%;
+} */
+
 .sim-categorie-markers p {
-  font-size: 12px;
-  line-height: 115.9%;
+  font-size: 11px;
   text-align: center;
-  letter-spacing: -0.015em;
 }
 
 .sim-emissions-2030 {
