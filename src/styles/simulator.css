@@ -4,7 +4,6 @@
   background-color: #e5e5e5;
   color: #163E59;
   padding: 10px;
-  max-height: 1080px;
 }
 
 .sim-container-box {
@@ -13,13 +12,11 @@
   height: 100%;
   width: 60%;
   margin-right: 10px;
-  max-height: 1080px;
 }
 
 .sim-results-box {
   height: 100%;
   width: calc(40% - 10px);
-  max-height: 1080px;
 }
 
 /* /// LOADER */
@@ -689,5 +686,18 @@ input[type="radio"] {
 
   .sim-results-box{
     width: calc(50% - 10px);
+  }
+}
+
+@media screen and (min-height: 1100px){
+  #results-emissions-charts-container{
+    grid: 40% 6% 40% 6% / 60%;
+    gap: 5%;
+    justify-content: center;
+    grid-template-areas:
+    "g1"
+    "g2"
+    "g3"
+    "g4";
   }
 }
