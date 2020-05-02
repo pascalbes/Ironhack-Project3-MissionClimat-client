@@ -49,7 +49,7 @@ const Concept = () => {
       </div>
 
       {selectedChapter == "concept" && (
-        <div className="concept-box border-btn  flex-item flex-column">
+        <div className="concept-box border-btn flex-item flex-column">
           <h3 className="nomarge">Le concept</h3>
           <h5>Modèle de calcul</h5>
           <p>

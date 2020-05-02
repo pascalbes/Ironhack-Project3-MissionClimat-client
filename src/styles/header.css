@@ -10,6 +10,9 @@ header{
 
 header button {
     font-family: 'Circular Std';
+    margin-left: 1em;
+    border: none;
+    font-size: 1.1em;
 }
 
 #header-simulator {
@@ -37,4 +40,26 @@ header button {
 
 nav > a:first-child button {
     font-weight: bold;
+}
+
+@media (min-width: 800px) and (max-width: 950px) {
+
+    header button {
+        font-family: 'Circular Std';
+        margin-left: 0.5em;
+        border: none;
+        font-size: 0.7em;
+    }
+
+}
+
+@media (min-width: 950px) and (max-width: 1100px) {
+
+    header button {
+        font-family: 'Circular Std';
+        margin-left: 0.7em;
+        border: none;
+        font-size: 0.9em;
+    }
+
 }
