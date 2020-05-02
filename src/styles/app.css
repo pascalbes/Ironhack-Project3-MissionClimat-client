@@ -28,6 +28,10 @@
     margin-bottom: 0;
 }
 
+#mobile-message {
+    visibility: hidden;
+}
+
 /* /// COLORS */
 :root{
     /* /// BACKGROUND */
@@ -149,6 +153,50 @@ h4{
 .margeup{
     padding-top: 1rem !important;
 }
+
+@media (max-width: 800px) and (orientation: portrait) {
+    body{
+        transform: rotate(-90deg);
+        width: 100vh;
+        height: 100vw;
+    }
+
+    #root{
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        align-self: center;
+    }
+}
+
+
+
+/* cas mobile / largeurs trop petits : affichage d'un message */
+
+#mobile-message {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#mobile-message > div {
+    border: solid 5px white;
+    width: 60%;
+    padding: 15x;
+    height: fit-content;
+}
+
+#mobile-message p {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
 
 @media (max-width: 800px) and (orientation: portrait) {
     body{

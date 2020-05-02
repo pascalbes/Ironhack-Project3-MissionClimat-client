@@ -1,3 +1,7 @@
+.form-page {
+    align-items: center;
+}
+
 #contribuer {
     width: 80%;
     display: flex;
@@ -58,3 +62,25 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+
+/* spécificités page contact */
+
+.contact-form {
+    margin-top: 30px;
+}
+
+.contact-title {
+    color: #7fffd4;
+    align-items: center;
+    margin: 1em 0 0.5em;
+}
+
+.contact-title img {
+    max-height: 30px;
+    margin-right: 10px;
+}
+
+.contact-title h6 {
+    margin: 0;
+    font-size: 1.3em;
+}

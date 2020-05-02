@@ -43,7 +43,10 @@ function App() {
   // useBeforeunload((e) => deleteSheet(e))
   // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
 
+  const width = window.innerWidth
+  
   return (
+    width > 600 ?
     <>
       {/* <Header /> */}
       <main id="content-main">
@@ -61,6 +64,14 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
       </main>
+    </>
+    :
+    <>
+      <div id = "mobile-message">
+        <div>
+          <p>Nous vous recommandons l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des fonctionnalités du site</p>
+        </div> 
+      </div>
     </>
   );
 }
