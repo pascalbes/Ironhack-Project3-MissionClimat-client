@@ -91,8 +91,7 @@ body{
 }
 
 .border{
-    border-bottom: 2px solid var(--lightgreen);
-    border-image: var(--backgreen);
+    border-bottom: 2px solid var(--green);
     border-image-slice: 1;
     width: fit-content;
 }
@@ -175,8 +174,8 @@ h4{
 
 #mobile-message {
     visibility: visible;
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,13 +184,14 @@ h4{
 
 #mobile-message > div {
     border: solid 5px white;
-    width: 60%;
-    padding: 15x;
+    width: 60vw;
+    padding: 15px;
     height: fit-content;
+    transform: rotate(90deg);
 }
 
 #mobile-message p {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;

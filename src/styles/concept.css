@@ -85,7 +85,7 @@ img.border-btn {
 
 .concept-img-box img {
   width: 50%;
-  height: auto;
+  height: min-intrinsic;
 }
 
 img.border-btn {

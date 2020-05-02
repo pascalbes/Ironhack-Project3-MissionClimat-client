@@ -46,7 +46,7 @@ function App() {
   const width = window.innerWidth
   
   return (
-    width > 600 ?
+    width > 900 ?
     <>
       {/* <Header /> */}
       <main id="content-main">

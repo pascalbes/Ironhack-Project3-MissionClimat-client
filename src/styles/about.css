@@ -40,6 +40,7 @@
 
 #about-articles > div {
   align-items: center;
+  margin: 0 5px;
 }
 
 #about-articles img {
@@ -193,6 +194,11 @@ ul > li > span {
   font-size: 1em;
   height: 1em;
   margin-top: 0.5em;
+}
+
+.nav-about-img{
+  filter: grayscale(100%);
+  margin: 0 0 20px 0;
 }
 
 @media screen and (max-width: 1100px){

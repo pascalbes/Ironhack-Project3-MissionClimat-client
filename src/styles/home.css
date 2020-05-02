@@ -57,6 +57,7 @@
 
 .hero-img{
     width: 90%;
+    height: min-intrinsic;
 }
 
 .hero-btn{

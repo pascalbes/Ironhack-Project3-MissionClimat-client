@@ -16,7 +16,7 @@ const Contact = () => {
 
                 <section className="flex-item contact-form">
 
-                    <div className="home-item flex-item flex-column light-text">
+                    <div className="flex-item flex-column light-text">
                         <div className="flex-item contact-title">
                             <img src="../../../images/logo/Qna.svg" alt=""/>
                             <h6>Corrections</h6>
@@ -30,7 +30,7 @@ const Contact = () => {
                     </div>
 
 
-                    <div className="home-item flex-item flex-column light-text">
+                    <div className="flex-item flex-column light-text">
                         <div className="flex-item contact-title">
                             <img src="../../../images/logo/Enjeux.svg" alt=""/>
                             <h6>Contributions</h6>

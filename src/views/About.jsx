@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/about.css";
 
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHistory } from "@fortawesome/free-solid-svg-icons";
 import { faGavel } from "@fortawesome/free-solid-svg-icons";
@@ -14,51 +13,51 @@ export const AboutUs = () => {
     <div className="about-page flex-item flex-column light-text">
       <Header />
 
-      <div class="flex-item full-width">
-        <div class="flex-column">
+      <div className="flex-item full-width">
+        <div className="flex-column">
             <a href="#about-history">
                 <div className="chapter-selection">            
-                <img src="../../images/results/nuage CO2 - blanc.svg" />
+                <FontAwesomeIcon className="about-icon nav-about-img" icon={faHistory} />
                 <br />
                 <span>Historique du projet</span>
                 </div>
             </a>
         </div>
 
-        <div class="flex-column">
+        <div className="flex-column">
             <a href="#about-team">
                 <div className="chapter-selection">            
-                <img src="../../images/results/nuage CO2 - blanc.svg" />
+                <img className="nav-about-img" src="../../images/logo/Team.svg" alt="Logo Equipe"/>
                 <br />
                 <span>L'équipe et partenaires</span>
                 </div>
             </a>
         </div>
 
-        <div class="flex-column">
+        <div className="flex-column">
             <a href="#about-law">
                 <div className="chapter-selection">            
-                <img src="../../images/results/impact - blanc.svg" />
+                <FontAwesomeIcon className="about-icon nav-about-img" icon={faGavel} />
                 <br />
                 <span>Droits, licences et specs.</span>
                 </div>
             </a>
         </div>
 
-        <div class="flex-column">
+        <div className="flex-column">
             <a href="#about-cgu">
                 <div className="chapter-selection">            
-                <img src="../../images/results/impact - blanc.svg" />
+                <FontAwesomeIcon className="about-icon nav-about-img" icon={faHandshake} />
                 <br />
                 <span>CGU : liberté et réciprocité</span>
                 </div>
             </a>
         </div>
 
-        <div class="flex-column">
+        <div className="flex-column">
             <a href="#about-thanks">
                 <div className="chapter-selection">            
-                <img src="../../images/results/impact - blanc.svg" />
+                <FontAwesomeIcon className="about-icon nav-about-img" icon={faHandHoldingHeart} />
                 <br />
                 <span>Remerciements</span>
                 </div>
