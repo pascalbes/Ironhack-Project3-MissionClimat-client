@@ -356,7 +356,7 @@ const Simulator = (props) => {
                             </div>
                             <p className="results-legend n3">Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})</p>
                             <p className="results-title n4">Scénario GIEC</p>
-                            <div className="results-figure n5 flex-item">
+                            <div className="results-figure n5 flex-item" style={{backgroundColor:"#e9e7ec"}}>
                                 {results.impacts.RCP}
                             </div>
                             <p className="results-legend n6">Scénario GIEC de vos mesures (<a href="https://leclimatchange.fr/les-elements-scientifiques/" target="_blank" style={{fontWeight:"bold", color:"#DB7093"}}>Plus d'infos</a>)</p>
