@@ -12,17 +12,17 @@
     padding-bottom: 10vh;
 }
 
-#contribuer-title {
+.contribuer-title {
     margin: 10vh 0 0;
     align-items: center;
 }
 
-#contribuer-title h5 {
+.contribuer-title h5 {
     color:white;
     font-size: 1.3em;
 }
 
-#contribuer-title h3 {
+.contribuer-title h3 {
     color:#7fffd4;
 }
 

@@ -9,7 +9,7 @@ const Contact = () => {
             <Header/>
             <div id="contribuer" className="margeup">
 
-                <div className="flex-item flex-column">
+                <div className="contribuer-title flex-item flex-column">
                     <h3>Contactez l'équipe</h3>
                     <h5>contact@mission-climat.io</h5>
                 </div>

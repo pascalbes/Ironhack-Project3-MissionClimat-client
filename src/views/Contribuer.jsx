@@ -8,7 +8,7 @@ const Contribuer = () => {
             <Header/>
             <div id="contribuer" className="margeup">
 
-                <div id="contribuer-title" className="flex-item flex-column">
+                <div className="contribuer-title flex-item flex-column">
                     <h3>Rejoignez l'aventure Mission Climat</h3>
                     <h5>contact@mission-climat.io</h5>
                 </div>
