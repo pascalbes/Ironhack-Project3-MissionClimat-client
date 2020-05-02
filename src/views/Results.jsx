@@ -96,18 +96,30 @@ const Results = (props) => {
         return {__html: text};
     }
 
-    function areaLegend(datas) {
+    function areaLegend(datas, type) {
         
-        let dataValues = datas.data.data
+        let dataValues = {}
+        var datasKey = "";
+        var unit='';
+        if (type === "area") {
+            datasKey = "areaDatas"
+            dataValues = datas.data.data
+            unit = datas.data.yTitle
+        }
+        else if (type === "line") {
+            dataValues = datas.data
+            datasKey = "line"
+            unit = datas.yTitle
+        }
         
-        datas.areaDatas.map(data => {
-            data.subText = dataValues[dataValues.length-1][data.dataKey] + " " + datas.data.yTitle + " / Evolution : "
+        datas[datasKey].map(data => {
+            data.subText = dataValues[dataValues.length-1][data.dataKey] + " " + unit + " / Evolution : "
             let evolution = Math.round((dataValues[dataValues.length-1][data.dataKey]-dataValues[0][data.dataKey])/dataValues[0][data.dataKey]*100)
             evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
             return data
         })
 
-        let dataReversed = [...datas.areaDatas];
+        let dataReversed = [...datas[datasKey]];
         dataReversed.reverse()
 
         return dataReversed
@@ -268,7 +280,7 @@ const Results = (props) => {
                     graphData = {results.emiFrance.sansRupture.graph}
                     graphType = "AreaChart"
                     graphText = {results.emiFrance.sansRupture.text}
-                    legendData = {areaLegend(results.emiFrance.sansRupture.graph)}
+                    legendData = {areaLegend(results.emiFrance.sansRupture.graph, "area")}
                     sourceData = {results.emiFrance.sansRupture.source}
                 />
 
@@ -278,7 +290,7 @@ const Results = (props) => {
                     graphData = {results.emiFrance.avecRupture.graph}
                     graphType = "AreaChart"
                     graphText = {results.emiFrance.avecRupture.text}
-                    legendData = {areaLegend(results.emiFrance.avecRupture.graph)}
+                    legendData = {areaLegend(results.emiFrance.avecRupture.graph, "area")}
                     sourceData = {results.emiFrance.avecRupture.source}
                 />  
 
@@ -288,7 +300,7 @@ const Results = (props) => {
                     graphData = {results.emiSecteurPie.graph}
                     graphType = "Sunburst"
                     graphText = {results.emiSecteurPie.text}
-                    legendData = {pieLegend(results.emiSecteurPie.graph)}
+                    legendData = {pieLegend(results.emiSecteurPie.graph, "area")}
                     sourceData = {results.emiSecteurPie.source}
                 />  
 
@@ -305,7 +317,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.batiment.perf.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.batiment.perf.text}
-                    legendData = {areaLegend(results.dataFrance.batiment.perf.graph)}
+                    legendData = {areaLegend(results.dataFrance.batiment.perf.graph, "area")}
                     sourceData = {results.dataFrance.batiment.perf.source}
                 />  
 
@@ -315,7 +327,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.batiment.chauffage.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.batiment.chauffage.text}
-                    legendData = {areaLegend(results.dataFrance.batiment.chauffage.graph)}
+                    legendData = {areaLegend(results.dataFrance.batiment.chauffage.graph, "area")}
                     sourceData = {results.dataFrance.batiment.chauffage.source}
                 />  
 
@@ -331,7 +343,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.transports.distance.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.transports.distance.text}
-                    legendData = {areaLegend(results.dataFrance.transports.distance.graph)}
+                    legendData = {areaLegend(results.dataFrance.transports.distance.graph, "area")}
                     sourceData = {results.dataFrance.transports.distance.source}
                 />  
 
@@ -341,7 +353,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.transports.emissions.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.transports.emissions.text}
-                    legendData = {areaLegend(results.dataFrance.transports.emissions.graph)}
+                    legendData = {areaLegend(results.dataFrance.transports.emissions.graph, "area")}
                     sourceData = {results.dataFrance.transports.emissions.source}
                 />  
 
@@ -357,7 +369,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.agriculture.parcelles.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.agriculture.parcelles.text}
-                    legendData = {areaLegend(results.dataFrance.agriculture.parcelles.graph)}
+                    legendData = {areaLegend(results.dataFrance.agriculture.parcelles.graph, "area")}
                     sourceData = {results.dataFrance.agriculture.parcelles.source}
                 />  
 
@@ -367,7 +379,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.agriculture.emissions.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.agriculture.emissions.text}
-                    legendData = {areaLegend(results.dataFrance.agriculture.emissions.graph)}
+                    legendData = {areaLegend(results.dataFrance.agriculture.emissions.graph, "area")}
                     sourceData = {results.dataFrance.agriculture.emissions.source}
                 />  
 
@@ -380,12 +392,12 @@ const Results = (props) => {
                 </div>
 
                 <ChartContainer 
-                    title = {results.dataFrance.conso.quantites.graph.data.title}
+                    title = {results.dataFrance.conso.quantites.graph.title}
                     subtitle = {results.dataFrance.conso.quantites.subtitle}
                     graphData = {results.dataFrance.conso.quantites.graph}
-                    graphType = "AreaChart"
+                    graphType = "Line"
                     graphText = {results.dataFrance.conso.quantites.text}
-                    legendData = {areaLegend(results.dataFrance.conso.quantites.graph)}
+                    legendData = {areaLegend(results.dataFrance.conso.quantites.graph, "line")}
                     sourceData = {results.dataFrance.conso.quantites.source}
                 />  
 
@@ -395,7 +407,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.conso.emissions.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.conso.emissions.text}
-                    legendData = {areaLegend(results.dataFrance.conso.emissions.graph)}
+                    legendData = {areaLegend(results.dataFrance.conso.emissions.graph, "area")}
                     sourceData = {results.dataFrance.conso.emissions.source}
                 />  
 
@@ -406,12 +418,12 @@ const Results = (props) => {
                 </div>
 
                 <ChartContainer 
-                    title = {results.dataFrance.energie.facteurs.graph.data.title}
+                    title = {results.dataFrance.energie.facteurs.graph.title}
                     subtitle = {results.dataFrance.energie.facteurs.subtitle}
                     graphData = {results.dataFrance.energie.facteurs.graph}
-                    graphType = "AreaChart"
+                    graphType = "Line"
                     graphText = {results.dataFrance.energie.facteurs.text}
-                    legendData = {areaLegend(results.dataFrance.energie.facteurs.graph)}
+                    legendData = {areaLegend(results.dataFrance.energie.facteurs.graph, "line")}
                     sourceData = {results.dataFrance.energie.facteurs.source}
                 />  
 
@@ -421,7 +433,7 @@ const Results = (props) => {
                     graphData = {results.dataFrance.energie.emissions.graph}
                     graphType = "AreaChart"
                     graphText = {results.dataFrance.energie.emissions.text}
-                    legendData = {areaLegend(results.dataFrance.energie.emissions.graph)}
+                    legendData = {areaLegend(results.dataFrance.energie.emissions.graph, "area")}
                     sourceData = {results.dataFrance.energie.emissions.source}
                 />  
 
@@ -433,30 +445,40 @@ const Results = (props) => {
 {/* *************************
 ********************MONDE
 ************************* */}
+            <article id="res-emi-world" className="flex-item flex-column">
 
-            {/* <article id="res-emi-world" className="flex-item flex-column">
 
-                <h1>Emissions Mondiales</h1>
+                {/* Titre grande partie / nav */}
+                <h1>Emissions mondiales</h1> 
 
-                <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>Evolution des émissions</h2>
-                    <p className="chart-short-desc light-text">Ce graphique représente l'évolution des émissions mondiales de 2020 à 2030, fonction de vos mesures.</p>
-                    <div className="flex-item res-chart-container">
-                        <div className="res-chart">
-                            <GenLinearChart datas={results.emiMonde}/>
-                        </div>
-                        <div className="res-chart-infos flex-item flex-column">
-                            <div className="res-chart-legend">
-                                <p>Légende</p>
-                                <table>
-                                    
-                                </table>
-                                <p className="res-chart-source">Source des données : modèle de calcul des émissions de BL évolution. Le fichier de ce modèle est téléchargeable sur cette même page.</p>
-                            </div>
-                        </div>
-                    </div>
+                {/* Titre sous partie */}
+                <div className="res-title-box">
+                    <h2>Emissions totales</h2>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.emiMonde.intro)}></p>
                 </div>
-            </article> */}
+
+                <ChartContainer 
+                    title = {results.emiMonde.total.graph.title}
+                    subtitle = {results.emiMonde.total.subtitle}
+                    graphData = {results.emiMonde.total.graph}
+                    graphType = "Line"
+                    graphText = {results.emiMonde.total.text}
+                    legendData = {areaLegend(results.emiMonde.total.graph, "line")}
+                    sourceData = {results.emiMonde.total.source}
+                />
+
+                <ChartContainer 
+                    title = {results.emiMonde.empreinte.graph.title}
+                    subtitle = {results.emiMonde.empreinte.subtitle}
+                    graphData = {results.emiMonde.empreinte.graph}
+                    graphType = "Line"
+                    graphText = {results.emiMonde.empreinte.text}
+                    legendData = {areaLegend(results.emiMonde.empreinte.graph, "line")}
+                    sourceData = {results.emiMonde.empreinte.source}
+                />
+
+            </article>
+
 
             <article id="res-impacts" className="flex-item flex-column">
 
@@ -470,17 +492,16 @@ const Results = (props) => {
                             <img src={handleImageEurope()}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
-                            <div className="res-chart-legend">
-                                <div className="flex-item">
-                                    {mapLegendInfos.map((data,i) => (
+                            <p className="light-text">TBD</p>
+                            <div className="res-chart-legend flex-item">
+                                {mapLegendInfos.map((data,i) => (
                                         <div className="flex-item">
                                             <div className="legend-point" style={{backgroundColor:data[0]}}></div>
-                                            <p className="light-text">{data[1]}</p>
+                                            <div className="light-text">{data[1]}</div>
                                         </div>
                                     ))}
                                 </div>
-                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
-                            </div>
+                            <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
                         </div>
                     </div>
                 </div>
@@ -493,17 +514,16 @@ const Results = (props) => {
                             <img src={handleImageWorld()}/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
-                            <div className="res-chart-legend">
-                                <div className="flex-item">
-                                    {mapLegendInfos.map((data,i) => (
+                            <p className="light-text">TBD</p>
+                            <div className="res-chart-legend flex-item">
+                                {mapLegendInfos.map((data,i) => (
                                         <div className="flex-item">
                                             <div className="legend-point" style={{backgroundColor:data[0]}}></div>
-                                            <p className="light-text">{data[1]}</p>
+                                            <div className="light-text">{data[1]}</div>
                                         </div>
                                     ))}
                                 </div>
-                                <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
-                            </div>
+                            <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
                         </div>
                     </div>
                 </div>

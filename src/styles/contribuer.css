@@ -69,6 +69,7 @@
     margin-top: 50px;
     flex-wrap: wrap;
     width: 680px !important;
+    padding: 0 20%;
 }
 
 .contact-title {
