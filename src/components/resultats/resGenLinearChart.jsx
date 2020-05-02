@@ -6,7 +6,20 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Responsi
 
 const resGenLinearChart = ({datas}) => {
 
-    console.log(datas)
+    function toolTipContent(e) {
+        
+        return (
+          <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white'}}>
+            <h4 style={{color:'#163e59'}}>Année : {e.label}</h4>
+            {e.payload.reverse().map((area) => (
+              <div className="flex-item">
+                  <div className="legend-point" style={{backgroundColor:area.color}}></div>
+                  <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
+              </div>
+            ))}
+          </div>
+          )
+      }
 
     return (
     
@@ -14,13 +27,19 @@ const resGenLinearChart = ({datas}) => {
             <LineChart data={datas.data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
 
                 {datas.line.map((dat,i)=> (
-                    <Line dataKey={dat.dataKey} stroke={dat.stroke} />
+                    <Line 
+                        dataKey={dat.dataKey}
+                        stroke={dat.color}
+                        dotWidth = {10}
+                        dotHeight = {10}
+                        strokeWidth={5} />
                 ))}
                     <CartesianGrid stroke="#ccc" strokeDasharray="5" />
                     <XAxis dataKey="name" />
                     <YAxis />
-                    <Tooltip />
-                    <Legend />
+                    <Tooltip
+                        content={e => toolTipContent(e)}
+                    />
             </LineChart>
         </ResponsiveContainer>
     

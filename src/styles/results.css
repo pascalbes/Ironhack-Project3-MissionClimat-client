@@ -162,6 +162,15 @@
     text-align: center;
 }
 
+#res-synthese-indicator {
+    align-items: flex-start;
+}
+
+.tag-container {
+    align-items: center;
+    width: 30%;
+}
+
 #res-synthese > div > p {
     color: #7fffd4;
     margin: 30px 0;
@@ -285,7 +294,7 @@
 /* ////////////////////////// */
 
 #res-emi-world {
-    width: 100%;
+    width: 80%;
     align-items: center;
 }
 
@@ -294,25 +303,16 @@
 /* ////////////////////////// */
 
 #res-impacts {
-    width: 100%;
+    width: 80%;
     align-items: center;
 }
 
-#res-impacts .res-chart-legend > div {
-    flex-wrap: wrap;
+#res-impacts .res-chart {
+    width: 70%;
 }
 
-#res-impacts .res-chart-legend > div > div {
-    width: 40%;
-    margin-bottom: 10px;
-}
-
-#res-impacts .res-chart-legend .legend-point {
-    margin-right: 10px;
-}
-
-#res-impacts .res-chart-legend p {
-    margin-right: 20px;
+#res-impacts .res-chart-infos {
+    width: 28%;
 }
 
 
