@@ -68,8 +68,8 @@
 .contact-form {
     margin-top: 50px;
     flex-wrap: wrap;
-    width: 680px !important;
-    padding: 0 20%;
+    width: 90%;
+    padding: 0 5%;
 }
 
 .contact-title {
