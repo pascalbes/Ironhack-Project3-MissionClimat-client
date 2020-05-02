@@ -28,7 +28,7 @@ img.border-btn {
   color: #7fffd4;
 }
 
-a:not(:first-of-type) {
+.concept-page > div a {
   color: #7fffd4;
   font-weight: bolder;
 }
