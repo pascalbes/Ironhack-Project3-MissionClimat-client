@@ -20,8 +20,11 @@ import "./styles/reset.css";
 /// GOOGLE ANALYTICS
 import ReactGA from 'react-ga';
 
-ReactGA.initialize('UA-165257322-1')
-ReactGA.pageview(window.location.pathname + window.location.search);
+if (window.location.hostname !== 'localhost') {
+  ReactGA.initialize('UA-165257322-1')
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
 
 function App() {
 

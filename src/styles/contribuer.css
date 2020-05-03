@@ -2,7 +2,7 @@
     align-items: center;
 }
 
-#contribuer {
+.contribuer {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
     color:#7fffd4;
 }
 
-#contribuer > p {
+.contribuer > p {
     font-size: 1.2em;
     text-align: justify;
     padding: 2em 3em;
@@ -60,26 +60,26 @@
 
 
 
-#contribuer > section {
+.contribuer > section {
     width: 100%;
     justify-content: space-between;
 }
 
-#contribuer > section h4 {
+.contribuer > section h4 {
     color:#7fffd4;
 }
 
-#contribuer > section h5 {
+.contribuer > section h5 {
     color:white;
     margin:1em 0 0.5em;
     font-size: 1.3em;
 }
 
-#contribuer > section h4:first-of-type {
+.contribuer > section h4:first-of-type {
     margin-top:0.5em;
 }
 
-#contribuer > section p {
+.contribuer > section p {
     font-weight: 300;
     text-align: justify;
     font-family: 'Open Sans', sans-serif;
@@ -88,11 +88,19 @@
 
 /* spécificités page contact */
 
-.contact-form {
-    margin-top: 50px;
+#contact-form {
+    justify-content: center;
     flex-wrap: wrap;
     width: 90%;
     padding: 0 5%;
+}
+
+#contact-form > div:first-of-type {
+    margin-right: 10%;
+}
+
+#contact-form p{
+    width: 300px;
 }
 
 .contact-title {
@@ -112,6 +120,35 @@
     font-size: 1.3em;
 }
 
-.contact-form p{
-    width: 300px;
+#contact-newsletter {
+    width: 100%;
+    width: 80%;
+    background-color: white;
+    color: #012340;
+    margin: 2em 0;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-newsletter h5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+#contact-newsletter p {
+    font-size: 1em;
+    margin: 0.2em 0;
+    text-align: justify;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#contact-newsletter form > input:first-of-type {
+    width: 250px;
+    line-height: 25px;
+    margin: 5px 15px 0;
 }

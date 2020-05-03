@@ -6,7 +6,7 @@ const Contribuer = () => {
     return (
         <div className="form-page flex-item flex-column light-text">
             <Header/>
-            <div id="contribuer" className="margeup">
+            <div className="margeup contribuer">
 
                 <div className="contribuer-title flex-item flex-column">
                     <h3>Rejoignez l'aventure Mission Climat</h3>
