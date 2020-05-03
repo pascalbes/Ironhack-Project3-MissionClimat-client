@@ -41,6 +41,10 @@
     color: #012340;
     margin-bottom: 3em;
     padding: 1.5em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 #contribuer-dons h5 {
@@ -52,7 +56,7 @@
 
 #contribuer-dons p {
     font-size: 1.2em;
-    margin: 0.2em 0;
+    margin: 0.2em 0 0.8em;
     text-align: justify;
     font-weight: 500;
     font-family: 'Open Sans', sans-serif;
@@ -151,4 +155,10 @@
     width: 250px;
     line-height: 25px;
     margin: 5px 15px 0;
+}
+
+#contact-newsletter form > button input {
+    background-color: inherit;
+    border: none;
+    font-weight: bold;
 }

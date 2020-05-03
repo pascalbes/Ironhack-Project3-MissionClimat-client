@@ -38,7 +38,7 @@ const Contact = () => {
                     <form onSubmit={handlePost}>
                         <label>Email :</label>
                         <input type="email" name="email" onChange={handleChange}/>
-                        <input type="submit" value="Partager" />
+                        <button className="valid-button"><input type="submit" value="Partager" /></button>
                     </form>
                 </div>
 

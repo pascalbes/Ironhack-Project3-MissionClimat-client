@@ -17,8 +17,9 @@ const Contribuer = () => {
 
                 <div id="contribuer-dons">
                     <h5>Dons à l'association Avenir Climatique</h5>
-                    <p>Vous souhaitez contribuez au développement du projet ? Une forme possible simple : <b><u><a href="https://www.helloasso.com/associations/avenir-climatique/formulaires/3/widget" target="_blank">donner à l'association Avenir Climatique</a></u></b> pour soutenir leur action et le développement de ce projet.
+                    <p>Pour contribuez au développement du projet et soutenir l'action de l'association vous pouvez donner à Avenir Climatique.
                     </p>
+                    <button className="valid-button"><a href="https://www.helloasso.com/associations/avenir-climatique/formulaires/3/widget" target="_blank">Donner</a></button>
                 </div>
 
                 <section className="flex-item">
