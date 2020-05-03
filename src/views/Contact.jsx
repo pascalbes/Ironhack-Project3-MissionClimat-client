@@ -28,37 +28,13 @@ const Contact = () => {
 
                 <div className="contribuer-title flex-item flex-column">
                     <h3>Contactez l'équipe</h3>
+                </div>
+
+                <div className="contact-white" id="contact-email">
                     <h5>contact@mission-climat.io</h5>
                 </div>
 
-                <div id="contact-newsletter">
-                    <h5>Être informé des évolutions de Missions Climat</h5>
-                    <p>Partagez votre email et cette information ponctuelle sera le seul usage que nous en aurons.
-                    </p>
-                    <form onSubmit={handlePost}>
-                        <label>Email :</label>
-                        <input type="email" name="email" onChange={handleChange}/>
-                        <button className="valid-button"><input type="submit" value="Partager" /></button>
-                    </form>
-                </div>
-
                 <section id="contact-form" className="flex-item">
-
-                    <div className="flex-item flex-column light-text">
-                        <div className="flex-item contact-title">
-                            <img src="../../../images/logo/Qna.svg" alt=""/>
-                            <h6>Corrections</h6>
-                        </div>
-                        <p>Vous souhaitez nous faire part d'une erreur, d'un bug trouvé sur le site ?</p>
-                        <p><b>contact@mission-climat.io</b></p>
-                        <div className="flex-item contact-title">
-                            <img src="../../../images/logo/Idea.svg" alt=""/>
-                            <h6>Propositions</h6>
-                        </div>
-                        <p>Vous avez une idée incroyable pour améliorer Misson Climat ?</p>
-                        <p><b>contact@mission-climat.io</b></p>
-                    </div>
-
 
                     <div className="flex-item flex-column light-text">
                         <div className="flex-item contact-title">
@@ -75,8 +51,41 @@ const Contact = () => {
                         <p>Vous souhaitez échanger avec l'équipe ou établir un partenariat ?</p>
                         <p><b>contact@mission-climat.io</b></p>
                     </div>
+
+                    <div className="flex-item flex-column light-text">
+                        <div className="flex-item contact-title">
+                            <img src="../../../images/logo/Qna.svg" alt=""/>
+                            <h6>Corrections</h6>
+                        </div>
+                        <p>Vous souhaitez nous faire part d'une erreur, d'un bug trouvé sur le site ?</p>
+                        <p><b>contact@mission-climat.io</b></p>
+                        <div className="flex-item contact-title">
+                            <img src="../../../images/logo/Idea.svg" alt=""/>
+                            <h6>Propositions</h6>
+                        </div>
+                        <p>Vous avez une idée incroyable pour améliorer Misson Climat ?</p>
+                        <p><b>contact@mission-climat.io</b></p>
+                    </div>
+                    
                     
                 </section>
+
+
+                <div className="contribuer-title flex-item flex-column">
+                    <h3>Newsletter</h3>
+                </div>
+
+
+                <div className="contact-white">
+                    <h5>Être informé des évolutions de Missions Climat</h5>
+                    <p>Partagez votre email et cette information ponctuelle sera le seul usage que nous en aurons.
+                    </p>
+                    <form onSubmit={handlePost}>
+                        <label>Email :</label>
+                        <input type="email" name="email" onChange={handleChange}/>
+                        <button className="valid-button"><input type="submit" value="Partager" /></button>
+                    </form>
+                </div>
 
                 
 

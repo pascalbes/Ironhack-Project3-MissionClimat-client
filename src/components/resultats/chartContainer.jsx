@@ -37,7 +37,7 @@ const chartContainer = ({title, subtitle, graphData, graphType, graphText, legen
                             </div>
                         ))}
                     </div>
-                    <p className="res-chart-source">{sourceData}</p>
+                    <p className="res-chart-source" dangerouslySetInnerHTML={handleInnerHTML(sourceData)}></p>
                 </div>
             </div>
         </div>

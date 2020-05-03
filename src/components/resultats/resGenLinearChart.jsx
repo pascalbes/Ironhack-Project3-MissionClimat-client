@@ -5,7 +5,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Responsi
 
 
 const resGenLinearChart = ({datas}) => {
-
+    
     function toolTipContent(e) {
         
         return (
@@ -14,7 +14,7 @@ const resGenLinearChart = ({datas}) => {
             {e.payload.reverse().map((area) => (
               <div className="flex-item">
                   <div className="legend-point" style={{backgroundColor:area.color}}></div>
-                  <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
+                  <p style={{color:'#163E59'}}>{area.name} : {area.value} {datas.yTitle}</p>
               </div>
             ))}
           </div>

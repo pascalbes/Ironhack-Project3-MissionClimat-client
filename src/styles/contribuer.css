@@ -92,6 +92,8 @@
 
 /* spécificités page contact */
 
+
+
 #contact-form {
     justify-content: center;
     flex-wrap: wrap;
@@ -124,10 +126,14 @@
     font-size: 1.3em;
 }
 
-#contact-newsletter {
-    width: 100%;
+
+.contact-white {
     width: 80%;
     background-color: white;
+    /* background-image: var(--backgreen);
+    background-size: 120% 120%;
+    background-position: center;
+    border: 2px solid transparent; */
     color: #012340;
     margin: 2em 0;
     padding: 1.5em;
@@ -136,14 +142,18 @@
     align-items: center;
 }
 
-#contact-newsletter h5 {
+#contact-email {
+    width: 50%;
+}
+
+.contact-white h5 {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 1.3em;
 }
 
-#contact-newsletter p {
+.contact-white p {
     font-size: 1em;
     margin: 0.2em 0;
     text-align: justify;
@@ -151,13 +161,13 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-#contact-newsletter form > input:first-of-type {
+.contact-white form > input:first-of-type {
     width: 250px;
     line-height: 25px;
     margin: 5px 15px 0;
 }
 
-#contact-newsletter form > button input {
+.contact-white form > button input {
     background-color: inherit;
     border: none;
     font-weight: bold;

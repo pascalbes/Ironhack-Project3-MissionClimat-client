@@ -316,10 +316,10 @@ const Simulator = (props) => {
                                     <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
                                     <form className="sim-option-form flex-item" onChange={e=>handleInitValues(e)}>
                                         <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div>
+                                        {/* <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div> */}
                                         <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Scénario 1.5°C</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Business as Usual</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div>
+                                        {/* <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Business as Usual</label></div> */}
+                                        {/* <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div> */}
                                     </form>
                                 </div>
                                 <div className="sim-option-box">

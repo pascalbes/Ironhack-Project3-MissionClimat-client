@@ -308,10 +308,10 @@ export const AboutUs = () => {
             L'association Avenir Climatique a eu plusieurs rôles sur le projet Mission Climat :
             <ul>
               <li>Elle a d'abord été un lieu de rencontre, pour Guillaume Martin, Pascal Besson et Emmanuel Bernard,
-            en particulier sur le projet <u><b><a href="https://www.educlimat.fr/" target="_blank">ÉduClimat</a></b></u> pour ces 2 derniers.</li>
+            en particulier sur le projet <u><b><a href="https://www.educlimat.fr/" target="_blank">ÉduClimat</a></b></u> pour ces 2 derniers,</li>
               <li>Elle a été d'une aide précieuse pour tester le site et proposer des corrections, des évolutions.
-              Pour cela <b>un énorme merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle Leloup</b></li>
-              <li>Elle a enfin fourni la majeure partie des textes disponibles à la page "Concept"</li>
+              Pour cela <b>un énorme merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle Leloup,</b></li>
+              <li>Elle a enfin fourni la majeure partie des textes disponibles à la page "Concept".</li>
             </ul>
           </p>
           <p>

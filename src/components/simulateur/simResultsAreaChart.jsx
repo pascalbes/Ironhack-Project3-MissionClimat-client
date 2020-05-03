@@ -13,11 +13,11 @@ const simResultsAreaChart = ({datas, xOffset, yOffset}) => {
       e.payload.forEach(data => annualEmi+=data.value)
       return (
         <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white'}}>
-          <h4 style={{color:'#163e59'}}>Année : {e.label} / {Math.round(annualEmi)} MtCO2</h4>
+          <h4 style={{color:'#163e59'}}>Année : {e.label} / {Math.round(annualEmi)} {datas.data.yTitle}</h4>
           {e.payload.reverse().map((area) => (
             <div className="flex-item">
                 <div className="legend-point" style={{backgroundColor:area.color}}></div>
-                <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
+                <p style={{color:'#163E59'}}>{area.name} : {area.value} {datas.data.yTitle}</p>
             </div>
           ))}
         </div>
