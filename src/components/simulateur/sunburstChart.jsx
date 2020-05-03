@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {PieChart, Pie, Sector, Cell, Legend, Label, Tooltip, ResponsiveContainer} from 'recharts';
+import {PieChart, Pie, Cell,  Label, Tooltip, ResponsiveContainer} from 'recharts';
 
   
 const SunburstChart = React.forwardRef(({datas}, ref) => {

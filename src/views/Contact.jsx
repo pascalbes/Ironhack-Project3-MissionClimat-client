@@ -1,9 +1,26 @@
-import React from 'react'
-import ContactForm from "../components/form/Contact"
+import React, {  useState } from 'react'
 import "../styles/contribuer.css"
 import Header from "../components/partials/Header";
+import api from '../api/APIHandler'
 
 const Contact = () => {
+
+    const [email, setEmail] = useState()
+
+    function handleChange(e) {
+        setEmail(e.target.value)
+    }
+
+    function handlePost(e) {
+        e.preventDefault()
+        api.post("/email/"+email)
+        .then(res => {
+            console.log(res)
+            alert(res.data.message)
+        })
+        .catch(err => console.log(err))
+    }
+
     return (
         <div className="form-page flex-item flex-column light-text">
             <Header/>
@@ -18,9 +35,9 @@ const Contact = () => {
                     <h5>Être informé des évolutions de Missions Climat</h5>
                     <p>Partagez votre email et cette information ponctuelle sera le seul usage que nous en aurons.
                     </p>
-                    <form action="test">
-                        <label>Email</label>
-                        <input type="email" name="email"/>
+                    <form onSubmit={handlePost}>
+                        <label>Email :</label>
+                        <input type="email" name="email" onChange={handleChange}/>
                         <input type="submit" value="Partager" />
                     </form>
                 </div>

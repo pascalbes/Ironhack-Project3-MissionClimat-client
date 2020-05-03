@@ -1,4 +1,4 @@
-import React, { useState, setState, useContext} from 'react'
+import React, { useState } from 'react'
 import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,31 +38,31 @@ const Results = (props) => {
     }
 
     function handleImageEurope() {
-        if (results.impacts.RCP =="RCP 2.6") {
+        if (results.impacts.RCP ==="RCP 2.6") {
             return './images/europeRCP26.png'
         }
-        if (results.impacts.RCP =="RCP 4.5") {
+        if (results.impacts.RCP ==="RCP 4.5") {
             return './images/europeRCP45.png'
         }
-        if (results.impacts.RCP =="RCP 6.0") {
+        if (results.impacts.RCP ==="RCP 6.0") {
             return './images/europeRCP60.png'
         }
-        if (results.impacts.RCP =="RCP 8.5") {
+        if (results.impacts.RCP ==="RCP 8.5") {
             return './images/europeRCP85.png'
         }
     }
 
     function handleImageWorld() {
-        if (results.impacts.RCP =="RCP 2.6") {
+        if (results.impacts.RCP ==="RCP 2.6") {
             return './images/worldRCP26.png'
         }
-        if (results.impacts.RCP =="RCP 4.5") {
+        if (results.impacts.RCP ==="RCP 4.5") {
             return './images/worldRCP45.png'
         }
-        if (results.impacts.RCP =="RCP 6.0") {
+        if (results.impacts.RCP ==="RCP 6.0") {
             return './images/worldRCP60.png'
         }
-        if (results.impacts.RCP =="RCP 8.5") {
+        if (results.impacts.RCP ==="RCP 8.5") {
             return './images/worldRCP85.png'
         }
     }
@@ -158,7 +158,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-synthese">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/fiche synthèse - blanc.svg" />
+                            <img src="../../images/results/fiche synthèse - blanc.svg" alt="" />
                             <br />
                             <span>Synthèse</span>
                             </div>
@@ -168,7 +168,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-emi-fr">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/nuage CO2 - blanc.svg" />
+                            <img src="../../images/results/nuage CO2 - blanc.svg"  alt=""/>
                             <br />
                             <span>Emissions françaises</span>
                             </div>
@@ -178,7 +178,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-emi-world">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/emission monde - blanc.svg" />
+                            <img src="../../images/results/emission monde - blanc.svg" alt="" />
                             <br />
                             <span>Emissions mondiales</span>
                             </div>
@@ -188,7 +188,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-impacts">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/impact - blanc.svg" />
+                            <img src="../../images/results/impact - blanc.svg" alt="" />
                             <br />
                             <span>Impacts</span>
                             </div>
@@ -489,7 +489,7 @@ const Results = (props) => {
                     <p className="chart-short-desc light-text">Cette carte représente l'évolution des températures, en Europe, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <img src={handleImageEurope()}/>
+                            <img src={handleImageEurope()} alt=""/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <p className="light-text">TBD</p>
@@ -511,7 +511,7 @@ const Results = (props) => {
                     <p className="chart-short-desc light-text">Cette carte représente l'évolution des températures, dans le Monde, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <img src={handleImageWorld()}/>
+                            <img src={handleImageWorld()} alt=""/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
                             <p className="light-text">TBD</p>

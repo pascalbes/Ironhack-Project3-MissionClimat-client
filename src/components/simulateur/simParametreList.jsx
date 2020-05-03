@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../../styles/simParametreSlide.css'

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider'
 import '../../styles/simParametreSlide.css'
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from '@material-ui/core/Tooltip';

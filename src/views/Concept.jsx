@@ -17,7 +17,7 @@ const Concept = () => {
             }`}
             onClick={() => setSelectedChapter("concept")}
           >
-            <img src="../../images/logo/Idea.svg" />
+            <img src="../../images/logo/Idea.svg" alt="" />
             <br />
             <span>Le concept</span>
           </div>
@@ -29,7 +29,7 @@ const Concept = () => {
             }`}
             onClick={() => setSelectedChapter("enjeux")}
           >
-            <img className="" src="../../images/logo/Enjeux.svg" />
+            <img className="" src="../../images/logo/Enjeux.svg" alt="" />
             <br />
             <span>Les enjeux</span>
           </div>
@@ -41,7 +41,7 @@ const Concept = () => {
             }`}
             onClick={() => setSelectedChapter("qna")}
           >
-            <img className="" src="../../images/logo/Qna.svg" />
+            <img className="" src="../../images/logo/Qna.svg" alt="" />
             <br />
             <span>Questions et réponses</span>
           </div>
