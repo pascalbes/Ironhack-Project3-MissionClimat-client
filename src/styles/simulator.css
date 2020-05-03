@@ -190,7 +190,7 @@
 
 .sim-categorie-markers {
   justify-content: flex-start;
-  align-items: center;
+  align-items: baseline;
   width: 100%;
 }
 
