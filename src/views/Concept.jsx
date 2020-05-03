@@ -73,8 +73,8 @@ const Concept = () => {
           </div>
 
           <p>
-            Les émissions actuelles de chaque secteur (Bâtiment, Transports,
-            Agriculture, Biens et services, Énergie) sont modélisées à partir d’hypothèses et des meilleures
+            Les émissions actuelles de chaque secteur (Bâtiments, Transports,
+            Agriculture et alimentation, Biens et services, Énergie) sont modélisées à partir d’hypothèses et des meilleures
             données disponibles. L’approche retenue est celle de l’<b>empreinte
             carbone</b> : elle intègre les émissions importées en plus des émissions
             ayant directement lieu sur le territoire français et est en ce sens bien plus juste. Ainsi, l’inventaire
@@ -140,8 +140,8 @@ const Concept = () => {
                 3 indicateurs :
                 <ul>
                   <li>l'évolution en pourcentage des émissions entre 2020 et 2030,</li>
-                  <li>la moyenne annuelle des émissions</li>
-                  <li>l'empreinte carbone par habitant, en 2030</li>
+                  <li>la moyenne annuelle des émissions,</li>
+                  <li>l'empreinte carbone par habitant, en 2030.</li>
                 </ul>
               </li>
 
@@ -170,7 +170,7 @@ const Concept = () => {
           </div>
 
             </ul>
-            <p>Ainsi, vous disposez de tous les éléments pour guider les choix de votre scénario</p>
+            <p>Ainsi, vous disposez de tous les éléments pour guider les choix de votre scénario.</p>
           </div>
 
           <h5>Calcul des émissions mondiales</h5>
@@ -183,7 +183,7 @@ const Concept = () => {
             Ensuite, une hypothèse sur la trajectoire des autres pays, à choisir parmi les 2 suivantes :
             <ul>
               <li>
-                Egalité stricte : Tous les citoyens du monde ont la même empreinte carbone en 2030. Le niveau d'effort dépend du point de départ. Les pays développés réduisent plus leur empreinte. Certains pays en voie de développement peuvent légèrement augmenter.
+                Egalité stricte : Tous les citoyens du monde ont la même empreinte carbone en 2030. Le niveau d'effort dépend du point de départ. Les pays développés réduisent plus leur empreinte. Certains pays en voie de développement peuvent légèrement l'augmenter.
               </li>
               <li>
                 "Maintien des inégalités" : Tous les citoyens baissent (ou augmentent) proportionnellement leur empreinte carbone d'un même effort. A l'arrivée, les pays développés ont toujours une empreinte carbone plus élevée que les pays en voie de développement.
@@ -196,7 +196,7 @@ const Concept = () => {
         <div className="concept-box border-btn  flex-item flex-column">
           <h3 className="nomarge">Les enjeux</h3>
           <p>
-            Nous reprenons ici du contenu rédigé par l'association Avenir Climatique, simplement retouchés.
+            Nous reprenons ici du contenu rédigé par l'association Avenir Climatique, simplement retouché.
             Elle a développé une série de vidéos pour
             décrypter les enjeux énergie climat qui peuvent être un excellent moyen de s'y former.
           </p>
@@ -243,7 +243,7 @@ const Concept = () => {
             en France au temps des dinosaures) ou beaucoup plus froid (la
             dernière ère glaciaire s'est achevée il y a seulement 20 000 ans).
             Depuis 500 000 ans, ces variations sont relativement cycliques avec une alternance d’ères
-            glaciaires qui durent 100 000 ans, avec une température moyenne inférieur de 5°C à l'actuelle et d’ères interglaciaires de 10 000 ans, comme celle dans laquelle nous nous trouvons.
+            glaciaires qui durent 100 000 ans, avec une température moyenne inférieure de 5°C à l'actuelle et d’ères interglaciaires de 10 000 ans, comme celle dans laquelle nous nous trouvons.
           </p>
 
           <p>
@@ -360,7 +360,7 @@ const Concept = () => {
           <p>
             Tout est à réinventer, repenser et reconstruire, de l’agriculture à
             l’habitat, des modes d’organisation du travail à l’urbanisme, de ce que nous sommes aujourd'hui à ce que nous pouvons être demain.
-            Bref, une vrai mission, au moins climatique, sûrement anthropologique.
+            Bref, une vraie mission, au moins climatique, sûrement anthropologique.
           </p>
         </div>
       )}
@@ -401,11 +401,11 @@ const Concept = () => {
           <p>
             Notre modèle de calculs modélise les émissions de gaz à effet de
             serre en France jusqu'à 2030. En l'espace de 10 ans, il est très improbable qu'une rupture technologique, déployée à l'échelle industrielle dans le monde, modifie le système actuel de manière conséquente. 
-            Le modèle inclue toutes les technologiques existante, et permet de configurer la vitesse à laquelle certaines d'entres elles progressent.
-            Pour conclure, le modèle repose sur la réalité : il ne propose pas de jouer notre avenir en jettant une pièce en l'air.{" "}
+            Le modèle inclue toutes les technologies existantes, et permet de configurer la vitesse à laquelle certaines d'entres elles progressent.
+            Pour conclure, le modèle repose sur la réalité : il ne propose pas de jouer notre avenir en jetant une pièce en l'air.{" "}
           </p>
 
-          <h5>La transition va t-elle assez vite ? </h5>
+          <h5>La transition va-t-elle assez vite ? </h5>
           <p>
             Clairement, non. Les émissions mondiales ne cessent d'augmenter.
             D'après les scénarios du GIEC, pour limiter le réchauffement
@@ -432,8 +432,8 @@ const Concept = () => {
 
           <h5>Donc chaque année compte ?</h5>
           <p>
-            En 2018, le GIEC estimait le budget carbone restant associé à une
-            limitation du réchauffement climatique de 420 à 580 milliards de
+            En 2018, le GIEC estimait le budget carbone global restant (associé à une
+            limitation du réchauffement climatique) de 420 à 580 milliards de
             tonnes de CO2. Chaque année, nous émettons environ 50 milliards de
             tonnes de CO2. Ainsi, d'ici une dizaine d'années, nous aurons épuisé
             notre budget carbone associé à une trajectoire 1,5°C. Chaque année

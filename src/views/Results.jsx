@@ -307,7 +307,7 @@ const Results = (props) => {
 
                 {/* Titre sous partie */}
                 <div className="res-title-box">
-                    <h2>Bâtiment</h2>
+                    <h2>Bâtiments</h2>
                     <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.intro)}></p>
                 </div>
 

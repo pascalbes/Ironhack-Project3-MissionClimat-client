@@ -67,6 +67,10 @@ img.border-btn {
   color: #7fffd4;
 }
 
+.concept-page ul, li {
+  font-size: 1rem;
+}
+
 .concept-box h5 {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -84,7 +88,7 @@ img.border-btn {
 }
 
 .concept-img-box img {
-  width: 50%;
+  width: 75%;
   height: min-intrinsic;
 }
 

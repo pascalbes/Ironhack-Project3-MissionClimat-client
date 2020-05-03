@@ -42,7 +42,7 @@ const Contribuer = () => {
                         <h5>Sociologues, anthropologues, économistes</h5>
                         <p>Vous souhaitez participer à la valorisation des co-bénéfices sociaux, des impacts économiques des scénarios configurés</p>
                         <h5>Créatifs</h5>
-                        <p>Vous êtes directeur créa, artistique, illustrateurs, etc. et vous souhaitez apporter un concept nouveau, permettant de rendre l'expérience plus grand public, sympathique, belle, incarnée, ou simplement y contribuer.</p>
+                        <p>Vous êtes directeur créa, artistique, illustrateur, etc. et vous souhaitez apporter un concept nouveau, permettant de rendre l'expérience plus grand public, sympathique, belle, incarnée, ou simplement y contribuer.</p>
                         
                     </div>
 
@@ -57,7 +57,7 @@ const Contribuer = () => {
                             <h4 className="nomarge">Mission Climat demain</h4>
                         </div>
                         <h5>+ d'outils d'accompagnement</h5>
-                        <p>Nous souhaitons mettre à disposition des idées d'atelier à destination du grand public et utilisant le site. Une idée basique : des groupes de 4 à 5 personnes, missionnées pour réaliser, ensemble, un scénario 1.5°C, avant mise en commun. Belles discussions en perspective n'est ce pas ?</p>
+                        <p>Nous souhaitons mettre à disposition des idées d'atelier à destination du grand public et utilisant le site. Une idée basique : des groupes de 4 à 5 personnes, missionnées pour réaliser, ensemble, un scénario 1.5°C, avant mise en commun. Belles discussions en perspective n'est-ce pas ?</p>
 
                         <h5>+ de jeu, + grand public</h5>
                         <p>Nous souhaitons réfléchir sérieusement à une version grand public, qui n'aurait rien à voir avec celle-là. Nous avons quelques idées... Et vous ?</p>
@@ -66,7 +66,7 @@ const Contribuer = () => {
                         <p>Nous souhaitons développer les co-bénéfices sociaux, environnementaux et économiques des scénarios de sobriété, passage indispensable pour donner à voir ce qu'ils sont profondément, c'est à dire tout sauf de la décroissance, mais plutôt une possibilité de développer ce qui nous importe réellement ("des biens aux liens). Cela donnerait peut-être davantage envie ?</p>
 
                         <h5>+ de passage à l'action</h5>
-                        <p>Nous pensons que l'outil peut-être un formidable levier de passage à l'action, à toutes les échelles. On peut par exemple imaginer, après le scénario, une liste d'actions possibles, dépendantes de vos choix. Qu'en dites vous ?</p>
+                        <p>Nous pensons que l'outil peut être un formidable levier de passage à l'action, à toutes les échelles. On peut par exemple imaginer, après le scénario, une liste d'actions possibles, dépendantes de vos choix. Qu'en dites vous ?</p>
                     </div>
                     
                 </section>

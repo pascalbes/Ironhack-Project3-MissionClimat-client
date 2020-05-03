@@ -282,7 +282,7 @@ export const AboutUs = () => {
             évolution depuis plus de 9 ans. B&L évolution est un bureau d’études
             et de conseils en développement durable. Au service de la société,
             cette équipe engagée souhaite diffuser une vision résiliente de
-            l’aménagement des territoires et du développent des entreprises en
+            l’aménagement des territoires et du développement des entreprises en
             associant une vision fortement participative à une prise de
             conscience réaliste et éclairée des enjeux du XXIe siècle.
           </p>
@@ -390,12 +390,12 @@ export const AboutUs = () => {
               <ul>
                 <li>évidemment pour <b>tout usage personnel</b>,</li>
                 <li>dans le cadre d'un <b>atelier de formation ou d'un cours</b>, rémunéré ou non,</li>
-                <li>pour <b>demander à Laurent Alexandre de réaliser son meilleur scénario 1.5°C</b> sans lancer de pièce en l'air (merci de partager la vidéo le cas échéant)?</li>
+                <li>pour <b>demander à Laurent Alexandre de réaliser son meilleur scénario 1.5°C</b> sans lancer de pièce en l'air (merci de partager la vidéo le cas échéant),</li>
                 <li>etc.</li>
               </ul>
 
             <h5>Réciprocité</h5>
-            <p>Dans l'équipe Mission Climat, nous sommes attachées à cette notion, et sa cousine "don / contre don" (poke Alain Caillé). Elle permet de fabriquer du commun en engageant un cycle vertueux :</p>
+            <p>Dans l'équipe Mission Climat, nous sommes attachés à cette notion, et sa cousine "don / contre don" (poke Alain Caillé). Elle permet de fabriquer du commun en engageant un cycle vertueux :</p>
               <ul>
                 <li>nous <b>donnons</b> du temps et de l'énergie pour vous fournir un outil utile,</li>
                 <li>vous le <b>recevez</b> et l'utilisez,</li>
