@@ -4,7 +4,7 @@
   background-color: #e5e5e5;
   color: #163E59;
   padding: 10px;
-  min-height: 600px;
+  min-height: 500px;
 }
 
 .sim-container-box {
@@ -189,14 +189,14 @@
 }
 
 .sim-categorie-markers {
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   align-items: baseline;
   width: 100%;
 }
 
 .sim-categorie-markers > div {
   align-items: center;
-  width: 35%;
+  width: 24%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -225,6 +225,14 @@
 
 .sim-emissions-2020 {
   color: #ff6868;
+}
+
+.sim-emissions-2020 span {
+  font-size: 9px;
+}
+
+.sim-emissions-2030 span {
+  font-size: 9px;
 }
 
 .sim-categorie-name {
@@ -648,10 +656,8 @@ input[type="radio"] {
   font-weight: bold;
   border-radius: 5px;
   line-height: normal;
-  /* padding: 0.4em 1.2em; */
   width: 5em;
   height: 3rem;
-  margin: 0 0;
 }
 
 #results-impacts-box2 .results-figure {
@@ -703,4 +709,64 @@ input[type="radio"] {
     "g3"
     "g4";
   }
+}
+
+@media screen and (max-height: 700px){
+
+  #results-top-box {
+    height: 150px;
+  }
+
+  #results-bottom-box {
+    height: calc(100% - 150px);
+  }
+  
+  #sim-nav-box h1, #results-top-box h1, #results-emissions h1 {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .results-title {
+    font-size: 0.8em;
+  }
+
+  .results-figure {
+    font-size: 1.2em;
+    width: 5em;
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .b5 {
+    line-height: normal;
+  }
+
+  #results-impacts-box2 .results-figure {
+    font-size: 1.2rem;
+  }
+
+  .results-legend {
+    font-size: 0.6em;
+  }
+
+  .b9 {
+    font-size: 0.5em;
+  }
+
+
+  #results-emissions-charts-container {
+    height: 45%;
+    grid-gap: 2px 15px;
+}
+
+#results-emissions-charts-container p {
+  font-size: 1em;
+}
+
+.sim-results-box button {
+  padding: 0.4em 2em;
+  font-size: 1.2em;
+}
+
 }
