@@ -172,7 +172,7 @@
 }
 
 .sim-categorie > div {
-  width: 50%;
+  width: 55%;
   justify-content: space-between;
   align-items: center;
 }
@@ -189,14 +189,14 @@
 }
 
 .sim-categorie-markers {
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: baseline;
   width: 100%;
 }
 
 .sim-categorie-markers > div {
   align-items: center;
-  width: 26%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,9 +229,11 @@
 
 .sim-categorie-name {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 23px;
   line-height: 32px;
   color: #163e59;
+  text-align: left;
+  width: 45%;
 }
 
 /* /// OPTIONS */

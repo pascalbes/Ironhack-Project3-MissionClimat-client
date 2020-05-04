@@ -42,7 +42,7 @@ const simCategorie = ({data, results}) => {
                     {/* <div className="sim-jauge">{results && data.name === results[0].name && <Jauge results={results}/>}</div> */}
                     <div className="sim-jauge">{results && data.name === results[0].name && <JaugeDiv results={results}/>}</div>
                     <div className='sim-categorie-markers flex-item'>
-                        <div style={{position:'relative', marginLeft:`${margin1}`}}>
+                        <div style={{position:'relative'}}>
                             <div>
                                 <p>Scénario 1.5°C</p>
                             </div>
@@ -50,7 +50,7 @@ const simCategorie = ({data, results}) => {
                                 <p className="sim-emissions-2030">{results[0].markers[0]} MtCO2</p>
                             </div>
                         </div>
-                        <div style={{position:'relative', marginLeft:`${margin2}`}}>
+                        <div style={{position:'relative'}}>
                             <div>
                                 <p>Emissions 2020</p>
                             </div>
