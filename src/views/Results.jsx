@@ -1,4 +1,4 @@
-import React, { useState, setState, useContext} from 'react'
+import React, { useState } from 'react'
 import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,31 +38,31 @@ const Results = (props) => {
     }
 
     function handleImageEurope() {
-        if (results.impacts.RCP =="RCP 2.6") {
+        if (results.impacts.RCP ==="RCP 2.6") {
             return './images/europeRCP26.png'
         }
-        if (results.impacts.RCP =="RCP 4.5") {
+        if (results.impacts.RCP ==="RCP 4.5") {
             return './images/europeRCP45.png'
         }
-        if (results.impacts.RCP =="RCP 6.0") {
+        if (results.impacts.RCP ==="RCP 6.0") {
             return './images/europeRCP60.png'
         }
-        if (results.impacts.RCP =="RCP 8.5") {
+        if (results.impacts.RCP ==="RCP 8.5") {
             return './images/europeRCP85.png'
         }
     }
 
     function handleImageWorld() {
-        if (results.impacts.RCP =="RCP 2.6") {
+        if (results.impacts.RCP ==="RCP 2.6") {
             return './images/worldRCP26.png'
         }
-        if (results.impacts.RCP =="RCP 4.5") {
+        if (results.impacts.RCP ==="RCP 4.5") {
             return './images/worldRCP45.png'
         }
-        if (results.impacts.RCP =="RCP 6.0") {
+        if (results.impacts.RCP ==="RCP 6.0") {
             return './images/worldRCP60.png'
         }
-        if (results.impacts.RCP =="RCP 8.5") {
+        if (results.impacts.RCP ==="RCP 8.5") {
             return './images/worldRCP85.png'
         }
     }
@@ -111,9 +111,21 @@ const Results = (props) => {
             datasKey = "line"
             unit = datas.yTitle
         }
+
+        function formatThousands(nb) {
+            nb += '';
+            if (nb.length>3) {
+                var finalNb=""
+                for (let i=nb.length-1 ; i>=0;i--) {
+                    (i - nb.length+1)%3 ===0 ? finalNb = nb[i] + " " + finalNb  : finalNb = nb[i] + finalNb
+                }
+                return finalNb
+            }
+            return nb
+        }
         
         datas[datasKey].map(data => {
-            data.subText = dataValues[dataValues.length-1][data.dataKey] + " " + unit + " / Evolution : "
+            data.subText = formatThousands(dataValues[dataValues.length-1][data.dataKey]) + " " + unit + " / Evolution : "
             let evolution = Math.round((dataValues[dataValues.length-1][data.dataKey]-dataValues[0][data.dataKey])/dataValues[0][data.dataKey]*100)
             evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
             return data
@@ -129,7 +141,7 @@ const Results = (props) => {
 
         datas.data01.map(data => {
             data.dataKey = data.name
-            data.subText = data.value + " MtCO2"
+            data.subText = Math.round(data.value) + " MtCO2"
             return data
         })
 
@@ -158,7 +170,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-synthese">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/fiche synthèse - blanc.svg" />
+                            <img src="../../images/results/fiche synthèse - blanc.svg" alt="" />
                             <br />
                             <span>Synthèse</span>
                             </div>
@@ -168,7 +180,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-emi-fr">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/nuage CO2 - blanc.svg" />
+                            <img src="../../images/results/nuage CO2 - blanc.svg"  alt=""/>
                             <br />
                             <span>Emissions françaises</span>
                             </div>
@@ -178,7 +190,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-emi-world">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/emission monde - blanc.svg" />
+                            <img src="../../images/results/emission monde - blanc.svg" alt="" />
                             <br />
                             <span>Emissions mondiales</span>
                             </div>
@@ -188,7 +200,7 @@ const Results = (props) => {
                     <div class="flex-column">
                         <a href="#res-impacts">
                             <div className="chapter-selection">            
-                            <img src="../../images/results/impact - blanc.svg" />
+                            <img src="../../images/results/impact - blanc.svg" alt="" />
                             <br />
                             <span>Impacts</span>
                             </div>
@@ -222,7 +234,7 @@ const Results = (props) => {
                             </div>
                         </div> 
 
-                        <p>"Peut mieux faire !"</p>
+                        <p dangerouslySetInnerHTML={handleInnerHTML(results.impacts.texteSynthese)}></p>
 
                         <div id="res-synthese-buttons" className="flex-item">
                             
@@ -307,7 +319,7 @@ const Results = (props) => {
 
                 {/* Titre sous partie */}
                 <div className="res-title-box">
-                    <h2>Bâtiment</h2>
+                    <h2>Bâtiments</h2>
                     <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.intro)}></p>
                 </div>
 
@@ -482,17 +494,22 @@ const Results = (props) => {
 
             <article id="res-impacts" className="flex-item flex-column">
 
-                <h1>Températures</h1>
+                <h1>Impacts</h1>
+
+                <div className="res-title-box">
+                    <h2>Températures</h2>
+                    <p dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.intro)}></p>
+                </div>
 
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>Augmentation de températures en Europe</h2>
-                    <p className="chart-short-desc light-text">Cette carte représente l'évolution des températures, en Europe, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
+                    <h3 dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.title)}></h3>
+                    <p className="chart-short-desc light-text" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.subtitle)}></p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <img src={handleImageEurope()}/>
+                            <img src={handleImageEurope()} alt=""/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
-                            <p className="light-text">TBD</p>
+                            <p className="light-text" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.text)}></p>
                             <div className="res-chart-legend flex-item">
                                 {mapLegendInfos.map((data,i) => (
                                         <div className="flex-item">
@@ -501,20 +518,20 @@ const Results = (props) => {
                                         </div>
                                     ))}
                                 </div>
-                            <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
+                            <p className="res-chart-source" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.source)}></p>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex-item flex-column res-emi-fr-container">
-                    <h2>Augmentation de températures dans le Monde</h2>
-                    <p className="chart-short-desc light-text">Cette carte représente l'évolution des températures, dans le Monde, entre l'ère pré-industrielle et 2100, pour le scénario du GIEC {results.impacts.RCP}</p>
+                    <h3 dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.title)}></h3>
+                    <p className="chart-short-desc light-text" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.subtitle)}></p>
                     <div className="flex-item res-chart-container">
                         <div className="res-chart">
-                            <img src={handleImageWorld()}/>
+                            <img src={handleImageWorld()} alt=""/>
                         </div>
                         <div className="res-chart-infos flex-item flex-column">
-                            <p className="light-text">TBD</p>
+                            <p className="light-text" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.text)}></p>
                             <div className="res-chart-legend flex-item">
                                 {mapLegendInfos.map((data,i) => (
                                         <div className="flex-item">
@@ -523,7 +540,7 @@ const Results = (props) => {
                                         </div>
                                     ))}
                                 </div>
-                            <p className="res-chart-source">Source des données : <br></br>Ces cartes ont été générées à partir du site KNMI Climate Explorer <a href="https://climexp.knmi.nl/plot_atlas_form.py" style={{fontWeight:"bold", color:"#DB7093"}} target="_blank">(lien)</a></p>
+                            <p className="res-chart-source" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.source)}></p>
                         </div>
                     </div>
                 </div>

@@ -26,7 +26,7 @@ const simNavBar = (props) => {
                         ></div>
                         <div class="sim-nav-category-icon">
                           <span class="sim-nav-category-icon-helper"></span>
-                          <img src={imgSrc[cat.name]}></img>
+                          <img src={imgSrc[cat.name]} alt=""></img>
                         </div>
                     </a>
                 ))}

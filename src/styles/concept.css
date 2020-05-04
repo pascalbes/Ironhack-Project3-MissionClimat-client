@@ -67,6 +67,10 @@ img.border-btn {
   color: #7fffd4;
 }
 
+.concept-page ul, li {
+  font-size: 1rem;
+}
+
 .concept-box h5 {
   margin-top: 15px;
   margin-bottom: 10px;
@@ -83,8 +87,13 @@ img.border-btn {
   justify-content: center;
 }
 
-.concept-img-box img {
+#concept .concept-img-box img {
   width: 50%;
+  height: min-intrinsic;
+}
+
+#enjeux .concept-img-box img {
+  width: 75%;
   height: min-intrinsic;
 }
 

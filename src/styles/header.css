@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One&display=swap');
 
 header{
-    padding: 0 2rem;
+    padding: 0em 1em;
     height: 8vh;
     justify-content: space-between;
     align-items: center;
@@ -9,10 +9,22 @@ header{
 }
 
 header button {
-    font-family: 'Circular Std';
+    font-family: 'Open Sans';
     margin-left: 1em;
     border: none;
     font-size: 1.1em;
+    font-weight: 500;
+}
+
+nav a:nth-child(4) button {
+    background-color: #7fffd4;
+    border-radius: 5px;
+    color: #021438 !important;
+    font-weight: 500;
+    background-image: var(--backgreen);
+    background-size: 120% 120%;
+    background-position: center;
+    border: 2px solid transparent;
 }
 
 #header-simulator {
@@ -38,17 +50,13 @@ header button {
     display: inline-block;
 }
 
-nav > a:first-child button {
-    font-weight: bold;
-}
-
 @media (min-width: 800px) and (max-width: 950px) {
 
     header button {
         font-family: 'Circular Std';
         margin-left: 0.5em;
         border: none;
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
 
 }

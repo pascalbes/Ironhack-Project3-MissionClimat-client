@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {PieChart, Pie, Sector, Cell, Legend, Label, Tooltip, ResponsiveContainer} from 'recharts';
+import {PieChart, Pie, Cell,  Label, Tooltip, ResponsiveContainer} from 'recharts';
 
   
 const SunburstChart = React.forwardRef(({datas}, ref) => {
@@ -16,11 +16,9 @@ const SunburstChart = React.forwardRef(({datas}, ref) => {
       <PieChart>
         <Pie data={datas.data01} dataKey="value" outerRadius={"60%"}  stroke="none" >
           {datas.data01.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color}/>)}
-          {/* {datas.data01.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)} */}
         </Pie>
         <Pie data={datas.data02} dataKey="value" innerRadius={"70%"} outerRadius={"100%"}  stroke="none">
           {datas.data02.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
-          {/* {datas.data02.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS2[index % COLORS2.length]} />)} */}
           <Label dataKey="value" position="outside"/>
         </Pie>
         <Tooltip

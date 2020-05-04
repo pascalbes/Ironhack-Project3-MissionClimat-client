@@ -18,7 +18,6 @@ import SimCat from "../components/simulateur/simCategorie"
 import SimParamList from "../components/simulateur/simParametreList"
 import SimParamSlider from "../components/simulateur/simParametreSlide"
 import Sunburst from './../components/simulateur/sunburstChart'
-import SimBarChart from './../components/simulateur/simBarChart'
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -86,6 +85,7 @@ const Simulator = (props) => {
         async function initDatas() {
 
             var res={}
+            var valuesURL=[]
 
             // cas où une sheet est déjà en dans le localstorage
             if (localStorage.getItem('idSheet')) {
@@ -100,7 +100,7 @@ const Simulator = (props) => {
                 }
 
                 else { // cas où appel via url spécifique /save/p=1&&p=3.....
-                    var valuesURL = getValuesFromUrl(props.match.params.urlParams)
+                    valuesURL = getValuesFromUrl(props.match.params.urlParams)
                     setValues(valuesURL)
                 }
 
@@ -115,7 +115,7 @@ const Simulator = (props) => {
 
                 // cas où appel via url spécifique /save/p=1&&p=3.....
                 if (props.match.params.urlParams) {
-                    var valuesURL = getValuesFromUrl(props.match.params.urlParams)
+                    valuesURL = getValuesFromUrl(props.match.params.urlParams)
                     setValues(valuesURL)
                 }
                 else { // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
@@ -316,10 +316,10 @@ const Simulator = (props) => {
                                     <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
                                     <form className="sim-option-form flex-item" onChange={e=>handleInitValues(e)}>
                                         <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div>
+                                        {/* <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div> */}
                                         <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Scénario 1.5°C</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Business as Usual</label></div>
-                                        <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div>
+                                        {/* <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Business as Usual</label></div> */}
+                                        {/* <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div> */}
                                     </form>
                                 </div>
                                 <div className="sim-option-box">

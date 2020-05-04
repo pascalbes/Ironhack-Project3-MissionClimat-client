@@ -22,6 +22,16 @@ button {
     border: none;
 }
 
+.valid-button {
+    color: #021438;
+    font-size: 0.8em;
+    background-image: var(--backgreen);
+    background-size: 120% 120%;
+    background-position: center;
+    border: 2px solid transparent;
+    font-weight: bold;
+}
+
 #cta-btn {
     font-size: 1.3em;
     color: #021438;
