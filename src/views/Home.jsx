@@ -44,13 +44,10 @@ const Home = () => {
                         />
                         <h4 className="nomarge">Pourquoi Mission Climat ?</h4>
                     </div>
-                    <p>Depuis des années, le <b>Groupe d’Experts Intergouvernemental sur l’Evolution du Climat (GIEC)</b> publie de nombreux rapports alertant l’humanité sur les dangers du réchauffement climatique et la nécessité de mettre en place des mesures pour réduire les émissions de gaz à effet de serre.</p>
-                    <br/>
-                    <p>S’appuyant sur ces données, le cabinet de conseil BL évolution a publié une étude intitulée «Comment la France peut s’aligner sur une trajectoire compatible avec les 1,5°C». L’objectif de cette étude était de donner à voir quelques mesures qui permettraient de suivre les recommandations des scientifiques du GIEC.
-                    </p>
-                    <br/>
-                    <p>
-                    Ce site, développé par des bénévoles, vous permettra de paramétrer vos propres mesures, secteur par secteur et de visualiser les résultats dans une modélisation où la France servirait d’exemple au reste du monde.
+                    <p><b>Une très grande majorité de français sait qu'un réchauffement climatique est en cours, et en est inquiet</b> <u><a href="https://www.ipsos.com/sites/default/files/ct/news/documents/2019-11/ipsos_pour_edf_obscop_27nov.pdf">(sondage 2019)</a></u>. L’urgence d’agir est régulièrement rappelée par la communauté scientifique. 
+                    </p><p>Si <b>le constat est de plus en plus partagé, le diagnostic ne l'est pas</b> : les moyens pour agir font encore débat et les ordres de grandeurs des transformations à mettre en œuvre ne sont pas connus. Or, "Il n'y a de bon vent qu'à celui qui sait où il va".
+                    </p><p>C'est l'objectif de Mission Climat : <b>démocratiser et partager ce savoir, que tous ceux qui se "mêlent de corriger le monde" s’approprient ces enjeux et puissent prendre part au débat, à l'action</b>. Avec Mission Climat, vous pouvez ainsi définir votre propre scénario pour 2030, à l'échelle nationale, et identifier les mesures essentielles à la construction d’un avenir convenable pour toutes et tous.  
+                    
                     </p>
                 </div>
 
@@ -64,12 +61,13 @@ const Home = () => {
                         />
                         <h4 className="nomarge">Comment ça marche ?</h4>
                     </div>
-                    <p>Le modèle de calcul utilisé sur ce simulateur a été conçu par <span className="bold-text">BL Evolution</span>. Une trentaines de paramètres peuvent être configurés pour visualiser l’impact de certains changements sociétaux sur les émissions de gaz à effet de serre en France. </p><br/>
-
-                    <p>Le modèle calcule ensuite une projection mondiale selon les hypothèses que vous choisissez concernant l’évolution de la population mondiale et le maintien ou non des inégalités. </p><br/>
-
-                    <p>
-                    Une page de résultats détaillés vous permet d’aller plus loin dans votre scénario et de découvrir les changements qu’il implique sur la société française. 
+                    <p>Début 2019, le cabinet de conseil <b>BL évolution</b> publiait l'étude <b><i>« Comment la France peut s’aligner sur une trajectoire compatible avec les 1,5°C »</i></b>. Son objectif : donner à voir l'importance des mesures à mettre en place pour réduire les émissions de gaz à effet de serre de la France et s’aligner sur les recommandations du GIEC.
+                    </p><p>
+                    Avec un modèle de calcul simplifié, <b>Mission Climat permet de visualiser l'impact d'une trentaine de mesures sociétales sur les émissions de gaz à effet de serre en France</b>.
+                    </p><p>
+                    Le modèle calcule également une <b>projection mondiale de ces émissions et leur impact sur le climat</b> selon des hypothèses sur l’évolution de la population et la répartition des émissions entre pays.
+                    </p><p>
+                    Une page de résultats complets détaille enfin les changements que les scénarios réalisés impliquent pour la société française. 
                     </p>
                 </div>
                 

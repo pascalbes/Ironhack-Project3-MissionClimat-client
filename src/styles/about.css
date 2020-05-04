@@ -201,8 +201,60 @@ ul > li > span {
   margin: 0 0 20px 0;
 }
 
+.about-nav {
+  justify-content: center;
+}
+
+.about-chapter-selection {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  padding: 25px 50px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.about-chapter-selection span {
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 5px solid transparent;
+  transition: 0.5s;
+}
+
+.about-chapter-selection.active span {
+  border-bottom: 5px solid #7fffd4;
+}
+
+.about-chapter-selection img {
+  color: white;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.about-chapter-selection svg {
+  color: white;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.about-chapter-selection:hover span {
+  color:#7fffd4;
+  border-bottom: 5px solid #7fffd4;
+}
+
+
 @media screen and (max-width: 1100px){
+
+  .about-nav > div {
+    width: 20%;
+  }
+
+  .about-chapter-selection {
+    padding: 20px 25px;
+  }
+
   .dev-team{
-    width: 60%;
+    width: 40%;
   }
 }

@@ -338,7 +338,7 @@
 }
 
 .sim-param-box {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   margin-bottom: 2%;
@@ -712,6 +712,10 @@ input[type="radio"] {
 }
 
 @media screen and (max-height: 700px){
+
+  .sim-categorie-emissions {
+    font-size: 11px;
+  }
 
   #results-top-box {
     height: 150px;

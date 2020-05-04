@@ -13,20 +13,20 @@ export const AboutUs = () => {
     <div className="about-page flex-item flex-column light-text">
       <Header />
 
-      <div className="flex-item full-width">
+      <div className="about-nav flex-item full-width">
         <div className="flex-column">
             <a href="#about-history">
-                <div className="chapter-selection">            
-                <FontAwesomeIcon className="about-icon nav-about-img" icon={faHistory} />
-                <br />
-                <span>Historique du projet</span>
+                <div className="about-chapter-selection">            
+                  <FontAwesomeIcon className="about-icon nav-about-img" icon={faHistory} />
+                  <br />
+                  <span>Historique du projet</span>
                 </div>
             </a>
         </div>
 
         <div className="flex-column">
             <a href="#about-team">
-                <div className="chapter-selection">            
+                <div className="about-chapter-selection">            
                 <img className="nav-about-img" src="../../images/logo/Team.svg" alt="Logo Equipe"/>
                 <br />
                 <span>L'équipe et partenaires</span>
@@ -36,7 +36,7 @@ export const AboutUs = () => {
 
         <div className="flex-column">
             <a href="#about-law">
-                <div className="chapter-selection">            
+                <div className="about-chapter-selection">            
                 <FontAwesomeIcon className="about-icon nav-about-img" icon={faGavel} />
                 <br />
                 <span>Droits, licences et specs.</span>
@@ -46,20 +46,10 @@ export const AboutUs = () => {
 
         <div className="flex-column">
             <a href="#about-cgu">
-                <div className="chapter-selection">            
+                <div className="about-chapter-selection">            
                 <FontAwesomeIcon className="about-icon nav-about-img" icon={faHandshake} />
                 <br />
                 <span>CGU : liberté et réciprocité</span>
-                </div>
-            </a>
-        </div>
-
-        <div className="flex-column">
-            <a href="#about-thanks">
-                <div className="chapter-selection">            
-                <FontAwesomeIcon className="about-icon nav-about-img" icon={faHandHoldingHeart} />
-                <br />
-                <span>Remerciements</span>
                 </div>
             </a>
         </div>

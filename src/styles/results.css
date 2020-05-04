@@ -212,7 +212,7 @@
 }
 
 .res-emi-fr-container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     margin: 3vh 0;
 }
@@ -462,6 +462,23 @@
 .div-linear-chart {
     height: 100%
 } */
+
+@media (max-width: 1000px) {
+
+    .results-page h3 {
+        font-size: 1.2em;
+        align-self: flex-start;
+    }
+
+    .chart-short-desc {
+        font-size: 0.9em;
+    }
+
+    .res-chart-infos p {
+        font-size: 0.7em;
+    }
+
+}
 
 
 @media (min-height: 800px) {

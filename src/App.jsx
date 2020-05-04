@@ -25,6 +25,11 @@ if (window.location.hostname !== 'localhost') {
   ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
+ReactGA.event({
+  category: "Screens",
+  action:  window.screen.width + ":" + window.screen.height,
+});
+
 
 function App() {
 

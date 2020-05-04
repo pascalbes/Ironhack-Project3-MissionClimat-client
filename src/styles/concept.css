@@ -18,10 +18,13 @@ img.border-btn {
 }
 
 .chapter-selection {
+  display: flex;
+  flex-direction: column;
   color: white;
   text-align: center;
   padding: 25px 50px;
   cursor: pointer;
+  align-items: center;
 }
 
 .chapter-selection.active {
