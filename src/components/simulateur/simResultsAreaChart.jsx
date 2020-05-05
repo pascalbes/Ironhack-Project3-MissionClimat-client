@@ -14,10 +14,10 @@ const simResultsAreaChart = ({datas, xOffset, yOffset}) => {
       return (
         <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white'}}>
           <h4 style={{color:'#163e59'}}>Année : {e.label} / {Math.round(annualEmi)} {datas.data.yTitle}</h4>
-          {e.payload.reverse().map((area) => (
-            <div className="flex-item">
-                <div className="legend-point" style={{backgroundColor:area.color}}></div>
-                <p style={{color:'#163E59'}}>{area.name} : {area.value} {datas.data.yTitle}</p>
+          {e.payload.reverse().map((area,i) => (
+            <div key={i} className="flex-item">
+                <div key={"l"+i} className="legend-point" style={{backgroundColor:area.color}}></div>
+                <p key={"t"+i} style={{color:'#163E59'}}>{area.name} : {area.value} {datas.data.yTitle}</p>
             </div>
           ))}
         </div>
@@ -35,7 +35,7 @@ const simResultsAreaChart = ({datas, xOffset, yOffset}) => {
            position={{ x: xOffset, y: yOffset}}
          />
         {datas.areaDatas.map((area, i) => (
-          <Area fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}/>
+          <Area key={i} fillOpacity="1" dataKey={area.dataKey} stackId="1" stroke={area.color} fill={area.color}/>
         ))}
       </AreaChart>
       </ResponsiveContainer>

@@ -288,8 +288,8 @@ const Simulator = (props) => {
                             <SimNav data={jsonFile.nav[1]}/>
                         </div>
                         <a href="" id="options" className="sim-nav-category flex-item flex-column" onClick={showOptions}>
-                             <div class="sim-nav-category-icon">
-                                <span class="sim-nav-category-icon-helper"></span>
+                             <div className="sim-nav-category-icon">
+                                <span className="sim-nav-category-icon-helper"></span>
                                 <img src="../../images/Options.png"></img>
                             </div>
                         </a>
@@ -315,12 +315,13 @@ const Simulator = (props) => {
                                     <h6 className="param-name">Initialisation des paramètres</h6>
                                     <p>Afin de gagner du temps, vous pouvez initialiser l'ensemble des données à des valeurs spécifiques</p>
                                     <form className="sim-option-form flex-item" onChange={e=>handleInitValues(e)}>
-                                        <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
                                         {/* <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div> */}
-                                        <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Scénario 1.5°C</label></div>
-                                        {/* <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Business as Usual</label></div> */}
+                                        <div className="flex-item"><input name="initialisation" value="bau" type="radio"></input><label>Etude 1,5°C BL Evolution 2019</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="1degre5" type="radio"></input><label>Un scénario 2°C</label></div>
+                                        <div className="flex-item"><input name="initialisation" value="init" type="radio"></input><label>Réinitialiser</label></div>
                                         {/* <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div> */}
                                     </form>
+                                    <p>Pourquoi l'étude 1,5°C de BL Evolution ne fait pas 1.5°C dans le simulateur ? Réponse dans notre <b>FAQ</b> (page concept)</p> 
                                 </div>
                                 <div className="sim-option-box">
                                     <h6 className="param-name">Mode Expert</h6>
@@ -332,7 +333,7 @@ const Simulator = (props) => {
                       </div>
                     )}
                     {jsonFile.categories.map((cat, i) => (
-                        <div className="sim-cat-params-box">
+                        <div key={i} className="sim-cat-params-box">
                             {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
                             <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]}  />
                             <div key={"p"+i} id={"param-box"+i} className="sim-param-box grid-item">

@@ -85,10 +85,11 @@ const Results = (props) => {
 
     function copyUrl() {
         if (textArea) {
-            console.log(textArea)
+            textArea.style.visibility="visible"
             textArea.select()
             document.execCommand('copy');
             alert("Url copied to clipboard")
+            textArea.style.visibility="hidden"
         }
     }
 
@@ -123,11 +124,13 @@ const Results = (props) => {
             }
             return nb
         }
+
+        
         
         datas[datasKey].map(data => {
             data.subText = formatThousands(dataValues[dataValues.length-1][data.dataKey]) + " " + unit + " / Evolution : "
             let evolution = Math.round((dataValues[dataValues.length-1][data.dataKey]-dataValues[0][data.dataKey])/dataValues[0][data.dataKey]*100)
-            evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
+            isNaN(evolution) ? data.subText += " n/a" : evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
             return data
         })
 
@@ -155,8 +158,6 @@ const Results = (props) => {
         window.scrollY/window.innerHeight > 1 ? setArrowVisibility('visible') : setArrowVisibility('hidden')
     }
 
-    console.log(results)
-
     return (
 
         <div className="results-page flex-item flex-column">
@@ -165,9 +166,9 @@ const Results = (props) => {
             
             <article id="hero-article">
                 
-                <div class="flex-item full-width">
+                <div className="flex-item full-width">
 
-                    <div class="flex-column">
+                    <div className="flex-column">
                         <a href="#res-synthese">
                             <div className="chapter-selection">            
                             <img src="../../images/results/fiche synthèse - blanc.svg" alt="" />
@@ -177,7 +178,7 @@ const Results = (props) => {
                         </a>
                     </div>
 
-                    <div class="flex-column">
+                    <div className="flex-column">
                         <a href="#res-emi-fr">
                             <div className="chapter-selection">            
                             <img src="../../images/results/nuage CO2 - blanc.svg"  alt=""/>
@@ -187,7 +188,7 @@ const Results = (props) => {
                         </a>
                     </div>
 
-                    <div class="flex-column">
+                    <div className="flex-column">
                         <a href="#res-emi-world">
                             <div className="chapter-selection">            
                             <img src="../../images/results/emission monde - blanc.svg" alt="" />
@@ -197,7 +198,7 @@ const Results = (props) => {
                         </a>
                     </div>
 
-                    <div class="flex-column">
+                    <div className="flex-column">
                         <a href="#res-impacts">
                             <div className="chapter-selection">            
                             <img src="../../images/results/impact - blanc.svg" alt="" />
@@ -512,9 +513,9 @@ const Results = (props) => {
                             <p className="light-text" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.text)}></p>
                             <div className="res-chart-legend flex-item">
                                 {mapLegendInfos.map((data,i) => (
-                                        <div className="flex-item">
-                                            <div className="legend-point" style={{backgroundColor:data[0]}}></div>
-                                            <div className="light-text">{data[1]}</div>
+                                        <div key={i} className="flex-item">
+                                            <div key={"l"+i} className="legend-point" style={{backgroundColor:data[0]}}></div>
+                                            <div key={"t"+i} className="light-text">{data[1]}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -534,9 +535,9 @@ const Results = (props) => {
                             <p className="light-text" dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.text)}></p>
                             <div className="res-chart-legend flex-item">
                                 {mapLegendInfos.map((data,i) => (
-                                        <div className="flex-item">
-                                            <div className="legend-point" style={{backgroundColor:data[0]}}></div>
-                                            <div className="light-text">{data[1]}</div>
+                                        <div key={i} className="flex-item">
+                                            <div key={"l"+i} className="legend-point" style={{backgroundColor:data[0]}}></div>
+                                            <div key={"t"+i} className="light-text">{data[1]}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -550,8 +551,8 @@ const Results = (props) => {
             <form>
                 <textarea
                         ref={(textarea) => setTextArea(textarea)}
-                        value={results.url}
-                        // style={{visibility:'hidden'}}
+                        defaultValue={results.url}
+                        style={{visibility:'hidden'}}
                     />
             </form>
         

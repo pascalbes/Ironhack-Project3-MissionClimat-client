@@ -49,11 +49,7 @@ const MscSlider = withStyles({
           },
         mark: {
             display: 'none'
-          },
-        tooltip: {
-            backgroundColor: blue,
-            background: blue,
-        }
+          }
       })(Slider);
 
 

@@ -295,7 +295,7 @@ export const AboutUs = () => {
             <h3 className="nomarge">Avenir Climatique</h3>
           </div>
           <p>
-            L'association Avenir Climatique a eu plusieurs rôles sur le projet Mission Climat :
+            L'association Avenir Climatique a eu plusieurs rôles sur le projet Mission Climat :</p>
             <ul>
               <li>Elle a d'abord été un lieu de rencontre, pour Guillaume Martin, Pascal Besson et Emmanuel Bernard,
             en particulier sur le projet <u><b><a href="https://www.educlimat.fr/" target="_blank">ÉduClimat</a></b></u> pour ces 2 derniers,</li>
@@ -303,7 +303,7 @@ export const AboutUs = () => {
               Pour cela <b>un énorme merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle Leloup,</b></li>
               <li>Elle a enfin fourni la majeure partie des textes disponibles à la page "Concept".</li>
             </ul>
-          </p>
+          
           <p>
             <b>Présentation de l'association : </b>
             Avenir Climatique a pour objectif de faire des enjeux
@@ -338,13 +338,13 @@ export const AboutUs = () => {
             <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
             <p>Le site est sous licence CC ...</p>
             
-            <p>Spécifications :
+            <p>Spécifications :</p>
               <ul>
                 <li>Stack : React, NodeJS</li>
                 <li>APIs : Google Sheet, Google Drive</li>
                 <li>Librairies : rechart, material UI</li>
               </ul>
-            </p>
+            
 
             <p>Repo Github </p>
               <ul>

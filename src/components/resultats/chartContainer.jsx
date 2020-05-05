@@ -28,11 +28,11 @@ const chartContainer = ({title, subtitle, graphData, graphType, graphText, legen
                     <p dangerouslySetInnerHTML={handleInnerHTML(graphText)} className="light-text"></p>
                     <div className="res-chart-legend flex-item">
                         {legendData.map((data,i) => (
-                            <div className="flex-item">
-                                <div className="legend-point" style={{backgroundColor:data.color}}></div>
+                            <div key={i} className="flex-item">
+                                <div key={"l"+i} className="legend-point" style={{backgroundColor:data.color}}></div>
                                 <div>
-                                    <p className="bold-text">{data.dataKey}</p>
-                                    <p className="light-text">{data.subText}</p>
+                                    <p key={"bt"+i} className="bold-text">{data.dataKey}</p>
+                                    <p key={"lt"+i} className="light-text">{data.subText}</p>
                                 </div>
                             </div>
                         ))}

@@ -38,7 +38,7 @@ const simCategorie = ({data, results}) => {
             <h4 className="sim-categorie-name">{data.name}</h4>
             {results && data.name === results[0].name && 
                 <div className="flex-item flex-column">
-                    <p className="sim-categorie-emissions">Mes émissions 2030 : {results[0].measures[0]} MtCO2e</p>
+                    <p className="sim-categorie-emissions">Mes émissions 2030 : {Math.round(results[0].measures[0])} MtCO2e</p>
                     {/* <div className="sim-jauge">{results && data.name === results[0].name && <Jauge results={results}/>}</div> */}
                     <div className="sim-jauge">{results && data.name === results[0].name && <JaugeDiv results={results}/>}</div>
                     <div className='sim-categorie-markers flex-item'>

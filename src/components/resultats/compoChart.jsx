@@ -14,24 +14,24 @@ const compoChart = ({datas}) => {
       return (
         <div id="area-tooltip" className="chart-tooltip flex-item flex-column" style={{backgroundColor:'white', width:'400px'}}>
           <h4 style={{color:'#163e59'}}>Année : {e.label}</h4>
-          {e.payload.reverse().map((area) => (
-            <div className="flex-item">
-                <div className="legend-point" style={{backgroundColor:area.color}}></div>
-                <p style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
+          {e.payload.reverse().map((area,i) => (
+            <div key={i} className="flex-item">
+                <div key={"l"+i} className="legend-point" style={{backgroundColor:area.color}}></div>
+                <p key={"t"+i} style={{color:'#163E59'}}>{area.name} : {area.value} MtCO2</p>
             </div>
           ))}
         </div>
         )
     }
 
-    function handleGraphType(dat) {
+    function handleGraphType(dat,i) {
         if (dat.type === "Area") {
             return (dat.color === '#FFFFFF') ?
-                <Area fillOpacity="0" dataKey={dat.dataKey} stroke={dat.color} fill={dat.color}/>
+                <Area key={i} fillOpacity="0" dataKey={dat.dataKey} stroke={dat.color} fill={dat.color}/>
                 :
-                <Area fillOpacity="1" dataKey={dat.dataKey} stroke={dat.color} fill={dat.color}/>
+                <Area key={i} fillOpacity="1" dataKey={dat.dataKey} stroke={dat.color} fill={dat.color}/>
         }
-        if (dat.type === "Line") return  <Line dataKey={dat.dataKey} stroke={dat.color}/>
+        if (dat.type === "Line") return  <Line key={i} dataKey={dat.dataKey} stroke={dat.color}/>
     }
 
     return (
@@ -48,7 +48,7 @@ const compoChart = ({datas}) => {
               content={e => toolTipContent(e)}
         //    position={{ x: 50, y: -150}}
          />
-        {datas.graphDatas.map((dat, i) => (handleGraphType(dat)))}
+        {datas.graphDatas.map((dat, i) => (handleGraphType(dat,i)))}
       </ComposedChart>
       </ResponsiveContainer>
     )
