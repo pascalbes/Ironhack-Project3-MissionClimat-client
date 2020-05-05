@@ -45,11 +45,20 @@ const Contact = () => {
                         <p><b>contact@mission-climat.io</b></p>
 
                         <div className="flex-item contact-title">
+                            <img src="../../../images/logo/Idea.svg" alt=""/>
+                            <h6>Propositions</h6>
+                        </div>
+                        <p>Vous avez une idée incroyable pour améliorer Misson Climat ?</p>
+                        <p><b>contact@mission-climat.io</b></p>
+
+                        <div className="flex-item contact-title">
                             <img src="../../../images/about/liens articles - blanc.svg" alt=""/>
                             <h6>S'associer</h6>
                         </div>
                         <p>Vous souhaitez échanger avec l'équipe ou établir un partenariat ?</p>
                         <p><b>contact@mission-climat.io</b></p>
+
+                        
                     </div>
 
                     <div className="flex-item flex-column light-text">
@@ -59,11 +68,12 @@ const Contact = () => {
                         </div>
                         <p>Vous souhaitez nous faire part d'une erreur, d'un bug trouvé sur le site ?</p>
                         <p><b>contact@mission-climat.io</b></p>
+
                         <div className="flex-item contact-title">
-                            <img src="../../../images/logo/Idea.svg" alt=""/>
-                            <h6>Propositions</h6>
+                            <img src="../../../images/about/liens articles - blanc.svg" alt=""/>
+                            <h6>Données personnelles</h6>
                         </div>
-                        <p>Vous avez une idée incroyable pour améliorer Misson Climat ?</p>
+                        <p>Le seul traitement de données personnelles que nous réalisons est le stockage des email que vous nous partagez, aux seuls fins d'information sur le site Mission Climat. Si vous souhaitez que nous supprimions votre email de notre base, merci de nous contacter.</p>
                         <p><b>contact@mission-climat.io</b></p>
                     </div>
                     

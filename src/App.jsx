@@ -11,6 +11,7 @@ import Contribuer from "./views/Contribuer.jsx";
 import Concept from "./views/Concept";
 import Simulator from "./views/Simulator";
 import Results from "./views/Results";
+import Licenses from "./views/Licenses";
 import NotFound from "./views/NotFound";
 
 /// STYLES
@@ -68,6 +69,7 @@ function App() {
           <Route path="/concept" component={Concept} />
           <Route path="/simulator" component={Simulator} />        
           <Route path="/results" component={Results} />
+          <Route path="/licenses" component={Licenses} />
           {/* NOT FOUND */}
           <Route path="*" component={NotFound} />
         </Switch>

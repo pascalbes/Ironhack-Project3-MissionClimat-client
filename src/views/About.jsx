@@ -344,6 +344,8 @@ export const AboutUs = () => {
                 <li>APIs : Google Sheet, Google Drive</li>
                 <li>Librairies : rechart, material UI</li>
               </ul>
+
+              <a href="/licenses" target="_blank"><p><b>Droits et licenses des composants utilisés sur ce site</b></p></a>
             
 
             <p>Repo Github </p>
