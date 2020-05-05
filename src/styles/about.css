@@ -243,6 +243,16 @@ ul > li > span {
   border-bottom: 5px solid #7fffd4;
 }
 
+#about-law-box {
+  widows: 100%; 
+  display: flex;
+  justify-content: space-between;
+}
+
+#about-law-box > div {
+  width: 45%;
+}
+
 
 @media screen and (max-width: 1100px){
 

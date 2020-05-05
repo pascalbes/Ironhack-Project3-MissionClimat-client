@@ -332,36 +332,69 @@ export const AboutUs = () => {
           <h3 className="nomarge">Droits, licences et spécifications</h3>
         </div>
 
-        <div className="flex-item between">
+        <div id="about-law-box" className="flex-item between">
           <div>
             <h5>Site Mission Climat</h5>
-            <p>Auteurs : BL évolution, Pascal Besson, Nina Gautreau</p>
-            <p>Le site est sous licence CC ...</p>
-            
-            <p>Spécifications :</p>
-              <ul>
-                <li>Stack : React, NodeJS</li>
-                <li>APIs : Google Sheet, Google Drive</li>
-                <li>Librairies : rechart, material UI</li>
-              </ul>
+            <img src="./images/logo/agplv3-with-text-162x68.png" alt=""></img><br></br>
+            <p>Simulateur de scénario climat à l'échelle nationale à visée éducative</p>
+            <p><b>Copyright (C) 2020 Pascal Besson, Nina Gautreau, Oriana Berthomieu, BL Evolution</b></p>
 
-              <a href="/licenses" target="_blank"><p><b>Droits et licenses des composants utilisés sur ce site</b></p></a>
-            
+            <p><b>This program is free software</b>: you can redistribute it and/or modify
+            it under the terms of the GNU Affero General Public License as
+            published by the Free Software Foundation, either version 3 of the
+            License, or (at your option) any later version.</p>
 
+            <p>This program is distributed in the hope that it will be useful,
+            but WITHOUT ANY WARRANTY; without even the implied warranty of
+            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+            GNU Affero General Public License for more details.</p>
+
+            <a href="./agpl-3.0.txt" target="_blank"><b><u>Copie de licence</u></b></a>
+
+            <br></br><br></br>
             <p>Repo Github </p>
               <ul>
                 <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-client" target='_blank'>Front-End</a></b></u></li>
                 <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-server" target='_blank'>Back-End</a></b></u></li>
               </ul>
 
+            <br></br><br></br>
+            <p>Spécifications :</p>
+              <ul>
+                <li>Stack : React, NodeJS</li>
+                <li>APIs : Google Sheet, Google Drive</li>
+                <li>Librairies : rechart, material UI</li>
+              </ul>
+              
+              <a href="/licenses" target="_blank"><p><u><b>Droits et licenses des composants utilisés sur ce site</b></u></p></a>
+            
+
+            
+
           </div>
 
         
           <div>
             <h5>Modèle de calcul des émissions</h5>
+            <img src="./images/logo/agplv3-with-text-162x68.png" alt=""></img><br></br>
 
-            <p>Auteurs : BL évolution</p>
-            <p>Le modèle est sous licence CC ...</p>
+            <p>Modèle de calcul des émissions de gaz à effet de serre de la France, avec projection mondiale</p>
+            <p><b>Copyright (C) 2020 BL Evolution</b></p>
+
+            <p><b>This program is free software</b>: you can redistribute it and/or modify
+            it under the terms of the GNU Affero General Public License as
+            published by the Free Software Foundation, either version 3 of the
+            License, or (at your option) any later version.</p>
+
+            <p>This program is distributed in the hope that it will be useful,
+            but WITHOUT ANY WARRANTY; without even the implied warranty of
+            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+            GNU Affero General Public License for more details.</p>
+
+            <u><b><a href="./agpl-3.0.txt" target="_blank">Copie de licence</a></b></u>
+            
+            <br></br><br></br>
+            <p>Modèle de données</p>
             <p><u><b><a href='./2020-04-09_Scenario1.5.xlsx' download>Téléchargement</a></b></u></p>
 
             </div>
