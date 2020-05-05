@@ -1,7 +1,8 @@
 /// BASIC
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import api from './api/APIHandler'
+import { useBeforeunload } from 'react-beforeunload';
 
 /// PAGES
 import Home from "./views/Home";
@@ -79,7 +80,7 @@ function App() {
     <>
       <div id = "mobile-message">
         <div>
-          <p>Nous vous recommandons l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des fonctionnalités du site</p>
+          <p>La version mobile n'est pas encore disponible. Nous vous recommandons de toutes façons l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des fonctionnalités du site. A bientôt !</p>
         </div> 
       </div>
     </>
