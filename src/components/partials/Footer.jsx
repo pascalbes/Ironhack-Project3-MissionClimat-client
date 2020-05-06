@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="flex-item nomarge flex-item">
             <div className="footer-item flex-item">
-                <img className="footer-logo" src="../../images/logo/BLevo.png" alt="Logo B&L"/>
+                <img className="footer-logo" src="../../images/logo/BLBlanc-300x129.png" alt="Logo B&L"/>
                 <img className="footer-logo" src="../../images/logo/Pascal-logo.svg" alt="Logo pb"/>
                 <img className="footer-logo" src="../../images/logo/Nina-logo.svg" alt="Nina Gautreau" />
             </div>

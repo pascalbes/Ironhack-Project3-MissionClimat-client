@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,11 +10,20 @@ import './../styles/results.css'
 import "./../styles/simulator.css"
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, RedditShareButton, TwitterShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon, } from "react-share";
 
+import ReactGA from 'react-ga';
+
 
 const Results = (props) => {
 
     const [textArea, setTextArea] = useState()
     const [arrowVisibility, setArrowVisibility] = useState('hidden')
+
+    useEffect(() => {
+        ReactGA.event({
+            category: "Results",
+            action: "temp:" + results.impacts.temperature,
+        });
+    }, [])
 
     var results={}
     if (localStorage.getItem('results')) {
@@ -116,11 +125,22 @@ const Results = (props) => {
         function formatThousands(nb) {
             nb += '';
             if (nb.length>3) {
+                console.log("-------------------")
+                
+                var nbSplitted = nb.split(".")
+                nb = nbSplitted[0]
+                console.log(nbSplitted,nb)
                 var finalNb=""
                 for (let i=nb.length-1 ; i>=0;i--) {
-                    (i - nb.length+1)%3 ===0 ? finalNb = nb[i] + " " + finalNb  : finalNb = nb[i] + finalNb
+                    if ((i - nb.length+1)%3 === 0 && i - nb.length+1!==0) {
+                        console.log(i - nb.length+1)
+                        finalNb = nb[i] + " " + finalNb
+                    }
+                    else {
+                        finalNb = nb[i] + finalNb
+                    }
                 }
-                return finalNb
+                return nbSplitted.length > 1 ? finalNb+"."+nbSplitted[1] : finalNb
             }
             return nb
         }
@@ -130,7 +150,7 @@ const Results = (props) => {
         datas[datasKey].map(data => {
             data.subText = formatThousands(dataValues[dataValues.length-1][data.dataKey]) + " " + unit + " / Evolution : "
             let evolution = Math.round((dataValues[dataValues.length-1][data.dataKey]-dataValues[0][data.dataKey])/dataValues[0][data.dataKey]*100)
-            isNaN(evolution) ? data.subText += " n/a" : evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
+            dataValues[0][data.dataKey]===0 ? data.subText += " n/a" : evolution >= 0 ? data.subText += "+" + evolution + "%" : data.subText += evolution  + "%" 
             return data
         })
 
@@ -208,6 +228,15 @@ const Results = (props) => {
                         </a>
                     </div>
                     
+                </div>
+
+                <div className="contribuer-title flex-item flex-column">
+                    <h1>Résultats Complets</h1>
+                </div>
+
+                <div className="contact-white">
+                    <p>Retrouvez sur cette page une synthèse de vos résultats et de nombreux graphiques vous permettant de visualiser les conséquences de votre scénario.
+                    </p>
                 </div>
 
             

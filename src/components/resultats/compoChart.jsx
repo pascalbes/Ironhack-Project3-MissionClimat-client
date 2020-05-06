@@ -42,13 +42,14 @@ const compoChart = ({datas}) => {
         <CartesianGrid 
             stroke="#f5f5f5"
             strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis domain={[-50, 1000]}/>
+        <XAxis dataKey="name" stroke='white' />
+        <YAxis domain={[-100, 0, 1000]} stroke='white' interval='0'/>
          <Tooltip
               content={e => toolTipContent(e)}
         //    position={{ x: 50, y: -150}}
          />
         {datas.graphDatas.map((dat, i) => (handleGraphType(dat,i)))}
+        
       </ComposedChart>
       </ResponsiveContainer>
     )

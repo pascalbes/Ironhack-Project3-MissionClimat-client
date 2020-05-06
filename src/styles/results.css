@@ -9,12 +9,15 @@
     padding: 0;
 }
 
+
+
 .results-page h1 {
     color: #7fffd4;
     font-size: 3em;
     border-bottom: #7fffd4 solid 4px;
     margin-bottom: 30px;
 }
+
 
 .results-page h2 {
     color: #7fffd4;
@@ -26,6 +29,15 @@
     font-size: 1.5em;
     align-self: flex-start;
 }
+
+.results-page .contact-white {
+    width: 65%;
+}
+
+.results-page .contact-white p {
+    font-size: 1.2em;
+}
+
 
 /* BLINKING BTN */
 #blinking-results{

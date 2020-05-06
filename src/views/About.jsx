@@ -415,7 +415,6 @@ export const AboutUs = () => {
               <ul>
                 <li>évidemment pour <b>tout usage personnel</b>,</li>
                 <li>dans le cadre d'un <b>atelier de formation ou d'un cours</b>, rémunéré ou non,</li>
-                <li>pour <b>demander à Laurent Alexandre de réaliser son meilleur scénario 1.5°C</b> sans lancer de pièce en l'air (merci de partager la vidéo le cas échéant),</li>
                 <li>etc.</li>
               </ul>
 

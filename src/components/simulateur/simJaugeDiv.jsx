@@ -7,8 +7,6 @@ const simJaugeDiv = ({results}) => {
     const jaugeStart = -(results[0].markers[1]/max)*100+0.5+"%";
     const value = results[0].measures[0]/max*100+"%";
 
-    console.log((results[0].markers[0]/max)*100-0.25, (results[0].markers[1]/max-results[0].markers[0]/max)*100-0.25, (results[0].markers[0]/max)*100-0.25+(results[0].markers[1]/max-results[0].markers[0]/max)*100-0.25, jaugeStart)
-
     function handleColor() {
         if (results[0].measures[0] <= results[0].markers[0]) {
             return 'linear-gradient(to right, #7FFFD4 , #77D9B5)'

@@ -36,8 +36,8 @@ const resGenLinearChart = ({datas}) => {
                         strokeWidth={5} />
                 ))}
                     <CartesianGrid stroke="#ccc" strokeDasharray="5" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <XAxis dataKey="name" stroke='white'/>
+                    <YAxis stroke='white'/>
                     <Tooltip
                         content={e => toolTipContent(e)}
                     />
