@@ -14,33 +14,12 @@
     align-items: center;
 }
 
-.MuiSwitch-thumb{
-    color: rgb(81, 32, 114);
-}
-
-.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-    background-color: rgb(81, 32, 114) !important;
-}
-
-.MuiSwitch-colorSecondary.Mui-checked {
-    color: rgb(81, 32, 114)) !important;
-}
-
 .mode-expert h6{
-    color: rgb(81, 32, 114);
-}
-
-.mode-expert .MuiSlider-rail{
-    background-color: rgb(81, 32, 114);
+    color:#512072;
 }
 
 .param-name {
     margin-bottom: 2px;
-    font-size: 15px;
-    line-height: 19px;
-}
-
-.see-more-btn{
     font-size: 15px;
     line-height: 19px;
 }

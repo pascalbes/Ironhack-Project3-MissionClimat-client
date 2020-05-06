@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 import Loader from 'react-loader-spinner'
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { withStyles } from '@material-ui/core/styles';
 
 
 /// COMPONENTS
@@ -24,6 +25,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ReactGA from 'react-ga';
 import api from '../api/APIHandler'
+
+const PurpleSwitch = withStyles({
+    switchBase: {
+      color: 'grey',
+      '&$checked': {
+        color: '#512072',
+      },
+      '&$checked + $track': {
+        backgroundColor: '#512072',
+      },
+    },
+    checked: {},
+    track: {},
+  })(Switch);
 
 const Simulator = (props) => {
 
@@ -326,7 +341,11 @@ const Simulator = (props) => {
                                 <div className="sim-option-box">
                                     <h6 className="param-name">Mode Expert</h6>
                                     <p>Le mode expert permet d'accéder à un plus grand nombre de paramètres, pour régler son scénario avec davantage de finesse</p>
-                                    <FormControlLabel className="nomarge nopad" onChange={e => setModeExpert(e.target.checked)} value="end" control={<Switch color="Secondary"/>} /><label>Activer</label>
+                                    <FormControlLabel className="nomarge nopad" 
+                                        onChange={e => setModeExpert(e.target.checked)} 
+                                        control={<PurpleSwitch />}
+                                        label="Activer"
+                                    />
                                 </div>
                             </div>
                         </div> 

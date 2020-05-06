@@ -48,9 +48,8 @@ button {
 .see-more-btn {
     /* border-color: var(--darkblue); */
     color: var(--darkblue);
-    padding: 0 0.2em;
     line-height: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .left-btn {

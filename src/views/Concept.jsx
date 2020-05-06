@@ -102,7 +102,7 @@ const Concept = () => {
 
           <div>
             Pour guider l’utilisateur, les informations suivantes sont disponibles, associées
-            à chaque paramètre (accessibles en cliquant sur le " + ") :
+            à chaque paramètre (accessibles en cliquant sur le " ? ") :
             <ul>
               <li>
                 Calcul des émissions : hypothèses et données prises en compte
@@ -132,7 +132,7 @@ const Concept = () => {
           </div>
 
           <div>
-            <p>Avec l'ensemble des paramètrs configurés, les émissions françaises sont calculées
+            <p>Avec l'ensemble des paramètres configurés, les émissions françaises sont calculées
             et représentées dans le volet de droite avec :</p>
 
             <ul>
@@ -252,7 +252,7 @@ const Concept = () => {
             amplifient l’effet de serre, que l’on peut comparer au couvercle de
             la casserole qu’on chauffe : il permet de retenir une plus
             grande quantité de chaleur sur Terre. On constate déjà une élévation
-            des températures moyennes du globe de 1,2°C en 100 ans et on attend,
+            des températures moyennes du globe de 1°C (et 1,5°C sur les terres) en 100 ans et on attend,
             selon le niveau d’émissions futures, une augmentation de ces
             températures de 1.5°C à 6°C sur le XXIe siècle.
           </p>
@@ -401,7 +401,7 @@ const Concept = () => {
           <p>
             Notre modèle de calculs modélise les émissions de gaz à effet de
             serre en France jusqu'à 2030. En l'espace de 10 ans, il est très improbable qu'une rupture technologique, déployée à l'échelle industrielle dans le monde, modifie le système actuel de manière conséquente. 
-            Le modèle inclue toutes les technologies existantes, et permet de configurer la vitesse à laquelle certaines d'entres elles progressent.
+            Le modèle inclut toutes les technologies existantes, et permet de configurer la vitesse à laquelle certaines d'entres elles progressent.
             Pour conclure, le modèle repose sur la réalité : il ne propose pas de jouer notre avenir en jetant une pièce en l'air.{" "}
           </p>
 
@@ -433,9 +433,9 @@ const Concept = () => {
           <h5>Donc chaque année compte ?</h5>
           <p>
             En 2018, le GIEC estimait le budget carbone global restant (associé à une
-            limitation du réchauffement climatique) de 420 à 580 milliards de
-            tonnes de CO2. Chaque année, nous émettons environ 50 milliards de
-            tonnes de CO2. Ainsi, d'ici une dizaine d'années, nous aurons épuisé
+            limitation du réchauffement climatique de 1,5°C) de 420 à 580 milliards de
+            tonnes de CO2e (les incertitudes sont liées aux différences de résultats des modèles utilisés). Chaque année, nous émettons environ 50 milliards de
+            tonnes de CO2e. Ainsi, d'ici une dizaine d'années, nous aurons épuisé
             notre budget carbone associé à une trajectoire 1,5°C. Chaque année
             de retard dans la baisse des émissions nous obligerait à rattraper
             cet effort dans les années suivantes.

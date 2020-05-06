@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider'
 import '../../styles/simParametreSlide.css'
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from '@material-ui/core/Tooltip';
 import { blue } from '@material-ui/core/colors';
@@ -97,6 +98,7 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
     const unit=data.unit
     const sliderStep = data.step //(data.max-data.min)/100
     const classes = useStyles()
+    const expanded = componentClass.includes("expanded")
 
     const marks = [
     {
@@ -141,7 +143,8 @@ const SimParametreSlide = ({data, value, setOneValue, cat}) => {
             <div className="param-header flex-item nomarge nopad">
                 <h6 className="param-name nomarge">{data.name}</h6>
                 <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
-                    <FontAwesomeIcon icon={faPlus}/>
+                    {!expanded && <FontAwesomeIcon icon={faQuestionCircle}/>}
+                    {expanded && <FontAwesomeIcon icon={faMinusSquare}/>}
                 </button>
             </div>
             {data.description && <p className="small-param-desc">{data.description}</p>}

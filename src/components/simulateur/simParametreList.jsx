@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import '../../styles/simParametreSlide.css'
 
 
@@ -41,13 +42,16 @@ const SimParametreList = ({data, value, setOneValue, cat}) => {
         }
     }
 
+    const expanded = componentClass.includes("expanded")
+
     return (
         <div className={componentClass}>
             <div id={"param"+data.index}>
                 <div className="param-header flex-item nomarge nopad">
                     <h6 className="param-name nomarge">{data.name}</h6>
                     <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
-                        <FontAwesomeIcon icon={faPlus}/>
+                        {!expanded && <FontAwesomeIcon icon={faQuestionCircle}/>}
+                        {expanded && <FontAwesomeIcon icon={faMinusSquare}/>}
                     </button>
                 </div>
                 {data.description && <p className="small-param-desc">{data.description}</p>}
