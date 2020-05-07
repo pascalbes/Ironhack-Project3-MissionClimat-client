@@ -50,7 +50,7 @@ function App() {
     return "kikou";
   }
 
-  useBeforeunload((e) => deleteSheet(e))
+  // useBeforeunload((e) => deleteSheet(e))
   window.addEventListener ("beforeunload", (e) => deleteSheet(e));
 
   const width = window.innerWidth
