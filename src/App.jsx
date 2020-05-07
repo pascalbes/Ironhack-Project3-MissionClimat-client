@@ -35,23 +35,23 @@ ReactGA.event({
 
 function App() {
 
-  // function deleteSheet(e) {
-  //   //e.preventDefault();
-  //   console.log(localStorage.getItem('idSheet'))
-  //   if (localStorage.getItem('idSheet')) {
-  //     var idSheet=localStorage.getItem('idSheet')
-  //     localStorage.removeItem('idSheet')
-  //     api.delete("/sheet/delete", idSheet)
-  //     .then(res => {
-  //       console.log("SHEET DELETED!", res)
-  //     })
-  //     .catch(err=>console.log(err))
-  //   }
-  //   return "kikou";
-  // }
+  function deleteSheet(e) {
+    e.preventDefault();
+    console.log(localStorage.getItem('idSheet'))
+    if (localStorage.getItem('idSheet')) {
+      var idSheet=localStorage.getItem('idSheet')
+      localStorage.removeItem('idSheet')
+      api.delete("/sheet/delete", idSheet)
+      .then(res => {
+        console.log("SHEET DELETED!", res)
+      })
+      .catch(err=>console.log(err))
+    }
+    return "kikou";
+  }
 
-  // useBeforeunload((e) => deleteSheet(e))
-  // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
+  useBeforeunload((e) => deleteSheet(e))
+  window.addEventListener ("beforeunload", (e) => deleteSheet(e));
 
   const width = window.innerWidth
   
