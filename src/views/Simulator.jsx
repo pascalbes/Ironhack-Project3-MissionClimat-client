@@ -49,9 +49,10 @@ const Simulator = (props) => {
 
     
 
-    console.log("-----------------------------------")
-    console.log(values)
-    console.log(results)
+    // console.log("-----------------------------------")
+    // console.log(values)
+    // console.log(results)
+    // console.log(props)
 
     //Gestion d'une route avec paramêtres spécifiques
     //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -109,13 +110,13 @@ const Simulator = (props) => {
                 console.log("SHEET ALREADY CREATED, ID:", idSheet)
 
                 //cas où appel normal de la page simulateur
-                if (!props.match.params.urlParams) {
+                if (!props.location.pathname.includes('favorites')) {
                     res = await api.get("/sheet/values/"+idSheet)
                     setValues(res.data.values)
                 }
 
                 else { // cas où appel via url spécifique /save/p=1&&p=3.....
-                    valuesURL = getValuesFromUrl(props.match.params.urlParams)
+                    valuesURL = getValuesFromUrl(props.location.pathname.substr(props.location.pathname.indexOf('p0=')))
                     setValues(valuesURL)
                 }
 
@@ -129,8 +130,8 @@ const Simulator = (props) => {
                 console.log("SHEET CREATED! ID:", idSheet)
 
                 // cas où appel via url spécifique /save/p=1&&p=3.....
-                if (props.match.params.urlParams) {
-                    valuesURL = getValuesFromUrl(props.match.params.urlParams)
+                if (props.location.pathname.includes('favorites')) {
+                    valuesURL = getValuesFromUrl(props.location.pathname.substr(props.location.pathname.indexOf('p0=')))
                     setValues(valuesURL)
                 }
                 else { // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
@@ -138,7 +139,7 @@ const Simulator = (props) => {
                 }
             }
         }
-
+        
         initDatas()
         
         //nettoyage du results de local storage

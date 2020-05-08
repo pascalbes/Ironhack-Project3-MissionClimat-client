@@ -125,15 +125,13 @@ const Results = (props) => {
         function formatThousands(nb) {
             nb += '';
             if (nb.length>3) {
-                console.log("-------------------")
                 
                 var nbSplitted = nb.split(".")
                 nb = nbSplitted[0]
-                console.log(nbSplitted,nb)
+
                 var finalNb=""
                 for (let i=nb.length-1 ; i>=0;i--) {
                     if ((i - nb.length+1)%3 === 0 && i - nb.length+1!==0) {
-                        console.log(i - nb.length+1)
                         finalNb = nb[i] + " " + finalNb
                     }
                     else {
