@@ -7,8 +7,18 @@ import { faGavel } from "@fortawesome/free-solid-svg-icons";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../components/partials/Header";
+import ReactGA from 'react-ga';
 
 export const AboutUs = () => {
+
+  function handleClickTracking(type) {
+
+    ReactGA.event({
+        category: "Click",
+        action: type,
+    });
+}
+
   return (
     <div className="about-page flex-item flex-column light-text">
       <Header />
@@ -70,35 +80,40 @@ export const AboutUs = () => {
         <div id="about-articles" className="flex-item">
 
           <div className="flex-item flex-column">
-            <a target="_blank" href="http://bl-evolution.com/portfolio/comment-saligner-sur-une-trajectoire-compatible-avec-les-15c/" >
+            <a target="_blank" href="http://bl-evolution.com/portfolio/comment-saligner-sur-une-trajectoire-compatible-avec-les-15c/" onClick={()=>handleClickTracking("BLStudy")}>
               <img src="../../images/about/etude BL - vert.svg"></img>
             </a>
             <p>Etude 1.5 de BL évolution</p> 
           </div>
 
           <div className="flex-item flex-column">
-            <a target="_blank" href="https://reporterre.net/Rester-sous-les-1-5-oC-voici-comment-nos-vies-pourraient-changer" >
+            <a 
+              target="_blank" 
+              href="https://reporterre.net/Rester-sous-les-1-5-oC-voici-comment-nos-vies-pourraient-changer" 
+              onClick={()=>handleClickTracking("tribuneReporterre")}>
               <img src="../../images/about/megaphone - vert.svg"></img>
             </a>
             <p>Tribune dans Reporterre</p>
           </div>
 
           <div className="flex-item flex-column">
-            <a target="_blank" href="https://reporterre.net/Climat-rester-sous-la-barre-de-1-5-oC-impose-des-choix-radicaux-sur-la" >
+            <a target="_blank" href="https://reporterre.net/Climat-rester-sous-la-barre-de-1-5-oC-impose-des-choix-radicaux-sur-la" 
+            onClick={()=>handleClickTracking("articleReporterre")}>
               <img src="../../images/about/liens articles - vert.svg"></img>
             </a>
             <p>Article de Reporterre</p> 
           </div>
 
           <div className="flex-item flex-column">
-            <a target="_blank" href="https://www.novethic.fr/actualite/environnement/climat/isr-rse/infographie-interdiction-d-acheter-une-voiture-neuve-ou-de-prendre-un-long-courrier-couvre-feu-thermique-quotas-sur-les-produits-importes-les-mesures-chocs-pour-rester-sous-1-5-c-146877.html" >
+            <a target="_blank" href="https://www.novethic.fr/actualite/environnement/climat/isr-rse/infographie-interdiction-d-acheter-une-voiture-neuve-ou-de-prendre-un-long-courrier-couvre-feu-thermique-quotas-sur-les-produits-importes-les-mesures-chocs-pour-rester-sous-1-5-c-146877.html" onClick={()=>handleClickTracking("articleNovethic")}>
               <img src="../../images/about/liens articles - vert.svg"></img>
             </a>
             <p>Article de Novethic</p> 
           </div>
 
           <div className="flex-item flex-column">
-            <a target="_blank" href="https://www.marianne.net/societe/rechauffement-climatique-scenario-noir" >
+            <a target="_blank" href="https://www.marianne.net/societe/rechauffement-climatique-scenario-noir" 
+            onClick={()=>handleClickTracking("articleMarianne")}>
               <img src="../../images/about/liens articles - vert.svg"></img>
             </a>
             <p>Article de Marianne</p> 
@@ -354,8 +369,10 @@ export const AboutUs = () => {
             <br></br><br></br>
             <p>Repo Github </p>
               <ul>
-                <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-client" target='_blank'>Front-End</a></b></u></li>
-                <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-server" target='_blank'>Back-End</a></b></u></li>
+                <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-client" target='_blank'
+                onClick={()=>handleClickTracking("repoFront")}>Front-End</a></b></u></li>
+                <li><u><b><a href="https://github.com/pascalbes/Ironhack-Project3-MissionClimat-server" target='_blank'
+                onClick={()=>handleClickTracking("repoBack")}>Back-End</a></b></u></li>
               </ul>
 
             <br></br><br></br>
@@ -395,7 +412,8 @@ export const AboutUs = () => {
             
             <br></br><br></br>
             <p>Modèle de données</p>
-            <p><u><b><a href='./2020-04-09_Scenario1.5.xlsx' download>Téléchargement</a></b></u></p>
+            <p><u><b><a href='./2020-04-09_Scenario1.5.xlsx' download
+            onClick={()=>handleClickTracking("modelDownloadAbout")}>Téléchargement</a></b></u></p>
 
             </div>
           </div>

@@ -46,6 +46,13 @@ const Results = (props) => {
         : tempColors[6]
     }
 
+    function handleClickTracking(type) {
+        ReactGA.event({
+            category: "Click",
+            action: type,
+        });
+    }
+
     function handleImageEurope() {
         if (results.impacts.RCP ==="RCP 2.6") {
             return './images/europeRCP26.png'
@@ -93,6 +100,7 @@ const Results = (props) => {
 
 
     function copyUrl() {
+        handleClickTracking("copyURL")
         if (textArea) {
             textArea.style.visibility="visible"
             textArea.select()
@@ -268,17 +276,17 @@ const Results = (props) => {
                             
                             <div title="Copier l'url avec mes paramètres"><button onClick={copyUrl}><FontAwesomeIcon icon={faLink}/></button></div>
                             
-                            <div title="Télécharger le modèle de calcul des données"><a href='./2020-04-09_Scenario1.5.xlsx' download><FontAwesomeIcon icon={faDownload}/></a></div>
+                            <div title="Télécharger le modèle de calcul des données"><a href='./2020-04-09_Scenario1.5.xlsx' download onClick={() => handleClickTracking("modelDownloadResults")}><FontAwesomeIcon icon={faDownload}/></a></div>
 
-                            <EmailShareButton url={results.url} className="left-btn" subject="Mission Climat : mon plan climat pour 2030"><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></EmailShareButton>
+                            <EmailShareButton url={results.url} className="left-btn" subject="Mission Climat : mon plan climat pour 2030" onClick={() => handleClickTracking("shareEmail")}><EmailIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></EmailShareButton>
 
-                            <FacebookShareButton url={results.url} className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#missionclimat #ecologie #climat"><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></FacebookShareButton>
+                            <FacebookShareButton onClick={()=>handleClickTracking("shareFB")} url={results.url} className="left-btn" quote="Voilà mon plan climat pour 2030 ! Et vous ?" hashtag="#missionclimat #ecologie #climat" ><FacebookIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></FacebookShareButton>
 
-                            <TwitterShareButton url={results.url} className="left-btn" title="Mission Climat : mon plan climat pour 2030" via="Mission Climat" hashtags={["missionclimat", "climat", "ecologie", "citoyen", "action"]}><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></TwitterShareButton>
+                            <TwitterShareButton url={results.url} className="left-btn" title="Mission Climat : mon plan climat pour 2030" via="Mission Climat" hashtags={["missionclimat", "climat", "ecologie", "citoyen", "action"]} onClick={()=>handleClickTracking("shareTwitter")} ><TwitterIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"} /></TwitterShareButton>
 
-                            <RedditShareButton url={results.url} className="left-btn" title="Mission Climat : Mon plan climat pour 2030"><RedditIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></RedditShareButton>
+                            <RedditShareButton url={results.url} className="left-btn" title="Mission Climat : Mon plan climat pour 2030" onClick={()=>handleClickTracking("shareReddit")}><RedditIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></RedditShareButton>
 
-                            <LinkedinShareButton url={results.url} className="left-btn" title="Mission Climat : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France !" source="Mission Climat"><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></LinkedinShareButton>
+                            <LinkedinShareButton url={results.url} className="left-btn" title="Mission Climat : Mon plan climat pour 2030" summary="Vous aussi, faites votre plan pour la France !" source="Mission Climat" onClick={()=>handleClickTracking("shareLinkedIn")}><LinkedinIcon size={32} round bgStyle={{fill: "white"}} iconFillColor={"#34244E"}/></LinkedinShareButton>
                         </div> 
 
                     </div>
