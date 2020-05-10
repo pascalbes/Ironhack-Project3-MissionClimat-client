@@ -23,7 +23,7 @@
 }
 
 /* /// DEBUG */
-*{
+* {
     /* border: 1px solid red; */
     margin-bottom: 0;
 }
@@ -33,9 +33,9 @@
 }
 
 /* /// COLORS */
-:root{
+:root {
     /* /// BACKGROUND */
-    --backpurple: linear-gradient(315deg,#452e5a 0%, #271d46 50%, #001438 100%);
+    --backpurple: linear-gradient(315deg, #452e5a 0%, #271d46 50%, #001438 100%);
     --backgreen: linear-gradient(135deg, rgb(0, 124, 161), rgb(126, 212, 164));
     --backwhite: rgb(250, 255, 250, 0.8);
 
@@ -59,20 +59,20 @@
 }
 
 /* /// APP SETUP */
-#root{  
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  min-width: 900px;
-  max-width: 1400px;
+#root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    min-width: 1024px;
+    max-width: 1400px;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     background-image: var(--backpurple);
     background-attachment: fixed;
     color: white;
@@ -81,92 +81,92 @@ body{
     justify-content: center;
 }
 
-#content-main{
+#content-main {
     width: 100%;
     height: 100vh;
     margin: 0;
 }
 
-.light{
+.light {
     color: var(--darkblue);
 }
 
-.border{
+.border {
     border-bottom: 2px solid var(--green);
     border-image-slice: 1;
     width: fit-content;
 }
 
 /* /// GLOBAL */
-.hidden{
+.hidden {
     visibility: hidden;
 }
 
-.displaynone{
+.displaynone {
     display: none;
 }
 
-.flex-item{
+.flex-item {
     display: flex;
 }
 
-.flex-column{
+.flex-column {
     flex-direction: column;
 }
 
-.grid-item{
+.grid-item {
     display: grid;
 }
 
-h1{
+h1 {
     font-size: 5em;
     margin-bottom: 0.2em;
     line-height: 5rem;
 }
 
-h2{
+h2 {
     font-size: 3em;
     margin-bottom: 0.2em;
     line-height: 3rem;
 }
 
-h3{
+h3 {
     font-size: 2em;
     margin-bottom: 0.2em;
     line-height: 2rem;
 }
 
-h4{
+h4 {
     font-size: 1.5em;
     margin-bottom: 0.2em;
     line-height: 1.5rem;
 }
 
-.nopad{
+.nopad {
     padding: 0;
 }
 
-.nomarge{
+.nomarge {
     margin: 0;
 }
 
-.margeup{
+.margeup {
     padding-top: 1rem !important;
 }
 
 @media (max-width: 800px) and (orientation: portrait) {
-    body{
+    /*     body {
         transform: rotate(-90deg);
         width: 100vh;
         height: 100vw;
     }
 
-    #root{
+    #root {
         width: 100% !important;
         height: 100% !important;
         margin: 0 !important;
         align-self: center;
-    }
+    } */
 }
 
 
@@ -183,7 +183,7 @@ h4{
     margin: 0;
 }
 
-#mobile-message > div {
+#mobile-message>div {
     border: solid 5px white;
     width: 60vw;
     padding: 15px;
@@ -199,17 +199,76 @@ h4{
 }
 
 
-@media (max-width: 800px) and (orientation: portrait) {
-    body{
+/* < Desktop */
+@media (max-width: 1280px) {}
+
+/* < Optional ? // small desktop */
+@media (max-width: 1024px) {
+    #root {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 100%;
+        margin: 0;
+        align-self: center;
+    }
+}
+
+/* < Tablets landscape */
+@media (max-width: 835px) {}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .flex-item {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    body .hero-left>* {
+        width: 100%;
+    }
+
+    .hero-left .hero-text {
+        margin-bottom: 25px;
+    }
+
+    .hero-left .hero-text br {
+        display: none;
+    }
+
+    .hero-btn {
+        z-index: 99;
+        position: relative;
+        text-align: center;
+    }
+
+    #hero-img-container {
+        margin-top: -70px;
+        position: relative;
+        z-index: 1;
+    }
+
+    body .hero-landing {
+        height: auto;
+    }
+
+    body .team-logo {
+        margin-bottom: 1em;
+        margin-right: 0;
+    }
+
+    .hero-box #hero-img-container,
+    .hero-box .hero-left,
+    body .home-item {
+        width: 100%;
+    }
+}
+
+/* Tablets portrait + large mobile */
+/* @media (min-width: 480px) and (max-width:835px) {
+    body {
         transform: rotate(-90deg);
         width: 100vh;
         height: 100vw;
     }
-
-    #root{
-        width: 100% !important;
-        height: 100% !important;
-        margin: 0 !important;
-        align-self: center;
-    }
-}
+} */
