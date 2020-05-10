@@ -260,13 +260,13 @@ const Simulator = (props) => {
         var idSheet = localStorage.getItem('idSheet')
         var valuesFormatted = getValuesFormatted(valuesTemp, jsonFile.options.unit)
         
-        setValues(valuesTemp)
-        setVisibleOptions(false);
-        // api.patch("/sheet/updateonly/"+idSheet, {values: valuesFormatted})
-        // .then(res => {
-        //     window.location.reload();
-        // })
-        // .catch(err => console.log(err))
+        // setValues(valuesTemp)
+        // setVisibleOptions(false);
+        api.patch("/sheet/updateonly/"+idSheet, {values: valuesFormatted})
+        .then(res => {
+            window.location.reload();
+        })
+        .catch(err => console.log(err))
 
     }
 

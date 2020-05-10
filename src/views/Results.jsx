@@ -273,7 +273,7 @@ const Results = (props) => {
                         <p dangerouslySetInnerHTML={handleInnerHTML(results.impacts.texteSynthese)}></p>
 
                         <div id="res-synthese-buttons" className="flex-item">
-                            
+
                             <div title="Copier l'url avec mes paramètres"><button onClick={copyUrl}><FontAwesomeIcon icon={faLink}/></button></div>
                             
                             <div title="Télécharger le modèle de calcul des données"><a href='./2020-04-09_Scenario1.5.xlsx' download onClick={() => handleClickTracking("modelDownloadResults")}><FontAwesomeIcon icon={faDownload}/></a></div>
