@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/partials/Header";
+import {Helmet} from "react-helmet";
 
 import "../styles/concept.css";
 
@@ -8,6 +9,12 @@ const Concept = () => {
 
   return (
     <div className="concept-page flex-item flex-column light-text">
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Mission Climat / Concept</title>
+          <meta name="description" content="Description du concept Mission Climat : méthode de calcul des émissions de gaz à effert de serre, enjeux énergie et climat et réponse aux questions fréquentes" />
+          <link rel="canonical" href="http://mission-climat.io/concept" />
+      </Helmet>
       <Header/>
       <div className="flex-item full-width margeup">
         <div className="flex-column">

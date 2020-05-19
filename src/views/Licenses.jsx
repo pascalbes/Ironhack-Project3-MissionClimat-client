@@ -1,11 +1,18 @@
 import React from 'react'
 import "../styles/contribuer.css"
 import Header from "../components/partials/Header";
+import {Helmet} from "react-helmet";
 
 const Licenses = () => {
 
     return (
         <div className="form-page flex-item flex-column light-text">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Mission Climat / Contact</title>
+                <meta name="description" content="Licences de Mission Climat" />
+                <link rel="canonical" href="http://mission-climat.io/contact" />
+            </Helmet>
             <Header/>
             <div className="margeup contribuer">
 

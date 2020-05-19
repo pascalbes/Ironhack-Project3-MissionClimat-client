@@ -3,6 +3,7 @@ import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import {Helmet} from "react-helmet";
 
 import ChartContainer from './../components/resultats/chartContainer'
 
@@ -187,6 +188,13 @@ const Results = (props) => {
     return (
 
         <div className="results-page flex-item flex-column">
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Mission Climat / Résultats</title>
+                <meta name="description" content="Résultats complets de votre simulation Mission Climat" />
+                <link rel="canonical" href="http://mission-climat.io/licenses" />
+            </Helmet>
             
             <Header/>
             

@@ -4,6 +4,7 @@ import Footer from "../components/partials/Footer"
 import { Link } from "react-router-dom"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Helmet} from "react-helmet";
 
 import "../styles/home.css"
 import "../styles/footer.css"
@@ -12,6 +13,12 @@ import "../styles/footer.css"
 const Home = () => {
     return (
         <div className="home-page flex-item flex-column">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Mission Climat</title>
+                <meta name="description" content="Votre mission, si vous l'acceptez, est de proposer un scénario climat 2030 pour la France, permettant de limiter les impacts du dérèglement climatique à un niveau soutenable." />
+                <link rel="canonical" href="http://mission-climat.io/" />
+            </Helmet>
             <Header />
             <article className="hero-landing flex-item flex-column">
                 <div className="hidden"></div>

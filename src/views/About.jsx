@@ -8,6 +8,7 @@ import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../components/partials/Header";
 import ReactGA from 'react-ga';
+import {Helmet} from "react-helmet";
 
 export const AboutUs = () => {
 
@@ -21,6 +22,12 @@ export const AboutUs = () => {
 
   return (
     <div className="about-page flex-item flex-column light-text">
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Mission Climat / A propos</title>
+          <meta name="description" content="Description du projet Mission Climat : historique, équipe, droits et licence, cgu et remerciements" />
+          <link rel="canonical" href="http://mission-climat.io/about/" />
+      </Helmet>
       <Header />
 
       <div className="about-nav flex-item full-width">

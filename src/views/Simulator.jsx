@@ -3,6 +3,7 @@ import React, {  useState, useEffect } from 'react'
 import Header from "../components/partials/Header";
 import "./../styles/simulator.css"
 import "./../styles/app.css"
+import {Helmet} from "react-helmet";
 
 import jsonFile from "../ressources/initialDatas.json"
 import { Link } from "react-router-dom"
@@ -303,6 +304,12 @@ const Simulator = (props) => {
         <>
         <Header/>
         <div className="sim-page flex-item">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Mission Climat / Simulateur</title>
+                <meta name="description" content="Simulateur de scénarios climat à l'échelle nationale" />
+                <link rel="canonical" href="http://mission-climat.io/simulator/" />
+            </Helmet>
             <section className="sim-container-box">
                 <div id="sim-nav-box" className="flex-item flex-column">
                     <h1>Mes mesures pour 2030</h1>

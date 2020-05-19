@@ -2,6 +2,7 @@ import React, {  useState } from 'react'
 import "../styles/contribuer.css"
 import Header from "../components/partials/Header";
 import api from '../api/APIHandler'
+import {Helmet} from "react-helmet";
 
 const Contact = () => {
 
@@ -23,6 +24,12 @@ const Contact = () => {
 
     return (
         <div className="form-page flex-item flex-column light-text">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Mission Climat / Contact</title>
+                <meta name="description" content="Page de contact de Mission Climat" />
+                <link rel="canonical" href="http://mission-climat.io/contact" />
+            </Helmet>
             <Header/>
             <div className="margeup contribuer">
 
