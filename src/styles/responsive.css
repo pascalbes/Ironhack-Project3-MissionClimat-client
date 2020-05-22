@@ -44,6 +44,23 @@
 
 /* < Tablets landscape */
 @media (max-width: 835px) {
+
+    header.flex-item {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 80px;
+    }
+
+    header .header-link {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    header .header-link h4 {
+        margin-bottom: 0;
+    }
+
     .hide-835 {
         display: none;
     }
