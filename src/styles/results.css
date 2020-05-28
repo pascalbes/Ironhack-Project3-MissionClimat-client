@@ -40,7 +40,7 @@
 
 
 /* BLINKING BTN */
-#blinking-results{
+#blinking-results {
     position: sticky;
     top: 2vh;
     align-self: flex-end;
@@ -53,11 +53,11 @@
 /* /// HERO RESULTS */
 
 .chapter-selection:hover span {
-    color:#7fffd4;
+    color: #7fffd4;
     border-bottom: 5px solid #7fffd4;
-  }
+}
 
-.results-box{
+.results-box {
     font-size: 1em;
     width: 80%;
     height: 70%;
@@ -67,36 +67,36 @@
     border-radius: 1em;
 }
 
-.results-left{
+.results-left {
     margin-top: 0.3em;
     height: 95%;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.results-left h3{
+.results-left h3 {
     margin-bottom: 1em;
 }
 
-.results-left h5{
+.results-left h5 {
     margin-bottom: 2em;
 }
 
-#results-impacts{
+#results-impacts {
     justify-content: flex-end;
 }
 
-.sim-results-head-results h5{
+.sim-results-head-results h5 {
     width: 100%;
     font-size: 1.5em;
     text-align: left;
 }
 
-.sim-results-head-results p{
+.sim-results-head-results p {
     font-size: 1em;
 }
 
-.results-figure-results{
+.results-figure-results {
     background-color: var(--grey);
     justify-content: center;
     align-items: center;
@@ -109,7 +109,7 @@
     margin-right: 2em;
 }
 
-.results-data{
+.results-data {
     margin-top: 0.3em;
     width: 90%;
     height: 90%;
@@ -119,27 +119,27 @@
     padding-left: 1em;
 }
 
-.results-data p{
+.results-data p {
     height: 5%;
     text-align: center;
 }
 
-.results-data-sunburst{
+.results-data-sunburst {
     width: 100%;
     height: 100%;
 }
 
-.results-data-area{
+.results-data-area {
     width: 100%;
     height: 100%;
 }
 
-.results-btns{
+.results-btns {
     width: 80%;
     justify-content: space-between;
 }
 
-.share-icon{
+.share-icon {
     height: 32px;
 }
 
@@ -158,18 +158,18 @@
 
 #res-synthese {
     flex: 1;
-    margin-top:5vh;
+    margin-top: 5vh;
     width: 100%;
     align-items: center;
 }
 
-#res-synthese > div {
+#res-synthese>div {
     width: 90%;
     padding: 20px;
     background-color: #442D59;
 }
 
-#res-synthese > div > * {
+#res-synthese>div>* {
     justify-content: center;
     text-align: center;
 }
@@ -183,7 +183,7 @@
     width: 30%;
 }
 
-#res-synthese > div > p {
+#res-synthese>div>p {
     color: #7fffd4;
     margin: 30px 0;
     font-size: 1.5em;
@@ -196,7 +196,7 @@
     color: #34244E
 }
 
-#res-synthese-buttons > div {
+#res-synthese-buttons>div {
     background-color: white;
     width: 2em;
     height: 2em;
@@ -271,17 +271,17 @@
     flex-wrap: wrap;
 }
 
-.res-chart-legend > div {
+.res-chart-legend>div {
     width: 45%;
     align-items: center;
-    margin-right: 15px;
+    margin-right: 5%;
 }
 
-.res-chart-legend > div div {
+.res-chart-legend>div div {
     padding: 5px 10px 5px 0;
 }
 
-.res-chart-legend > p {
+.res-chart-legend>p {
     margin-bottom: 10px;
 }
 
@@ -290,7 +290,7 @@
 }
 
 .legend-point {
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     border-radius: 50%;
     margin-right: 10px;
@@ -331,7 +331,7 @@
 
 
 /* /// DETAIL RESULTS */
-.detail-results{
+.detail-results {
     position: relative;
     justify-content: space-between;
     align-items: center;
@@ -339,11 +339,11 @@
     margin: 0;
 }
 
-.top-btn{
+.top-btn {
     margin-bottom: 4em;
 }
 
-.detail-national{
+.detail-national {
     align-items: center;
     justify-content: center;
     margin-top: 2em;
@@ -351,8 +351,8 @@
     width: 90%;
 }
 
-.detail-national-main{
-    width:90%;
+.detail-national-main {
+    width: 90%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: stretch;
@@ -362,32 +362,32 @@
     margin-top: 1em;
 }
 
-.detail-national-box{
+.detail-national-box {
     width: 90%;
     height: 80%;
     align-items: center;
 }
 
-.detail-national-box h4{
+.detail-national-box h4 {
     margin-bottom: 1em;
     text-align: center;
 }
 
-.detail-impacts-temperature{
+.detail-impacts-temperature {
     align-items: center;
-    width:90%;
+    width: 90%;
     border-radius: 1em;
     padding: 1em;
     margin-top: 1em;
 }
 
-.detail-impacts-temperature img{
+.detail-impacts-temperature img {
     width: 70%;
     height: auto;
     margin-bottom: 3em;
 }
 
-.detail-world{
+.detail-world {
     padding: 1em;
     border-radius: 1em;
     margin: 1em 0 2em;
@@ -395,19 +395,19 @@
     height: 30em
 }
 
-.detail-world > h2 {
+.detail-world>h2 {
     text-align: center
 }
 
 
-.detail-parameters{
+.detail-parameters {
     align-items: center;
     justify-content: space-between;
     margin-top: 2em;
     width: 100%;
 }
 
-.detail-parameters-box{
+.detail-parameters-box {
     width: 90%;
     grid-template-columns: repeat(2, minmax(375px, 1fr));
     column-gap: 2em;
@@ -423,6 +423,7 @@
 .modal-div {
     background-color: #07163A;
 }
+
 .new-or-edit {
     background-color: #07163A;
     align-items: center;
@@ -430,7 +431,8 @@
     justify-content: space-around;
     padding: 1em 4em;
 }
-.new-or-edit > * > * {
+
+.new-or-edit>*>* {
     margin: 0 5px;
 }
 
@@ -442,9 +444,10 @@
     padding: 1em 0;
 }
 
-.form-popup > * {
+.form-popup>* {
     margin-bottom: 1em;
 }
+
 .popup-error {
     background-color: #07163A;
     text-align: center;
@@ -452,23 +455,24 @@
     color: white;
 }
 
-.popup-error a{
-    
+.popup-error a {
+
     font-weight: bold;
     margin-right: 0.3em;
 }
 
 
 /* BLINKING BTN */
-.blinking{
+.blinking {
     animation: blinker 2s linear infinite;
 }
 
 @keyframes blinker {
     50% {
-      opacity: 0;
+        opacity: 0;
     }
 }
+
 /* 
 
 .div-linear-chart {

@@ -40,6 +40,27 @@
     body .contribuer {
         width: 85%;
     }
+
+    body .sim-param-radio input[type="radio"] {
+        margin-right: 0;
+    }
+
+    body .sim-param-radio {
+        text-align: center;
+        margin: 0.5em;
+    }
+
+    body .sim-param-radio .small-param-desc {
+        display: block
+    }
+
+    body #results-top-box {
+        height: auto;
+    }
+
+    body #loader {
+        padding: 25px;
+    }
 }
 
 /* < Tablets landscape */
@@ -129,6 +150,54 @@
     body .concept-box h5 {
         font-size: 1em;
     }
+
+    body .sim-page {
+        flex-direction: column;
+    }
+
+    body .sim-page>* {
+        width: 100%;
+    }
+
+    body .sim-page {
+        height: auto;
+
+    }
+
+    body #results-top-box {
+        margin-top: 10px;
+    }
+
+    body #results-emissions {
+        background-color: #FFF;
+        padding: 15px 0;
+        margin-top: 15px;
+    }
+
+    body #results-button {
+        margin-top: 15px;
+    }
+
+    body .res-chart,
+    body #res-impacts .res-chart,
+    #res-impacts .res-chart-infos,
+    .res-chart-infos {
+        width: 100%;
+    }
+
+    body .res-chart-container {
+        flex-direction: column;
+    }
+
+    body .res-chart {
+        max-height: fit-content;
+    }
+
+    body .res-chart-legend>div {
+        width: 50%;
+        padding: 5px;
+        margin-right: 0;
+    }
 }
 
 /* Mobile */
@@ -140,6 +209,11 @@
     .flex-item {
         flex-direction: column;
         width: 100%;
+    }
+
+    body .results-page header {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     body footer.flex-item {
@@ -346,6 +420,167 @@
     body .contact-white form .valid-button {
         display: block;
         margin: 1em auto 0;
+    }
+
+    /* SIMULATION */
+    body #sim-nav-box {
+        height: auto;
+    }
+
+
+    body .sim-nav-categories {
+        flex-direction: row;
+    }
+
+    body .sim-nav-category img {
+        width: 74%;
+    }
+
+    body .sim-categorie>div,
+    body .sim-categorie-name.sim-categorie-name {
+        width: 100%;
+    }
+
+    body .sim-categorie-markers {
+        flex-direction: row;
+    }
+
+    body .sim-option-form>.flex-item {
+        margin: 10px 0 10px
+    }
+
+    body #scrollOptions {
+        width: 95%;
+    }
+
+    body #scrollOptions.sticky {
+        margin-top: 15px;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    body #sim-nav-box>.flex-item {
+        flex-direction: row;
+    }
+
+    body .sim-page {
+        position: relative;
+    }
+
+    body #results-emissions-charts-container,
+    body #results-impacts-box .results-legend,
+    body #results-impacts-box h1 {
+        display: none;
+    }
+
+    body #results-emissions {
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #FFF;
+    }
+
+    body #results-impacts-box {
+        position: sticky;
+        bottom: 0;
+        background-color: #FFF;
+        padding: 5px;
+        margin-top: 0;
+        border-top: 1px solid #CCC;
+    }
+
+    body .result-spacer {
+        height: 50px;
+    }
+
+    body #results-impacts-box .results-figure {
+        height: 1.5rem;
+        line-height: 1.5rem;
+    }
+
+    body #results-impacts-box .results-title {
+        font-size: 0.7em;
+    }
+
+    body #results-top-box {
+        margin-bottom: 0;
+    }
+
+    body .results-page {
+        padding: 0 25px;
+    }
+
+    body .results-page .chapter-selection {
+        padding: 10px 0;
+    }
+
+    body .results-page .contact-white,
+    body #res-synthese>div,
+    body #res-emi-fr,
+    body #res-emi-world,
+    body #res-impacts {
+        width: 100%;
+    }
+
+    body #res-synthese-indicator .tag-container {
+        margin-bottom: 15px;
+    }
+
+    body #res-synthese>div>p {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    body #res-synthese-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    body #hero-article {
+        max-width: 100%;
+    }
+
+    body .res-emi-fr-container {
+        min-height: auto;
+    }
+
+    body .res-chart-infos {
+        padding-left: 0
+    }
+
+
+    body .res-chart-legend {
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    body .recharts-tooltip-wrapper {
+        max-width: 100%;
+    }
+
+    body #area-tooltip {
+        max-width: 85%;
+    }
+
+    body #blinking-results {
+        padding: 10px;
+    }
+
+    body .see-more-btn {
+        margin: 5px 0
+    }
+
+    body .param-container-expanded {
+        grid-column-end: auto;
+    }
+
+    body .right-btn {
+        margin-right: 0;
+    }
+
+    body .param-info-container-visible p {
+        width: 100%;
     }
 }
 

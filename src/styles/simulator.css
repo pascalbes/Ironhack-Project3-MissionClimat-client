@@ -41,7 +41,9 @@
 }
 
 
-#sim-nav-box h1, #results-top-box h1, #results-emissions h1 {
+#sim-nav-box h1,
+#results-top-box h1,
+#results-emissions h1 {
   font-family: "Circular Std";
   font-style: normal;
   font-weight: bold;
@@ -59,7 +61,7 @@
   line-height: 18px;
 }
 
-#sim-nav-box > div {
+#sim-nav-box>div {
   width: 100%;
   justify-content: space-between;
   margin-top: 0.3em;
@@ -120,6 +122,7 @@
   vertical-align: middle;
   width: 100%;
 }
+
 .sim-nav-category .sim-nav-category-icon-helper {
   display: inline-block;
   height: 100%;
@@ -171,7 +174,7 @@
   text-align: center;
 }
 
-.sim-categorie > div {
+.sim-categorie>div {
   width: 55%;
   justify-content: space-between;
   align-items: center;
@@ -194,7 +197,7 @@
   width: 100%;
 }
 
-.sim-categorie-markers > div {
+.sim-categorie-markers>div {
   align-items: center;
   width: 24%;
   display: flex;
@@ -206,9 +209,10 @@
   background-color: blue;
 }
 
-.sim-categorie-markers > div > div {
+.sim-categorie-markers>div>div {
   width: 100%;
 }
+
 /* 
 .sim-categorie-markers > div > div:last-of-type {
   width: 70%;
@@ -280,7 +284,7 @@
   color: #163E59;
 }
 
-#scrollOptions > div {
+#scrollOptions>div {
   justify-content: center;
 }
 
@@ -321,7 +325,7 @@
 .sticky {
   margin-right: -0.3em;
   z-index: 2;
-  background-color:#B0E0E6;
+  background-color: #B0E0E6;
   position: sticky;
   position: -webkit-sticky;
   padding-bottom: 20px;
@@ -334,7 +338,7 @@
 }
 
 .sticky .sim-categorie {
-  background:#B0E0E6;
+  background: #B0E0E6;
 }
 
 .sim-param-box {
@@ -376,8 +380,9 @@ input[type="radio"] {
   border-bottom-right-radius: 10px;
 }
 
-.marker1, .marker2 {
-  z-index:3;
+.marker1,
+.marker2 {
+  z-index: 3;
 }
 
 /* /// RESULTS */
@@ -398,73 +403,73 @@ input[type="radio"] {
   margin-top: 0.5em;
 }
 
-.n1{
+.n1 {
   grid-area: title1;
   text-align: center;
   align-self: center;
   margin: 0;
 }
 
-.n4{
+.n4 {
   grid-area: title2;
   text-align: center;
   align-self: center;
   margin: 0;
 }
 
-.n7{
+.n7 {
   grid-area: title3;
   text-align: center;
   align-self: center;
   margin: 0;
 }
 
-.n2{
+.n2 {
   grid-area: tag1;
   justify-self: center;
   margin: 0;
 }
 
-.n5{
+.n5 {
   grid-area: tag2;
   justify-self: center;
   margin: 0;
 }
 
-.n8{
+.n8 {
   grid-area: tag3;
   justify-self: center;
   margin: 0;
 }
 
-.n3{
+.n3 {
   grid-area: legend1;
   text-align: center;
   margin: 0;
 }
 
-.n6{
+.n6 {
   grid-area: legend2;
   text-align: center;
   margin: 0;
 }
 
-.n9{
+.n9 {
   grid-area: legend3;
   text-align: center;
   margin: 0;
 }
 
-#results-impacts-box{
+#results-impacts-box {
   display: grid;
   width: 100%;
   margin: 0;
   grid: auto auto auto / 1fr 1fr 1fr;
   gap: 2px 10px;
-  grid-template-areas: 
-  "title1 title2 title3"
-  "tag1 tag2 tag3"
-  "legend1 legend2 legend3";
+  grid-template-areas:
+    "title1 title2 title3"
+    "tag1 tag2 tag3"
+    "legend1 legend2 legend3";
   margin-top: 0.5em;
 }
 
@@ -490,28 +495,28 @@ input[type="radio"] {
   grid: 85% 13% / 46% 46%;
   gap: 5px 20px;
   grid-template-areas:
-  "g1 g3"
-  "g2 g4";
+    "g1 g3"
+    "g2 g4";
 }
 
-.g1{
+.g1 {
   grid-area: g1;
   width: 100%;
   height: 100%;
 }
 
-.g3{
+.g3 {
   grid-area: g3;
   width: 100%;
   height: 100%;
 }
 
-.g2{
+.g2 {
   grid-area: g2;
   text-align: center;
 }
 
-.g4{
+.g4 {
   grid-area: g4;
   text-align: center;
 }
@@ -534,13 +539,13 @@ input[type="radio"] {
 
 #area-tooltip .legend-point {
   margin-left: 20px;
-  width: 10px;
+  min-width: 10px;
   height: 10px;
   border-radius: 50%;
   margin-right: 5px;
 }
 
-#area-tooltip > div {
+#area-tooltip>div {
   align-items: center;
 }
 
@@ -567,72 +572,72 @@ input[type="radio"] {
 
 
 /* /// COMPOSANT INDICATEUR AVEC TITRE BOX ET LEGENDE */
-#results-impacts-box2{
+#results-impacts-box2 {
   display: grid;
   width: 100%;
   margin: 0;
   grid: auto auto auto / 1fr 1.2fr 1fr;
   gap: 2px;
-  grid-template-areas: 
-  "title4 title5 title6"
-  "tag4 tag5 tag6"
-  "legend4 legend5 legend6";
+  grid-template-areas:
+    "title4 title5 title6"
+    "tag4 tag5 tag6"
+    "legend4 legend5 legend6";
   margin-top: 0.5em;
 }
 
-.b1{
+.b1 {
   grid-area: title4;
   text-align: center;
   align-self: center;
   margin: 0;
 }
 
-.b4{
+.b4 {
   grid-area: title5;
   text-align: center;
   align-self: center;
   margin: 0;
 }
 
-.b7{
+.b7 {
   grid-area: title6;
   text-align: center;
   align-self: center;
   margin: 0;
 }
 
-.b2{
+.b2 {
   grid-area: tag4;
   justify-self: center;
   margin: 0;
 }
 
-.b5{
+.b5 {
   grid-area: tag5;
   justify-self: center;
   text-align: center;
   margin: 0;
 }
 
-.b8{
+.b8 {
   grid-area: tag6;
   justify-self: center;
   margin: 0;
 }
 
-.b3{
+.b3 {
   grid-area: legend4;
   text-align: center;
   margin: 0;
 }
 
-.b6{
+.b6 {
   grid-area: legend5;
   text-align: center;
   margin: 0;
 }
 
-.b9{
+.b9 {
   grid-area: legend6;
   text-align: center;
   margin: 0;
@@ -667,7 +672,7 @@ input[type="radio"] {
 
 .figure-unit {
   font-size: 0.7em;
-  font-weight:lighter;
+  font-weight: lighter;
   margin-top: -0.2em;
 }
 
@@ -684,34 +689,34 @@ input[type="radio"] {
   font-size: 1.4em;
 }
 
-@media screen and (max-width: 1110px){
-  body{
+@media screen and (max-width: 1110px) {
+  body {
     font-size: 3px;
   }
 
-  .sim-container-box{
+  .sim-container-box {
     width: 50%;
   }
 
-  .sim-results-box{
+  .sim-results-box {
     width: calc(50% - 10px);
   }
 }
 
-@media screen and (min-height: 1100px){
-  #results-emissions-charts-container{
+@media screen and (min-height: 1100px) {
+  #results-emissions-charts-container {
     grid: 40% 6% 40% 6% / 60%;
     gap: 5%;
     justify-content: center;
     grid-template-areas:
-    "g1"
-    "g2"
-    "g3"
-    "g4";
+      "g1"
+      "g2"
+      "g3"
+      "g4";
   }
 }
 
-@media screen and (max-height: 700px){
+@media screen and (max-height: 700px) {
 
   .sim-categorie-emissions {
     font-size: 11px;
@@ -724,8 +729,10 @@ input[type="radio"] {
   #results-bottom-box {
     height: calc(100% - 150px);
   }
-  
-  #sim-nav-box h1, #results-top-box h1, #results-emissions h1 {
+
+  #sim-nav-box h1,
+  #results-top-box h1,
+  #results-emissions h1 {
     font-size: 20px;
     line-height: 20px;
     margin-bottom: 0;
@@ -762,15 +769,15 @@ input[type="radio"] {
   #results-emissions-charts-container {
     height: 45%;
     grid-gap: 2px 15px;
-}
+  }
 
-#results-emissions-charts-container p {
-  font-size: 1em;
-}
+  #results-emissions-charts-container p {
+    font-size: 1em;
+  }
 
-.sim-results-box button {
-  padding: 0.4em 2em;
-  font-size: 1.2em;
-}
+  .sim-results-box button {
+    padding: 0.4em 2em;
+    font-size: 1.2em;
+  }
 
 }
