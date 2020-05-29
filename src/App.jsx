@@ -1,8 +1,8 @@
 /// BASIC
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import api from './api/APIHandler'
-import { useBeforeunload } from 'react-beforeunload';
+import api from "./api/APIHandler";
+import { useBeforeunload } from "react-beforeunload";
 
 /// PAGES
 import Home from "./views/Home";
@@ -20,21 +20,19 @@ import "./styles/app.css";
 import "./styles/reset.css";
 
 /// GOOGLE ANALYTICS
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
-if (window.location.hostname !== 'localhost') {
-  ReactGA.initialize('UA-165257322-1')
+if (window.location.hostname !== "localhost") {
+  ReactGA.initialize("UA-165257322-1");
   ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
 ReactGA.event({
   category: "Screens",
-  action:  window.screen.width + ":" + window.screen.height,
+  action: window.screen.width + ":" + window.screen.height,
 });
 
-
 function App() {
-
   // function deleteSheet(e) {
   //   e.preventDefault();
   //   console.log(localStorage.getItem('idSheet'))
@@ -53,10 +51,9 @@ function App() {
   // // useBeforeunload((e) => deleteSheet(e))
   // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
 
-  const width = window.innerWidth
-  
-  return (
-    width > 900 ?
+  const width = window.innerWidth;
+
+  return width > 0 ? (
     <>
       {/* <Header /> */}
       <main id="content-main">
@@ -64,11 +61,11 @@ function App() {
           {/* BASIC */}
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} /> 
-          <Route path="/contribuer" component={Contribuer} /> 
+          <Route path="/contact" component={Contact} />
+          <Route path="/contribuer" component={Contribuer} />
           {/* SIMULATOR */}
           <Route path="/concept" component={Concept} />
-          <Route path="/simulator" component={Simulator} />        
+          <Route path="/simulator" component={Simulator} />
           <Route path="/results" component={Results} />
           <Route path="/licenses" component={Licenses} />
           {/* NOT FOUND */}
@@ -76,12 +73,17 @@ function App() {
         </Switch>
       </main>
     </>
-    :
+  ) : (
     <>
-      <div id = "mobile-message">
+      <div id="mobile-message">
         <div>
-          <p>La version mobile n'est pas encore disponible. Nous vous recommandons de toutes façons l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des fonctionnalités du site. A bientôt !</p>
-        </div> 
+          <p>
+            La version mobile n'est pas encore disponible. Nous vous
+            recommandons de toutes façons l'utilisation d'une tablette ou d'un
+            ordinateur pour profiter pleinement des fonctionnalités du site. A
+            bientôt !
+          </p>
+        </div>
       </div>
     </>
   );

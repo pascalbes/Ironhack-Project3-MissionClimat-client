@@ -1,0 +1,594 @@
+/* < Desktop */
+@media (max-width: 1280px) {}
+
+/* < Optional ? // small desktop */
+@media (max-width: 1024px) {
+    #root {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 100%;
+        margin: 0;
+        align-self: center;
+    }
+
+    /* Home Page */
+    body .next-landing {
+        width: 85%
+    }
+
+    /* Concept */
+    body #concept .concept-img-box img {
+        width: 95%;
+    }
+
+    body #enjeux .concept-img-box img {
+        width: 95%;
+    }
+
+
+    /* A propos */
+    body .about-card p {
+        text-align: left;
+    }
+
+    body .dev-team {
+        width: 48%;
+    }
+
+    /* Contribuer */
+    body .contribuer {
+        width: 85%;
+    }
+
+    body .sim-param-radio input[type="radio"] {
+        margin-right: 0;
+    }
+
+    body .sim-param-radio {
+        text-align: center;
+        margin: 0.5em;
+    }
+
+    body .sim-param-radio .small-param-desc {
+        display: block
+    }
+
+    body #results-top-box {
+        height: auto;
+    }
+
+    body #loader {
+        padding: 25px;
+    }
+}
+
+/* < Tablets landscape */
+@media (max-width: 835px) {
+
+    header.flex-item {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 80px;
+    }
+
+    header .header-link {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    header .header-link h4 {
+        margin-bottom: 0;
+    }
+
+    .hide-835 {
+        display: none;
+    }
+
+    /* Concept */
+    body .concept-box {
+        width: 95%;
+    }
+
+    body .concept-impact-box {
+        padding: 0 2em
+    }
+
+    body #concept .concept-img-box img {
+        width: 100%;
+    }
+
+    /* A propos */
+    body .about-card {
+        width: 95%;
+    }
+
+    body .dev-team {
+        width: 100%;
+    }
+
+    body #about-law-box {
+        flex-direction: column;
+    }
+
+    body #about-law-box>div {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    iframe {
+        width: 100vw;
+        max-width: 100%;
+        height: 50.5vw;
+    }
+
+    /* Contact */
+    body .contact-title,
+    body #contact-form p {
+        width: 100%;
+    }
+
+    body #contact-form {
+        justify-content: space-between;
+    }
+
+    body #contact-form>div {
+        width: 46%;
+    }
+
+    body #contact-form>div:first-of-type {
+        width: 48%;
+        margin-right: 0;
+    }
+
+    /* Contribuer */
+    body .contribuer {
+        width: 90%;
+    }
+
+    body .concept-box h5 {
+        font-size: 1em;
+    }
+
+    body .sim-page {
+        flex-direction: column;
+    }
+
+    body .sim-page>* {
+        width: 100%;
+    }
+
+    body .sim-page {
+        height: auto;
+
+    }
+
+    body #results-top-box {
+        margin-top: 10px;
+    }
+
+    body #results-emissions {
+        background-color: #FFF;
+        padding: 15px 0;
+        margin-top: 15px;
+    }
+
+    body #results-button {
+        margin-top: 15px;
+    }
+
+    body .res-chart,
+    body #res-impacts .res-chart,
+    #res-impacts .res-chart-infos,
+    .res-chart-infos {
+        width: 100%;
+    }
+
+    body .res-chart-container {
+        flex-direction: column;
+    }
+
+    body .res-chart {
+        max-height: fit-content;
+    }
+
+    body .res-chart-legend>div {
+        width: 50%;
+        padding: 5px;
+        margin-right: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    h3 {
+        font-size: 1.5em;
+    }
+
+    .flex-item {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    body .results-page header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    body footer.flex-item {
+        height: auto;
+        padding: 0;
+        width: 85%;
+    }
+
+    body footer .footer-item.flex-item {
+        flex-direction: row;
+    }
+
+    body footer .footer-item.flex-item.footer-logos {
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    body .footer-logo {
+        height: 30px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    body footer .left-btn:first-of-type {
+        margin-left: 0;
+    }
+
+    body .hero-left>* {
+        width: 100%;
+    }
+
+    .hero-left .hero-text {
+        margin-bottom: 25px;
+    }
+
+    .hero-left .hero-text br {
+        display: none;
+    }
+
+    .hero-btn {
+        z-index: 99;
+        position: relative;
+        text-align: center;
+    }
+
+    #hero-img-container {
+        margin-top: -70px;
+        position: relative;
+        z-index: 1;
+    }
+
+    body .hero-landing {
+        height: auto;
+    }
+
+    body .team-logo {
+        margin-bottom: 1em;
+        margin-right: 0;
+    }
+
+    .hero-box #hero-img-container,
+    .hero-box .hero-left,
+    body .home-item {
+        width: 100%;
+    }
+
+    /* Concept */
+
+    body .chapter-selection {
+        flex-direction: row;
+        padding: 25px;
+    }
+
+    body .chapter-selection img {
+        margin-bottom: 15px;
+        margin-right: 25px;
+    }
+
+    body .concept-box {
+        width: 85%;
+        padding: 2em 0;
+    }
+
+    body img.border-btn {
+        padding: 0.25em
+    }
+
+    .concept-page ul {
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    .concept-page ul li {
+        padding-left: 5px;
+    }
+
+    .concept-page ul li ul {
+        margin-top: 5px;
+    }
+
+    #enjeux .concept-img-box {
+        display: none;
+    }
+
+    body .concept-impact-box {
+        padding: 0;
+        margin: 1em 0;
+    }
+
+    body .concept-impact-box img {
+        margin-right: 0;
+        margin-bottom: 1em;
+    }
+
+    /* About */
+    body #about-history {
+        margin-bottom: 1em
+    }
+
+    body .about-nav.flex-item {
+        flex-direction: row;
+    }
+
+    body #about-articles.flex-item {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    body #about-articles.flex-item .flex-item {
+        width: 48%;
+        margin: 5px 0;
+    }
+
+    body .about-nav>div {
+        width: 25%;
+    }
+
+    body .about-chapter-selection span {
+        font-size: 0.9em;
+    }
+
+    body .about-page ul {
+        padding: 0;
+        list-style-position: inside;
+    }
+
+    body .about-page ul li {
+        margin-bottom: 10px
+    }
+
+    body .contribuer-title h3 {
+        font-size: 1.7em;
+    }
+
+    body .contribuer>p {
+        width: 90%;
+        padding: 2em 0;
+    }
+
+    body #contribuer-dons {
+        width: 90%;
+    }
+
+    body #contribuer-dons h5 {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
+
+    .contribuer .home-item+.home-item {
+        margin-top: 2em;
+    }
+
+    body #contact-email,
+    body .contact-white {
+        width: 100%;
+    }
+
+    body #contact-form>div:first-of-type,
+    body #contact-form>div {
+        width: 100%;
+    }
+
+    body .contact-title {
+        margin-top: 1.5em;
+    }
+
+    body .contact-title img {
+        margin-bottom: 0.5em;
+    }
+
+    body .contact-white form>input:first-of-type {
+        width: 75%;
+        margin-right: 0;
+    }
+
+    body .contact-white form {
+        width: 100%;
+    }
+
+    body .contact-white p {
+        margin: 0.5em 0;
+    }
+
+    body .contact-white form .valid-button {
+        display: block;
+        margin: 1em auto 0;
+    }
+
+    /* SIMULATION */
+    body #sim-nav-box {
+        height: auto;
+    }
+
+
+    body .sim-nav-categories {
+        flex-direction: row;
+    }
+
+    body .sim-nav-category img {
+        width: 74%;
+    }
+
+    body .sim-categorie>div,
+    body .sim-categorie-name.sim-categorie-name {
+        width: 100%;
+    }
+
+    body .sim-categorie-markers {
+        flex-direction: row;
+    }
+
+    body .sim-option-form>.flex-item {
+        margin: 10px 0 10px
+    }
+
+    body #scrollOptions {
+        width: 95%;
+    }
+
+    body #scrollOptions.sticky {
+        margin-top: 15px;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+
+    body #sim-nav-box>.flex-item {
+        flex-direction: row;
+    }
+
+    body .sim-page {
+        position: relative;
+    }
+
+    body #results-emissions-charts-container,
+    body #results-impacts-box .results-legend,
+    body #results-impacts-box h1 {
+        display: none;
+    }
+
+    body #results-emissions {
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #FFF;
+    }
+
+    body #results-impacts-box {
+        position: sticky;
+        bottom: 0;
+        background-color: #FFF;
+        padding: 5px;
+        margin-top: 0;
+        border-top: 1px solid #CCC;
+    }
+
+    body .result-spacer {
+        height: 50px;
+    }
+
+    body #results-impacts-box .results-figure {
+        height: 1.5rem;
+        line-height: 1.5rem;
+    }
+
+    body #results-impacts-box .results-title {
+        font-size: 0.7em;
+    }
+
+    body #results-top-box {
+        margin-bottom: 0;
+    }
+
+    body .results-page {
+        padding: 0 25px;
+    }
+
+    body .results-page .chapter-selection {
+        padding: 10px 0;
+    }
+
+    body .results-page .contact-white,
+    body #res-synthese>div,
+    body #res-emi-fr,
+    body #res-emi-world,
+    body #res-impacts {
+        width: 100%;
+    }
+
+    body #res-synthese-indicator .tag-container {
+        margin-bottom: 15px;
+    }
+
+    body #res-synthese>div>p {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    body #res-synthese-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    body #hero-article {
+        max-width: 100%;
+    }
+
+    body .res-emi-fr-container {
+        min-height: auto;
+    }
+
+    body .res-chart-infos {
+        padding-left: 0
+    }
+
+
+    body .res-chart-legend {
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    body .recharts-tooltip-wrapper {
+        max-width: 100%;
+    }
+
+    body #area-tooltip {
+        max-width: 85%;
+    }
+
+    body #blinking-results {
+        padding: 10px;
+    }
+
+    body .see-more-btn {
+        margin: 5px 0
+    }
+
+    body .param-container-expanded {
+        grid-column-end: auto;
+    }
+
+    body .right-btn {
+        margin-right: 0;
+    }
+
+    body .param-info-container-visible p {
+        width: 100%;
+    }
+}
+
+/* Tablets portrait + large mobile */
+/* @media (min-width: 480px) and (max-width:835px) {
+    body {
+        transform: rotate(-90deg);
+        width: 100vh;
+        height: 100vw;
+    }
+} */

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fugaz+One&display=swap');
 
-header{
+header {
     padding: 0em 1em;
     height: 8vh;
     justify-content: space-between;
@@ -32,22 +32,31 @@ nav a:nth-child(4) button {
     background-color: white;
 }
 
-.header-left{
+.header-left {
     font-family: 'Fugaz One', cursive;
 }
 
-.header-link{
+.header-link {
     justify-content: flex-start;
     align-items: center;
 }
 
-.header-logo{
+.header-logo {
     width: 2em;
     margin-right: 1em;
 }
 
-.header h4{
+.header h4 {
     display: inline-block;
+}
+
+header .MuiPaper-root {
+    background-image: var(--backpurple);
+    border-left: 1px solid #555
+}
+
+.nav-responsive {
+    width: 50px;
 }
 
 @media (min-width: 800px) and (max-width: 950px) {
