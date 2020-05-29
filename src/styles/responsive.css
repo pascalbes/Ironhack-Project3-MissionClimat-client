@@ -206,7 +206,7 @@
         font-size: 1.5em;
     }
 
-    body .flex-item {
+    .flex-item {
         flex-direction: column;
         width: 100%;
     }
@@ -245,21 +245,21 @@
         width: 100%;
     }
 
-    body .hero-left .hero-text {
+    .hero-left .hero-text {
         margin-bottom: 25px;
     }
 
-    body .hero-left .hero-text br {
+    .hero-left .hero-text br {
         display: none;
     }
 
-    body .hero-btn {
+    .hero-btn {
         z-index: 99;
         position: relative;
         text-align: center;
     }
 
-    body #hero-img-container {
+    #hero-img-container {
         margin-top: -70px;
         position: relative;
         z-index: 1;
@@ -301,20 +301,20 @@
         padding: 0.25em
     }
 
-    body .concept-page ul {
+    .concept-page ul {
         padding: 0;
         list-style-position: inside;
     }
 
-    body .concept-page ul li {
+    .concept-page ul li {
         padding-left: 5px;
     }
 
-    body .concept-page ul li ul {
+    .concept-page ul li ul {
         margin-top: 5px;
     }
 
-    body #enjeux .concept-img-box {
+    #enjeux .concept-img-box {
         display: none;
     }
 
@@ -382,7 +382,7 @@
         margin-bottom: 1em;
     }
 
-    body .contribuer .home-item+.home-item {
+    .contribuer .home-item+.home-item {
         margin-top: 2em;
     }
 
