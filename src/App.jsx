@@ -1,8 +1,6 @@
 /// BASIC
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-import api from "./api/APIHandler";
-import { useBeforeunload } from "react-beforeunload";
 
 /// PAGES
 import Home from "./views/Home";
