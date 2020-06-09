@@ -27,7 +27,7 @@ const Concept = () => {
             }`}
             onClick={() => setSelectedChapter("concept")}
           >
-            <img src="../../images/logo/Idea.svg" alt="" />
+            <img src="/images/logo/Idea.svg" alt="" />
             <br />
             <span>Le concept</span>
           </div>
@@ -39,7 +39,7 @@ const Concept = () => {
             }`}
             onClick={() => setSelectedChapter("enjeux")}
           >
-            <img className="" src="../../images/logo/Enjeux.svg" alt="" />
+            <img src="/images/logo/Enjeux.svg" alt="" />
             <br />
             <span>Les enjeux</span>
           </div>
@@ -51,14 +51,14 @@ const Concept = () => {
             }`}
             onClick={() => setSelectedChapter("qna")}
           >
-            <img className="" src="../../images/logo/Qna.svg" alt="" />
+            <img src="/images/logo/Qna.svg" alt="" />
             <br />
             <span>Questions et réponses</span>
           </div>
         </div>
       </div>
 
-      {selectedChapter == "concept" && (
+      {selectedChapter === "concept" && (
         <div
           id="concept"
           className="concept-box border-btn flex-item flex-column"
@@ -74,7 +74,7 @@ const Concept = () => {
             nombre de paramètres associés aux mesures à mettre en place a été
             réduit. Un mode expert permet néanmoins de modifier plus de
             paramètres, pour ceux qui le souhaitent. Le modèle de calcul est
-            téléchargeable à la page "à propos".{" "}
+            téléchargeable à la page "à propos".
           </p>
 
           <h5>Calcul des émissions françaises</h5>
@@ -82,7 +82,7 @@ const Concept = () => {
           <div className="concept-img-box flex-item">
             <img
               className="border-btn"
-              src="../../images/baisse-carbone.png"
+              src="/images/baisse-carbone.png"
               alt="Exemple de Paramètre"
             />
           </div>
@@ -105,7 +105,7 @@ const Concept = () => {
           <div className="concept-img-box flex-item">
             <img
               className="border-btn"
-              src="../../images/exemple-paramètres.JPG"
+              src="/images/exemple-paramètres.JPG"
               alt="Exemple de Paramètre"
             />
           </div>
@@ -149,7 +149,7 @@ const Concept = () => {
           <div className="concept-img-box flex-item hide-835">
             <img
               className="border-btn"
-              src="../../images/exemple-expand.JPG"
+              src="/images/exemple-expand.JPG"
               alt="Exemple de Paramètre"
             />
           </div>
@@ -176,7 +176,7 @@ const Concept = () => {
               <div className="concept-img-box flex-item">
                 <img
                   className="border-btn"
-                  src="../../images/exemple-indicateurs-fr.JPG"
+                  src="/images/exemple-indicateurs-fr.JPG"
                   alt="Exemple de Paramètre"
                 />
               </div>
@@ -194,7 +194,7 @@ const Concept = () => {
               <div className="concept-img-box flex-item">
                 <img
                   className="border-btn"
-                  src="../../images/exemple-graphiques.JPG"
+                  src="/images/exemple-graphiques.JPG"
                   alt="Exemple de Paramètre"
                 />
               </div>
@@ -237,7 +237,7 @@ const Concept = () => {
           </div>
         </div>
       )}
-      {selectedChapter == "enjeux" && (
+      {selectedChapter === "enjeux" && (
         <div
           id="enjeux"
           className="concept-box border-btn  flex-item flex-column"
@@ -254,6 +254,7 @@ const Concept = () => {
             <iframe
               width="560"
               height="315"
+              title="Avenir Climatique"
               src="https://www.youtube.com/embed/3eXVnmI7_oE"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope;    picture-in-picture"
@@ -262,13 +263,18 @@ const Concept = () => {
           </div>
 
           <div className="concept-img-box flex-item">
-            <a href="https://avenirclimatique.org/mooc/" target="_blank">
+            <a
+              href="https://avenirclimatique.org/mooc/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               > MOOC
             </a>
             <div className="hidden">||</div>
             <a
               href="https://www.conventioncitoyennepourleclimat.fr/wp-content/uploads/2019/10/03102019-convcit-socledoc-web.pdf"
               target="_blank"
+              rel="noopener noreferrer"
             >
               > Autres sources
             </a>
@@ -327,7 +333,7 @@ const Concept = () => {
 
           <h5>Des impacts importants</h5>
           <div className="concept-impact-box flex-item">
-            <img src="../../images/concept-1.png" alt="picto" />
+            <img src="/images/concept-1.png" alt="picto" />
             <p>
               En plus de l'amplitude du changement, la vitesse à laquelle il se
               produit, sans précédent, est un facteur de déstabilisation très
@@ -337,7 +343,7 @@ const Concept = () => {
           </div>
 
           <div className="concept-impact-box flex-item">
-            <img src="../../images/concept-2.png" alt="picto" />
+            <img src="/images/concept-2.png" alt="picto" />
             <p>
               On devrait ainsi observer des évènements climatiques extrêmes plus
               violents face auxquels nous ne sommes pas préparés et à des
@@ -347,7 +353,7 @@ const Concept = () => {
           </div>
 
           <div className="concept-impact-box flex-item">
-            <img src="../../images/concept-3.png" alt="picto" />
+            <img src="/images/concept-3.png" alt="picto" />
             <p>
               La fonte des calottes polaires et des glaciers, mais surtout le
               réchauffement de l'océan (et ainsi de sa dilatation), va causer
@@ -358,7 +364,7 @@ const Concept = () => {
           </div>
 
           <div className="concept-impact-box flex-item">
-            <img src="../../images/concept-4.png" alt="picto" />
+            <img src="/images/concept-4.png" alt="picto" />
             <p>
               L'acidification de l'océan, causé par les gaz à effet de serre,
               menace de nombreux écosystèmes marins et les activités humaines
@@ -367,7 +373,7 @@ const Concept = () => {
           </div>
 
           <div className="concept-impact-box flex-item">
-            <img src="../../images/concept-5.png" alt="picto" />
+            <img src="/images/concept-5.png" alt="picto" />
             <p>
               Toutes ces perturbations forceront beaucoup de personnes à
               s’adapter notamment en cherchant une terre d’accueil. Ces
@@ -388,7 +394,7 @@ const Concept = () => {
           <div className="concept-img-box flex-item">
             <img
               className="border-btn"
-              src="../../images/concept-impact.png"
+              src="/images/concept-impact.png"
               alt="impacts"
             />
           </div>
@@ -396,7 +402,7 @@ const Concept = () => {
           <div className="concept-img-box flex-item">
             <img
               className="border-btn"
-              src="../../images/nuages.png"
+              src="/images/nuages.png"
               alt="nuages C02"
             />
           </div>
@@ -404,7 +410,7 @@ const Concept = () => {
           <p>
             Tout notre mode de vie actuel s’est construit sur l’idée d’une
             énergie et de matières premières surabondantes et inépuisables qui
-            auraient permis une croissance économique infinie.{" "}
+            auraient permis une croissance économique infinie.
           </p>
 
           <p>
@@ -413,7 +419,7 @@ const Concept = () => {
             l’échelle nationale. Vous pouvez aussi vous appuyer sur l’outil
             MicMac (Mon Impact Climat, Mes Actions Concrètes) pour étudier
             l’impact carbone de votre mode et de vie et identifier les actions
-            pertinentes pour faire baisser votre empreinte carbone.{" "}
+            pertinentes pour faire baisser votre empreinte carbone.
             <a href="http://avenirclimatique.org/les-outils/">
               > Boîte à Outils
             </a>
@@ -427,25 +433,25 @@ const Concept = () => {
           </p>
         </div>
       )}
-      {selectedChapter == "qna" && (
+      {selectedChapter === "qna" && (
         <div className="concept-box border-btn  flex-item flex-column question">
           <h3 className="nomarge">Questions & réponses</h3>
           <h5>
             La France ne représente que 1% des émissions mondiales, nos efforts
-            ne sont-ils pas vains ?{" "}
+            ne sont-ils pas vains ?
           </h5>
           <p>
             Effectivement, la France ne représente que 0,9% des émissions de CO2
             si on ne compte que les émissions "territoriales" qui ont lieu sur
             le sol français et les émissions énergétiques (issues de la
-            combustion d'énergies fossiles).{" "}
+            combustion d'énergies fossiles).
           </p>
 
           <p>
             Il est donc clair qu'un effort isolé de la France n'aura que peu
             d'impact direct sur la trajectoire mondiale de réchauffement
             climatique. Cependant, plusieurs arguments peuvent remettre en
-            question ce postulat.{" "}
+            question ce postulat.
           </p>
 
           <p>
@@ -458,11 +464,11 @@ const Concept = () => {
             français). Enfin, la France pourrait, si elle était exemplaire et
             par la capacité d'influence qu'elle possède, comme toute autre
             puissance, inspirer de nombreux pays dans son sillage. En tous cas,
-            elle serait bien plus légitime pour négocier en ce sens.{" "}
+            elle serait bien plus légitime pour négocier en ce sens.
           </p>
 
           <h5>
-            Toutes les technologies sont elles intégrées dans votre modèle ?{" "}
+            Toutes les technologies sont elles intégrées dans votre modèle ?
           </h5>
           <p>
             Notre modèle de calculs modélise les émissions de gaz à effet de
@@ -472,7 +478,7 @@ const Concept = () => {
             conséquente. Le modèle inclut toutes les technologies existantes, et
             permet de configurer la vitesse à laquelle certaines d'entres elles
             progressent. Pour conclure, le modèle repose sur la réalité : il ne
-            propose pas de jouer notre avenir en jetant une pièce en l'air.{" "}
+            propose pas de jouer notre avenir en jetant une pièce en l'air.
           </p>
 
           <h5>La transition va-t-elle assez vite ? </h5>
@@ -481,7 +487,7 @@ const Concept = () => {
             D'après les scénarios du GIEC, pour limiter le réchauffement
             climatique à 1,5°C, les émissions doivent commencer à stagner d'ici
             2020 puis baisser jusqu'à atteindre la neutralité carbone entre 2040
-            et 2060.{" "}
+            et 2060.
           </p>
 
           <h5>
@@ -499,7 +505,7 @@ const Concept = () => {
             mouvement d'ensemble, associant toutes les échelles et soucieux de
             tous, qui pourra permettre de répondre aux enjeux climatiques, sans
             oublier les autres enjeux environnementaux et, vous l'aurez compris,
-            les enjeux sociaux.{" "}
+            les enjeux sociaux.
           </p>
 
           <h5>Donc chaque année compte ?</h5>
