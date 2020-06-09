@@ -328,7 +328,7 @@ const Simulator = (props) => {
               >
                 <div className="sim-nav-category-icon">
                   <span className="sim-nav-category-icon-helper"></span>
-                  <img src="../../images/Options.png"></img>
+                  <img src="/images/Options.png" alt="" />
                 </div>
               </a>
             </div>
@@ -461,6 +461,7 @@ const Simulator = (props) => {
                   <a
                     href="https://leclimatchange.fr/les-elements-scientifiques/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     style={{ fontWeight: "bold", color: "#DB7093" }}
                   >
                     Plus d'infos
@@ -607,6 +608,7 @@ const Simulator = (props) => {
                 <a
                   href="https://leclimatchange.fr/les-elements-scientifiques/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   style={{ fontWeight: "bold", color: "#DB7093" }}
                 >
                   Plus d'infos
