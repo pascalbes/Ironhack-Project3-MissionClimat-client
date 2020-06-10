@@ -6,50 +6,28 @@ import "./../styles/app.css";
 import { Helmet } from "react-helmet";
 
 import jsonFile from "../ressources/initialDatas.json";
-import { Link } from "react-router-dom";
-import Loader from "react-loader-spinner";
-import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { withStyles } from "@material-ui/core/styles";
 
 /// COMPONENTS
-import AreaChart from "./../components/simulateur/simResultsAreaChart";
-import SimNav from "../components/simulateur/simNavBar";
 import SimCat from "../components/simulateur/simCategorie";
 import SimParamList from "../components/simulateur/simParametreList";
 import SimParamSlider from "../components/simulateur/simParametreSlide";
-import Sunburst from "./../components/simulateur/sunburstChart";
-
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ReactGA from "react-ga";
 import api from "../api/APIHandler";
+import SimulatorNav from "../components/simulateur/SimulatorNav";
+import OptionsBox from "../components/simulateur/OptionsBox";
 
-const PurpleSwitch = withStyles({
-  switchBase: {
-    color: "grey",
-    "&$checked": {
-      color: "#512072",
-    },
-    "&$checked + $track": {
-      backgroundColor: "#512072",
-    },
-  },
-  checked: {},
-  track: {},
-})(Switch);
+// Custom Hooks
+import { useVisibility } from "../hooks/useVisibility";
+
+import ResultsSample from "../components/simulateur/ResultsSample";
+import SimulatorLoader from "../components/simulateur/SimulatorLoader";
 
 const Simulator = (props) => {
-  const [values, setValues] = useState();
-  const [results, setResults] = useState(); // jsonFile.results
+  const [values, setValues] = useState(null);
+  const [results, setResults] = useState(null); // jsonFile.results
   const [modeExpert, setModeExpert] = useState(false);
-  const [visibleOptions, setVisibleOptions] = useState(false);
-
-  // console.log("-----------------------------------")
-  // console.log(values)
-  // console.log(results)
-  // console.log(props)
+  const [showOptions, hideOptions, visibleOptions] = useVisibility(false);
 
   //Gestion d'une route avec paramêtres spécifiques
   //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -91,43 +69,37 @@ const Simulator = (props) => {
 
   useEffect(() => {
     async function initDatas() {
-      var res = {};
       var valuesURL = [];
-
       // cas où une sheet est déjà en dans le localstorage
-      if (localStorage.getItem("idSheet")) {
-        const idSheet = localStorage.getItem("idSheet");
-        console.log("SHEET ALREADY CREATED, ID:", idSheet);
+      const idSheet = localStorage.getItem("idSheet");
 
+      if (idSheet) {
+        console.log("SHEET ALREADY CREATED, ID:", idSheet);
         //cas où appel normal de la page simulateur
         if (!props.location.pathname.includes("favorites")) {
-          res = await api.get("/sheet/values/" + idSheet);
-          setValues(res.data.values);
+          const response = await api.get("/sheet/values/" + idSheet);
+          setValues(response.data.values);
         } else {
           // cas où appel via url spécifique /save/p=1&&p=3.....
-          valuesURL = getValuesFromUrl(
-            props.location.pathname.substr(
-              props.location.pathname.indexOf("p0=")
-            )
-          );
+          const startIndex = props.location.pathname.indexOf("p0=");
+          const url = props.location.pathname.substr(startIndex);
+          valuesURL = getValuesFromUrl(url);
           setValues(valuesURL);
         }
       } else {
         // cas où aucune sheet n'a été créée
 
         //création d'une copie de la sheet master
-        res = await api.get("/sheet/");
-        var idSheet = res.data.id;
+        const response = await api.get("/sheet/");
+        const idSheet = response.data.id;
         localStorage.setItem("idSheet", idSheet);
         console.log("SHEET CREATED! ID:", idSheet);
 
         // cas où appel via url spécifique /save/p=1&&p=3.....
         if (props.location.pathname.includes("favorites")) {
-          valuesURL = getValuesFromUrl(
-            props.location.pathname.substr(
-              props.location.pathname.indexOf("p0=")
-            )
-          );
+          const startIndex = props.location.pathname.indexOf("p0=");
+          const url = props.location.pathname.substr(startIndex);
+          valuesURL = getValuesFromUrl(url);
           setValues(valuesURL);
         } else {
           // cas où appel normal (on initialise tout de même les valeurs ici pour le loader)
@@ -139,8 +111,10 @@ const Simulator = (props) => {
     initDatas();
 
     //nettoyage du results de local storage
-    if (localStorage.getItem("results")) localStorage.removeItem("results");
-  }, []);
+    if (localStorage.getItem("results")) {
+      localStorage.removeItem("results");
+    }
+  }, [props.location.pathname]);
 
   function getUrl(values, parameters) {
     var url = window.location.origin + "/simulator/favorites/";
@@ -165,13 +139,13 @@ const Simulator = (props) => {
   //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
   useEffect(() => {
     if (values) {
-      var idSheet = localStorage.getItem("idSheet");
-      var valuesFormatted = getValuesFormatted(values, jsonFile.options.unit);
+      const idSheet = localStorage.getItem("idSheet");
+      const valuesFormatted = getValuesFormatted(values, jsonFile.options.unit);
       if (idSheet) {
         api
           .patch("/sheet/update/" + idSheet, { values: valuesFormatted })
           .then((res) => {
-            var resTemp = res.data.results;
+            const resTemp = res.data.results;
             resTemp.url = getUrl(values, jsonFile.parameters);
             //correction des data area pour affichage ok
             handleAreaData(resTemp.emiSecteurGnl);
@@ -187,79 +161,55 @@ const Simulator = (props) => {
       category: "Parameters",
       action: index + ":" + value,
     });
-    var newValues = [...values];
+    const newValues = [...values];
     newValues[index][0] = value;
     setValues(newValues);
   }
 
-  function tempColor() {
-    //version actuelle, en phase avec les jauges
-
-    return results.impacts.temperature < 1.5
-      ? "linear-gradient(to right, #7FFFD4 , #77D9B5)"
-      : results.impacts.temperature >= 1.5 && results.impacts.temperature < 2
-      ? "linear-gradient(to right, #F2F230 , #FFC53A)"
-      : results.impacts.temperature >= 2 && results.impacts.temperature < 3
-      ? "linear-gradient(to right, #FFB8B8 , #DB7093)"
-      : "linear-gradient(to right, #DA8FFF , #663399)";
-
-    //version initiale, pour du backgroundCOlor
-    // const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
-    // return (results.impacts.temperature < 1.5) ? tempColors[0]
-    // : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
-    // : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
-    // : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
-    // : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
-    // : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
-    // : tempColors[6]
-  }
-
   function handleParameterType(cat, param, j, values) {
+    // TODO New implementation of handleParameterType
+    // issue: param.type needs to be a string eg: "list", "slider"
+    // for now the object is as follows: {param.type.list: 1, param.type.slider: 0}
+
+    const props = {
+      key: j,
+      data: param.data,
+      value: values[param.data.index],
+      setOneValue: setOneValue,
+      cat: cat.data,
+    };
+
+    const paramComponent = {
+      list: <SimParamList {...props} />,
+      slider: <SimParamSlider {...props} />,
+    };
+
     //gestion mode expert
     if (!param.data.expert || (param.data.expert && modeExpert)) {
       //gestion type de paramètre
-      if (param.type.list) {
-        return (
-          <SimParamList
-            key={j}
-            data={param.data}
-            value={values[param.data.index]}
-            setOneValue={setOneValue}
-            cat={cat.data}
-          />
-        );
-      } else if (param.type.slider) {
-        return (
-          <SimParamSlider
-            key={j}
-            data={param.data}
-            value={values[param.data.index]}
-            setOneValue={setOneValue}
-            cat={cat.data}
-          />
-        );
-      }
+      const type = param.type;
+      // TODO if param.type resolves to a string, we can access the component with paramComponent[param.type]
+      return paramComponent[type.list ? "list" : type.slider ? "slider" : null];
     }
   }
 
   function handleInitValues(e) {
-    var initMode = e.target.value;
-    var valuesTemp = [];
+    const values = {
+      init: "vInit",
+      vMin: "vMin",
+      "1degre5": "v15",
+      bau: "vBaU",
+      vMax: "vMax",
+    };
 
-    if (initMode === "init") {
-      valuesTemp = jsonFile.options.vInit;
-    } else if (initMode === "vMin") {
-      valuesTemp = jsonFile.options.vMin;
-    } else if (initMode === "1degre5") {
-      valuesTemp = jsonFile.options.v15;
-    } else if (initMode === "bau") {
-      valuesTemp = jsonFile.options.vBaU;
-    } else if (initMode === "vMax") {
-      valuesTemp = jsonFile.options.vMax;
-    }
+    const initMode = e.target.value;
+    const valuesTemp = jsonFile.options[values[initMode]];
 
-    var idSheet = localStorage.getItem("idSheet");
-    var valuesFormatted = getValuesFormatted(valuesTemp, jsonFile.options.unit);
+    const idSheet = localStorage.getItem("idSheet");
+    const valuesFormatted = getValuesFormatted(
+      valuesTemp,
+      jsonFile.options.unit
+    );
 
     // setValues(valuesTemp)
     // setVisibleOptions(false);
@@ -271,33 +221,39 @@ const Simulator = (props) => {
       .catch((err) => console.log(err));
   }
 
-  function handleClickTracking(type) {
-    ReactGA.event({
-      category: "Click",
-      action: type,
-    });
-  }
-
-  function showOptions(e) {
-    e.preventDefault();
-    handleClickTracking("options");
-    setVisibleOptions(true);
-  }
-
-  function hideOptions(e) {
-    e.preventDefault();
-    setVisibleOptions(false);
-  }
-
   function handleAreaData(datas) {
-    let dataReversed = [...datas.areaDatas];
-    dataReversed.reverse();
-    datas.areaDatas = [...dataReversed];
-
+    datas.areaDatas = [...datas.areaDatas].reverse();
     return datas;
   }
-  const width = window.innerWidth;
-  return values && results ? (
+
+  const handleModeExpert = (value) => {
+    setModeExpert(value);
+  };
+
+  if (!values || !results) {
+    return <SimulatorLoader />;
+  }
+
+  const simulatorCategories = jsonFile.categories.map((cat, i) => (
+    <div key={i} className="sim-cat-params-box">
+      <SimCat
+        key={cat.data.index}
+        data={cat.data}
+        results={results.jaugeDatas[i]}
+      />
+      <div
+        key={"p" + i}
+        id={"param-box" + i}
+        className="sim-param-box grid-item"
+      >
+        {cat.parameters.map((param, j) =>
+          handleParameterType(cat, param, j, values, setValues)
+        )}
+      </div>
+    </div>
+  ));
+
+  return (
     <>
       <Header />
       <div className="sim-page flex-item">
@@ -310,336 +266,29 @@ const Simulator = (props) => {
           />
           <link rel="canonical" href="http://mission-climat.io/simulator/" />
         </Helmet>
+
         <section className="sim-container-box">
-          <div id="sim-nav-box" className="flex-item flex-column">
-            <h1>Mes mesures pour 2030</h1>
-            <div className="flex-item">
-              <div id="sim-nav-fr">
-                <SimNav data={jsonFile.nav[0]} />
-              </div>
-              <div id="sim-nav-world">
-                <SimNav data={jsonFile.nav[1]} />
-              </div>
-              <a
-                href=""
-                id="options"
-                className="sim-nav-category flex-item flex-column"
-                onClick={showOptions}
-              >
-                <div className="sim-nav-category-icon">
-                  <span className="sim-nav-category-icon-helper"></span>
-                  <img src="/images/Options.png" alt="" />
-                </div>
-              </a>
-            </div>
-          </div>
+          <SimulatorNav
+            leftNavData={jsonFile.nav[0]}
+            rightNavData={jsonFile.nav[1]}
+            showOptions={showOptions}
+          />
 
           <div className="sim-main-box">
             {visibleOptions && (
-              <div id="optionsContainer">
-                <div
-                  class="optionsContainerBackground"
-                  onClick={hideOptions}
-                ></div>
-                <div id="scrollOptions" className=" sim-cat-params-box sticky">
-                  <div class="optionsContainerClose" onClick={hideOptions}>
-                    <FontAwesomeIcon icon={faTimes} />
-                  </div>
-                  <div className="sim-categorie flex-item">
-                    <h4 className="sim-categorie-name">Options</h4>
-                  </div>
-                  <div className="sim-options flex-item flex-column">
-                    <div className="sim-option-box">
-                      <h6 className="param-name">
-                        Initialisation des paramètres
-                      </h6>
-                      <p>
-                        Afin de gagner du temps, vous pouvez initialiser
-                        l'ensemble des données à des valeurs spécifiques
-                      </p>
-                      <form
-                        className="sim-option-form flex-item"
-                        onChange={(e) => handleInitValues(e)}
-                      >
-                        {/* <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div> */}
-                        <div className="flex-item">
-                          <input
-                            name="initialisation"
-                            value="bau"
-                            type="radio"
-                          ></input>
-                          <label>Etude 1,5°C BL Evolution 2019</label>
-                        </div>
-                        <div className="flex-item">
-                          <input
-                            name="initialisation"
-                            value="1degre5"
-                            type="radio"
-                          ></input>
-                          <label>Un scénario 2°C</label>
-                        </div>
-                        <div className="flex-item">
-                          <input
-                            name="initialisation"
-                            value="init"
-                            type="radio"
-                          ></input>
-                          <label>Réinitialiser</label>
-                        </div>
-                        {/* <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div> */}
-                      </form>
-                      <p>
-                        Pourquoi l'étude 1,5°C de BL Evolution ne fait pas 1.5°C
-                        dans le simulateur ? Réponse dans notre <b>FAQ</b> (page
-                        concept)
-                      </p>
-                    </div>
-                    <div className="sim-option-box">
-                      <h6 className="param-name">Mode Expert</h6>
-                      <p>
-                        Le mode expert permet d'accéder à un plus grand nombre
-                        de paramètres, pour régler son scénario avec davantage
-                        de finesse
-                      </p>
-                      <FormControlLabel
-                        className="nomarge nopad"
-                        onChange={(e) => setModeExpert(e.target.checked)}
-                        control={<PurpleSwitch />}
-                        label="Activer"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <OptionsBox
+                hideOptions={hideOptions}
+                handleInitValues={handleInitValues}
+                handleModeExpert={handleModeExpert}
+              />
             )}
-            {jsonFile.categories.map((cat, i) => (
-              <div key={i} className="sim-cat-params-box">
-                {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
-                <SimCat
-                  key={cat.data.index}
-                  data={cat.data}
-                  results={results.jaugeDatas[i]}
-                />
-                <div
-                  key={"p" + i}
-                  id={"param-box" + i}
-                  className="sim-param-box grid-item"
-                >
-                  {cat.parameters.map((param, j) =>
-                    handleParameterType(cat, param, j, values, setValues)
-                  )}
-                </div>
-              </div>
-            ))}
+            {simulatorCategories}
           </div>
         </section>
-        {width && width > 600 ? (
-          <section className="sim-results-box flex-item flex-column">
-            <div id="results-top-box" className="flex-item flex-column">
-              <h1>Ma projection mondiale</h1>
-              <div id="results-impacts-box" className="flex-item">
-                <p className="results-title n1">Températures</p>
-                <div
-                  className="results-figure n2 flex-item"
-                  style={{ backgroundImage: tempColor(), color: "white" }}
-                >
-                  +{results.impacts.temperature}°C
-                </div>
-                <p className="results-legend n3">
-                  Hausse moy. mondiale / 2100 (de{" "}
-                  {results.impacts.temperatureRange})
-                </p>
-                <p className="results-title n4">Scénario GIEC</p>
-                <div
-                  className="results-figure n5 flex-item"
-                  style={{ backgroundColor: "#e9e7ec" }}
-                >
-                  {results.impacts.RCP}
-                </div>
-                <p className="results-legend n6">
-                  Scénario GIEC de vos mesures (
-                  <a
-                    href="https://leclimatchange.fr/les-elements-scientifiques/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontWeight: "bold", color: "#DB7093" }}
-                  >
-                    Plus d'infos
-                  </a>
-                  )
-                </p>
-                <p className="results-title n7">Empreinte carbone</p>
-                <div
-                  className="results-figure n8 flex-item"
-                  style={{ backgroundColor: "#b0e0e6" }}
-                >
-                  {results.impacts.empreinteMonde}t
-                </div>
-                <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
-              </div>
-            </div>
 
-            <div id="results-bottom-box" className="flex-item flex-column">
-              <div id="results-emissions" className="flex-item flex-column">
-                <h1>Ma projection française</h1>
-                <div id="results-impacts-box2" className="flex-item">
-                  <p className="results-title b1">Évolution émissions</p>
-                  <div
-                    className="results-figure b2 flex-item"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    {results.impacts.reductionEmission2030}
-                  </div>
-                  <p className="results-legend b3">Entre 2020 et 2030</p>
-
-                  <p className="results-title b4">Émissions annuelles</p>
-                  <div
-                    className="results-figure b5 flex-item flex-column"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    <p>{results.impacts.emissionMoy}</p>
-                    <p className="figure-unit">MtCO2</p>
-                  </div>
-                  <p className="results-legend b6">Entre 2020 et 2030</p>
-
-                  <p className="results-title b7">Empreinte carbone</p>
-                  <div
-                    className="results-figure b8 flex-item"
-                    style={{ backgroundColor: "#b0e0e6" }}
-                  >
-                    {results.impacts.empreinteFr}t
-                  </div>
-                  <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
-                </div>
-              </div>
-
-              <div id="results-emissions-charts-container">
-                <div className="chart g1">
-                  <AreaChart
-                    datas={results.emiSecteurGnl}
-                    xOffset={0}
-                    yOffset={-150}
-                  />
-                </div>
-                <p className="g2">Emissions Totales</p>
-
-                <div className="chart g3">
-                  <Sunburst datas={results.emiSecteurPie.graph} />
-                </div>
-                <p className="g4">Par Secteur / 2030</p>
-              </div>
-
-              <div id="results-button" className="flex-item">
-                <Link
-                  to={{ pathname: "/results", state: { results: results } }}
-                >
-                  <button className="blue-btn">Résultats complets</button>
-                </Link>
-              </div>
-            </div>
-          </section>
-        ) : (
-          <>
-            <section>
-              <div id="results-emissions" className="flex-item flex-column">
-                <h1>Ma projection française</h1>
-                <div id="results-impacts-box2" className="flex-item">
-                  <p className="results-title b1">Évolution émissions</p>
-                  <div
-                    className="results-figure b2 flex-item"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    {results.impacts.reductionEmission2030}
-                  </div>
-                  <p className="results-legend b3">Entre 2020 et 2030</p>
-
-                  <p className="results-title b4">Émissions annuelles</p>
-                  <div
-                    className="results-figure b5 flex-item flex-column"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    <p>{results.impacts.emissionMoy}</p>
-                    <p className="figure-unit">MtCO2</p>
-                  </div>
-                  <p className="results-legend b6">Entre 2020 et 2030</p>
-
-                  <p className="results-title b7">Empreinte carbone</p>
-                  <div
-                    className="results-figure b8 flex-item"
-                    style={{ backgroundColor: "#b0e0e6" }}
-                  >
-                    {results.impacts.empreinteFr}t
-                  </div>
-                  <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
-                </div>
-                <div id="results-button" className="flex-item">
-                  <Link
-                    to={{ pathname: "/results", state: { results: results } }}
-                  >
-                    <button className="blue-btn">Résultats complets</button>
-                  </Link>
-                </div>
-              </div>
-              <div id="results-top-box" className="flex-item flex-column">
-                <h1>Ma projection mondiale</h1>
-              </div>
-            </section>
-            <div id="results-impacts-box" className="flex-item">
-              <p className="results-title n1">Températures</p>
-              <div
-                className="results-figure n2 flex-item"
-                style={{ backgroundImage: tempColor(), color: "white" }}
-              >
-                +{results.impacts.temperature}°C
-              </div>
-              <p className="results-legend n3">
-                Hausse moy. mondiale / 2100 (de{" "}
-                {results.impacts.temperatureRange})
-              </p>
-              <p className="results-title n4">Scénario GIEC</p>
-              <div
-                className="results-figure n5 flex-item"
-                style={{ backgroundColor: "#e9e7ec" }}
-              >
-                {results.impacts.RCP}
-              </div>
-              <p className="results-legend n6">
-                Scénario GIEC de vos mesures (
-                <a
-                  href="https://leclimatchange.fr/les-elements-scientifiques/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ fontWeight: "bold", color: "#DB7093" }}
-                >
-                  Plus d'infos
-                </a>
-                )
-              </p>
-              <p className="results-title n7">Empreinte carbone</p>
-              <div
-                className="results-figure n8 flex-item"
-                style={{ backgroundColor: "#b0e0e6" }}
-              >
-                {results.impacts.empreinteMonde}t
-              </div>
-              <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
-            </div>
-          </>
-        )}
+        <ResultsSample results={results} />
       </div>
     </>
-  ) : (
-    <div id="loader">
-      <Loader type="BallTriangle" color="white" height={100} width={100} />
-      <div className="hidden">||</div>
-      <h3 style={{ color: "#7fffd4" }}>Initialisation</h3>
-      <h4 className="light-text">
-        Nous préparons votre environnement de travail.
-      </h4>
-      <h4 className="light-text">
-        L'attente ne devrait pas durer plus de 5 secondes.
-      </h4>
-    </div>
   );
 };
 export default Simulator;
