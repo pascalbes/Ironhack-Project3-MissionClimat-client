@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
@@ -9,20 +9,22 @@ const SimParametreList = ({ data, value, setOneValue, cat }) => {
   const possibleValues = data.possibleValues.split(", ");
   const [infosClass, setInfoClass] = useState("param-info-container-hidden");
   const [componentClass, setComponentClass] = useState("");
-  const [hasInit, setHasInit] = useState(0);
+
+  const hasInit = useRef(false);
+
+  useEffect(() => {
+    hasInit.current = true;
+  }, []);
 
   useEffect(() => {
     if (data.expert) {
       setComponentClass("mode-expert param-container-normal");
     } else setComponentClass("param-container-normal");
-  }, []);
+  }, [data.expert]);
 
   useEffect(() => {
-    if (hasInit === 0) {
-      setHasInit(1);
-    } else {
-      setOneValue(defaultValue, data.index);
-    }
+    if (!hasInit) return;
+    setOneValue(defaultValue, data.index);
   }, [defaultValue]);
 
   function toggleClass() {
