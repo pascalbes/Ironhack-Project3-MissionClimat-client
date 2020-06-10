@@ -19,6 +19,9 @@ import OptionsBox from "../components/simulateur/OptionsBox";
 
 // Custom Hooks
 import { useVisibility } from "../hooks/useVisibility";
+import { getUrl } from "../utils/getUrl";
+import { getValuesFormatted } from "../utils/getValuesFormatted";
+import { getValuesFromUrl } from "../utils/getValuesFromUrl";
 
 import ResultsSample from "../components/simulateur/ResultsSample";
 import SimulatorLoader from "../components/simulateur/SimulatorLoader";
@@ -32,41 +35,10 @@ const Simulator = (props) => {
   //Gestion d'une route avec paramêtres spécifiques
   //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
 
-  //fonction qui récupère en paramètre la string de l'url et la transforme en un array de values au format excel
-  function getValuesFromUrl(vals) {
-    const paramValPair = vals.split("&&");
-    var params = [];
-    paramValPair.forEach((p, i) => {
-      var param = jsonFile.parameters[i];
-
-      if (param.type === "list") {
-        var values = param.possibleValues.split(", ");
-        params.push([values[p.split("=")[1]]]);
-      } else {
-        params.push([p.split("=")[1]]);
-      }
-    });
-
-    return params;
-  }
-
-  function getValuesFormatted(vals, units) {
-    var valsFinal = vals.map((val, i) => {
-      if (units[i] === "%") {
-        val /= 100;
-      }
-      var valSt = val.toString();
-      var valStFinal = valSt.replace(".", ",");
-      return [valStFinal];
-    });
-    return valsFinal;
-  }
-
   // Fonction appellée à la première exécution. Permet de :
   //   - créer une spreadsheet si non créée,
   //   - charger les valeurs de la spreadsheet créée si existante, et les afficher,
   //   - charger les valeurs d'un scénario enregistré, dans le cas d'un appel via url spécifique,
-
   useEffect(() => {
     async function initDatas() {
       var valuesURL = [];
@@ -115,26 +87,6 @@ const Simulator = (props) => {
       localStorage.removeItem("results");
     }
   }, [props.location.pathname]);
-
-  function getUrl(values, parameters) {
-    var url = window.location.origin + "/simulator/favorites/";
-
-    for (let i = 0; i < parameters.length; i++) {
-      var param = parameters[i];
-      url += "p" + i + "=";
-
-      if (param.type === "slider") {
-        url += values[i][0];
-      } else if (param.type === "list") {
-        var possibleValues = param.possibleValues.split(", ");
-        url += possibleValues.indexOf(values[i][0]);
-      }
-      if (i < parameters.length - 1) {
-        url += "&&";
-      }
-    }
-    return url;
-  }
 
   //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
   useEffect(() => {
