@@ -1,5 +1,5 @@
 import React from "react";
-import JaugeDiv from "./simJaugeDiv";
+import JaugeDiv from "components/simulateur/simJaugeDiv";
 
 const simCategorie = ({ data, results }) => {
   //calcul des marges de la légende de la jauge pour leur positionnement

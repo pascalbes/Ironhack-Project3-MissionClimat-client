@@ -1,14 +1,15 @@
 import React from "react";
-import "../styles/about.css";
 
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHistory } from "@fortawesome/free-solid-svg-icons";
 import { faGavel } from "@fortawesome/free-solid-svg-icons";
 import { faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Header from "../components/partials/Header";
-import ReactGA from "react-ga";
 import { Helmet } from "react-helmet";
+import Header from "components/partials/Header";
+import ReactGA from "react-ga";
+
+import "styles/about.css";
 
 export const AboutUs = () => {
   function handleClickTracking(type) {

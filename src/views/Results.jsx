@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/partials/Header";
 import { faLink, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
 
-import ChartContainer from "./../components/resultats/chartContainer";
+import Header from "components/partials/Header";
+import ChartContainer from "components/resultats/chartContainer";
 
-import "./../styles/results.css";
-import "./../styles/simulator.css";
+import "styles/results.css";
+import "styles/simulator.css";
 
 import {
   EmailShareButton,

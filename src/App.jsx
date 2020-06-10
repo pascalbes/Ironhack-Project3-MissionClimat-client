@@ -3,19 +3,19 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 /// PAGES
-import Home from "./views/Home";
-import About from "./views/About";
-import Contact from "./views/Contact.jsx";
-import Contribuer from "./views/Contribuer.jsx";
-import Concept from "./views/Concept";
-import Simulator from "./views/Simulator";
-import Results from "./views/Results";
-import Licenses from "./views/Licenses";
-import NotFound from "./views/NotFound";
+import Home from "views/Home";
+import About from "views/About";
+import Contact from "views/Contact.jsx";
+import Contribuer from "views/Contribuer.jsx";
+import Concept from "views/Concept";
+import Simulator from "views/Simulator";
+import Results from "views/Results";
+import Licenses from "views/Licenses";
+import NotFound from "views/NotFound";
 
 /// STYLES
-import "./styles/app.css";
-import "./styles/reset.css";
+import "styles/app.css";
+import "styles/reset.css";
 
 /// GOOGLE ANALYTICS
 import ReactGA from "react-ga";
@@ -33,21 +33,22 @@ ReactGA.event({
 function App() {
   // function deleteSheet(e) {
   //   e.preventDefault();
-  //   console.log(localStorage.getItem('idSheet'))
-  //   if (localStorage.getItem('idSheet')) {
-  //     var idSheet=localStorage.getItem('idSheet')
-  //     localStorage.removeItem('idSheet')
-  //     api.delete("/sheet/delete", idSheet)
-  //     .then(res => {
-  //       console.log("SHEET DELETED!", res)
-  //     })
-  //     .catch(err=>console.log(err))
+  //   console.log(localStorage.getItem("idSheet"));
+  //   if (localStorage.getItem("idSheet")) {
+  //     var idSheet = localStorage.getItem("idSheet");
+  //     localStorage.removeItem("idSheet");
+  //     api
+  //       .delete("/sheet/delete", idSheet)
+  //       .then((res) => {
+  //         console.log("SHEET DELETED!", res);
+  //       })
+  //       .catch((err) => console.log(err));
   //   }
-  //   return "kikou";
+  //   return null;
   // }
 
   // // useBeforeunload((e) => deleteSheet(e))
-  // window.addEventListener ("beforeunload", (e) => deleteSheet(e));
+  // window.addEventListener("beforeunload", (e) => deleteSheet(e));
 
   const width = window.innerWidth;
 

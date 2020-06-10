@@ -1,4 +1,4 @@
-import jsonFile from "../ressources/initialDatas.json";
+import jsonFile from "ressources/initialDatas.json";
 
 //fonction qui récupère en paramètre la string de l'url et la transforme en un array de values au format excel
 export function getValuesFromUrl(vals) {

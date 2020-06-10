@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
-import "../../styles/simParametreSlide.css";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from "@material-ui/core/Tooltip";
+
+import "styles/simParametreSlide.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {

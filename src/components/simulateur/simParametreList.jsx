@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
-import "../../styles/simParametreSlide.css";
+import "styles/simParametreSlide.css";
 
 const SimParametreList = ({ data, value, setOneValue, cat }) => {
   const [defaultValue, setDefaultValue] = useState(value[0]);

@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../components/partials/Header";
-import Footer from "../components/partials/Footer";
 import { Link } from "react-router-dom";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Helmet } from "react-helmet";
+import Footer from "components/partials/Footer";
+import Header from "components/partials/Header";
 
-import "../styles/home.css";
-import "../styles/footer.css";
+import "styles/home.css";
+import "styles/footer.css";
 
 const Home = () => {
   return (

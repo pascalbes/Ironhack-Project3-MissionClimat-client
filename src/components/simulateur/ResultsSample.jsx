@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Sunburst from "../simulateur/sunburstChart";
-import AreaChart from "../simulateur/simResultsAreaChart";
+import Sunburst from "components/simulateur/sunburstChart";
+import AreaChart from "components/simulateur/simResultsAreaChart";
 
 const ResultsSample = ({ results }) => {
   const width = window.innerWidth;

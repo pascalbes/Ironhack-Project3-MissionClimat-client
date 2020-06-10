@@ -1,5 +1,6 @@
 import React from "react";
-import SimNav from "./simNavBar";
+
+import SimNav from "components/simulateur/simNavBar";
 import ReactGA from "react-ga";
 
 const SimulatorNav = ({ leftNavData, rightNavData, showOptions }) => {

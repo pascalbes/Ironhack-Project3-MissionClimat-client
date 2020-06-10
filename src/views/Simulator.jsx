@@ -1,30 +1,30 @@
 /// BASIC
 import React, { useState, useEffect } from "react";
-import Header from "../components/partials/Header";
-import "./../styles/simulator.css";
-import "./../styles/app.css";
+import Header from "components/partials/Header";
+import "styles/simulator.css";
+import "styles/app.css";
 import { Helmet } from "react-helmet";
 
-import jsonFile from "../ressources/initialDatas.json";
+import jsonFile from "ressources/initialDatas.json";
 
 /// COMPONENTS
-import SimCat from "../components/simulateur/simCategorie";
-import SimParamList from "../components/simulateur/simParametreList";
-import SimParamSlider from "../components/simulateur/simParametreSlide";
+import SimCat from "components/simulateur/simCategorie";
+import SimParamList from "components/simulateur/simParametreList";
+import SimParamSlider from "components/simulateur/simParametreSlide";
 
 import ReactGA from "react-ga";
-import api from "../api/APIHandler";
-import SimulatorNav from "../components/simulateur/SimulatorNav";
-import OptionsBox from "../components/simulateur/OptionsBox";
+import api from "api/APIHandler";
+import SimulatorNav from "components/simulateur/SimulatorNav";
+import OptionsBox from "components/simulateur/OptionsBox";
 
 // Custom Hooks
-import { useVisibility } from "../hooks/useVisibility";
-import { getUrl } from "../utils/getUrl";
-import { getValuesFormatted } from "../utils/getValuesFormatted";
-import { getValuesFromUrl } from "../utils/getValuesFromUrl";
+import { useVisibility } from "hooks/useVisibility";
+import { getUrl } from "utils/getUrl";
+import { getValuesFormatted } from "utils/getValuesFormatted";
+import { getValuesFromUrl } from "utils/getValuesFromUrl";
 
-import ResultsSample from "../components/simulateur/ResultsSample";
-import SimulatorLoader from "../components/simulateur/SimulatorLoader";
+import ResultsSample from "components/simulateur/ResultsSample";
+import SimulatorLoader from "components/simulateur/SimulatorLoader";
 
 const Simulator = (props) => {
   const [values, setValues] = useState(null);

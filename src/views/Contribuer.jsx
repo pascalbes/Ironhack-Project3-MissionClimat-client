@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/contribuer.css";
-import Header from "../components/partials/Header";
+import "styles/contribuer.css";
+import Header from "components/partials/Header";
 import { Helmet } from "react-helmet";
 
 const Contribuer = () => {

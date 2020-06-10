@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Header from "../components/partials/Header";
+import Header from "components/partials/Header";
 import { Helmet } from "react-helmet";
 
-import "../styles/concept.css";
+import "styles/concept.css";
 
 const Concept = () => {
   const [selectedChapter, setSelectedChapter] = useState("concept");
