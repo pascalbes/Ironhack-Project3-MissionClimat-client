@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
@@ -10,22 +10,16 @@ const SimParametreList = ({ data, value, setOneValue, cat }) => {
   const [infosClass, setInfoClass] = useState("param-info-container-hidden");
   const [componentClass, setComponentClass] = useState("");
 
-  const hasInit = useRef(false);
-
-  useEffect(() => {
-    hasInit.current = true;
-  }, []);
-
   useEffect(() => {
     if (data.expert) {
       setComponentClass("mode-expert param-container-normal");
     } else setComponentClass("param-container-normal");
   }, [data.expert]);
 
-  useEffect(() => {
-    if (!hasInit) return;
-    setOneValue(defaultValue, data.index);
-  }, [defaultValue]);
+  const handleChange = (event) => {
+    setDefaultValue(event.target.id);
+    setOneValue(event.target.id, data.index);
+  };
 
   function toggleClass() {
     var componentClassSt = "";
@@ -62,7 +56,7 @@ const SimParametreList = ({ data, value, setOneValue, cat }) => {
                   key={i}
                   id={val}
                   name={i}
-                  onChange={(e) => setDefaultValue(e.target.id)}
+                  onChange={(event) => handleChange(event.target.id)}
                   checked={val === defaultValue}
                 />
                 <label className="small-param-desc" key={"lab" + i} htmlFor={val}>

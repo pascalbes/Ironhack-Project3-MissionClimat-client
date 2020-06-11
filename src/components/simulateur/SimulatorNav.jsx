@@ -26,8 +26,7 @@ const SimulatorNav = ({ leftNavData, rightNavData, showOptions }) => {
         <div id="sim-nav-world">
           <SimNav data={rightNavData} />
         </div>
-        <a
-          href=""
+        <button
           id="options"
           className="sim-nav-category flex-item flex-column"
           onClick={handleClick}
@@ -36,7 +35,7 @@ const SimulatorNav = ({ leftNavData, rightNavData, showOptions }) => {
             <span className="sim-nav-category-icon-helper"></span>
             <img src="/images/Options.png" alt="options" />
           </div>
-        </a>
+        </button>
       </div>
     </div>
   );

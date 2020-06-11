@@ -4,13 +4,13 @@ import SimulatorParamList from "components/simulateur/simParametreList";
 import SimulatorParamSlider from "components/simulateur/simParametreSlide";
 
 const SimulatorSettings = ({ categories, results, values, modeExpert, handleValue }) => {
-  function handleParameterType(cat, param, j, values) {
+  function handleParameterType(cat, param, key, values) {
     // TODO New implementation of handleParameterType
     // issue: param.type needs to be a string eg: "list", "slider"
     // for now the object is as follows: {param.type.list: 1, param.type.slider: 0}
 
     const props = {
-      key: j,
+      key: key,
       data: param.data,
       value: values[param.data.index],
       setOneValue: handleValue,

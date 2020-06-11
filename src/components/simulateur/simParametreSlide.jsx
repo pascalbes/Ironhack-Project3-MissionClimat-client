@@ -81,7 +81,7 @@ const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
     if (data.expert) {
       setComponentClass("mode-expert param-container-normal");
     } else setComponentClass("param-container-normal");
-  }, []);
+  }, [data.expert]);
 
   const unit = data.unit;
   const sliderStep = data.step; //(data.max-data.min)/100
@@ -99,7 +99,7 @@ const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
     },
   ];
 
-  const handleChange = (e, val) => {
+  const handleChange = (event, val) => {
     setOneValue(val, data.index);
   };
 
