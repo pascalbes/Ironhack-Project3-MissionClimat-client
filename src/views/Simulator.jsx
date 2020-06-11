@@ -158,10 +158,7 @@ const Simulator = (props) => {
     const valuesTemp = jsonFile.options[values[initMode]];
 
     const idSheet = localStorage.getItem("idSheet");
-    const valuesFormatted = getValuesFormatted(
-      valuesTemp,
-      jsonFile.options.unit
-    );
+    const valuesFormatted = getValuesFormatted(valuesTemp, jsonFile.options.unit);
 
     // setValues(valuesTemp)
     // setVisibleOptions(false);
@@ -188,19 +185,9 @@ const Simulator = (props) => {
 
   const simulatorCategories = jsonFile.categories.map((cat, i) => (
     <div key={i} className="sim-cat-params-box">
-      <SimCat
-        key={cat.data.index}
-        data={cat.data}
-        results={results.jaugeDatas[i]}
-      />
-      <div
-        key={"p" + i}
-        id={"param-box" + i}
-        className="sim-param-box grid-item"
-      >
-        {cat.parameters.map((param, j) =>
-          handleParameterType(cat, param, j, values, setValues)
-        )}
+      <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]} />
+      <div key={"p" + i} id={"param-box" + i} className="sim-param-box grid-item">
+        {cat.parameters.map((param, j) => handleParameterType(cat, param, j, values, setValues))}
       </div>
     </div>
   ));
@@ -212,10 +199,7 @@ const Simulator = (props) => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Mission Climat / Simulateur</title>
-          <meta
-            name="description"
-            content="Simulateur de scénarios climat à l'échelle nationale"
-          />
+          <meta name="description" content="Simulateur de scénarios climat à l'échelle nationale" />
           <link rel="canonical" href="http://mission-climat.io/simulator/" />
         </Helmet>
 

@@ -77,10 +77,9 @@ function App() {
       <div id="mobile-message">
         <div>
           <p>
-            La version mobile n'est pas encore disponible. Nous vous
-            recommandons de toutes façons l'utilisation d'une tablette ou d'un
-            ordinateur pour profiter pleinement des fonctionnalités du site. A
-            bientôt !
+            La version mobile n'est pas encore disponible. Nous vous recommandons de toutes façons
+            l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des
+            fonctionnalités du site. A bientôt !
           </p>
         </div>
       </div>

@@ -166,10 +166,9 @@ const Results = (props) => {
         unit +
         " / Evolution : ";
       let evolution = Math.round(
-        ((dataValues[dataValues.length - 1][data.dataKey] -
-          dataValues[0][data.dataKey]) /
+        ((dataValues[dataValues.length - 1][data.dataKey] - dataValues[0][data.dataKey]) /
           dataValues[0][data.dataKey]) *
-          100
+          100,
       );
       dataValues[0][data.dataKey] === 0
         ? (data.subText += " n/a")
@@ -210,10 +209,7 @@ const Results = (props) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Mission Climat / Résultats</title>
-        <meta
-          name="description"
-          content="Résultats complets de votre simulation Mission Climat"
-        />
+        <meta name="description" content="Résultats complets de votre simulation Mission Climat" />
         <link rel="canonical" href="http://mission-climat.io/licenses" />
       </Helmet>
 
@@ -268,9 +264,8 @@ const Results = (props) => {
 
         <div className="contact-white">
           <p>
-            Retrouvez sur cette page une synthèse de vos résultats et de
-            nombreux graphiques vous permettant de visualiser les conséquences
-            de votre scénario.
+            Retrouvez sur cette page une synthèse de vos résultats et de nombreux graphiques vous
+            permettant de visualiser les conséquences de votre scénario.
           </p>
         </div>
 
@@ -288,8 +283,7 @@ const Results = (props) => {
                   +{results.impacts.temperature}°C
                 </div>
                 <p className="results-legend">
-                  Hausse moy. mondiale / 2100 (de{" "}
-                  {results.impacts.temperatureRange})
+                  Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})
                 </p>
               </div>
               <div className="tag-container flex-item flex-column">
@@ -304,11 +298,7 @@ const Results = (props) => {
               </div>
             </div>
 
-            <p
-              dangerouslySetInnerHTML={handleInnerHTML(
-                results.impacts.texteSynthese
-              )}
-            ></p>
+            <p dangerouslySetInnerHTML={handleInnerHTML(results.impacts.texteSynthese)}></p>
 
             <div id="res-synthese-buttons" className="flex-item">
               <div title="Copier l'url avec mes paramètres">
@@ -333,12 +323,7 @@ const Results = (props) => {
                 subject="Mission Climat : mon plan climat pour 2030"
                 onClick={() => handleClickTracking("shareEmail")}
               >
-                <EmailIcon
-                  size={32}
-                  round
-                  bgStyle={{ fill: "white" }}
-                  iconFillColor={"#34244E"}
-                />
+                <EmailIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"#34244E"} />
               </EmailShareButton>
 
               <FacebookShareButton
@@ -361,13 +346,7 @@ const Results = (props) => {
                 className="left-btn"
                 title="Mission Climat : mon plan climat pour 2030"
                 via="Mission Climat"
-                hashtags={[
-                  "missionclimat",
-                  "climat",
-                  "ecologie",
-                  "citoyen",
-                  "action",
-                ]}
+                hashtags={["missionclimat", "climat", "ecologie", "citoyen", "action"]}
                 onClick={() => handleClickTracking("shareTwitter")}
               >
                 <TwitterIcon
@@ -384,12 +363,7 @@ const Results = (props) => {
                 title="Mission Climat : Mon plan climat pour 2030"
                 onClick={() => handleClickTracking("shareReddit")}
               >
-                <RedditIcon
-                  size={32}
-                  round
-                  bgStyle={{ fill: "white" }}
-                  iconFillColor={"#34244E"}
-                />
+                <RedditIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"#34244E"} />
               </RedditShareButton>
 
               <LinkedinShareButton
@@ -429,9 +403,7 @@ const Results = (props) => {
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Emissions totales</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(results.emiFrance.intro)}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.emiFrance.intro)}></p>
         </div>
 
         <ChartContainer
@@ -477,11 +449,7 @@ const Results = (props) => {
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Bâtiments</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.dataFrance.batiment.intro
-            )}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.batiment.intro)}></p>
         </div>
 
         <ChartContainer
@@ -490,10 +458,7 @@ const Results = (props) => {
           graphData={results.dataFrance.batiment.perf.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.batiment.perf.text}
-          legendData={areaLegend(
-            results.dataFrance.batiment.perf.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.batiment.perf.graph, "area")}
           sourceData={results.dataFrance.batiment.perf.source}
         />
 
@@ -503,21 +468,14 @@ const Results = (props) => {
           graphData={results.dataFrance.batiment.chauffage.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.batiment.chauffage.text}
-          legendData={areaLegend(
-            results.dataFrance.batiment.chauffage.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.batiment.chauffage.graph, "area")}
           sourceData={results.dataFrance.batiment.chauffage.source}
         />
 
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Transports</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.dataFrance.transports.intro
-            )}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.transports.intro)}></p>
         </div>
 
         <ChartContainer
@@ -526,10 +484,7 @@ const Results = (props) => {
           graphData={results.dataFrance.transports.distance.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.transports.distance.text}
-          legendData={areaLegend(
-            results.dataFrance.transports.distance.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.transports.distance.graph, "area")}
           sourceData={results.dataFrance.transports.distance.source}
         />
 
@@ -539,21 +494,14 @@ const Results = (props) => {
           graphData={results.dataFrance.transports.emissions.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.transports.emissions.text}
-          legendData={areaLegend(
-            results.dataFrance.transports.emissions.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.transports.emissions.graph, "area")}
           sourceData={results.dataFrance.transports.emissions.source}
         />
 
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Agriculture</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.dataFrance.agriculture.intro
-            )}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.agriculture.intro)}></p>
         </div>
 
         <ChartContainer
@@ -562,10 +510,7 @@ const Results = (props) => {
           graphData={results.dataFrance.agriculture.parcelles.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.agriculture.parcelles.text}
-          legendData={areaLegend(
-            results.dataFrance.agriculture.parcelles.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.agriculture.parcelles.graph, "area")}
           sourceData={results.dataFrance.agriculture.parcelles.source}
         />
 
@@ -575,21 +520,14 @@ const Results = (props) => {
           graphData={results.dataFrance.agriculture.emissions.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.agriculture.emissions.text}
-          legendData={areaLegend(
-            results.dataFrance.agriculture.emissions.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.agriculture.emissions.graph, "area")}
           sourceData={results.dataFrance.agriculture.emissions.source}
         />
 
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Consommation</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.dataFrance.conso.intro
-            )}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.conso.intro)}></p>
         </div>
 
         <ChartContainer
@@ -598,10 +536,7 @@ const Results = (props) => {
           graphData={results.dataFrance.conso.quantites.graph}
           graphType="Line"
           graphText={results.dataFrance.conso.quantites.text}
-          legendData={areaLegend(
-            results.dataFrance.conso.quantites.graph,
-            "line"
-          )}
+          legendData={areaLegend(results.dataFrance.conso.quantites.graph, "line")}
           sourceData={results.dataFrance.conso.quantites.source}
         />
 
@@ -611,21 +546,14 @@ const Results = (props) => {
           graphData={results.dataFrance.conso.emissions.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.conso.emissions.text}
-          legendData={areaLegend(
-            results.dataFrance.conso.emissions.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.conso.emissions.graph, "area")}
           sourceData={results.dataFrance.conso.emissions.source}
         />
 
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Energie</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.dataFrance.energie.intro
-            )}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.dataFrance.energie.intro)}></p>
         </div>
 
         <ChartContainer
@@ -634,10 +562,7 @@ const Results = (props) => {
           graphData={results.dataFrance.energie.facteurs.graph}
           graphType="Line"
           graphText={results.dataFrance.energie.facteurs.text}
-          legendData={areaLegend(
-            results.dataFrance.energie.facteurs.graph,
-            "line"
-          )}
+          legendData={areaLegend(results.dataFrance.energie.facteurs.graph, "line")}
           sourceData={results.dataFrance.energie.facteurs.source}
         />
 
@@ -647,10 +572,7 @@ const Results = (props) => {
           graphData={results.dataFrance.energie.emissions.graph}
           graphType="AreaChart"
           graphText={results.dataFrance.energie.emissions.text}
-          legendData={areaLegend(
-            results.dataFrance.energie.emissions.graph,
-            "area"
-          )}
+          legendData={areaLegend(results.dataFrance.energie.emissions.graph, "area")}
           sourceData={results.dataFrance.energie.emissions.source}
         />
       </article>
@@ -665,9 +587,7 @@ const Results = (props) => {
         {/* Titre sous partie */}
         <div className="res-title-box">
           <h2>Emissions totales</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(results.emiMonde.intro)}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.emiMonde.intro)}></p>
         </div>
 
         <ChartContainer
@@ -696,24 +616,16 @@ const Results = (props) => {
 
         <div className="res-title-box">
           <h2>Températures</h2>
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.impacts.temperatures.intro
-            )}
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.intro)}></p>
         </div>
 
         <div className="flex-item flex-column res-emi-fr-container">
           <h3
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.impacts.temperatures.europe.title
-            )}
+            dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.title)}
           ></h3>
           <p
             className="chart-short-desc light-text"
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.impacts.temperatures.europe.subtitle
-            )}
+            dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.subtitle)}
           ></p>
           <div className="flex-item res-chart-container">
             <div className="res-chart">
@@ -722,9 +634,7 @@ const Results = (props) => {
             <div className="res-chart-infos flex-item flex-column">
               <p
                 className="light-text"
-                dangerouslySetInnerHTML={handleInnerHTML(
-                  results.impacts.temperatures.europe.text
-                )}
+                dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.europe.text)}
               ></p>
               <div className="res-chart-legend flex-item">
                 {mapLegendInfos.map((data, i) => (
@@ -743,7 +653,7 @@ const Results = (props) => {
               <p
                 className="res-chart-source"
                 dangerouslySetInnerHTML={handleInnerHTML(
-                  results.impacts.temperatures.europe.source
+                  results.impacts.temperatures.europe.source,
                 )}
               ></p>
             </div>
@@ -752,15 +662,11 @@ const Results = (props) => {
 
         <div className="flex-item flex-column res-emi-fr-container">
           <h3
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.impacts.temperatures.world.title
-            )}
+            dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.title)}
           ></h3>
           <p
             className="chart-short-desc light-text"
-            dangerouslySetInnerHTML={handleInnerHTML(
-              results.impacts.temperatures.world.subtitle
-            )}
+            dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.subtitle)}
           ></p>
           <div className="flex-item res-chart-container">
             <div className="res-chart">
@@ -769,9 +675,7 @@ const Results = (props) => {
             <div className="res-chart-infos flex-item flex-column">
               <p
                 className="light-text"
-                dangerouslySetInnerHTML={handleInnerHTML(
-                  results.impacts.temperatures.world.text
-                )}
+                dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.text)}
               ></p>
               <div className="res-chart-legend flex-item">
                 {mapLegendInfos.map((data, i) => (
@@ -789,9 +693,7 @@ const Results = (props) => {
               </div>
               <p
                 className="res-chart-source"
-                dangerouslySetInnerHTML={handleInnerHTML(
-                  results.impacts.temperatures.world.source
-                )}
+                dangerouslySetInnerHTML={handleInnerHTML(results.impacts.temperatures.world.source)}
               ></p>
             </div>
           </div>

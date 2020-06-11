@@ -120,17 +120,9 @@ const NavMain = (props) => {
           <div className={classes.drawerHeader}>
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === "rtl" ? (
-                <FontAwesomeIcon
-                  style={{ color: props.color }}
-                  size="xs"
-                  icon={faChevronLeft}
-                />
+                <FontAwesomeIcon style={{ color: props.color }} size="xs" icon={faChevronLeft} />
               ) : (
-                <FontAwesomeIcon
-                  style={{ color: props.color }}
-                  size="xs"
-                  icon={faChevronRight}
-                />
+                <FontAwesomeIcon style={{ color: props.color }} size="xs" icon={faChevronRight} />
               )}
             </IconButton>
           </div>

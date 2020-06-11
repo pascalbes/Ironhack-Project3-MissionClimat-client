@@ -30,14 +30,10 @@ const ResultsSample = ({ results }) => {
               +{results.impacts.temperature}°C
             </div>
             <p className="results-legend n3">
-              Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange}
-              )
+              Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})
             </p>
             <p className="results-title n4">Scénario GIEC</p>
-            <div
-              className="results-figure n5 flex-item"
-              style={{ backgroundColor: "#e9e7ec" }}
-            >
+            <div className="results-figure n5 flex-item" style={{ backgroundColor: "#e9e7ec" }}>
               {results.impacts.RCP}
             </div>
             <p className="results-legend n6">
@@ -53,10 +49,7 @@ const ResultsSample = ({ results }) => {
               )
             </p>
             <p className="results-title n7">Empreinte carbone</p>
-            <div
-              className="results-figure n8 flex-item"
-              style={{ backgroundColor: "#b0e0e6" }}
-            >
+            <div className="results-figure n8 flex-item" style={{ backgroundColor: "#b0e0e6" }}>
               {results.impacts.empreinteMonde}t
             </div>
             <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
@@ -87,10 +80,7 @@ const ResultsSample = ({ results }) => {
               <p className="results-legend b6">Entre 2020 et 2030</p>
 
               <p className="results-title b7">Empreinte carbone</p>
-              <div
-                className="results-figure b8 flex-item"
-                style={{ backgroundColor: "#b0e0e6" }}
-              >
+              <div className="results-figure b8 flex-item" style={{ backgroundColor: "#b0e0e6" }}>
                 {results.impacts.empreinteFr}t
               </div>
               <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
@@ -99,11 +89,7 @@ const ResultsSample = ({ results }) => {
 
           <div id="results-emissions-charts-container">
             <div className="chart g1">
-              <AreaChart
-                datas={results.emiSecteurGnl}
-                xOffset={0}
-                yOffset={-150}
-              />
+              <AreaChart datas={results.emiSecteurGnl} xOffset={0} yOffset={-150} />
             </div>
             <p className="g2">Emissions Totales</p>
 
@@ -149,10 +135,7 @@ const ResultsSample = ({ results }) => {
               <p className="results-legend b6">Entre 2020 et 2030</p>
 
               <p className="results-title b7">Empreinte carbone</p>
-              <div
-                className="results-figure b8 flex-item"
-                style={{ backgroundColor: "#b0e0e6" }}
-              >
+              <div className="results-figure b8 flex-item" style={{ backgroundColor: "#b0e0e6" }}>
                 {results.impacts.empreinteFr}t
               </div>
               <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
@@ -179,10 +162,7 @@ const ResultsSample = ({ results }) => {
             Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})
           </p>
           <p className="results-title n4">Scénario GIEC</p>
-          <div
-            className="results-figure n5 flex-item"
-            style={{ backgroundColor: "#e9e7ec" }}
-          >
+          <div className="results-figure n5 flex-item" style={{ backgroundColor: "#e9e7ec" }}>
             {results.impacts.RCP}
           </div>
           <p className="results-legend n6">
@@ -198,10 +178,7 @@ const ResultsSample = ({ results }) => {
             )
           </p>
           <p className="results-title n7">Empreinte carbone</p>
-          <div
-            className="results-figure n8 flex-item"
-            style={{ backgroundColor: "#b0e0e6" }}
-          >
+          <div className="results-figure n8 flex-item" style={{ backgroundColor: "#b0e0e6" }}>
             {results.impacts.empreinteMonde}t
           </div>
           <p className="results-legend n9">tCO2e / an / hab. en 2030</p>

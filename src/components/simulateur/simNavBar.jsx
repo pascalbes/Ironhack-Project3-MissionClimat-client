@@ -32,10 +32,7 @@ const simNavBar = (props) => {
               }}
             ></div>
             <div key={"b" + i} className="sim-nav-category-icon">
-              <span
-                key={"c" + i}
-                className="sim-nav-category-icon-helper"
-              ></span>
+              <span key={"c" + i} className="sim-nav-category-icon-helper"></span>
               <img key={"d" + i} src={imgSrc[cat.name]} alt=""></img>
             </div>
           </a>

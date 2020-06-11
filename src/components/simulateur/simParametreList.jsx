@@ -46,17 +46,12 @@ const SimParametreList = ({ data, value, setOneValue, cat }) => {
       <div id={"param" + data.index}>
         <div className="param-header flex-item nomarge nopad">
           <h6 className="param-name nomarge">{data.name}</h6>
-          <button
-            className="see-more-btn icon-box nomarge nopad"
-            onClick={toggleClass}
-          >
+          <button className="see-more-btn icon-box nomarge nopad" onClick={toggleClass}>
             {!expanded && <FontAwesomeIcon icon={faQuestionCircle} />}
             {expanded && <FontAwesomeIcon icon={faMinusSquare} />}
           </button>
         </div>
-        {data.description && (
-          <p className="small-param-desc">{data.description}</p>
-        )}
+        {data.description && <p className="small-param-desc">{data.description}</p>}
 
         <form>
           <div className="flex-item">
@@ -70,11 +65,7 @@ const SimParametreList = ({ data, value, setOneValue, cat }) => {
                   onChange={(e) => setDefaultValue(e.target.id)}
                   checked={val === defaultValue}
                 />
-                <label
-                  className="small-param-desc"
-                  key={"lab" + i}
-                  htmlFor={val}
-                >
+                <label className="small-param-desc" key={"lab" + i} htmlFor={val}>
                   {val}
                 </label>
               </div>

@@ -36,10 +36,7 @@ const chartContainer = ({
           {graphType === "Line" && <LineChart datas={graphData} />}
         </div>
         <div className="res-chart-infos flex-item flex-column">
-          <p
-            dangerouslySetInnerHTML={handleInnerHTML(graphText)}
-            className="light-text"
-          ></p>
+          <p dangerouslySetInnerHTML={handleInnerHTML(graphText)} className="light-text"></p>
           <div className="res-chart-legend flex-item">
             {legendData.map((data, i) => (
               <div key={i} className="flex-item">
@@ -59,10 +56,7 @@ const chartContainer = ({
               </div>
             ))}
           </div>
-          <p
-            className="res-chart-source"
-            dangerouslySetInnerHTML={handleInnerHTML(sourceData)}
-          ></p>
+          <p className="res-chart-source" dangerouslySetInnerHTML={handleInnerHTML(sourceData)}></p>
         </div>
       </div>
     </div>

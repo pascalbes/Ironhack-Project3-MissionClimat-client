@@ -40,19 +40,18 @@ const Licenses = () => {
               <br></br>
             </p>
             <p>
-              Permission is hereby granted, free of charge, to any person
-              obtaining a copy of this software and associated documentation
-              files (the "Software"), to deal in the Software without
-              restriction, including without limitation the rights to use, copy,
-              modify, merge, publish, distribute, sublicense, and/or sell copies
-              of the Software, and to permit persons to whom the Software is
-              furnished to do so, subject to the following conditions:
+              Permission is hereby granted, free of charge, to any person obtaining a copy of this
+              software and associated documentation files (the "Software"), to deal in the Software
+              without restriction, including without limitation the rights to use, copy, modify,
+              merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+              permit persons to whom the Software is furnished to do so, subject to the following
+              conditions:
               <br></br>
               <br></br>
             </p>
             <p>
-              The above copyright notice and this permission notice shall be
-              included in all copies or substantial portions of the Software.
+              The above copyright notice and this permission notice shall be included in all copies
+              or substantial portions of the Software.
             </p>
 
             <div className="flex-item contact-title">
@@ -61,8 +60,7 @@ const Licenses = () => {
             </div>
             <p>
               <b>
-                Librairie utilisée pour l'ensemble des graphiques (hormis les
-                jauges, home made)
+                Librairie utilisée pour l'ensemble des graphiques (hormis les jauges, home made)
               </b>
             </p>
             <p>
@@ -76,26 +74,22 @@ const Licenses = () => {
               <br></br>
             </p>
             <p>
-              Permission is hereby granted, free of charge, to any person
-              obtaining a copy of this software and associated documentation
-              files (the "Software"), to deal in the Software without
-              restriction, including without limitation the rights to use, copy,
-              modify, merge, publish, distribute, sublicense, and/or sell copies
-              of the Software, and to permit persons to whom the Software is
-              furnished to do so, subject to the following conditions:
+              Permission is hereby granted, free of charge, to any person obtaining a copy of this
+              software and associated documentation files (the "Software"), to deal in the Software
+              without restriction, including without limitation the rights to use, copy, modify,
+              merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+              permit persons to whom the Software is furnished to do so, subject to the following
+              conditions:
               <br></br>
               <br></br>
             </p>
             <p>
-              The above copyright notice and this permission notice shall be
-              included in all copies or substantial portions of the Software.
+              The above copyright notice and this permission notice shall be included in all copies
+              or substantial portions of the Software.
             </p>
 
             <div className="flex-item contact-title">
-              <img
-                src="../../../images/about/liens articles - blanc.svg"
-                alt=""
-              />
+              <img src="../../../images/about/liens articles - blanc.svg" alt="" />
               <h6>Material UI</h6>
             </div>
             <p>
@@ -112,19 +106,18 @@ const Licenses = () => {
               <br></br>
             </p>
             <p>
-              Permission is hereby granted, free of charge, to any person
-              obtaining a copy of this software and associated documentation
-              files (the "Software"), to deal in the Software without
-              restriction, including without limitation the rights to use, copy,
-              modify, merge, publish, distribute, sublicense, and/or sell copies
-              of the Software, and to permit persons to whom the Software is
-              furnished to do so, subject to the following conditions:
+              Permission is hereby granted, free of charge, to any person obtaining a copy of this
+              software and associated documentation files (the "Software"), to deal in the Software
+              without restriction, including without limitation the rights to use, copy, modify,
+              merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+              permit persons to whom the Software is furnished to do so, subject to the following
+              conditions:
               <br></br>
               <br></br>
             </p>
             <p>
-              The above copyright notice and this permission notice shall be
-              included in all copies or substantial portions of the Software.
+              The above copyright notice and this permission notice shall be included in all copies
+              or substantial portions of the Software.
             </p>
           </div>
 
@@ -149,9 +142,7 @@ const Licenses = () => {
               Ces icônes sont partagées sous la licence{" "}
               <b>
                 <u>
-                  <a href="https://creativecommons.org/licenses/by/4.0/">
-                    CC BY 4.0
-                  </a>
+                  <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
                 </u>
               </b>
             </p>
@@ -182,24 +173,21 @@ const Licenses = () => {
               <b>Site utilisé pour les illustrations du notre</b>
             </p>
             <p>
-              Copyright 2020 Katerina Limpitsouni All images, assets and vectors
-              published on unDraw can be used for free. You can use them for
-              noncommercial and commercial purposes. You do not need to ask
-              permission from or provide credit to the creator or unDraw.
+              Copyright 2020 Katerina Limpitsouni All images, assets and vectors published on unDraw
+              can be used for free. You can use them for noncommercial and commercial purposes. You
+              do not need to ask permission from or provide credit to the creator or unDraw.
               <br></br>
               <br></br>
             </p>
             <p>
-              More precisely, unDraw grants you an nonexclusive, worldwide
-              copyright license to download, copy, modify, distribute, perform,
-              and use the assets provided from unDraw for free, including for
-              commercial purposes, without permission from or attributing the
-              creator or unDraw. This license does not include the right to
-              compile assets, vectors or images from unDraw to replicate a
-              similar or competing service, in any form or distribute the assets
-              in packs. This extends to automated and non-automated ways to
-              link, embed, scrape, search or download the assets included on the
-              website without our consent.
+              More precisely, unDraw grants you an nonexclusive, worldwide copyright license to
+              download, copy, modify, distribute, perform, and use the assets provided from unDraw
+              for free, including for commercial purposes, without permission from or attributing
+              the creator or unDraw. This license does not include the right to compile assets,
+              vectors or images from unDraw to replicate a similar or competing service, in any form
+              or distribute the assets in packs. This extends to automated and non-automated ways to
+              link, embed, scrape, search or download the assets included on the website without our
+              consent.
             </p>
           </div>
         </section>

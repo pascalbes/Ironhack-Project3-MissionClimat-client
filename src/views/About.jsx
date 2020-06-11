@@ -36,10 +36,7 @@ export const AboutUs = () => {
         <div className="flex-column">
           <a href="#about-history">
             <div className="about-chapter-selection">
-              <FontAwesomeIcon
-                className="about-icon nav-about-img"
-                icon={faHistory}
-              />
+              <FontAwesomeIcon className="about-icon nav-about-img" icon={faHistory} />
               <br />
               <span>Historique du projet</span>
             </div>
@@ -49,11 +46,7 @@ export const AboutUs = () => {
         <div className="flex-column">
           <a href="#about-team">
             <div className="about-chapter-selection">
-              <img
-                className="nav-about-img"
-                src="../../images/logo/Team.svg"
-                alt="Logo Equipe"
-              />
+              <img className="nav-about-img" src="../../images/logo/Team.svg" alt="Logo Equipe" />
               <br />
               <span>L'équipe et partenaires</span>
             </div>
@@ -63,10 +56,7 @@ export const AboutUs = () => {
         <div className="flex-column">
           <a href="#about-law">
             <div className="about-chapter-selection">
-              <FontAwesomeIcon
-                className="about-icon nav-about-img"
-                icon={faGavel}
-              />
+              <FontAwesomeIcon className="about-icon nav-about-img" icon={faGavel} />
               <br />
               <span>Droits, licences et specs.</span>
             </div>
@@ -76,10 +66,7 @@ export const AboutUs = () => {
         <div className="flex-column">
           <a href="#about-cgu">
             <div className="about-chapter-selection">
-              <FontAwesomeIcon
-                className="about-icon nav-about-img"
-                icon={faHandshake}
-              />
+              <FontAwesomeIcon className="about-icon nav-about-img" icon={faHandshake} />
               <br />
               <span>CGU : liberté et réciprocité</span>
             </div>
@@ -97,8 +84,7 @@ export const AboutUs = () => {
           Ce projet débute en février 2019 avec la publication de l'étude
           <i>
             <b>
-              « Comment la France peut s’aligner sur une trajectoire compatible
-              avec les 1,5°C »
+              « Comment la France peut s’aligner sur une trajectoire compatible avec les 1,5°C »
             </b>
           </i>
           par B&L évolution. S’appuyant sur les données du rapport «
@@ -115,9 +101,9 @@ export const AboutUs = () => {
               </b>
             </i>
           </u>
-          » du <b>GIEC</b>, l’étude donne à voir l'importance des mesures à
-          mettre en place pour réduire les émissions de gaz à effet de serre de
-          la France et s’aligner sur les recommandations du GIEC.
+          » du <b>GIEC</b>, l’étude donne à voir l'importance des mesures à mettre en place pour
+          réduire les émissions de gaz à effet de serre de la France et s’aligner sur les
+          recommandations du GIEC.
         </p>
 
         <div id="about-articles" className="flex-item">
@@ -195,59 +181,46 @@ export const AboutUs = () => {
 
         <h5>Développement maquette @Ironhack Paris / Février 2020</h5>
         <p>
-          En janvier 2020, Guillaume Martin, l'un des 2 co-auteurs de l'étude,
-          et Pascal Besson décident de démocratiser et valoriser ce modèle
-          autour d'un simulateur web. Une
+          En janvier 2020, Guillaume Martin, l'un des 2 co-auteurs de l'étude, et Pascal Besson
+          décident de démocratiser et valoriser ce modèle autour d'un simulateur web. Une
           <b>
-            maquette est développée en 2 semaines pour le projet final du
-            bootcamp
+            maquette est développée en 2 semaines pour le projet final du bootcamp
             <u>
-              <a
-                href="https://www.ironhack.com/fr/paris"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.ironhack.com/fr/paris" target="_blank" rel="noopener noreferrer">
                 Ironhack Paris
               </a>
             </u>
           </b>
-          avec Nina Gautreau et Paul Carillion. En parallèle, Charles-Adrien
-          Louis, Célian Niclot et Guillaume Martin simplifient et améliorent le
-          modèle pour le rendre accessible au public. Le projet est finalement
-          honoré en étant
+          avec Nina Gautreau et Paul Carillion. En parallèle, Charles-Adrien Louis, Célian Niclot et
+          Guillaume Martin simplifient et améliorent le modèle pour le rendre accessible au public.
+          Le projet est finalement honoré en étant
           <b>
-            élu meilleur projet web par la promotion de dev web puis lors du
-            hackshow du 9 mars de Ironhack
+            élu meilleur projet web par la promotion de dev web puis lors du hackshow du 9 mars de
+            Ironhack
           </b>
           . Champagne !
         </p>
 
         <h5>Développement Mission Climat / Avril 2020</h5>
         <p>
-          Après un court repos une petite équipe est montée pour finaliser le
-          projet. Oriana Berthomieu définit l'UI finale et Emmanuel Bernard
-          rejoint Pascal et Nina pour finaliser le développement, alors que nous
-          avons la chance d'être accompagnés par le
+          Après un court repos une petite équipe est montée pour finaliser le projet. Oriana
+          Berthomieu définit l'UI finale et Emmanuel Bernard rejoint Pascal et Nina pour finaliser
+          le développement, alors que nous avons la chance d'être accompagnés par le
           <u>
             <b>
-              <a
-                href="https://inno3.fr/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://inno3.fr/" target="_blank" rel="noopener noreferrer">
                 cabinet inno3
               </a>
             </b>
           </u>
           pour définir les droits et licences associés au projet.
-          <b>Le site sort enfin le lundi 4 mai 2020</b>, au grand bonheur de
-          tout ce joli monde, et nous l'espérons, au vôtre également !
+          <b>Le site sort enfin le lundi 4 mai 2020</b>, au grand bonheur de tout ce joli monde, et
+          nous l'espérons, au vôtre également !
         </p>
 
         <h5>Mission Transition / Mai 2020 ></h5>
         <p>
-          L'équipe a de grandes ambitions pour développer ce projet. On vous en
-          dit plus
+          L'équipe a de grandes ambitions pour développer ce projet. On vous en dit plus
           <b>
             <u>
               <a href="/contribuer">ici</a>
@@ -258,16 +231,9 @@ export const AboutUs = () => {
       </section>
 
       <section className="about-card flex-item flex-column">
-        <article
-          id="about-team"
-          className="about-card-lead flex-item flex-column"
-        >
+        <article id="about-team" className="about-card-lead flex-item flex-column">
           <div className="about-card-head flex-item">
-            <img
-              className="team-logo"
-              src="/images/logo/Team.svg"
-              alt="Logo Equipe"
-            />
+            <img className="team-logo" src="/images/logo/Team.svg" alt="Logo Equipe" />
             <h3 className="nomarge">L'équipe</h3>
           </div>
 
@@ -291,11 +257,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/pascal-besson/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -304,18 +266,11 @@ export const AboutUs = () => {
                 href="https://www.linkedin.com/in/pascal-besson/"
               >
                 Pascal Besson
-                <img
-                  className="dev-box-logo"
-                  src="/images/logo/Pascal-logo.svg"
-                  alt="Logo PB"
-                />
+                <img className="dev-box-logo" src="/images/logo/Pascal-logo.svg" alt="Logo PB" />
               </a>
-              <p className="dev-box-desc">
-                Ingénieur / RSE / Développeur Fullstack
-              </p>
+              <p className="dev-box-desc">Ingénieur / RSE / Développeur Fullstack</p>
               <p className="dev-box-role">
-                Rôle : Pilotage projet, conception site, développement front et
-                back
+                Rôle : Pilotage projet, conception site, développement front et back
               </p>
             </div>
 
@@ -326,11 +281,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/guillaume-martin-86662989/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -339,18 +290,10 @@ export const AboutUs = () => {
                 href="https://www.linkedin.com/in/guillaume-martin-86662989/"
               >
                 Guillaume Martin
-                <img
-                  className="dev-box-logo"
-                  src="../../images/logo/BLevo.png"
-                  alt="Logo B&L"
-                />
+                <img className="dev-box-logo" src="../../images/logo/BLevo.png" alt="Logo B&L" />
               </a>
-              <p className="dev-box-desc">
-                Expert Energie-Climat à B&L évolution
-              </p>
-              <p className="dev-box-role">
-                Rôle : Pilotage projet, définition modèle émissions
-              </p>
+              <p className="dev-box-desc">Expert Energie-Climat à B&L évolution</p>
+              <p className="dev-box-role">Rôle : Pilotage projet, définition modèle émissions</p>
             </div>
           </div>
 
@@ -366,11 +309,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/charles-adrien-louis-63863526/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -379,15 +318,9 @@ export const AboutUs = () => {
                 href="https://www.linkedin.com/in/charles-adrien-louis-63863526/"
               >
                 Charles-Adrien Louis
-                <img
-                  className="dev-box-logo"
-                  src="/images/logo/BLevo.png"
-                  alt="Logo B&L"
-                />
+                <img className="dev-box-logo" src="/images/logo/BLevo.png" alt="Logo B&L" />
               </a>
-              <p className="dev-box-desc">
-                Co-fondateur et co-gérant B&L Évolution
-              </p>
+              <p className="dev-box-desc">Co-fondateur et co-gérant B&L Évolution</p>
               <p className="dev-box-role">Rôle : définition modèle émissions</p>
             </div>
 
@@ -398,11 +331,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/c%C3%A9lian-niclot/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -411,15 +340,9 @@ export const AboutUs = () => {
                 href="https://www.linkedin.com/in/c%C3%A9lian-niclot/"
               >
                 Célian Niclot
-                <img
-                  className="dev-box-logo"
-                  src="/images/logo/BLevo.png"
-                  alt="Logo B&L"
-                />
+                <img className="dev-box-logo" src="/images/logo/BLevo.png" alt="Logo B&L" />
               </a>
-              <p className="dev-box-desc">
-                Consultant Energie-Climat à B&L Évolution
-              </p>
+              <p className="dev-box-desc">Consultant Energie-Climat à B&L Évolution</p>
               <p className="dev-box-role">Rôle : définition modèle émissions</p>
             </div>
           </div>
@@ -434,11 +357,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/ninagautreau/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -453,9 +372,7 @@ export const AboutUs = () => {
                   alt="Logo Nina Gautreau"
                 />
               </a>
-              <p className="dev-box-desc">
-                Teacher Assistant / Développeuse Fullstack
-              </p>
+              <p className="dev-box-desc">Teacher Assistant / Développeuse Fullstack</p>
               <p className="dev-box-role">Rôle : Développement front, UX-UI</p>
             </div>
 
@@ -466,11 +383,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/oriana-berthomieu-3baa1431/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -491,11 +404,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/emmbernard/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -505,12 +414,8 @@ export const AboutUs = () => {
               >
                 Emmanuel Bernard
               </a>
-              <p className="dev-box-desc">
-                Entrepreneur / Développeur Fullstack
-              </p>
-              <p className="dev-box-role">
-                Rôle : Développement front, déploiement
-              </p>
+              <p className="dev-box-desc">Entrepreneur / Développeur Fullstack</p>
+              <p className="dev-box-role">Rôle : Développement front, déploiement</p>
             </div>
 
             <div className="dev-team">
@@ -520,11 +425,7 @@ export const AboutUs = () => {
                 rel="noopener noreferrer"
                 href="https://www.linkedin.com/in/paul-carillion-3826041a1/"
               >
-                <img
-                  className="linkedin"
-                  src="/images/logo/linkedin.svg"
-                  alt="LinkedIn"
-                />
+                <img className="linkedin" src="/images/logo/linkedin.svg" alt="LinkedIn" />
               </a>
               <a
                 className="dev-box-name"
@@ -548,28 +449,21 @@ export const AboutUs = () => {
 
         <article className="about-card-lead flex-item flex-column">
           <div className="about-card-head flex-item">
-            <img
-              className="team-logo"
-              src="/images/logo/BLevo.png"
-              alt="Logo B&L"
-            />
+            <img className="team-logo" src="/images/logo/BLevo.png" alt="Logo B&L" />
             <h3 className="nomarge">B&L Évolution</h3>
           </div>
           <p>
-            B&L Évolution est co-auteur de ce site et auteur du modèle de calcul
-            utilisé, et partagé selon les modalités présentées à la section
-            "Droits et licences".
+            B&L Évolution est co-auteur de ce site et auteur du modèle de calcul utilisé, et partagé
+            selon les modalités présentées à la section "Droits et licences".
           </p>
           <p>
-            <b>Présentation du cabinet : </b>les entreprises et territoires qui
-            ont l’ambition de se développer de manière durable font confiance à
-            l'équipe d’experts de B&L évolution depuis plus de 9 ans. B&L
-            évolution est un bureau d’études et de conseils en développement
-            durable. Au service de la société, cette équipe engagée souhaite
-            diffuser une vision résiliente de l’aménagement des territoires et
-            du développement des entreprises en associant une vision fortement
-            participative à une prise de conscience réaliste et éclairée des
-            enjeux du XXIe siècle.
+            <b>Présentation du cabinet : </b>les entreprises et territoires qui ont l’ambition de se
+            développer de manière durable font confiance à l'équipe d’experts de B&L évolution
+            depuis plus de 9 ans. B&L évolution est un bureau d’études et de conseils en
+            développement durable. Au service de la société, cette équipe engagée souhaite diffuser
+            une vision résiliente de l’aménagement des territoires et du développement des
+            entreprises en associant une vision fortement participative à une prise de conscience
+            réaliste et éclairée des enjeux du XXIe siècle.
           </p>
           <a
             className="link-team-about"
@@ -585,28 +479,17 @@ export const AboutUs = () => {
           <div className="separator"></div>
 
           <div className="about-card-head flex-item ac">
-            <img
-              className="team-logo"
-              src="/images/logo/AC.png"
-              alt="Logo Avenir Climatique"
-            />
+            <img className="team-logo" src="/images/logo/AC.png" alt="Logo Avenir Climatique" />
             <h3 className="nomarge">Avenir Climatique</h3>
           </div>
-          <p>
-            L'association Avenir Climatique a eu plusieurs rôles sur le projet
-            Mission Climat :
-          </p>
+          <p>L'association Avenir Climatique a eu plusieurs rôles sur le projet Mission Climat :</p>
           <ul>
             <li>
-              Elle a d'abord été un lieu de rencontre, pour Guillaume Martin,
-              Pascal Besson et Emmanuel Bernard, en particulier sur le projet
+              Elle a d'abord été un lieu de rencontre, pour Guillaume Martin, Pascal Besson et
+              Emmanuel Bernard, en particulier sur le projet
               <u>
                 <b>
-                  <a
-                    href="https://www.educlimat.fr/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
+                  <a href="https://www.educlimat.fr/" rel="noopener noreferrer" target="_blank">
                     ÉduClimat
                   </a>
                 </b>
@@ -614,32 +497,25 @@ export const AboutUs = () => {
               pour ces 2 derniers,
             </li>
             <li>
-              Elle a été d'une aide précieuse pour tester le site et proposer
-              des corrections, des évolutions. Pour cela
-              <b>
-                un énorme merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle
-                Leloup,
-              </b>
+              Elle a été d'une aide précieuse pour tester le site et proposer des corrections, des
+              évolutions. Pour cela
+              <b>un énorme merci à Tom Nico, Estelle Payan, Pacco Bailly, Gaëlle Leloup,</b>
             </li>
             <li>
-              Elle a enfin fourni la majeure partie des textes disponibles à la
-              page "Concept".
+              Elle a enfin fourni la majeure partie des textes disponibles à la page "Concept".
             </li>
           </ul>
 
           <p>
             <b>Présentation de l'association : </b>
-            Avenir Climatique a pour objectif de faire des enjeux énergie /
-            climat une priorité nationale en formant les citoyens et citoyennes.
-            L'association développe des actions de sensibilisation et de
-            formation adaptées et attractives pour tous les publics (MOOC,
-            Conférences, jeux de société...) Elle permet à toutes et tous de
-            monter en compétences sur le fond (savoirs techniques et
-            scientifiques) et sur la forme (diffusion du message, accompagnement
-            au changement, esprit critique...) Dans son fonctionnement au
-            quotidien, elle promeut et expérimente afin de pousser à un maximum
-            d'exemplarité (baisse de l'empreinte carbone, inclusion,
-            fonctionnement holacratique...)
+            Avenir Climatique a pour objectif de faire des enjeux énergie / climat une priorité
+            nationale en formant les citoyens et citoyennes. L'association développe des actions de
+            sensibilisation et de formation adaptées et attractives pour tous les publics (MOOC,
+            Conférences, jeux de société...) Elle permet à toutes et tous de monter en compétences
+            sur le fond (savoirs techniques et scientifiques) et sur la forme (diffusion du message,
+            accompagnement au changement, esprit critique...) Dans son fonctionnement au quotidien,
+            elle promeut et expérimente afin de pousser à un maximum d'exemplarité (baisse de
+            l'empreinte carbone, inclusion, fonctionnement holacratique...)
           </p>
           <a
             className="link-team-about"
@@ -664,29 +540,23 @@ export const AboutUs = () => {
             <h5>Site Mission Climat</h5>
             <img src="./images/logo/agplv3-with-text-162x68.png" alt=""></img>
             <br></br>
-            <p>
-              Simulateur de scénario climat à l'échelle nationale à visée
-              éducative
-            </p>
+            <p>Simulateur de scénario climat à l'échelle nationale à visée éducative</p>
             <p>
               <b>
-                Copyright (C) 2020 Pascal Besson, Nina Gautreau, Oriana
-                Berthomieu, BL Evolution
+                Copyright (C) 2020 Pascal Besson, Nina Gautreau, Oriana Berthomieu, BL Evolution
               </b>
             </p>
 
             <p>
-              <b>This program is free software</b>: you can redistribute it
-              and/or modify it under the terms of the GNU Affero General Public
-              License as published by the Free Software Foundation, either
-              version 3 of the License, or (at your option) any later version.
+              <b>This program is free software</b>: you can redistribute it and/or modify it under
+              the terms of the GNU Affero General Public License as published by the Free Software
+              Foundation, either version 3 of the License, or (at your option) any later version.
             </p>
 
             <p>
-              This program is distributed in the hope that it will be useful,
-              but WITHOUT ANY WARRANTY; without even the implied warranty of
-              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-              Affero General Public License for more details.
+              This program is distributed in the hope that it will be useful, but WITHOUT ANY
+              WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+              PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
             </p>
 
             <a href="./agpl-3.0.txt" target="_blank" rel="noopener noreferrer">
@@ -753,34 +623,28 @@ export const AboutUs = () => {
             <br></br>
 
             <p>
-              Modèle de calcul des émissions de gaz à effet de serre de la
-              France, avec projection mondiale
+              Modèle de calcul des émissions de gaz à effet de serre de la France, avec projection
+              mondiale
             </p>
             <p>
               <b>Copyright (C) 2020 BL Evolution</b>
             </p>
 
             <p>
-              <b>This program is free software</b>: you can redistribute it
-              and/or modify it under the terms of the GNU Affero General Public
-              License as published by the Free Software Foundation, either
-              version 3 of the License, or (at your option) any later version.
+              <b>This program is free software</b>: you can redistribute it and/or modify it under
+              the terms of the GNU Affero General Public License as published by the Free Software
+              Foundation, either version 3 of the License, or (at your option) any later version.
             </p>
 
             <p>
-              This program is distributed in the hope that it will be useful,
-              but WITHOUT ANY WARRANTY; without even the implied warranty of
-              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-              Affero General Public License for more details.
+              This program is distributed in the hope that it will be useful, but WITHOUT ANY
+              WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+              PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
             </p>
 
             <u>
               <b>
-                <a
-                  href="./agpl-3.0.txt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="./agpl-3.0.txt" target="_blank" rel="noopener noreferrer">
                   Copie de licence
                 </a>
               </b>
@@ -810,9 +674,7 @@ export const AboutUs = () => {
       <article id="about-cgu" className="about-card flex-item flex-column">
         <div className="about-card-head flex-item">
           <FontAwesomeIcon className="about-icon" icon={faHandshake} />
-          <h3 className="nomarge">
-            Conditions Générales d'Utilisation : liberté et réciprocité
-          </h3>
+          <h3 className="nomarge">Conditions Générales d'Utilisation : liberté et réciprocité</h3>
         </div>
 
         <div className="flex-item">
@@ -825,22 +687,20 @@ export const AboutUs = () => {
                 évidemment pour <b>tout usage personnel</b>,
               </li>
               <li>
-                dans le cadre d'un <b>atelier de formation ou d'un cours</b>,
-                rémunéré ou non,
+                dans le cadre d'un <b>atelier de formation ou d'un cours</b>, rémunéré ou non,
               </li>
               <li>etc.</li>
             </ul>
 
             <h5>Réciprocité</h5>
             <p>
-              Dans l'équipe Mission Climat, nous sommes attachés à cette notion,
-              et sa cousine "don / contre don" (poke Alain Caillé). Elle permet
-              de fabriquer du commun en engageant un cycle vertueux :
+              Dans l'équipe Mission Climat, nous sommes attachés à cette notion, et sa cousine "don
+              / contre don" (poke Alain Caillé). Elle permet de fabriquer du commun en engageant un
+              cycle vertueux :
             </p>
             <ul>
               <li>
-                nous <b>donnons</b> du temps et de l'énergie pour vous fournir
-                un outil utile,
+                nous <b>donnons</b> du temps et de l'énergie pour vous fournir un outil utile,
               </li>
               <li>
                 vous le <b>recevez</b> et l'utilisez,
@@ -849,26 +709,21 @@ export const AboutUs = () => {
                 vous <b>rendez</b>, dans la mesure de votre possible,
               </li>
               <li>
-                nous recevons votre contribution en retour et pouvons améliorer
-                l'outil, mis à disposition de tous.
+                nous recevons votre contribution en retour et pouvons améliorer l'outil, mis à
+                disposition de tous.
               </li>
             </ul>
 
             <h5>Retours bienvenus</h5>
 
-            <p>
-              Nous accueillerons avec plaisir tout type de retour ! Vous pouvez
-              par exemple :
-            </p>
+            <p>Nous accueillerons avec plaisir tout type de retour ! Vous pouvez par exemple :</p>
             <ul>
               <li>
-                <b>partager le projet autour de vous</b>, l'utiliser pour animer
-                des ateliers de sensibilisation, d'accompagnement au changement,
-                etc,
+                <b>partager le projet autour de vous</b>, l'utiliser pour animer des ateliers de
+                sensibilisation, d'accompagnement au changement, etc,
               </li>
               <li>
-                nous <b>dire ce que vous en pensez</b>, partager vos idées pour
-                l'améliorer,
+                nous <b>dire ce que vous en pensez</b>, partager vos idées pour l'améliorer,
               </li>
               <li>
                 <b>contribuer</b> à son développement,
@@ -899,25 +754,23 @@ export const AboutUs = () => {
         </div>
         <ul>
           <li>
-            <span>Ironhack Paris</span> pour nous avoir accompagnés tout le long
-            du bootcamp dans la préparation puis le développement de la maquette
-            de ce projet, avec des remerciements particuliers à Katya,
-            Guillaume, Franck, PH, Clara et Tatijana.
+            <span>Ironhack Paris</span> pour nous avoir accompagnés tout le long du bootcamp dans la
+            préparation puis le développement de la maquette de ce projet, avec des remerciements
+            particuliers à Katya, Guillaume, Franck, PH, Clara et Tatijana.
           </li>
           <li>
-            <span>Simon Durning</span> pour ses conseils en direction de projet
-            web.
+            <span>Simon Durning</span> pour ses conseils en direction de projet web.
           </li>
           <li>
-            <span>Ingrid Thonet, Cédric Bernoux et Pierre-Etienne Delfly</span>{" "}
-            pour leurs regards avisés UX/UI.
+            <span>Ingrid Thonet, Cédric Bernoux et Pierre-Etienne Delfly</span> pour leurs regards
+            avisés UX/UI.
           </li>
           <li>
             <span>Pauline Gautreau</span> pour la création de notre logo.
           </li>
           <li>
-            <span>Minh Cuong Le Quan</span> pour les multiples versions futures
-            que ses idées alimentent.
+            <span>Minh Cuong Le Quan</span> pour les multiples versions futures que ses idées
+            alimentent.
           </li>
         </ul>
       </article>

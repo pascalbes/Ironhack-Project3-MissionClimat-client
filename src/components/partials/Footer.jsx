@@ -16,21 +16,9 @@ const Footer = () => {
   return (
     <footer className="flex-item nomarge flex-item">
       <div className="footer-item flex-item footer-logos">
-        <img
-          className="footer-logo"
-          src="../../images/logo/BLBlanc-300x129.png"
-          alt="Logo B&L"
-        />
-        <img
-          className="footer-logo"
-          src="../../images/logo/Pascal-logo.svg"
-          alt="Logo pb"
-        />
-        <img
-          className="footer-logo"
-          src="../../images/logo/Nina-logo.svg"
-          alt="Nina Gautreau"
-        />
+        <img className="footer-logo" src="../../images/logo/BLBlanc-300x129.png" alt="Logo B&L" />
+        <img className="footer-logo" src="../../images/logo/Pascal-logo.svg" alt="Logo pb" />
+        <img className="footer-logo" src="../../images/logo/Nina-logo.svg" alt="Nina Gautreau" />
       </div>
       <div className="footer-item flex-item">
         <EmailShareButton
@@ -38,12 +26,7 @@ const Footer = () => {
           className="left-btn"
           subject="Mission Climat : mon plan climat pour 2030"
         >
-          <EmailIcon
-            size={32}
-            round
-            bgStyle={{ fill: "white" }}
-            iconFillColor={"var(--green)"}
-          />
+          <EmailIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"var(--green)"} />
         </EmailShareButton>
 
         <FacebookShareButton
@@ -65,20 +48,9 @@ const Footer = () => {
           className="left-btn"
           title="Mission Climat : mon plan climat pour 2030"
           via="Mission Climat"
-          hashtags={[
-            "missionclimat",
-            "climat",
-            "ecologie",
-            "citoyen",
-            "action",
-          ]}
+          hashtags={["missionclimat", "climat", "ecologie", "citoyen", "action"]}
         >
-          <TwitterIcon
-            size={32}
-            round
-            bgStyle={{ fill: "white" }}
-            iconFillColor={"var(--green)"}
-          />
+          <TwitterIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"var(--green)"} />
         </TwitterShareButton>
 
         <RedditShareButton
@@ -86,12 +58,7 @@ const Footer = () => {
           className="left-btn"
           title="Mission Climat : Mon plan climat pour 2030"
         >
-          <RedditIcon
-            size={32}
-            round
-            bgStyle={{ fill: "white" }}
-            iconFillColor={"var(--green)"}
-          />
+          <RedditIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"var(--green)"} />
         </RedditShareButton>
 
         <LinkedinShareButton

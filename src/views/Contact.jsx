@@ -46,9 +46,7 @@ const Contact = () => {
               <img src="../../../images/logo/Enjeux.svg" alt="" />
               <h6>Contributions</h6>
             </div>
-            <p>
-              Vous voulez nous aider à maintenir et créer le futur du site ?
-            </p>
+            <p>Vous voulez nous aider à maintenir et créer le futur du site ?</p>
             <p>
               <b>contact@mission-climat.io</b>
             </p>
@@ -63,15 +61,10 @@ const Contact = () => {
             </p>
 
             <div className="flex-item contact-title">
-              <img
-                src="../../../images/about/liens articles - blanc.svg"
-                alt=""
-              />
+              <img src="../../../images/about/liens articles - blanc.svg" alt="" />
               <h6>S'associer</h6>
             </div>
-            <p>
-              Vous souhaitez échanger avec l'équipe ou établir un partenariat ?
-            </p>
+            <p>Vous souhaitez échanger avec l'équipe ou établir un partenariat ?</p>
             <p>
               <b>contact@mission-climat.io</b>
             </p>
@@ -82,26 +75,19 @@ const Contact = () => {
               <img src="../../../images/logo/Qna.svg" alt="" />
               <h6>Corrections</h6>
             </div>
-            <p>
-              Vous souhaitez nous faire part d'une erreur, d'un bug trouvé sur
-              le site ?
-            </p>
+            <p>Vous souhaitez nous faire part d'une erreur, d'un bug trouvé sur le site ?</p>
             <p>
               <b>contact@mission-climat.io</b>
             </p>
 
             <div className="flex-item contact-title">
-              <img
-                src="../../../images/about/liens articles - blanc.svg"
-                alt=""
-              />
+              <img src="../../../images/about/liens articles - blanc.svg" alt="" />
               <h6>Données personnelles</h6>
             </div>
             <p>
-              Le seul traitement de données personnelles que nous réalisons est
-              le stockage des email que vous nous partagez, aux seuls fins
-              d'information sur le site Mission Climat. Si vous souhaitez que
-              nous supprimions votre email de notre base, merci de nous
+              Le seul traitement de données personnelles que nous réalisons est le stockage des
+              email que vous nous partagez, aux seuls fins d'information sur le site Mission Climat.
+              Si vous souhaitez que nous supprimions votre email de notre base, merci de nous
               contacter.
             </p>
             <p>
@@ -117,8 +103,8 @@ const Contact = () => {
         <div className="contact-white">
           <h5>Être informé des évolutions de Missions Climat</h5>
           <p>
-            Partagez votre email et cette information ponctuelle sera le seul
-            usage que nous en aurons.
+            Partagez votre email et cette information ponctuelle sera le seul usage que nous en
+            aurons.
           </p>
           <form onSubmit={handlePost}>
             <label>Email :</label>

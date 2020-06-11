@@ -37,10 +37,7 @@ const resGenLinearChart = ({ datas }) => {
 
   return (
     <ResponsiveContainer height="100%" width="100%">
-      <LineChart
-        data={datas.data}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
-      >
+      <LineChart data={datas.data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
         {datas.line.map((dat, i) => (
           <Line
             key={i}

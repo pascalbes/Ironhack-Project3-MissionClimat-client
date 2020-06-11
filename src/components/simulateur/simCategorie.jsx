@@ -39,9 +39,7 @@ const simCategorie = ({ data, results }) => {
           </p>
           {/* <div className="sim-jauge">{results && data.name === results[0].name && <Jauge results={results}/>}</div> */}
           <div className="sim-jauge">
-            {results && data.name === results[0].name && (
-              <JaugeDiv results={results} />
-            )}
+            {results && data.name === results[0].name && <JaugeDiv results={results} />}
           </div>
           <div className="sim-categorie-markers flex-item">
             <div style={{ position: "relative", marginLeft: `${margin1}` }}>

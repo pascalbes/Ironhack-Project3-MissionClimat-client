@@ -5,20 +5,19 @@ function getGradient(colorA, colorB) {
 }
 
 const simJaugeDiv = ({ results }) => {
-  const max = results[0].ranges[2];
-  const m1 = (results[0].markers[0] / max) * 100 - 0.25 + "%";
-  const m2 =
-    (results[0].markers[1] / max - results[0].markers[0] / max) * 100 -
-    0.25 +
-    "%";
-  const jaugeStart = -(results[0].markers[1] / max) * 100 + 0.5 + "%";
-  const value = (results[0].measures[0] / max) * 100 + "%";
+  const data = results[0];
+  console.log(data);
+  const max = data.ranges[2];
+  const m1 = (data.markers[0] / max) * 100 - 0.25 + "%";
+  const m2 = (data.markers[1] / max - data.markers[0] / max) * 100 - 0.25 + "%";
+  const jaugeStart = -(data.markers[1] / max) * 100 + 0.5 + "%";
+  const value = (data.measures[0] / max) * 100 + "%";
 
   function handleColor() {
-    const measures = results[0].measures[0];
-    const marker0 = results[0].markers[0];
-    const marker1 = results[0].markers[1];
-    const marker2 = results[0].markers[2];
+    const measures = data.measures[0];
+    const marker0 = data.markers[0];
+    const marker1 = data.markers[1];
+    const marker2 = data.markers[2];
 
     if (measures <= marker0) {
       return getGradient("#7FFFD4", "#77D9B5");
@@ -32,9 +31,7 @@ const simJaugeDiv = ({ results }) => {
   }
 
   function handleClass() {
-    return results[0].measures[0] >= results[0].ranges[2] - 15
-      ? "jauge-int-max"
-      : "jauge-int";
+    return data.measures[0] >= data.ranges[2] - 15 ? "jauge-int-max" : "jauge-int";
   }
 
   return (
