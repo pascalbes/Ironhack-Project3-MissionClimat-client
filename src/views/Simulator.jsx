@@ -1,30 +1,28 @@
 /// BASIC
 import React, { useState, useEffect } from "react";
 import Header from "components/partials/Header";
-import "styles/simulator.css";
-import "styles/app.css";
 import { Helmet } from "react-helmet";
-
+import ReactGA from "react-ga";
 import jsonFile from "ressources/initialDatas.json";
 
 /// COMPONENTS
-import SimCat from "components/simulateur/simCategorie";
-import SimParamList from "components/simulateur/simParametreList";
-import SimParamSlider from "components/simulateur/simParametreSlide";
-
-import ReactGA from "react-ga";
-import api from "api/APIHandler";
+import SimulatorSettings from "components/simulateur/SimulatorSettings";
 import SimulatorNav from "components/simulateur/SimulatorNav";
 import OptionsBox from "components/simulateur/OptionsBox";
+import ResultsSample from "components/simulateur/ResultsSample";
+import SimulatorLoader from "components/simulateur/SimulatorLoader";
 
 // Custom Hooks
 import { useVisibility } from "hooks/useVisibility";
+
+// Utility functions
 import { getUrl } from "utils/getUrl";
 import { getValuesFormatted } from "utils/getValuesFormatted";
 import { getValuesFromUrl } from "utils/getValuesFromUrl";
 
-import ResultsSample from "components/simulateur/ResultsSample";
-import SimulatorLoader from "components/simulateur/SimulatorLoader";
+import api from "api/APIHandler";
+import "styles/simulator.css";
+import "styles/app.css";
 
 const Simulator = (props) => {
   const [values, setValues] = useState(null);
@@ -118,33 +116,6 @@ const Simulator = (props) => {
     setValues(newValues);
   }
 
-  function handleParameterType(cat, param, j, values) {
-    // TODO New implementation of handleParameterType
-    // issue: param.type needs to be a string eg: "list", "slider"
-    // for now the object is as follows: {param.type.list: 1, param.type.slider: 0}
-
-    const props = {
-      key: j,
-      data: param.data,
-      value: values[param.data.index],
-      setOneValue: setOneValue,
-      cat: cat.data,
-    };
-
-    const paramComponent = {
-      list: <SimParamList {...props} />,
-      slider: <SimParamSlider {...props} />,
-    };
-
-    //gestion mode expert
-    if (!param.data.expert || (param.data.expert && modeExpert)) {
-      //gestion type de paramètre
-      const type = param.type;
-      // TODO if param.type resolves to a string, we can access the component with paramComponent[param.type]
-      return paramComponent[type.list ? "list" : type.slider ? "slider" : null];
-    }
-  }
-
   function handleInitValues(e) {
     const values = {
       init: "vInit",
@@ -183,15 +154,6 @@ const Simulator = (props) => {
     return <SimulatorLoader />;
   }
 
-  const simulatorCategories = jsonFile.categories.map((cat, i) => (
-    <div key={i} className="sim-cat-params-box">
-      <SimCat key={cat.data.index} data={cat.data} results={results.jaugeDatas[i]} />
-      <div key={"p" + i} id={"param-box" + i} className="sim-param-box grid-item">
-        {cat.parameters.map((param, j) => handleParameterType(cat, param, j, values, setValues))}
-      </div>
-    </div>
-  ));
-
   return (
     <>
       <Header />
@@ -218,7 +180,14 @@ const Simulator = (props) => {
                 handleModeExpert={handleModeExpert}
               />
             )}
-            {simulatorCategories}
+
+            <SimulatorSettings
+              categories={jsonFile.categories}
+              results={results}
+              values={values}
+              modeExpert={modeExpert}
+              handleValue={setOneValue}
+            />
           </div>
         </section>
 
