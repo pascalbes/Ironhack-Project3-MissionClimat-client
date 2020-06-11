@@ -31,6 +31,8 @@ ReactGA.event({
 });
 
 function App() {
+  const width = window.innerWidth;
+
   // function deleteSheet(e) {
   //   e.preventDefault();
   //   console.log(localStorage.getItem("idSheet"));
@@ -50,11 +52,22 @@ function App() {
   // // useBeforeunload((e) => deleteSheet(e))
   // window.addEventListener("beforeunload", (e) => deleteSheet(e));
 
-  const width = window.innerWidth;
+  const Mobile = () => {
+    return (
+      <div id="mobile-message">
+        <div>
+          <p>
+            La version mobile n'est pas encore disponible. Nous vous recommandons de toutes façons
+            l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des
+            fonctionnalités du site. A bientôt !
+          </p>
+        </div>
+      </div>
+    );
+  };
 
-  return width > 0 ? (
-    <>
-      {/* <Header /> */}
+  const Desktop = () => {
+    return (
       <main id="content-main">
         <Switch>
           {/* BASIC */}
@@ -71,20 +84,10 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
       </main>
-    </>
-  ) : (
-    <>
-      <div id="mobile-message">
-        <div>
-          <p>
-            La version mobile n'est pas encore disponible. Nous vous recommandons de toutes façons
-            l'utilisation d'une tablette ou d'un ordinateur pour profiter pleinement des
-            fonctionnalités du site. A bientôt !
-          </p>
-        </div>
-      </div>
-    </>
-  );
+    );
+  };
+
+  return width > 0 ? <Desktop /> : <Mobile />;
 }
 
 export default App;
