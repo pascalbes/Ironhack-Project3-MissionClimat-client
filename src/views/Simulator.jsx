@@ -175,6 +175,7 @@ const Simulator = (props) => {
           <div className="sim-main-box">
             {visibleOptions && (
               <OptionsBox
+                modeExpert={modeExpert}
                 hideOptions={hideOptions}
                 handleInitValues={handleInitValues}
                 handleModeExpert={handleModeExpert}

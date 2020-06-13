@@ -5,7 +5,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const OptionsBox = ({ hideOptions, handleInitValues, handleModeExpert }) => {
+const OptionsBox = ({ hideOptions, modeExpert, handleInitValues, handleModeExpert }) => {
   const PurpleSwitch = withStyles({
     switchBase: {
       color: "grey",
@@ -67,6 +67,7 @@ const OptionsBox = ({ hideOptions, handleInitValues, handleModeExpert }) => {
               onChange={(e) => handleModeExpert(e.target.checked)}
               control={<PurpleSwitch />}
               label="Activer"
+              checked={modeExpert}
             />
           </div>
         </div>
