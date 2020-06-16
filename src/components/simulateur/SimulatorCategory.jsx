@@ -1,5 +1,5 @@
 import React from "react";
-import JaugeDiv from "components/simulateur/simJaugeDiv";
+import SimulatorProgressBar from "components/simulateur/SimulatorProgressBar";
 
 const simCategorie = ({ data, results }) => {
   //calcul des marges de la légende de la jauge pour leur positionnement
@@ -39,7 +39,7 @@ const simCategorie = ({ data, results }) => {
           </p>
           {/* <div className="sim-jauge">{results && data.name === results[0].name && <Jauge results={results}/>}</div> */}
           <div className="sim-jauge">
-            {results && data.name === results[0].name && <JaugeDiv results={results} />}
+            {results && data.name === results[0].name && <SimulatorProgressBar results={results} />}
           </div>
           <div className="sim-categorie-markers flex-item">
             <div style={{ position: "relative", marginLeft: `${margin1}` }}>

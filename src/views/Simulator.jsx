@@ -7,7 +7,7 @@ import jsonFile from "ressources/initialDatas.json";
 
 /// COMPONENTS
 import SimulatorSettings from "components/simulateur/SimulatorSettings";
-import SimulatorNav from "components/simulateur/SimulatorNav";
+import SimulatorNavigation from "components/simulateur/SimulatorNavigation";
 import OptionsBox from "components/simulateur/OptionsBox";
 import ResultsSample from "components/simulateur/ResultsSample";
 import SimulatorLoader from "components/simulateur/SimulatorLoader";
@@ -111,9 +111,11 @@ const Simulator = (props) => {
       category: "Parameters",
       action: index + ":" + value,
     });
-    const newValues = [...values];
-    newValues[index][0] = value;
-    setValues(newValues);
+    setValues((values) => {
+      const newValues = [...values];
+      newValues[index][0] = value;
+      return newValues;
+    });
   }
 
   function handleInitValues(e) {
@@ -166,7 +168,7 @@ const Simulator = (props) => {
         </Helmet>
 
         <section className="sim-container-box">
-          <SimulatorNav
+          <SimulatorNavigation
             leftNavData={jsonFile.nav[0]}
             rightNavData={jsonFile.nav[1]}
             showOptions={showOptions}

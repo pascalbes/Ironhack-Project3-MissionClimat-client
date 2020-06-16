@@ -1,7 +1,7 @@
 import React from "react";
 import SimulatorCategory from "components/simulateur/SimulatorCategory";
-import SimulatorParamList from "components/simulateur/simParametreList";
-import SimulatorParamSlider from "components/simulateur/simParametreSlide";
+import SimulatorParameterList from "components/simulateur/SimulatorParameterList";
+import SimulatorParameterSlider from "components/simulateur/SimulatorParameterSlider";
 
 const SimulatorSettings = ({ categories, results, values, modeExpert, handleValue }) => {
   function handleParameterType(cat, param, key, values) {
@@ -18,8 +18,8 @@ const SimulatorSettings = ({ categories, results, values, modeExpert, handleValu
     };
 
     const paramComponent = {
-      list: <SimulatorParamList {...props} />,
-      slider: <SimulatorParamSlider {...props} />,
+      list: <SimulatorParameterList {...props} />,
+      slider: <SimulatorParameterSlider {...props} />,
     };
 
     //gestion mode expert

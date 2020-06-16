@@ -1,6 +1,6 @@
 import React from "react";
 
-import SimNav from "components/simulateur/simNavBar";
+import SimulatorNavigationMenu from "components/simulateur/SimulatorNavigationMenu";
 import ReactGA from "react-ga";
 
 const SimulatorNav = ({ leftNavData, rightNavData, showOptions }) => {
@@ -21,10 +21,10 @@ const SimulatorNav = ({ leftNavData, rightNavData, showOptions }) => {
       <h1>Mes mesures pour 2030</h1>
       <div className="flex-item">
         <div id="sim-nav-fr">
-          <SimNav data={leftNavData} />
+          <SimulatorNavigationMenu data={leftNavData} />
         </div>
         <div id="sim-nav-world">
-          <SimNav data={rightNavData} />
+          <SimulatorNavigationMenu data={rightNavData} />
         </div>
         <button
           id="options"

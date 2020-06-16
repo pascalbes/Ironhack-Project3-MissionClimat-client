@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const simBarChart = ({ datas }) => {
+const SimulatorBarChart = ({ datas }) => {
   // const data = [
   //     {
   //         name: '2020', secteur1: "20", secteur2: "10", secteur3: "10",secteur4: "10",secteur5: "10", secteur6: "10", secteur7: "10"
@@ -48,4 +48,4 @@ const simBarChart = ({ datas }) => {
   );
 };
 
-export default simBarChart;
+export default SimulatorBarChart;

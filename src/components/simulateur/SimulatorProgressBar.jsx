@@ -4,7 +4,7 @@ function getGradient(colorA, colorB) {
   return `linear-gradient(to right, ${colorA}, ${colorB})`;
 }
 
-const simJaugeDiv = ({ results }) => {
+const SimulatorProgressBar = ({ results }) => {
   const data = results[0];
   console.log(data);
   const max = data.ranges[2];
@@ -81,4 +81,4 @@ const simJaugeDiv = ({ results }) => {
   );
 };
 
-export default simJaugeDiv;
+export default SimulatorProgressBar;
