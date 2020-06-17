@@ -1,7 +1,7 @@
 import React from "react";
 import SimulatorProgressBar from "components/simulateur/SimulatorProgressBar";
 
-const simCategorie = ({ data, results }) => {
+const SimulatorCategory = ({ data, results }) => {
   //calcul des marges de la légende de la jauge pour leur positionnement
   if (results) {
     const max = results[0].ranges[2];
@@ -69,4 +69,4 @@ const simCategorie = ({ data, results }) => {
   );
 };
 
-export default simCategorie;
+export default SimulatorCategory;
