@@ -9,12 +9,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const simResultsAreaChart = ({ datas, xOffset, yOffset }) => {
+const SimulatorResultsAreaChart = ({ datas, xOffset, yOffset }) => {
   const data = datas.data.data;
 
-  function toolTipContent(e) {
+  function toolTipContent({ payload, label }) {
     var annualEmi = 0;
-    e.payload.forEach((data) => (annualEmi += data.value));
+    payload.forEach((data) => (annualEmi += data.value));
     return (
       <div
         id="area-tooltip"
@@ -22,9 +22,9 @@ const simResultsAreaChart = ({ datas, xOffset, yOffset }) => {
         style={{ backgroundColor: "white" }}
       >
         <h4 style={{ color: "#163e59" }}>
-          Année : {e.label} / {Math.round(annualEmi)} {datas.data.yTitle}
+          Année : {label} / {Math.round(annualEmi)} {datas.data.yTitle}
         </h4>
-        {e.payload.reverse().map((area, i) => (
+        {payload.reverse().map((area, i) => (
           <div key={i} className="flex-item">
             <div
               key={"l" + i}
@@ -46,7 +46,7 @@ const simResultsAreaChart = ({ datas, xOffset, yOffset }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" stroke="white" />
         <YAxis stroke="white" />
-        <Tooltip content={(e) => toolTipContent(e)} position={{ x: xOffset, y: yOffset }} />
+        <Tooltip content={toolTipContent} position={{ x: xOffset, y: yOffset }} />
         {datas.areaDatas.map((area, i) => (
           <Area
             key={i}
@@ -62,4 +62,4 @@ const simResultsAreaChart = ({ datas, xOffset, yOffset }) => {
   );
 };
 
-export default simResultsAreaChart;
+export default SimulatorResultsAreaChart;
