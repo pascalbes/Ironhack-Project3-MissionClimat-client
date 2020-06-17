@@ -639,14 +639,8 @@ const Results = (props) => {
               <div className="res-chart-legend flex-item">
                 {mapLegendInfos.map((data, i) => (
                   <div key={i} className="flex-item">
-                    <div
-                      key={"l" + i}
-                      className="legend-point"
-                      style={{ backgroundColor: data[0] }}
-                    ></div>
-                    <div key={"t" + i} className="light-text">
-                      {data[1]}
-                    </div>
+                    <div className="legend-point" style={{ backgroundColor: data[0] }}></div>
+                    <div className="light-text">{data[1]}</div>
                   </div>
                 ))}
               </div>
@@ -680,14 +674,8 @@ const Results = (props) => {
               <div className="res-chart-legend flex-item">
                 {mapLegendInfos.map((data, i) => (
                   <div key={i} className="flex-item">
-                    <div
-                      key={"l" + i}
-                      className="legend-point"
-                      style={{ backgroundColor: data[0] }}
-                    ></div>
-                    <div key={"t" + i} className="light-text">
-                      {data[1]}
-                    </div>
+                    <div className="legend-point" style={{ backgroundColor: data[0] }}></div>
+                    <div className="light-text">{data[1]}</div>
                   </div>
                 ))}
               </div>
