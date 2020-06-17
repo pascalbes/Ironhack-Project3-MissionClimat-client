@@ -1,4 +1,5 @@
 import React from "react";
+import SimulatorProgressBarMarker from "./SimulatorProgressBarMarker";
 
 function getGradient(colorA, colorB) {
   return `linear-gradient(to right, ${colorA}, ${colorB})`;
@@ -6,10 +7,9 @@ function getGradient(colorA, colorB) {
 
 const SimulatorProgressBar = ({ results }) => {
   const data = results[0];
-  console.log(data);
   const max = data.ranges[2];
   const m1 = (data.markers[0] / max) * 100 - 0.25 + "%";
-  const m2 = (data.markers[1] / max - data.markers[0] / max) * 100 - 0.25 + "%";
+  const m2 = (data.markers[1] / max) * 100 - 0.25 + "%";
   const jaugeStart = -(data.markers[1] / max) * 100 + 0.5 + "%";
   const value = (data.measures[0] / max) * 100 + "%";
 
@@ -43,36 +43,18 @@ const SimulatorProgressBar = ({ results }) => {
         backgroundColor: "white",
         border: "#C7C7C7 solid 1px",
         borderRadius: "10px",
+        position: "relative",
       }}
     >
-      <div
-        className="marker1"
-        style={{
-          height: "18.5px",
-          width: "2px",
-          position: "relative",
-          marginLeft: `${m1}`,
-          backgroundColor: "#0b8c85",
-        }}
-      ></div>
-      <div
-        className="marker2"
-        style={{
-          height: "18.5px",
-          width: "2px",
-          position: "relative",
-          marginLeft: `${m2}`,
-          marginRight: `-4px`,
-          backgroundColor: "#ff6868",
-        }}
-      ></div>
+      <SimulatorProgressBarMarker backgroundColor="#0b8c85" position={m1} />
+      <SimulatorProgressBarMarker backgroundColor="#ff6868" position={m2} />
       <div
         className={handleClass()}
         style={{
           height: "18.5px",
           width: `${value}`,
-          position: "relative",
-          marginLeft: `${jaugeStart}`,
+          position: "absolute",
+          left: `${jaugeStart}px`,
           transition: "1s",
           backgroundImage: handleColor(),
         }}
