@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Sunburst from "components/simulateur/sunburstChart";
+import Sunburst from "components/simulateur/SunburstChart";
 import AreaChart from "components/simulateur/SimulatorResultsAreaChart";
 
 const ResultsSample = ({ results }) => {
