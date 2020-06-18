@@ -5,28 +5,16 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
 
 import Header from "components/partials/Header";
-import ChartContainer from "components/resultats/chartContainer";
+import ChartContainer from "components/resultats/ChartContainer";
+import ResultsSocial from "components/resultats/ResultsSocial";
+import CopyToClipboard from "components/CopyToClipboard";
 
 import "styles/results.css";
 import "styles/simulator.css";
 
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  LinkedinShareButton,
-  RedditShareButton,
-  TwitterShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  LinkedinIcon,
-  RedditIcon,
-  EmailIcon,
-} from "react-share";
-
 import ReactGA from "react-ga";
 
 const Results = (props) => {
-  const [textArea, setTextArea] = useState();
   const [arrowVisibility, setArrowVisibility] = useState("hidden");
   const [results, setResults] = useState(null);
 
@@ -110,17 +98,6 @@ const Results = (props) => {
     ["#6C0000", "de 9 à 11°C"],
     ["#6E0046", "plus de 11°C"],
   ];
-
-  function copyUrl() {
-    handleClickTracking("copyURL");
-    if (textArea) {
-      textArea.style.visibility = "visible";
-      textArea.select();
-      document.execCommand("copy");
-      alert("Url copied to clipboard");
-      textArea.style.visibility = "hidden";
-    }
-  }
 
   function handleInnerHTML(text) {
     return { __html: text };
@@ -302,9 +279,9 @@ const Results = (props) => {
 
             <div id="res-synthese-buttons" className="flex-item">
               <div title="Copier l'url avec mes paramètres">
-                <button onClick={copyUrl}>
+                <CopyToClipboard text={results.url} fn={handleClickTracking.bind(null, "copyURL")}>
                   <FontAwesomeIcon icon={faLink} />
-                </button>
+                </CopyToClipboard>
               </div>
 
               <div title="Télécharger le modèle de calcul des données">
@@ -317,70 +294,11 @@ const Results = (props) => {
                 </a>
               </div>
 
-              <EmailShareButton
-                url={results.url}
-                className="left-btn"
-                subject="Mission Climat : mon plan climat pour 2030"
-                onClick={() => handleClickTracking("shareEmail")}
-              >
-                <EmailIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"#34244E"} />
-              </EmailShareButton>
-
-              <FacebookShareButton
-                onClick={() => handleClickTracking("shareFB")}
-                url={results.url}
-                className="left-btn"
-                quote="Voilà mon plan climat pour 2030 ! Et vous ?"
-                hashtag="#missionclimat #ecologie #climat"
-              >
-                <FacebookIcon
-                  size={32}
-                  round
-                  bgStyle={{ fill: "white" }}
-                  iconFillColor={"#34244E"}
-                />
-              </FacebookShareButton>
-
-              <TwitterShareButton
-                url={results.url}
-                className="left-btn"
-                title="Mission Climat : mon plan climat pour 2030"
-                via="Mission Climat"
-                hashtags={["missionclimat", "climat", "ecologie", "citoyen", "action"]}
-                onClick={() => handleClickTracking("shareTwitter")}
-              >
-                <TwitterIcon
-                  size={32}
-                  round
-                  bgStyle={{ fill: "white" }}
-                  iconFillColor={"#34244E"}
-                />
-              </TwitterShareButton>
-
-              <RedditShareButton
-                url={results.url}
-                className="left-btn"
-                title="Mission Climat : Mon plan climat pour 2030"
-                onClick={() => handleClickTracking("shareReddit")}
-              >
-                <RedditIcon size={32} round bgStyle={{ fill: "white" }} iconFillColor={"#34244E"} />
-              </RedditShareButton>
-
-              <LinkedinShareButton
-                url={results.url}
-                className="left-btn"
-                title="Mission Climat : Mon plan climat pour 2030"
-                summary="Vous aussi, faites votre plan pour la France !"
-                source="Mission Climat"
-                onClick={() => handleClickTracking("shareLinkedIn")}
-              >
-                <LinkedinIcon
-                  size={32}
-                  round
-                  bgStyle={{ fill: "white" }}
-                  iconFillColor={"#34244E"}
-                />
-              </LinkedinShareButton>
+              <ResultsSocial
+                results={results}
+                fillColor="#34244E"
+                handleClickTracking={handleClickTracking}
+              />
             </div>
           </div>
         </section>
@@ -687,14 +605,6 @@ const Results = (props) => {
           </div>
         </div>
       </article>
-
-      <form>
-        <textarea
-          ref={(textarea) => setTextArea(textarea)}
-          defaultValue={results.url}
-          style={{ visibility: "hidden" }}
-        />
-      </form>
     </div>
   );
 };
