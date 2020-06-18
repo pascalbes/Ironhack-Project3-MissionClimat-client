@@ -1,6 +1,6 @@
 import React from "react";
 import SimulatorResultsAreaChart from "../simulateur/SimulatorResultsAreaChart";
-import Sunburst from "./../simulateur/sunburstChart";
+import Sunburst from "components/simulateur/SunburstChart";
 import LineChart from "./resGenLinearChart";
 import CompoChart from "./compoChart";
 
