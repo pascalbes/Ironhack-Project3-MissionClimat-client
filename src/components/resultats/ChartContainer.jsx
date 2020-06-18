@@ -16,7 +16,7 @@ const Graph = ({ type, datas }) => {
   return <Component datas={datas} />;
 };
 
-const chartContainer = ({
+const ChartContainer = ({
   title,
   subtitle,
   graphData,
@@ -60,4 +60,4 @@ const chartContainer = ({
   );
 };
 
-export default chartContainer;
+export default ChartContainer;
