@@ -13,17 +13,17 @@ import {
 const compoChart = ({ datas }) => {
   const data = datas.data.data;
 
-  function toolTipContent(e) {
+  function toolTipContent({ payload, label }) {
     var annualEmi = 0;
-    e.payload.forEach((data) => (annualEmi += data.value));
+    payload.forEach((data) => (annualEmi += data.value));
     return (
       <div
         id="area-tooltip"
         className="chart-tooltip flex-item flex-column"
         style={{ backgroundColor: "white", width: "400px" }}
       >
-        <h4 style={{ color: "#163e59" }}>Année : {e.label}</h4>
-        {e.payload.reverse().map((area, i) => (
+        <h4 style={{ color: "#163e59" }}>Année : {label}</h4>
+        {payload.reverse().map((area, i) => (
           <div key={i} className="flex-item">
             <div
               key={"l" + i}
@@ -39,15 +39,18 @@ const compoChart = ({ datas }) => {
     );
   }
 
-  function handleGraphType(dat, i) {
-    if (dat.type === "Area") {
-      return dat.color === "#FFFFFF" ? (
-        <Area key={i} fillOpacity="0" dataKey={dat.dataKey} stroke={dat.color} fill={dat.color} />
-      ) : (
-        <Area key={i} fillOpacity="1" dataKey={dat.dataKey} stroke={dat.color} fill={dat.color} />
-      );
+  function handleGraphType(data) {
+    const props = {
+      key: data.dataKey,
+      dataKey: data.dataKey,
+      stroke: data.color,
+    };
+
+    if (data.type === "Area") {
+      const fillOpacity = data.color === "#FFFFFF" ? "0" : "1";
+      return <Area fillOpacity={fillOpacity} fill={data.color} {...props} />;
     }
-    if (dat.type === "Line") return <Line key={i} dataKey={dat.dataKey} stroke={dat.color} />;
+    if (data.type === "Line") return <Line {...props} />;
   }
 
   return (
@@ -65,11 +68,8 @@ const compoChart = ({ datas }) => {
         <CartesianGrid stroke="#f5f5f5" strokeDasharray="3 3" />
         <XAxis dataKey="name" stroke="white" />
         <YAxis domain={[-100, 0, 1000]} stroke="white" interval="0" />
-        <Tooltip
-          content={(e) => toolTipContent(e)}
-          //    position={{ x: 50, y: -150}}
-        />
-        {datas.graphDatas.map((dat, i) => handleGraphType(dat, i))}
+        <Tooltip content={toolTipContent} />
+        {datas.graphDatas.map((data) => handleGraphType(data))}
       </ComposedChart>
     </ResponsiveContainer>
   );
