@@ -146,7 +146,7 @@ const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
           scale={(x) => x + data.unit}
           ValueLabelComponent={ValueLabelComponent}
           valueLabelDisplay="auto"
-          onChangeCommitted={(e, val) => handleChange(e, val)}
+          onChangeCommitted={handleChange}
           track="normal"
         />
       </div>
