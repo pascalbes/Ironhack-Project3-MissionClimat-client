@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Slider from "@material-ui/core/Slider";
+
+import { makeStyles } from "@material-ui/core/styles";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 import { faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Tooltip from "@material-ui/core/Tooltip";
+
+import SimulatorInformationBox from "components/simulateur/SimulatorInformationBox";
+import SimulatorSlider from "components/simulateur/SimulatorSlider";
+import SimulatorTooltip from "components/simulateur/SimulatorTooltip";
 
 import "styles/simParametreSlide.css";
 
@@ -17,64 +20,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MscSlider = withStyles({
-  root: {
-    color: "#E4E4E4",
-    height: 8,
-  },
-  thumb: {
-    height: 16,
-    width: 16,
-    border: "2px solid #1087a1",
-    backgroundColor: "#1087a1",
-    marginTop: -5,
-    marginLeft: -7,
-    "&:focus,&:hover,&$active": {
-      boxShadow: "inherit",
-    },
-  },
-  active: {},
-  valueLabel: {},
-  track: {
-    height: 5,
-    borderRadius: 4,
-    color: "#C7C7C7",
-  },
-  rail: {
-    height: 5,
-    borderRadius: 4,
-  },
-  markActive: {
-    display: "none",
-  },
-  mark: {
-    display: "none",
-  },
-})(Slider);
-
-const MSCTooltip = withStyles({
-  tooltip: {
-    color: "white",
-    backgroundColor: "#1087a1",
-    fontSize: "1.1em",
-  },
-  arrow: {
-    color: "#1087a1",
-  },
-})(Tooltip);
-
 function ValueLabelComponent(props) {
   const { children, open, value } = props;
 
   return (
-    <MSCTooltip open={open} enterTouchDelay={0} placement="top" title={value} arrow>
+    <SimulatorTooltip open={open} enterTouchDelay={0} placement="top" title={value} arrow>
       {children}
-    </MSCTooltip>
+    </SimulatorTooltip>
   );
 }
 
 const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
-  const [infosClass, setInfoClass] = useState("param-info-container-hidden");
   const [componentClass, setComponentClass] = useState("");
 
   useEffect(() => {
@@ -108,10 +64,8 @@ const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
     if (data.expert) componentClassSt += "mode-expert";
     if (componentClass.includes("param-container-normal")) {
       setComponentClass(componentClassSt + " param-container-expanded");
-      setInfoClass("param-info-container-visible flex-item");
     } else {
       setComponentClass(componentClassSt + " param-container-normal");
-      setInfoClass("param-info-container-hidden");
     }
   }
 
@@ -136,7 +90,7 @@ const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
 
       <div className={classes.root}>
         <div className={classes.margin} />
-        <MscSlider
+        <SimulatorSlider
           defaultValue={handleValue()}
           aria-labelledby="discrete-slider-always"
           min={data.min}
@@ -151,28 +105,9 @@ const SimParametreSlide = ({ data, value, setOneValue, cat }) => {
         />
       </div>
 
-      <div className={infosClass} style={{ backgroundColor: cat.colorHover }}>
-        <div className="right-btn">
-          <div>
-            <h6>Calcul des émissions</h6>
-            <p>{data.infoCalcul}</p>
-          </div>
-          <div>
-            <h6>Tendances</h6>
-            <p>{data.tendance}</p>
-          </div>
-        </div>
-        <div>
-          <div>
-            <h6>Co-Bénéfices</h6>
-            <p>{data.coBenefices}</p>
-          </div>
-          <div>
-            <h6>Contraintes</h6>
-            <p>{data.contraintes}</p>
-          </div>
-        </div>
-      </div>
+      {expanded && (
+        <SimulatorInformationBox style={{ backgroundColor: cat.colorHover }} data={data} />
+      )}
     </div>
   );
 };

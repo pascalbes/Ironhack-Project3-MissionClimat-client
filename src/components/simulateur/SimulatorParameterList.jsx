@@ -56,7 +56,7 @@ const SimParametreList = ({ data, value, setOneValue, cat }) => {
                   key={i}
                   id={val}
                   name={i}
-                  onChange={(event) => handleChange(event.target.id)}
+                  onChange={handleChange}
                   checked={val === defaultValue}
                 />
                 <label className="small-param-desc" key={"lab" + i} htmlFor={val}>
