@@ -41,15 +41,12 @@ const PurpleSwitch = withStyles({
 })(Switch);
 
 const Simulator = (props) => {
+
   const [values, setValues] = useState();
   const [results, setResults] = useState(); // jsonFile.results
   const [modeExpert, setModeExpert] = useState(false);
   const [visibleOptions, setVisibleOptions] = useState(false);
 
-  // console.log("-----------------------------------")
-  // console.log(values)
-  // console.log(results)
-  // console.log(props)
 
   //Gestion d'une route avec paramêtres spécifiques
   //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -141,6 +138,7 @@ const Simulator = (props) => {
     //nettoyage du results de local storage
     if (localStorage.getItem("results")) localStorage.removeItem("results");
   }, []);
+
 
   function getUrl(values, parameters) {
     var url = window.location.origin + "/simulator/favorites/";
@@ -296,7 +294,9 @@ const Simulator = (props) => {
 
     return datas;
   }
+
   const width = window.innerWidth;
+  
   return values && results ? (
     <>
       <Header />
