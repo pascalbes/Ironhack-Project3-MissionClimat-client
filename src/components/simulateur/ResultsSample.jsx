@@ -116,9 +116,9 @@ const ResultsSample = ({ results, jsonExport }) => {
           </div>
 
           <div id="results-button" className="flex-item">
-            <Link to={{ pathname: "/results", state: { results: results, jsonExport: jsonExport } }}>
+            {/* <Link to={{ pathname: "/results", state: { results: results, jsonExport: jsonExport } }}>
               <button className="blue-btn">Résultats complets</button>
-            </Link>
+            </Link> */}
             <button className="blue-btn" onClick={()=>handleCopyResults()}>Copier les résultats</button>
           </div>
         </div>

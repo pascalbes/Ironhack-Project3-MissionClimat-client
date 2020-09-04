@@ -32,9 +32,6 @@ const Simulator = (props) => {
   const [modeExpert, setModeExpert] = useState(false);
   const [showOptions, hideOptions, visibleOptions] = useVisibility(false);
 
-  console.log(values)
-  console.log(results)
-
   //Gestion d'une route avec paramêtres spécifiques
   //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
 
