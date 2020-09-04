@@ -23,12 +23,17 @@ import { getValuesFromUrl } from "utils/getValuesFromUrl";
 import api from "api/APIHandler";
 import "styles/simulator.css";
 import "styles/app.css";
+import { matches } from "lodash";
 
 const Simulator = (props) => {
   const [values, setValues] = useState(null);
   const [results, setResults] = useState(null); // jsonFile.results
+  const [jsonExportString, setJsonExportString] = useState(null);
   const [modeExpert, setModeExpert] = useState(false);
   const [showOptions, hideOptions, visibleOptions] = useVisibility(false);
+
+  console.log(values)
+  console.log(results)
 
   //Gestion d'une route avec paramêtres spécifiques
   //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -41,13 +46,14 @@ const Simulator = (props) => {
     async function initDatas() {
       var valuesURL = [];
       // cas où une sheet est déjà en dans le localstorage
-      const idSheet = localStorage.getItem("idSheet");
+      const idSheet = localStorage.getItem("idSheet_Centrale");
 
       if (idSheet) {
         console.log("SHEET ALREADY CREATED, ID:", idSheet);
         //cas où appel normal de la page simulateur
         if (!props.location.pathname.includes("favorites")) {
           const response = await api.get("/sheet/values/" + idSheet);
+          console.log(response.data)
           setValues(response.data.values);
         } else {
           // cas où appel via url spécifique /save/p=1&&p=3.....
@@ -62,7 +68,7 @@ const Simulator = (props) => {
         //création d'une copie de la sheet master
         const response = await api.get("/sheet/");
         const idSheet = response.data.id;
-        localStorage.setItem("idSheet", idSheet);
+        localStorage.setItem("idSheet_Centrale", idSheet);
         console.log("SHEET CREATED! ID:", idSheet);
 
         // cas où appel via url spécifique /save/p=1&&p=3.....
@@ -89,7 +95,7 @@ const Simulator = (props) => {
   //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
   useEffect(() => {
     if (values) {
-      const idSheet = localStorage.getItem("idSheet");
+      const idSheet = localStorage.getItem("idSheet_Centrale");
       const valuesFormatted = getValuesFormatted(values, jsonFile.options.unit);
       if (idSheet) {
         api
@@ -105,6 +111,10 @@ const Simulator = (props) => {
       }
     }
   }, [values]);
+
+  useEffect(() => {
+    jsonExport()
+  }, [results]);
 
   function setOneValue(value, index) {
     ReactGA.event({
@@ -130,7 +140,7 @@ const Simulator = (props) => {
     const initMode = e.target.value;
     const valuesTemp = jsonFile.options[values[initMode]];
 
-    const idSheet = localStorage.getItem("idSheet");
+    const idSheet = localStorage.getItem("idSheet_Centrale");
     const valuesFormatted = getValuesFormatted(valuesTemp, jsonFile.options.unit);
 
     // setValues(valuesTemp)
@@ -147,6 +157,41 @@ const Simulator = (props) => {
     datas.areaDatas = [...datas.areaDatas].reverse();
     return datas;
   }
+
+  function jsonExport() {
+    if (values) {
+      // let jsonFileTemp = {...jsonFile};
+      let jsonFileTemp = JSON.parse(JSON.stringify(jsonFile))
+      let parameters = [];
+    
+      for (const category of jsonFileTemp.categories) {
+        category.parameters.map(parameter => {
+          let vInit = parameter.data.value
+          delete parameter.data.value
+          parameter.data.valueInit = vInit
+          parameter.data.value = values[parameter.data.index][0]
+          parameter.data.category = category.data
+          parameters.push({...parameter.data})
+          return parameter
+        })
+      }
+
+      //parameters
+      
+      const jsonTemp = {
+        parameters: [...parameters],
+        categories: [...jsonFileTemp.categories],
+        results: results,
+        validation: {
+          time: Date.now(),
+          random: Math.random()
+        }
+      }
+
+      setJsonExportString(jsonTemp)
+    }
+  }
+  
 
   const handleModeExpert = (value) => {
     setModeExpert(value);
@@ -194,7 +239,7 @@ const Simulator = (props) => {
           </div>
         </section>
 
-        <ResultsSample results={results} />
+        <ResultsSample results={results} jsonExport={jsonExportString}/>
       </div>
     </>
   );

@@ -17,15 +17,20 @@ import ReactGA from "react-ga";
 const Results = (props) => {
   const [arrowVisibility, setArrowVisibility] = useState("hidden");
   const [results, setResults] = useState(null);
+  const [jsonExport, setJsonExport] = useState(null);
 
   useEffect(() => {
     let results = null;
+    let jsonExport = null;
+    console.log(props)
     if (localStorage.getItem("results")) {
       results = JSON.parse(localStorage.getItem("results"));
       setResults(results);
     } else {
       results = props.location.state.results;
+      jsonExport = props.location.state.jsonExport
       localStorage.setItem("results", JSON.stringify(results));
+      setJsonExport(JSON.stringify(jsonExport))
       setResults(props.location.state.results);
     }
   }, [props.location.state]);
@@ -280,6 +285,12 @@ const Results = (props) => {
             <div id="res-synthese-buttons" className="flex-item">
               <div title="Copier l'url avec mes paramètres">
                 <CopyToClipboard text={results.url} fn={handleClickTracking.bind(null, "copyURL")}>
+                  <FontAwesomeIcon icon={faLink} />
+                </CopyToClipboard>
+              </div>
+
+              <div title="Exporter les données au format JSON">
+                <CopyToClipboard text={jsonExport} fn={handleClickTracking.bind(null, "exportJSON")}>
                   <FontAwesomeIcon icon={faLink} />
                 </CopyToClipboard>
               </div>

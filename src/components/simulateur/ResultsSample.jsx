@@ -1,9 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Sunburst from "components/simulateur/SunburstChart";
 import AreaChart from "components/simulateur/SimulatorResultsAreaChart";
+import Modal from "components/partials/Modal";
+import ExportResults from "components/partials/CopyResults";
 
-const ResultsSample = ({ results }) => {
+const ResultsSample = ({ results, jsonExport }) => {
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   const width = window.innerWidth;
 
   function tempColor() {
@@ -16,9 +25,16 @@ const ResultsSample = ({ results }) => {
       : "linear-gradient(to right, #DA8FFF , #663399)";
   }
 
+  function handleCopyResults() {
+    handleOpen()
+  }
+
   if (width > 600) {
     return (
       <section className="sim-results-box flex-item flex-column">
+        <Modal isOpen={open} closeModal={()=>setOpen(false)}>
+          {<ExportResults jsonExport={jsonExport} />}
+        </Modal>
         <div id="results-top-box" className="flex-item flex-column">
           <h1>Ma projection mondiale</h1>
           <div id="results-impacts-box" className="flex-item">
@@ -89,7 +105,7 @@ const ResultsSample = ({ results }) => {
 
           <div id="results-emissions-charts-container">
             <div className="chart g1">
-              <AreaChart datas={results.emiSecteurGnl} xOffset={0} yOffset={-150} />
+              <AreaChart datas={results.emiSecteurGnl} xOffset={0} yOffset={-150} color="#163E59" xAxis={true} yAxis={false}/>
             </div>
             <p className="g2">Emissions Totales</p>
 
@@ -100,9 +116,10 @@ const ResultsSample = ({ results }) => {
           </div>
 
           <div id="results-button" className="flex-item">
-            <Link to={{ pathname: "/results", state: { results: results } }}>
+            <Link to={{ pathname: "/results", state: { results: results, jsonExport: jsonExport } }}>
               <button className="blue-btn">Résultats complets</button>
             </Link>
+            <button className="blue-btn" onClick={()=>handleCopyResults()}>Copier les résultats</button>
           </div>
         </div>
       </section>

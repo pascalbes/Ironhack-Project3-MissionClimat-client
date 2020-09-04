@@ -23,9 +23,9 @@ const SimulatorNav = ({ leftNavData, rightNavData, showOptions }) => {
         <div id="sim-nav-fr">
           <SimulatorNavigationMenu data={leftNavData} />
         </div>
-        <div id="sim-nav-world">
+        {/* <div id="sim-nav-world">
           <SimulatorNavigationMenu data={rightNavData} />
-        </div>
+        </div> */}
         <button
           id="options"
           className="sim-nav-category flex-item flex-column"

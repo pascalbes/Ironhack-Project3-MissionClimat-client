@@ -1,0 +1,51 @@
+.modal-parent {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 50%);
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    box-shadow: grey;
+    border-radius: 15px;
+    padding: 20px 20px;
+    max-width: 950px;
+    max-height: 90vh;
+  }
+  
+  .close-btn {
+    align-self: flex-end;
+    color:black;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+  }
+
+#modal .ok-btn {
+  border-radius: 0;
+  width:100px;
+  padding:10px 5px;
+  font-size: 16px;
+  background-color: white;
+  color:black;
+  border:black solid 2px;
+  align-self: flex-end;
+  font-weight: 600;
+  text-align: center;
+}
+
+#modal .ok-btn:hover {background-color: black;color:white}
+  

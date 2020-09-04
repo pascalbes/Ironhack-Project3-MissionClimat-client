@@ -9,8 +9,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const SimulatorResultsAreaChart = ({ datas, xOffset, yOffset }) => {
+const SimulatorResultsAreaChart = ({ datas, xOffset, yOffset, color, xAxis, yAxis }) => {
+  
   const data = datas.data.data;
+
+  let colorAxis = ""
+  color ? colorAxis = color : colorAxis="white"
+  let isXAxis = ""
+  typeof xAxis !== 'undefined' ? isXAxis = xAxis : isXAxis = true
+  let isYAxis = ""
+  typeof yAxis !== 'undefined' ? isYAxis = yAxis : isYAxis = true
 
   function toolTipContent({ payload, label }) {
     var annualEmi = 0;
@@ -44,8 +52,8 @@ const SimulatorResultsAreaChart = ({ datas, xOffset, yOffset }) => {
     <ResponsiveContainer height="100%" width="100%">
       <AreaChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" stroke="white" />
-        <YAxis stroke="white" />
+        {isXAxis && <XAxis dataKey="name" stroke={colorAxis} />}
+        {isYAxis && <YAxis stroke={colorAxis} />}
         <Tooltip content={toolTipContent} position={{ x: xOffset, y: yOffset }} />
         {datas.areaDatas.map((area, i) => (
           <Area
