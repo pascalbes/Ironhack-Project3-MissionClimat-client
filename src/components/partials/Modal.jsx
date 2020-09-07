@@ -14,7 +14,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
           <FontAwesomeIcon icon={faTimes} />
         </button>
         {children}
-        <button onClick={()=>closeModal()} className="ok-btn">Ok</button>
+        {/* <button onClick={()=>closeModal()} className="ok-btn">Ok</button> */}
       </div>
     </div>
   );

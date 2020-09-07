@@ -119,7 +119,7 @@ const ResultsSample = ({ results, jsonExport }) => {
             {/* <Link to={{ pathname: "/results", state: { results: results, jsonExport: jsonExport } }}>
               <button className="blue-btn">Résultats complets</button>
             </Link> */}
-            <button className="blue-btn" onClick={()=>handleCopyResults()}>Copier les résultats</button>
+            <button className="blue-btn" onClick={()=>handleCopyResults()}>Envoyer mon scénario</button>
           </div>
         </div>
       </section>

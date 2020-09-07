@@ -11,6 +11,8 @@ import SimulatorNavigation from "components/simulateur/SimulatorNavigation";
 import OptionsBox from "components/simulateur/OptionsBox";
 import ResultsSample from "components/simulateur/ResultsSample";
 import SimulatorLoader from "components/simulateur/SimulatorLoader";
+import Loader from "react-loader-spinner";
+import Modal from "components/partials/Modal";
 
 // Custom Hooks
 import { useVisibility } from "hooks/useVisibility";
@@ -30,6 +32,7 @@ const Simulator = (props) => {
   const [results, setResults] = useState(null); // jsonFile.results
   const [jsonExportString, setJsonExportString] = useState(null);
   const [modeExpert, setModeExpert] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showOptions, hideOptions, visibleOptions] = useVisibility(false);
 
   //Gestion d'une route avec paramêtres spécifiques
@@ -102,9 +105,18 @@ const Simulator = (props) => {
             resTemp.url = getUrl(values, jsonFile.parameters);
             //correction des data area pour affichage ok
             handleAreaData(resTemp.emiSecteurGnl);
-            setResults(resTemp);
+            setTimeout(function(){ 
+              setIsLoading(false);
+              setResults(resTemp);
+            }, 1000);
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            console.log(err)
+            setTimeout(function(){ 
+              setIsLoading(false);
+            }, 2000);
+          });
+          
       }
     }
   }, [values]);
@@ -114,6 +126,7 @@ const Simulator = (props) => {
   }, [results]);
 
   function setOneValue(value, index) {
+    setIsLoading(true)
     ReactGA.event({
       category: "Parameters",
       action: index + ":" + value,
@@ -198,10 +211,24 @@ const Simulator = (props) => {
     return <SimulatorLoader />;
   }
 
+  const handleLoader = () => {
+    let loaderType=["Oval", "Rings", "Hearts", "Grid", "Bars", "BallTriangle", "Puff", "TailSpin"]
+    let random = Math.round(Math.random()*loaderType.length);
+    return <Loader type={loaderType[random]} color="#163E59" height={100} width={100} />
+  };
+
   return (
     <>
       <Header />
-      <div className="sim-page flex-item">
+
+      
+      {isLoading && <div id="sim_loader" className="modal-parent">
+        <div id="sim_loader_content" className="modal-content">
+           {handleLoader()}
+        </div>
+      </div>}
+      
+      <div className="sim-page flex-item">     
         <Helmet>
           <meta charSet="utf-8" />
           <title>Mission Climat / Simulateur</title>
