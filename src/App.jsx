@@ -12,6 +12,7 @@ import Simulator from "views/Simulator";
 import Results from "views/Results";
 import Licenses from "views/Licenses";
 import NotFound from "views/NotFound";
+import Ateliers from "views/Ateliers";
 
 /// STYLES
 import "styles/app.css";
@@ -80,6 +81,7 @@ function App() {
           <Route path="/simulator" component={Simulator} />
           <Route path="/results" component={Results} />
           <Route path="/licenses" component={Licenses} />
+          <Route path="/ateliers/results/:id" component={Ateliers} />
           {/* NOT FOUND */}
           <Route path="*" component={NotFound} />
         </Switch>
