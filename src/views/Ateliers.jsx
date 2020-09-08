@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import AteliersBarChart from "components/ateliers/AteliersBarChart";
+
+import AteliersStatsParam from "components/ateliers/AteliersStatsParam";
+import Header from "components/partials/Header";
 import "styles/ateliers.css"
+
+const colors = [
+["#E7F5FE", "#87CEFA"],
+["#FFEAEA", "#FFB8B8"],
+["#E8FFF3", "#7FFFD4"],
+["#F8E9FF", "#DA8FFF"]]
 
 const Ateliers = (props) => {
 
     const [workshopDatas, setWorkshopDatas] = useState(null);
     const [finalDatas, setFinalDatas] = useState(null);
-
 
     const id = props.match.params.id
 
@@ -29,7 +36,8 @@ const Ateliers = (props) => {
             finalDatas[i]={}
             finalDatas[i].name = category
             finalDatas[i].color = workshopDatas.groupData.filter(data => data.groupResult.categoryName === category)[0].groupResult.categoryColor
-            console.log(workshopDatas.groupData.filter(data => data.groupResult.categoryName === category)[0].groupResult.categoryColor)
+            finalDatas[i].color2 = colors.filter(c=>c[0]==finalDatas[i].color)[0][1]
+
             let parameters = workshopDatas.groupData
                 .filter(data => data.groupResult.categoryName === category)
                 .map(data => {return data.groupResult.params})
@@ -60,26 +68,32 @@ const Ateliers = (props) => {
         }
     },[workshopDatas])
 
+    console.log(workshopDatas)
+
     return (
-        <div>
-            {finalDatas?.length && <div>
+        <>
+            <Header />
+            {finalDatas?.length && <div id="ateliers_statistiques">
+                <div className="atelier_param">
+                    <h1>Atelier / Statistiques</h1>
+                    <p> Atelier : {workshopDatas.workshopName}</p> 
+                    <p> Nombre de participants : {workshopDatas.participantsNumber}</p> 
+                </div>
+                
                 {finalDatas.map(cat => (
                     <div className="atelier_cat">
-                        <h3>{cat.name}</h3>
+                        <div className="atelier_param" style={{backgroundColor : cat.color2}}>
+                            <h3>{cat.name}</h3>
+                        </div>
                         <div>
                         {cat.parameters.map(param => (
-                            <div className="atelier_param">
-                                <p>{param.name}</p>
-                                <div className="bar_graph">
-                                    <AteliersBarChart datas={param} color={cat.color}/>
-                                </div>
-                            </div>
+                            <AteliersStatsParam datas={param} color={cat.color} color2={cat.color2}/>
                         ))}
                         </div>
                     </div>
                 ))}
             </div>}
-        </div>
+        </>
     )
 }
 

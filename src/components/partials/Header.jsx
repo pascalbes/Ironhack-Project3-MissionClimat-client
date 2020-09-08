@@ -5,12 +5,13 @@ import "../../styles/header.css";
 import { withRouter } from "react-router-dom";
 
 const Header = ({ location }) => {
+  
   function handleId() {
-    return location.pathname === "/simulator" ? "header-simulator" : "";
+    return (location.pathname === "/simulator" || location.pathname.includes("/ateliers")) ? "header-simulator" : "";
   }
 
   function handleColor() {
-    return location.pathname === "/simulator" ? "#163e59" : "white";
+    return (location.pathname === "/simulator" || location.pathname.includes("/ateliers")) ? "#163e59" : "white";
   }
 
   function handleLogo() {
