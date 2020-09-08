@@ -4,8 +4,17 @@
     width: 100%;
     padding : 10px;
 }
+#ateliers_intro {
+    width: 100%;
+    padding: 30px 20px;
+    background-color: white;
+    margin-bottom: 10px;
+}
 
-#ateliers_statistiques h1 {font-size: 3em;}
+
+#ateliers_intro h1 {font-size: 3em;}
+#ateliers_intro button {font-size: 20px; margin-top:20px; margin-right: 20px;}
+
 #ateliers_statistiques h3 {padding: 20px 0}
 #ateliers_statistiques .span_underline {width: 300px;height: 8px; margin-top:-10px;margin-bottom: 40px;}
 

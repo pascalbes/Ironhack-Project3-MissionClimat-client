@@ -22,11 +22,8 @@ const AteliersBarChart = ({ datas, color, color2, med, eqType, mean }) => {
 //     return ();
 //   }
 
-console.log("'------------------------'")
-console.log(datas.name)
-console.log(datas.data)
-console.log(med, eqType)
-
+// console.log("'------------------------'")
+// console.log(datas.name)
 
 const min=datas.min
 const max=datas.max
@@ -112,12 +109,10 @@ function handleData(data) {
           fill={handleFill(uniqueKey)}
         />
         <ReferenceLine 
-          segment={[{x: eq1,y: 0},{x: eq1,y: 2}]}
-          stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
+          x={eq1} stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
         <ReferenceLine x={medClosest} stroke="rgb(64, 224, 208)" strokeWidth={5} strokeDasharray="5 5"/>
         <ReferenceLine 
-          segment={[{x: eq2,y: 0},{x: eq2,y: 2}]}
-          stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
+          x={eq2} stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
         {/* <ReferenceLine x={med2} stroke="red" strokeWidth={1} strokeDasharray="5 5"/> */}
       </BarChart>
     </ResponsiveContainer>

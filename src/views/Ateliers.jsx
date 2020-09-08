@@ -4,6 +4,7 @@ import axios from "axios";
 import AteliersStatsParam from "components/ateliers/AteliersStatsParam";
 import Header from "components/partials/Header";
 import "styles/ateliers.css"
+import getUrl from "js/getUrl"
 
 const colors = [
 ["#E7F5FE", "#87CEFA"],
@@ -15,6 +16,7 @@ const Ateliers = (props) => {
 
     const [workshopDatas, setWorkshopDatas] = useState(null);
     const [finalDatas, setFinalDatas] = useState(null);
+    const [url, setUrl] = useState(null);
 
     const id = props.match.params.id
 
@@ -43,7 +45,6 @@ const Ateliers = (props) => {
                 .map(data => {return data.groupResult.params})
                 .reduce((a,v) => [...a, ...v])
             let params = parameters.map(p=>p.name).filter(onlyUnique)
-            console.log(params)
             finalDatas[i].parameters = params.map(p => {
                 let pTemp = parameters.filter(p2 => p2.name === p)
                 let pFinal = {
@@ -57,7 +58,6 @@ const Ateliers = (props) => {
                 return pFinal
             })
         })
-        console.log(finalDatas)
         return finalDatas
     }
     
@@ -65,6 +65,7 @@ const Ateliers = (props) => {
         if (workshopDatas) {
             const datas = compileDatas(workshopDatas)
             setFinalDatas(datas)
+            setUrl(getUrl(datas))
         }
     },[workshopDatas])
 
@@ -74,10 +75,14 @@ const Ateliers = (props) => {
         <>
             <Header />
             {finalDatas?.length && <div id="ateliers_statistiques">
-                <div className="atelier_param">
+                <div id="ateliers_intro">
                     <h1>Atelier / Statistiques</h1>
                     <p> Atelier : {workshopDatas.workshopName}</p> 
                     <p> Nombre de participants : {workshopDatas.participantsNumber}</p> 
+                    {url && <a href={url.urlMeans} target="_blank"><button className="blue-btn">Scénario Moyen</button></a>}
+                    {url && <a href={url.urlMeds} target="_blank"><button className="blue-btn">Scénario Médian</button></a>}
+
+
                 </div>
                 
                 {finalDatas.map(cat => (

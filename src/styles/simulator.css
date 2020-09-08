@@ -691,7 +691,7 @@ input[type="radio"] {
 
 /* LOADER */
 
-#sim_loader {background-color: transparent}
+#sim_loader {background-color: white;opacity: 0.3;}
 
 #sim_loader_content {
   background-color: transparent;

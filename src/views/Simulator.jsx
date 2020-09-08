@@ -108,13 +108,13 @@ const Simulator = (props) => {
             setTimeout(function(){ 
               setIsLoading(false);
               setResults(resTemp);
-            }, 1000);
+            }, 1500);
           })
           .catch((err) => {
             console.log(err)
             setTimeout(function(){ 
               setIsLoading(false);
-            }, 2000);
+            }, 3000);
           });
           
       }
@@ -212,9 +212,9 @@ const Simulator = (props) => {
   }
 
   const handleLoader = () => {
-    let loaderType=["Oval", "Rings", "Hearts", "Grid", "Bars", "BallTriangle", "Puff", "TailSpin"]
-    let random = Math.round(Math.random()*loaderType.length);
-    return <Loader type={loaderType[random]} color="#163E59" height={100} width={100} />
+    // let loaderType=["Oval", "Rings", "Hearts", "Grid", "Bars", "BallTriangle", "Puff", "TailSpin"]
+    // let random = Math.round(Math.random()*loaderType.length);
+    return <Loader type={"Oval"} color="#163E59" height={100} width={100} />
   };
 
   return (
