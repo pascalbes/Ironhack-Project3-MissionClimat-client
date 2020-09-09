@@ -1,6 +1,7 @@
 import React from "react";
 import {
   BarChart,
+  Label,
   Bar,
   XAxis,
   YAxis,
@@ -22,9 +23,6 @@ const AteliersBarChart = ({ datas, color, color2, med, eqType, mean }) => {
 //     return ();
 //   }
 
-// console.log("'------------------------'")
-// console.log(datas.name)
-
 const min=datas.min
 const max=datas.max
 let step  = null;
@@ -39,12 +37,10 @@ while (values[i] < max) {
   values.push(min + i*step)
 }
 
-const eq1 = findI(med - eqType, values)
-const eq2 = findI(med + eqType, values)
-const medClosest = findI(med, values)
-const meanClosest = findI(mean, values)
-
-
+const eq1 = findI(med - eqType, values) + datas.unit
+const eq2 = findI(med + eqType, values) + datas.unit
+const medClosest = findI(med, values) + datas.unit
+const meanClosest = findI(mean, values) + datas.unit
 
 function slugify(text)
 {
@@ -74,7 +70,7 @@ function handleData(data) {
     let nbValues = data.filter(v => v > value - step/2 && v < value + step /2).length
     // if (i==self.length-1) {nbValues += datas.data.filter(v => v === value + step /2).length}
     barDatas.push({
-      "value": value,
+      "value": value + datas.unit,
       "nb": nbValues
     })
   })
@@ -95,9 +91,14 @@ function handleData(data) {
           <stop offset="95%" stopColor={color2} stopOpacity={0.2}/>
           </linearGradient>
         </defs>
-        <XAxis dataKey="value" stroke="#BDBFC5" />
-        <YAxis stroke="#BDBFC5" />
-        {/* <Tooltip content={toolTipContent} position={{ x: xOffset, y: yOffset }} /> */}
+        <XAxis dataKey="value" stroke="#BDBFC5" height={40}>
+          <Label value={datas.description} offset={0} position="insideBottom" style={{ textAnchor: 'middle', fill: '#163E595' }}></Label> 
+        </XAxis>
+        
+        <YAxis stroke="#BDBFC5" interval={1}>
+          <Label value='Nb Résultats' offset={0} position="center" style={{ textAnchor: 'middle', fill: '#163E595' }} angle={-90}></Label> 
+        </YAxis>
+        
         <Tooltip />
         
         <Bar
@@ -105,15 +106,11 @@ function handleData(data) {
           fillOpacity="1"
           dataKey="nb"
           stroke="none"
-          // fill="url(#gradient)"
           fill={handleFill(uniqueKey)}
         />
-        <ReferenceLine 
-          x={eq1} stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
+        <ReferenceLine x={eq1} stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
         <ReferenceLine x={medClosest} stroke="rgb(64, 224, 208)" strokeWidth={5} strokeDasharray="5 5"/>
-        <ReferenceLine 
-          x={eq2} stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
-        {/* <ReferenceLine x={med2} stroke="red" strokeWidth={1} strokeDasharray="5 5"/> */}
+        <ReferenceLine x={eq2} stroke="rgb(176, 224, 230)" strokeWidth={3} strokeDasharray="5 5" />
       </BarChart>
     </ResponsiveContainer>
   );

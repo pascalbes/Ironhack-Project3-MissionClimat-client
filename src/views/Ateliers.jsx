@@ -4,7 +4,7 @@ import axios from "axios";
 import AteliersStatsParam from "components/ateliers/AteliersStatsParam";
 import Header from "components/partials/Header";
 import "styles/ateliers.css"
-import getUrl from "js/getUrl"
+import { getUrl } from "js/getUrl"
 
 const colors = [
 ["#E7F5FE", "#87CEFA"],
@@ -68,8 +68,6 @@ const Ateliers = (props) => {
             setUrl(getUrl(datas))
         }
     },[workshopDatas])
-
-    console.log(workshopDatas)
 
     return (
         <>
