@@ -25,22 +25,22 @@ const CopyResults = ({jsonExport}) => {
         <div id="copy_results">
             <div>
                 <h3>1. Copier les résultats</h3>
-                <p>Cliquez sur le bouton correspondant au secteur sur lequel vous avez travaillé.</p>
+                <p>Cliquez sur le bouton correspondant au secteur sur lequel vous avez travaillé. Sur "Tous" pour tous les secteurs.</p>
                 {jsonExport.categories.map(category => (
                 <CopyToClipboard text={stringifyJSON(jsonExport, category.data.name)} backgroundColor={category.data.colorHover}>
                     {category.data.name}
                 </CopyToClipboard>
                 ))}
                 
-                {/* <CopyToClipboard text={stringifyJSON(jsonExport)} backgroundColor="grey">
+                <CopyToClipboard text={stringifyJSON(jsonExport)} backgroundColor="grey">
                     Tous
-                </CopyToClipboard> */}
+                </CopyToClipboard>
             </div>
             <div id="data_export">
                 <h3>2. Exporter les données</h3>
                 <p>Cliquez sur le bouton correspondant au round correspondant à votre atelier</p>
-                <button><a href="http://34.90.238.39/send/6" target="_blank">Round 1</a></button>
-                <button><a href="http://34.90.238.39/send/4" target="_blank">Round 2</a></button>
+                <button><a href="http://34.90.238.39/send/7" target="_blank">Round 1</a></button>
+                <button><a href="http://34.90.238.39/send/8" target="_blank">Round 2</a></button>
             </div>
             
         </div>
