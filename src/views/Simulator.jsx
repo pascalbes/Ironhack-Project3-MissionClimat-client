@@ -105,10 +105,8 @@ const Simulator = (props) => {
             resTemp.url = getUrl(values, jsonFile.parameters);
             //correction des data area pour affichage ok
             handleAreaData(resTemp.emiSecteurGnl);
-            setTimeout(function(){ 
-              setIsLoading(false);
-              setResults(resTemp);
-            }, 1500);
+            setIsLoading(false);
+            setResults(resTemp);
           })
           .catch((err) => {
             console.log(err)
