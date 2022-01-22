@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 
-const CopyToClipboard = ({ text, children, fn, backgroundColor }) => {
+const CopyToClipboard = (props) => {
+
+  const { text, children, fn, backgroundColor, url } = props;
   
   const textArea = useRef();
 
@@ -12,12 +14,17 @@ const CopyToClipboard = ({ text, children, fn, backgroundColor }) => {
     textArea.current.select();
     document.execCommand("copy");
     textArea.current.style.display = "none";
-    alert("Données copiées")
+    window.open(url, '_blank').focus();
   };
 
   return (
     <>
-      <button onClick={copy} style={{backgroundColor:backgroundColor, border:`${backgroundColor} solid 1px`}}>{children}</button>
+      <button 
+        onClick={copy} 
+        style={{backgroundColor:backgroundColor, border:`${backgroundColor} solid 1px`}}
+      >
+        {children}
+      </button>
       <textarea readOnly ref={textArea} value={text} style={{ display: "none" }} />
     </>
   );

@@ -23,7 +23,31 @@ const CopyResults = ({jsonExport}) => {
     
     return (
         <div id="copy_results">
+
+            <h3>Export des données</h3>
             <div>
+                <h4>1. Proposition de Scénario Complet</h4>
+                <CopyToClipboard 
+                    text={stringifyJSON(jsonExport)} 
+                    backgroundColor="grey"
+                    url='http://34.90.238.39/send/7'
+                >
+                    Exporter mon scénario complet
+                </CopyToClipboard>
+            </div>
+            <div id="data_export">
+                <h4>2. Scénario BCG pour le secteur "bâtiments"</h4>
+                <CopyToClipboard 
+                    text={stringifyJSON(jsonExport, "Bâtiments")} 
+                    backgroundColor="grey"
+                    url='http://34.90.238.39/send/7'
+                >
+                    Exporter les données "Bâtiments"
+                </CopyToClipboard>
+            </div>
+
+
+            {/* <div>
                 <h3>1. Copier les résultats</h3>
                 <p>Cliquez sur le bouton correspondant au secteur sur lequel vous avez travaillé. Sur "Tous" pour tous les secteurs.</p>
                 {jsonExport.categories.map(category => (
@@ -41,7 +65,7 @@ const CopyResults = ({jsonExport}) => {
                 <p>Cliquez sur le bouton correspondant au round correspondant à votre atelier</p>
                 <button><a href="http://34.90.238.39/send/7" target="_blank">Round 1</a></button>
                 <button><a href="http://34.90.238.39/send/8" target="_blank">Round 2</a></button>
-            </div>
+            </div> */}
             
         </div>
     )

@@ -9,7 +9,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { eq } from "lodash";
 
 const findI = (value, array) => {
   let diffs = array.map(a=>Math.abs(a-value))

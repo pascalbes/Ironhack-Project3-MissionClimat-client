@@ -2,15 +2,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
+import api from "api/APIHandler";
+
 /// PAGES
-import Home from "views/Home";
-import About from "views/About";
-import Contact from "views/Contact.jsx";
-import Contribuer from "views/Contribuer.jsx";
-import Concept from "views/Concept";
 import Simulator from "views/Simulator";
-import Results from "views/Results";
-import Licenses from "views/Licenses";
 import NotFound from "views/NotFound";
 import Ateliers from "views/Ateliers";
 
@@ -34,24 +29,25 @@ ReactGA.event({
 function App() {
   const width = window.innerWidth;
 
-  // function deleteSheet(e) {
-  //   e.preventDefault();
-  //   console.log(localStorage.getItem("idSheet"));
-  //   if (localStorage.getItem("idSheet")) {
-  //     var idSheet = localStorage.getItem("idSheet");
-  //     localStorage.removeItem("idSheet");
-  //     api
-  //       .delete("/sheet/delete", idSheet)
-  //       .then((res) => {
-  //         console.log("SHEET DELETED!", res);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  //   return null;
-  // }
+  const idSheetString = "idSheet_Mines";
 
-  // // useBeforeunload((e) => deleteSheet(e))
-  // window.addEventListener("beforeunload", (e) => deleteSheet(e));
+  function deleteSheet(e) {
+    e.preventDefault();
+    if (localStorage.getItem(idSheetString)) {
+      var idSheet = localStorage.getItem(idSheetString);
+      localStorage.removeItem(idSheetString);
+      api
+        .delete("/sheet/delete", idSheet)
+        .then((res) => {
+          console.log("SHEET DELETED!", res);
+        })
+        .catch((err) => console.log(err));
+    }
+    return null;
+  }
+
+  // useBeforeunload((e) => deleteSheet(e))
+  window.addEventListener("beforeunload", (e) => deleteSheet(e));
 
   const Mobile = () => {
     return (
@@ -72,15 +68,8 @@ function App() {
       <main id="content-main">
         <Switch>
           {/* BASIC */}
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/contribuer" component={Contribuer} />
+          <Route exact path="/" component={Simulator} />
           {/* SIMULATOR */}
-          <Route path="/concept" component={Concept} />
-          <Route path="/simulator" component={Simulator} />
-          <Route path="/results" component={Results} />
-          <Route path="/licenses" component={Licenses} />
           <Route path="/ateliers/results/:id" component={Ateliers} />
           {/* NOT FOUND */}
           <Route path="*" component={NotFound} />

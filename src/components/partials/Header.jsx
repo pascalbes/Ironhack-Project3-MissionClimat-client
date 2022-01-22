@@ -7,15 +7,15 @@ import { withRouter } from "react-router-dom";
 const Header = ({ location }) => {
   
   function handleId() {
-    return (location.pathname === "/simulator" || location.pathname.includes("/ateliers")) ? "header-simulator" : "";
+    return (location.pathname === "/" || location.pathname.includes("/ateliers")) ? "header-simulator" : "";
   }
 
   function handleColor() {
-    return (location.pathname === "/simulator" || location.pathname.includes("/ateliers")) ? "#163e59" : "white";
+    return (location.pathname === "/" || location.pathname.includes("/ateliers")) ? "#163e59" : "white";
   }
 
   function handleLogo() {
-    return location.pathname === "/simulator"
+    return location.pathname === "/"
       ? "../../../images/logo/missionclimat_blue.svg"
       : "../../../images/logo/missionclimat.svg";
   }

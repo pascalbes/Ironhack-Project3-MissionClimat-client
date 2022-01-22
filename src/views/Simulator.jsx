@@ -27,6 +27,8 @@ import "styles/simulator.css";
 import "styles/app.css";
 import { matches } from "lodash";
 
+const idSheetString = "idSheet_Mines";
+
 const Simulator = (props) => {
   const [values, setValues] = useState(null);
   const [results, setResults] = useState(null); // jsonFile.results
@@ -42,11 +44,12 @@ const Simulator = (props) => {
   //   - créer une spreadsheet si non créée,
   //   - charger les valeurs de la spreadsheet créée si existante, et les afficher,
   //   - charger les valeurs d'un scénario enregistré, dans le cas d'un appel via url spécifique,
+  
   useEffect(() => {
     async function initDatas() {
       var valuesURL = [];
       // cas où une sheet est déjà en dans le localstorage
-      const idSheet = localStorage.getItem("idSheet_CentraleFinal");
+      const idSheet = localStorage.getItem(idSheetString);
 
       if (idSheet) {
         console.log("SHEET ALREADY CREATED, ID:", idSheet);
@@ -68,7 +71,7 @@ const Simulator = (props) => {
         //création d'une copie de la sheet master
         const response = await api.get("/sheet/");
         const idSheet = response.data.id;
-        localStorage.setItem("idSheet_CentraleFinal", idSheet);
+        localStorage.setItem(idSheetString, idSheet);
         console.log("SHEET CREATED! ID:", idSheet);
 
         // cas où appel via url spécifique /save/p=1&&p=3.....
@@ -95,7 +98,7 @@ const Simulator = (props) => {
   //Fonction appellée à chaque actualisation de la variable state "values". Permet d'actualiser les résultats correpondant aux nouvelles values
   useEffect(() => {
     if (values) {
-      const idSheet = localStorage.getItem("idSheet_CentraleFinal");
+      const idSheet = localStorage.getItem(idSheetString);
       const valuesFormatted = getValuesFormatted(values, jsonFile.options.unit);
       if (idSheet) {
         api
@@ -148,7 +151,7 @@ const Simulator = (props) => {
     const initMode = e.target.value;
     const valuesTemp = jsonFile.options[values[initMode]];
 
-    const idSheet = localStorage.getItem("idSheet_CentraleFinal");
+    const idSheet = localStorage.getItem(idSheetString);
     const valuesFormatted = getValuesFormatted(valuesTemp, jsonFile.options.unit);
 
     // setValues(valuesTemp)
@@ -217,7 +220,7 @@ const Simulator = (props) => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       
       {isLoading && <div id="sim_loader" className="modal-parent">

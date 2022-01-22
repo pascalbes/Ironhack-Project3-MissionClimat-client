@@ -86,7 +86,7 @@ const NavMain = (props) => {
 
   return width > 900 ? (
     <nav>
-      <Link to="/simulator">
+      {/* <Link to="/simulator">
         <button style={{ color: props.color }}>Simulateur</button>
       </Link>
       <Link to="/concept">
@@ -97,7 +97,7 @@ const NavMain = (props) => {
       </Link>
       <Link to="/contribuer">
         <button style={{ color: props.color }}>Contribuer</button>
-      </Link>
+      </Link> */}
       <Link to="/contact">
         <button style={{ color: props.color }}>Contact</button>
       </Link>

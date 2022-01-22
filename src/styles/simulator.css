@@ -1,6 +1,6 @@
 /* /// SECTIONS */
 .sim-page {
-  height: 92vh;
+  height: 100vh;
   background-color: #e5e5e5;
   color: #163E59;
   padding: 10px;
@@ -21,9 +21,9 @@
 }
 
 /* /// LOADER */
-#loader {
-  height: 100%;
+#loader_wrapper {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -699,10 +699,11 @@ input[type="radio"] {
 
 
 /* /// EXPORT RESULTS */
-#copy_results {display: flex;flex-wrap: wrap;justify-content: flex-start;width: 70vw;padding: 10px 50px 10px}
-#copy_results h3 {margin-bottom: 10px;}
+#copy_results {display: flex;flex-direction: column;justify-content: flex-start;padding: 10px 50px 10px}
+#copy_results h3 {margin-bottom: 30px;}
+#copy_results h4 {margin-bottom: 10px;}
 #copy_results p {text-align:left;margin-bottom:  10px;}
-#copy_results button { font-weight:500;font-size: 18px;margin-bottom: 15px;margin-right: 15px;color:#163e59;border:none;transition-duration: 0.4s;}
+#copy_results button { font-weight:500;font-size: 18px;margin-bottom: 15px;margin-right: 15px;color:#163e59;border:none;transition-duration: 0.4s; color: white}
 #copy_results > div:last-of-type {margin-top: 20px}
 #copy_results > div:last-of-type button { background-color: #163e59;color:white}
 #copy_results button:hover {font-weight: bold};
