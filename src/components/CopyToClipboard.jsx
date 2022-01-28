@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 const CopyToClipboard = (props) => {
 
-  const { text, children, fn, backgroundColor, url } = props;
+  const { key, text, children, fn, backgroundColor, url } = props;
   
   const textArea = useRef();
 
@@ -20,12 +20,12 @@ const CopyToClipboard = (props) => {
   return (
     <>
       <button 
-        onClick={copy} 
+        onClick={()=>copy()} 
         style={{backgroundColor:backgroundColor, border:`${backgroundColor} solid 1px`}}
       >
         {children}
       </button>
-      <textarea readOnly ref={textArea} value={text} style={{ display: "none" }} />
+      <textarea key={key} readOnly ref={textArea} value={text} style={{ display: "none" }} />
     </>
   );
 };

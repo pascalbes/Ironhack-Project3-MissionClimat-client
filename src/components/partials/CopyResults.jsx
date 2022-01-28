@@ -10,7 +10,6 @@ const CopyResults = ({jsonExport}) => {
         if (!key) {
             return JSON.stringify(text)
         }
-
         let jsonTemp = {};
         jsonTemp.results={...jsonExport.results}
         jsonTemp.validation={...jsonExport.validation}
@@ -31,6 +30,7 @@ const CopyResults = ({jsonExport}) => {
                     text={stringifyJSON(jsonExport)} 
                     backgroundColor="grey"
                     url='http://34.90.238.39/send/7'
+                    key={1}
                 >
                     Exporter mon scénario complet
                 </CopyToClipboard>
@@ -41,6 +41,7 @@ const CopyResults = ({jsonExport}) => {
                     text={stringifyJSON(jsonExport, "Bâtiments")} 
                     backgroundColor="grey"
                     url='http://34.90.238.39/send/7'
+                    key={2}
                 >
                     Exporter les données "Bâtiments"
                 </CopyToClipboard>

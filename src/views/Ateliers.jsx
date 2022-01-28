@@ -10,7 +10,8 @@ const colors = [
 ["#E7F5FE", "#87CEFA"],
 ["#FFEAEA", "#FFB8B8"],
 ["#E8FFF3", "#7FFFD4"],
-["#F8E9FF", "#DA8FFF"]]
+["#F8E9FF", "#DA8FFF"],
+["#EFF9FA", "#B0E0E6"]];
 
 const Ateliers = (props) => {
 
@@ -19,12 +20,21 @@ const Ateliers = (props) => {
     const [url, setUrl] = useState(null);
 
     const id = props.match.params.id
+    const apiPath = process.env.REACT_APP_WORKSHOP_API_URL;
+
+    console.log(id, apiPath)
 
     useEffect(() => {
-        axios.get("http://34.90.238.39:8000/workshop/" + id + "/")
+        axios.get(apiPath + "/workshop/" + id + "/")
         .then(res=> setWorkshopDatas(res.data))
         .catch(err=> console.log(err))
     },[])
+
+    console.log(workshopDatas)
+
+    //workshopdatas should contain
+    // object groupData, which should is an array of objects which should contain
+    // 
 
     const compileDatas = (workshopDatas) => {
 
@@ -71,7 +81,6 @@ const Ateliers = (props) => {
 
     return (
         <>
-            <Header />
             {finalDatas?.length && <div id="ateliers_statistiques">
                 <div id="ateliers_intro">
                     <h1>Atelier / Statistiques</h1>
