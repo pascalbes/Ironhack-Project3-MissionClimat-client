@@ -25,25 +25,25 @@ const CopyResults = ({jsonExport}) => {
 
             <h3>Export des données</h3>
             <div>
-                <h4>1. Proposition de Scénario Complet</h4>
-                <CopyToClipboard 
-                    text={stringifyJSON(jsonExport)} 
-                    backgroundColor="grey"
-                    url='http://34.90.238.39/send/7'
-                    key={1}
-                >
-                    Exporter mon scénario complet
-                </CopyToClipboard>
-            </div>
-            <div id="data_export">
-                <h4>2. Scénario BCG pour le secteur "bâtiments"</h4>
+                <h4>1. Proposition pour le Secteur Bâtiments</h4>
                 <CopyToClipboard 
                     text={stringifyJSON(jsonExport, "Bâtiments")} 
                     backgroundColor="grey"
-                    url='http://34.90.238.39/send/7'
-                    key={2}
+                    url='http://35.205.101.108:443//send/df3b7388-ddbe-4b33-86cf-a41d32efbf1c'
+                    key={1}
                 >
                     Exporter les données "Bâtiments"
+                </CopyToClipboard>
+            </div>
+            <div id="data_export">
+                <h4>2. Proposition de Scénario Complet</h4>
+                <CopyToClipboard 
+                    text={stringifyJSON(jsonExport)} 
+                    backgroundColor="grey"
+                    url='http://35.205.101.108:443//send/fea06fae-ded6-440a-9420-f4576af685bf'
+                    key={2}
+                >
+                    Exporter mon scénario complet
                 </CopyToClipboard>
             </div>
 
