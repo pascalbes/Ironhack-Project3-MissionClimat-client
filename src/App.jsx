@@ -16,8 +16,6 @@ import "styles/reset.css";
 /// GOOGLE ANALYTICS
 import ReactGA from "react-ga";
 
-console.log(window.location.hostname)
-
 if (window.location.hostname !== "localhost") {
   ReactGA.initialize("UA-165257322-1");
   ReactGA.pageview(window.location.pathname + window.location.search);
@@ -71,7 +69,6 @@ function App() {
         <Switch>
           {/* BASIC */}
           <Route exact path="/" component={Simulator} />
-          <Route path="/testsimulol" component={Simulator} />
           {/* SIMULATOR */}
           <Route path="/ateliers/results/:id" component={Ateliers} />
           {/* NOT FOUND */}
