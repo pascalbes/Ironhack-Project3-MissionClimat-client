@@ -16,6 +16,8 @@ import "styles/reset.css";
 /// GOOGLE ANALYTICS
 import ReactGA from "react-ga";
 
+console.log(window.location.hostname)
+
 if (window.location.hostname !== "localhost") {
   ReactGA.initialize("UA-165257322-1");
   ReactGA.pageview(window.location.pathname + window.location.search);

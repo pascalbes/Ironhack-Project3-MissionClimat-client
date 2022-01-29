@@ -23,6 +23,8 @@ const Ateliers = (props) => {
     const id = props.match.params.id
     const apiPath = process.env.REACT_APP_WORKSHOP_API_URL;
 
+    console.log(apiPath)
+
     useEffect(() => {
         axios.get(apiPath + "/workshop/" + id + "/")
         .then(res=> setWorkshopDatas(res.data))
