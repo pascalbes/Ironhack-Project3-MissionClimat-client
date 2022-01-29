@@ -15,7 +15,7 @@
 #ateliers_intro h1 {font-size: 3em;}
 #ateliers_intro button {font-size: 20px; margin-top:20px; margin-right: 20px;}
 
-#ateliers_statistiques h3 {padding: 20px 0}
+#ateliers_statistiques h3 {padding: 0; margin: 0}
 #ateliers_statistiques .span_underline {width: 300px;height: 8px; margin-top:-10px;margin-bottom: 40px;}
 
 .atelier_cat {
@@ -24,15 +24,15 @@
 
 .atelier_param {
     width: 100%;
-    padding: 30px 20px;
+    padding: 20px 15px;
     background-color: white;
     margin-bottom: 10px;
 }
 
-.indicator_container {display: flex;width:100%;margin: 30px 0;}
+.indicator_container {display: flex;width:100%;margin: 25px 0;}
 .indicator_box {display: flex;flex-direction: column;margin-right: 20px; align-items: center;}
 
-.indicator_box .results-figure {display: flex;background-color: rgb(176, 224, 230);}
+.indicator_box .results-figure {display: flex;background-color: rgb(176, 224, 230);font-size: 20px;height: 40px}
 .indicator_box:first-child .results-figure {background-color: rgb(233, 231, 236);}
 .indicator_box:nth-child(2) .results-figure {background-color: rgb(233, 231, 236);}
 .indicator_box:nth-child(3) .results-figure {background-color: rgb(64, 224, 208);}
@@ -40,6 +40,6 @@
 .indicator_box:nth-child(5) .results-figure {background-color: rgb(176, 224, 230);}
 
 .bar_graph {
-    width: 90%;
-    height: 300px;
+    width: 80%;
+    height: 250px;
 }
