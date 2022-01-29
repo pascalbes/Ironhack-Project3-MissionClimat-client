@@ -71,6 +71,7 @@ function App() {
         <Switch>
           {/* BASIC */}
           <Route exact path="/" component={Simulator} />
+          <Route path="/testsimulol" component={Simulator} />
           {/* SIMULATOR */}
           <Route path="/ateliers/results/:id" component={Ateliers} />
           {/* NOT FOUND */}
