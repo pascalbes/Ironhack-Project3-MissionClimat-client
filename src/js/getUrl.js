@@ -1,4 +1,4 @@
-let params = [["0", "Rénovation thermique", "Part de bâtiments rénovés en 2030 (%)"], ["1", "Chauffages gaz", "Part de chauffages au gaz remplacés en 2030 (%)"], ["2", "Chauffages fioul", "Part de chauffages au fioul remplacés en 2030 (%)"], ["3", "Surface chauffée", "Surface chauffée par personne (m2)"], ["4", "Température chauffage", "Température moyenne des logements en 2030 (°C)"], ["5", "Consommation d'électricité", "Consommation d'électricité spécifique par personne en 2030 (%)"], ["6", "Distance parcourue en voiture", "Distance parcourue en voiture en 2030 par rapport à 2020 (%)"], ["7", "Nombre de passagers par véhicule", "Nombre moyen de passagers par véhicule en 2030"], ["8", "Remplacement des véhicules particuliers", "Part de voitures remplacées par des Véhicules à Très Faibles Emissions en 2030 (%)"], ["9", "Eco-conduite", "Part de conducteurs pratiquant l'éco-conduite en 2030 (%)"], ["10", "Transport aérien", "Nombre de passagers français par an en 2030 (en millions)"], ["11", "Remplacement des véhicules de transports de marchandises", "Part de véhicules de transports de marchandises et véhicules utilitaires remplacés par des Véhicules à Très Faibles Emissions en 2030 (%)"], ["12", "Marchandises transportées", "Quantité de marchandises.km transportées en 2030 par rapport à 2020 (%)"], ["13", "Consommation de viande", "Consommation de viande (hors élevages extensifs) en 2030 par rapport à 2020 (%)"], ["14", "Exploitations agricoles exemplaires", "Part des exploitations contribuant à la baisse des émissions en 2030 (%)"], ["15", "Gain d'efficacité des pratiques agricoles par an", "Gain d'efficacité carbone des pratiques agricoles par an (%)"], ["16", "Surfaces afforestées", "Part de terres agricoles converties à l'afforestation (%)"], ["17", "Services", "Quantité de services (dont services publics) en 2030 par rapport à 2020 (%)"], ["18", "Services (efficacité)", "Gain d'efficacité carbone des services par an (%)"], ["19", "Biens informatiques", "Quantité de biens informatiques et Hifi neufs en 2030 par rapport à 2020 (%)"], ["20", "Biens informatiques (efficacité)", "Gain d'efficacité carbone de la fabrication de biens informatiques et hifi par an (%)"], ["21", "Textile", "Quantité de biens textiles neufs en 2030 par rapport à 2020 (%)"], ["22", "Textile (efficacité)", "Gain d'efficacité carbone de la fabrication de biens textiles par an (%)"], ["23", "Autres biens manufacturés", "Quantité d'électroménager, mobilier, distribution neuf en 2030 par rapport à 2020 (%)"], ["24", "Autres biens manufacturés (efficacité)", "Gain d'efficacité carbone de la fabrication des autres biens manufacturés par an (%)"]];
+const parametersInfos = [{id:"Rénovation thermique", index:0, initialValue:10},{id:"Chauffages gaz", index:1, initialValue:20},{id:"Chauffages fioul", index:2, initialValue:50},{id:"Surface chauffée", index:3, initialValue:40},{id:"Température chauffage", index:4, initialValue:21},{id:"Consommation d'électricité", index:5, initialValue:200},{id:"Distance parcourue en voiture", index:6, initialValue:110,},{id:"Nombre de passagers par véhicule", index:7, initialValue:1.2},{id:"Remplacement des véhicules particuliers", index:8, initialValue:20},{id:"Eco-conduite", index:9, initialValue:50},{id:"Transport aérien", index:10, initialValue:100},{id:"Marchandises transportées", index:11, initialValue:90},{id:"Consommation de viande", index:12, initialValue:90},{id:"Exploitations agricoles exemplaires", index:13, initialValue:10},{id:"Gain d'efficacité des pratiques agricoles par an", index:14, initialValue:2},{id:"Surfaces afforestées", index:15, initialValue:10},{id:"Services", index:16, initialValue:110,},{id:"Services (efficacité)", index:17, initialValue:2},{id:"Biens informatiques", index:18, initialValue:150},{id:"Biens informatiques (efficacité)", index:19, initialValue:2},{id:"Textile", index:20, initialValue:100},{id:"Textile (efficacité)", index:21, initialValue:2},{id:"Autres biens manufacturés", index:22, initialValue:100},{id:"Autres biens manufacturés (efficacité)", index:23, initialValue:2},{id:"Intensité carbone de l'électricité", index:24, initialValue:0.07},{id:"Intensité carbone du gaz", index:25, initialValue:0.2}];
 
 function average(data){
     var sum = data.reduce(function(sum, value){
@@ -27,21 +27,17 @@ function average(data){
     let means = [];
     let meds = [];
 
-    let isOneUndefined=0
-
-    params.map(param => {
-      if (!parameters.find(p => p.name === param[1])) {
-        isOneUndefined = 1
+    parametersInfos.map(paramInfo => {
+      const paramFound = parameters.find(p => p.name === paramInfo.id);
+      if (paramFound) {
+        means.push(average(paramFound.data));
+        meds.push(median(paramFound.data));
       }
       else {
-        let values = parameters.find(p => p.name === param[1]).data
-        means.push(average(values))
-        meds.push(median(values))
-      }
-      
+        means.push(paramInfo.initialValue);
+        meds.push(paramInfo.initialValue);
+      } 
     })
-
-    if (isOneUndefined) {return null}
 
     let urlMeans = window.location.origin + "/simulator/favorites/";
     let urlMeds = window.location.origin + "/simulator/favorites/";

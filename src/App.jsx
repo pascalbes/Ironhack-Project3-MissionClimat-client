@@ -31,23 +31,23 @@ function App() {
 
   const idSheetString = "idSheet_Mines";
 
-  function deleteSheet(e) {
-    e.preventDefault();
-    if (localStorage.getItem(idSheetString)) {
-      var idSheet = localStorage.getItem(idSheetString);
-      localStorage.removeItem(idSheetString);
-      api
-        .delete("/sheet/delete", idSheet)
-        .then((res) => {
-          console.log("SHEET DELETED!", res);
-        })
-        .catch((err) => console.log(err));
-    }
-    return null;
-  }
+  // function deleteSheet(e) {
+  //   e.preventDefault();
+  //   if (localStorage.getItem(idSheetString)) {
+  //     var idSheet = localStorage.getItem(idSheetString);
+  //     localStorage.removeItem(idSheetString);
+  //     api
+  //       .delete("/sheet/delete", idSheet)
+  //       .then((res) => {
+  //         console.log("SHEET DELETED!", res);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  //   return null;
+  // }
 
-  // useBeforeunload((e) => deleteSheet(e))
-  window.addEventListener("beforeunload", (e) => deleteSheet(e));
+  // // useBeforeunload((e) => deleteSheet(e))
+  // window.addEventListener("beforeunload", (e) => deleteSheet(e));
 
   const Mobile = () => {
     return (
@@ -69,7 +69,7 @@ function App() {
         <Switch>
           {/* BASIC */}
           <Route exact path="/" component={Simulator} />
-          {/* SIMULATOR */}
+          <Route path="/simulator" component={Simulator} />
           <Route path="/ateliers/results/:id" component={Ateliers} />
           {/* NOT FOUND */}
           <Route path="*" component={NotFound} />
