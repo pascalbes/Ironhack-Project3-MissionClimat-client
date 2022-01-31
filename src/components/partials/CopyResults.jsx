@@ -29,7 +29,7 @@ const CopyResults = ({jsonExport}) => {
                 <CopyToClipboard 
                     text={stringifyJSON(jsonExport, "Bâtiments")} 
                     backgroundColor="grey"
-                    url='http://35.205.101.108:443/send/df3b7388-ddbe-4b33-86cf-a41d32efbf1c'
+                    url='http://35.205.101.108:443/send/19439ddd-4911-4043-a1a2-087af14d09de'
                     key={1}
                 >
                     Exporter les données "Bâtiments"
@@ -40,7 +40,7 @@ const CopyResults = ({jsonExport}) => {
                 <CopyToClipboard 
                     text={stringifyJSON(jsonExport)} 
                     backgroundColor="grey"
-                    url='http://35.205.101.108:443/send/fea06fae-ded6-440a-9420-f4576af685bf'
+                    url='http://35.205.101.108:443/send/ca9f7948-fe2e-4a76-a3c3-aaf3b173ae77'
                     key={2}
                 >
                     Exporter mon scénario complet

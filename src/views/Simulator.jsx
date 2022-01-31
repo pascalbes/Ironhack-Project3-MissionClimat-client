@@ -56,7 +56,6 @@ const Simulator = (props) => {
         //cas où appel normal de la page simulateur
         if (!props.location.pathname.includes("favorites")) {
           const response = await api.get("/sheet/values/" + idSheet);
-          console.log(response.data)
           setValues(response.data.values);
         } else {
           // cas où appel via url spécifique /save/p=1&&p=3.....
