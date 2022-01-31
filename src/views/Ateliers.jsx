@@ -80,20 +80,25 @@ const Ateliers = (props) => {
         }
     },[workshopDatas])
 
+    if (!workshopDatas || !finalDatas) {
+        return (
+            <p>Loading</p>
+        )
+    }
+
     return (
         <>
-            {finalDatas?.length && <div id="ateliers_statistiques">
-                <div id="ateliers_intro">
+            <div id="ateliers_statistiques">
+                
+                {workshopDatas && <div id="ateliers_intro">
                     <h1>Atelier / Statistiques</h1>
                     <p> Atelier : {workshopDatas.workshopName}</p> 
                     <p> Nombre de participants : {workshopDatas.participantsNumber}</p> 
                     {url && <a href={url.urlMeans} target="_blank"><button className="blue-btn">Scénario Moyen</button></a>}
                     {url && <a href={url.urlMeds} target="_blank"><button className="blue-btn">Scénario Médian</button></a>}
-
-
-                </div>
+                </div>}
                 
-                {finalDatas.map(cat => (
+                {finalDatas.length > 0 && finalDatas.map(cat => (
                     <div className="atelier_cat">
                         <div className="atelier_param" style={{backgroundColor : cat.color2}}>
                             <h3>{cat.name}</h3>
@@ -105,7 +110,7 @@ const Ateliers = (props) => {
                         </div>
                     </div>
                 ))}
-            </div>}
+            </div>
         </>
     )
 }
