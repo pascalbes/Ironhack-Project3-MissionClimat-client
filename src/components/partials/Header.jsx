@@ -26,7 +26,6 @@ const Header = ({location}) => {
                 <Link className="header-link flex-item" to="/"><img src={handleLogo()} alt="Home logo" className="header-logo"/>
                 {location.pathname !=="/" && <h4>mission climat</h4>}</Link>
             </div>
-            <NavMain color={handleColor()}/>
         </header>
     )
 }

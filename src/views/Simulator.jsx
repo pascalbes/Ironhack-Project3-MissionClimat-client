@@ -4,6 +4,7 @@ import Header from "../components/partials/Header";
 import "./../styles/simulator.css";
 import "./../styles/app.css";
 import { Helmet } from "react-helmet";
+import ScoreBoard from "../components/resultats/ScoreBoard";
 
 import jsonFile from "../ressources/initialDatas.json";
 import { Link } from "react-router-dom";
@@ -41,12 +42,12 @@ const PurpleSwitch = withStyles({
 })(Switch);
 
 const Simulator = (props) => {
-
   const [values, setValues] = useState();
+  const [startTimer, setStartTimer] = useState(false);
+  const [timerElapsed, setTimerElapsed] = useState(false);
   const [results, setResults] = useState(); // jsonFile.results
   const [modeExpert, setModeExpert] = useState(false);
   const [visibleOptions, setVisibleOptions] = useState(false);
-
 
   //Gestion d'une route avec paramêtres spécifiques
   //url test : favorites/p0=100&&p1=0&&p2=56&&p3=99&&p4=30&&p5=18&&p6=52&&p7=35&&p8=57&&p9=2&&p10=80&&p11=82&&p12=3000000&&p13=73&&p14=35&&p15=30&&p16=50&&p17=100&&p18=85&&p19=85&&p20=85&&p21=1&&p22=2
@@ -139,7 +140,6 @@ const Simulator = (props) => {
     if (localStorage.getItem("results")) localStorage.removeItem("results");
   }, []);
 
-
   function getUrl(values, parameters) {
     var url = window.location.origin + "/simulator/favorites/";
 
@@ -181,6 +181,7 @@ const Simulator = (props) => {
   }, [values]);
 
   function setOneValue(value, index) {
+    if (!startTimer) handleStartTimer();
     ReactGA.event({
       category: "Parameters",
       action: index + ":" + value,
@@ -188,28 +189,6 @@ const Simulator = (props) => {
     var newValues = [...values];
     newValues[index][0] = value;
     setValues(newValues);
-  }
-
-  function tempColor() {
-    //version actuelle, en phase avec les jauges
-
-    return results.impacts.temperature < 1.5
-      ? "linear-gradient(to right, #7FFFD4 , #77D9B5)"
-      : results.impacts.temperature >= 1.5 && results.impacts.temperature < 2
-      ? "linear-gradient(to right, #F2F230 , #FFC53A)"
-      : results.impacts.temperature >= 2 && results.impacts.temperature < 3
-      ? "linear-gradient(to right, #FFB8B8 , #DB7093)"
-      : "linear-gradient(to right, #DA8FFF , #663399)";
-
-    //version initiale, pour du backgroundCOlor
-    // const tempColors = ["var(--tempgreen)", "var(--tempyellowgreen)", "var(--tempyellow)", "var(--tempyelloworange)", "var(--temporangered)", "var(--tempred)", "var(--tempredblack)"]
-    // return (results.impacts.temperature < 1.5) ? tempColors[0]
-    // : (results.impacts.temperature >= 1.5 && results.impacts.temperature < 1.8) ? tempColors[1]
-    // : (results.impacts.temperature >= 1.8 && results.impacts.temperature < 2) ? tempColors[2]
-    // : (results.impacts.temperature >= 2 && results.impacts.temperature < 2.2) ? tempColors[3]
-    // : (results.impacts.temperature >= 2.2 && results.impacts.temperature < 2.5) ? tempColors[4]
-    // : (results.impacts.temperature >= 2.5 && results.impacts.temperature < 2.8) ? tempColors[5]
-    // : tempColors[6]
   }
 
   function handleParameterType(cat, param, j, values) {
@@ -295,8 +274,12 @@ const Simulator = (props) => {
     return datas;
   }
 
-  const width = window.innerWidth;
-  
+  const handleStartTimer = () => {
+    if (!startTimer) setStartTimer(true);
+  };
+
+  console.log(timerElapsed);
+
   return values && results ? (
     <>
       <Header />
@@ -310,320 +293,140 @@ const Simulator = (props) => {
           />
           <link rel="canonical" href="http://mission-climat.io/simulator/" />
         </Helmet>
-        <section className="sim-container-box">
-          <div id="sim-nav-box" className="flex-item flex-column">
-            <h1>Mes mesures pour 2030</h1>
-            <div className="flex-item">
-              <div id="sim-nav-fr">
-                <SimNav data={jsonFile.nav[0]} />
-              </div>
-              <div id="sim-nav-world">
-                <SimNav data={jsonFile.nav[1]} />
-              </div>
-              <a
-                href=""
-                id="options"
-                className="sim-nav-category flex-item flex-column"
-                onClick={showOptions}
-              >
-                <div className="sim-nav-category-icon">
-                  <span className="sim-nav-category-icon-helper"></span>
-                  <img src="../../images/Options.png"></img>
-                </div>
-              </a>
-            </div>
-          </div>
 
-          <div className="sim-main-box">
-            {visibleOptions && (
-              <div id="optionsContainer">
-                <div
-                  class="optionsContainerBackground"
-                  onClick={hideOptions}
-                ></div>
-                <div id="scrollOptions" className=" sim-cat-params-box sticky">
-                  <div class="optionsContainerClose" onClick={hideOptions}>
-                    <FontAwesomeIcon icon={faTimes} />
+        {!timerElapsed && (
+          <section className="sim-container-box">
+            <div id="sim-nav-box" className="flex-item flex-column">
+              <h1>Mes mesures pour 2030</h1>
+              <div className="flex-item">
+                <div id="sim-nav-fr">
+                  <SimNav data={jsonFile.nav[0]} />
+                </div>
+                <div id="sim-nav-world">
+                  <SimNav data={jsonFile.nav[1]} />
+                </div>
+                <a
+                  href=""
+                  id="options"
+                  className="sim-nav-category flex-item flex-column"
+                  onClick={showOptions}
+                >
+                  <div className="sim-nav-category-icon">
+                    <span className="sim-nav-category-icon-helper"></span>
+                    <img src="../../images/Options.png"></img>
                   </div>
-                  <div className="sim-categorie flex-item">
-                    <h4 className="sim-categorie-name">Options</h4>
-                  </div>
-                  <div className="sim-options flex-item flex-column">
-                    <div className="sim-option-box">
-                      <h6 className="param-name">
-                        Initialisation des paramètres
-                      </h6>
-                      <p>
-                        Afin de gagner du temps, vous pouvez initialiser
-                        l'ensemble des données à des valeurs spécifiques
-                      </p>
-                      <form
-                        className="sim-option-form flex-item"
-                        onChange={(e) => handleInitValues(e)}
-                      >
-                        {/* <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div> */}
-                        <div className="flex-item">
-                          <input
-                            name="initialisation"
-                            value="bau"
-                            type="radio"
-                          ></input>
-                          <label>Etude 1,5°C BL Evolution 2019</label>
-                        </div>
-                        <div className="flex-item">
-                          <input
-                            name="initialisation"
-                            value="1degre5"
-                            type="radio"
-                          ></input>
-                          <label>Un scénario 2°C</label>
-                        </div>
-                        <div className="flex-item">
-                          <input
-                            name="initialisation"
-                            value="init"
-                            type="radio"
-                          ></input>
-                          <label>Réinitialiser</label>
-                        </div>
-                        {/* <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div> */}
-                      </form>
-                      <p>
-                        Pourquoi l'étude 1,5°C de BL Evolution ne fait pas 1.5°C
-                        dans le simulateur ? Réponse dans notre <b>FAQ</b> (page
-                        concept)
-                      </p>
-                    </div>
-                    <div className="sim-option-box">
-                      <h6 className="param-name">Mode Expert</h6>
-                      <p>
-                        Le mode expert permet d'accéder à un plus grand nombre
-                        de paramètres, pour régler son scénario avec davantage
-                        de finesse
-                      </p>
-                      <FormControlLabel
-                        className="nomarge nopad"
-                        onChange={(e) => setModeExpert(e.target.checked)}
-                        control={<PurpleSwitch />}
-                        label="Activer"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-            {jsonFile.categories.map((cat, i) => (
-              <div key={i} className="sim-cat-params-box">
-                {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
-                <SimCat
-                  key={cat.data.index}
-                  data={cat.data}
-                  results={results.jaugeDatas[i]}
-                />
-                <div
-                  key={"p" + i}
-                  id={"param-box" + i}
-                  className="sim-param-box grid-item"
-                >
-                  {cat.parameters.map((param, j) =>
-                    handleParameterType(cat, param, j, values, setValues)
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-        {width && width > 600 ? (
-          <section className="sim-results-box flex-item flex-column">
-            <div id="results-top-box" className="flex-item flex-column">
-              <h1>Ma projection mondiale</h1>
-              <div id="results-impacts-box" className="flex-item">
-                <p className="results-title n1">Températures</p>
-                <div
-                  className="results-figure n2 flex-item"
-                  style={{ backgroundImage: tempColor(), color: "white" }}
-                >
-                  +{results.impacts.temperature}°C
-                </div>
-                <p className="results-legend n3">
-                  Hausse moy. mondiale / 2100 (de{" "}
-                  {results.impacts.temperatureRange})
-                </p>
-                <p className="results-title n4">Scénario GIEC</p>
-                <div
-                  className="results-figure n5 flex-item"
-                  style={{ backgroundColor: "#e9e7ec" }}
-                >
-                  {results.impacts.RCP}
-                </div>
-                <p className="results-legend n6">
-                  Scénario GIEC de vos mesures (
-                  <a
-                    href="https://leclimatchange.fr/les-elements-scientifiques/"
-                    target="_blank"
-                    style={{ fontWeight: "bold", color: "#DB7093" }}
-                  >
-                    Plus d'infos
-                  </a>
-                  )
-                </p>
-                <p className="results-title n7">Empreinte carbone</p>
-                <div
-                  className="results-figure n8 flex-item"
-                  style={{ backgroundColor: "#b0e0e6" }}
-                >
-                  {results.impacts.empreinteMonde}t
-                </div>
-                <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
+                </a>
               </div>
             </div>
 
-            <div id="results-bottom-box" className="flex-item flex-column">
-              <div id="results-emissions" className="flex-item flex-column">
-                <h1>Ma projection française</h1>
-                <div id="results-impacts-box2" className="flex-item">
-                  <p className="results-title b1">Évolution émissions</p>
+            <div className="sim-main-box">
+              {visibleOptions && (
+                <div id="optionsContainer">
                   <div
-                    className="results-figure b2 flex-item"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    {results.impacts.reductionEmission2030}
-                  </div>
-                  <p className="results-legend b3">Entre 2020 et 2030</p>
-
-                  <p className="results-title b4">Émissions annuelles</p>
+                    class="optionsContainerBackground"
+                    onClick={hideOptions}
+                  ></div>
                   <div
-                    className="results-figure b5 flex-item flex-column"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
+                    id="scrollOptions"
+                    className=" sim-cat-params-box sticky"
                   >
-                    <p>{results.impacts.emissionMoy}</p>
-                    <p className="figure-unit">MtCO2</p>
+                    <div class="optionsContainerClose" onClick={hideOptions}>
+                      <FontAwesomeIcon icon={faTimes} />
+                    </div>
+                    <div className="sim-categorie flex-item">
+                      <h4 className="sim-categorie-name">Options</h4>
+                    </div>
+                    <div className="sim-options flex-item flex-column">
+                      <div className="sim-option-box">
+                        <h6 className="param-name">
+                          Initialisation des paramètres
+                        </h6>
+                        <p>
+                          Afin de gagner du temps, vous pouvez initialiser
+                          l'ensemble des données à des valeurs spécifiques
+                        </p>
+                        <form
+                          className="sim-option-form flex-item"
+                          onChange={(e) => handleInitValues(e)}
+                        >
+                          {/* <div className="flex-item"><input name="initialisation" value="vMin" type="radio"></input><label>Valeurs Minimales</label></div> */}
+                          <div className="flex-item">
+                            <input
+                              name="initialisation"
+                              value="bau"
+                              type="radio"
+                            ></input>
+                            <label>Etude 1,5°C BL Evolution 2019</label>
+                          </div>
+                          <div className="flex-item">
+                            <input
+                              name="initialisation"
+                              value="1degre5"
+                              type="radio"
+                            ></input>
+                            <label>Un scénario 2°C</label>
+                          </div>
+                          <div className="flex-item">
+                            <input
+                              name="initialisation"
+                              value="init"
+                              type="radio"
+                            ></input>
+                            <label>Réinitialiser</label>
+                          </div>
+                          {/* <div className="flex-item"><input name="initialisation" value="vMax" type="radio"></input><label>Valeurs Maximales</label></div> */}
+                        </form>
+                        <p>
+                          Pourquoi l'étude 1,5°C de BL Evolution ne fait pas
+                          1.5°C dans le simulateur ? Réponse dans notre{" "}
+                          <b>FAQ</b> (page concept)
+                        </p>
+                      </div>
+                      <div className="sim-option-box">
+                        <h6 className="param-name">Mode Expert</h6>
+                        <p>
+                          Le mode expert permet d'accéder à un plus grand nombre
+                          de paramètres, pour régler son scénario avec davantage
+                          de finesse
+                        </p>
+                        <FormControlLabel
+                          className="nomarge nopad"
+                          onChange={(e) => setModeExpert(e.target.checked)}
+                          control={<PurpleSwitch />}
+                          label="Activer"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <p className="results-legend b6">Entre 2020 et 2030</p>
-
-                  <p className="results-title b7">Empreinte carbone</p>
-                  <div
-                    className="results-figure b8 flex-item"
-                    style={{ backgroundColor: "#b0e0e6" }}
-                  >
-                    {results.impacts.empreinteFr}t
-                  </div>
-                  <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
                 </div>
-              </div>
-
-              <div id="results-emissions-charts-container">
-                <div className="chart g1">
-                  <AreaChart
-                    datas={results.emiSecteurGnl}
-                    xOffset={0}
-                    yOffset={-150}
+              )}
+              {jsonFile.categories.map((cat, i) => (
+                <div key={i} className="sim-cat-params-box">
+                  {/* <div className="hidden bigger" id={"cat"+cat.data.index}>||</div>< */}
+                  <SimCat
+                    key={cat.data.index}
+                    data={cat.data}
+                    results={results.jaugeDatas[i]}
                   />
+                  <div
+                    key={"p" + i}
+                    id={"param-box" + i}
+                    className="sim-param-box grid-item"
+                  >
+                    {cat.parameters.map((param, j) =>
+                      handleParameterType(cat, param, j, values, setValues)
+                    )}
+                  </div>
                 </div>
-                <p className="g2">Emissions Totales</p>
-
-                <div className="chart g3">
-                  <Sunburst datas={results.emiSecteurPie.graph} />
-                </div>
-                <p className="g4">Par Secteur / 2030</p>
-              </div>
-
-              <div id="results-button" className="flex-item">
-                <Link
-                  to={{ pathname: "/results", state: { results: results } }}
-                >
-                  <button className="blue-btn">Résultats complets</button>
-                </Link>
-              </div>
+              ))}
             </div>
           </section>
-        ) : (
-          <>
-            <section>
-              <div id="results-emissions" className="flex-item flex-column">
-                <h1>Ma projection française</h1>
-                <div id="results-impacts-box2" className="flex-item">
-                  <p className="results-title b1">Évolution émissions</p>
-                  <div
-                    className="results-figure b2 flex-item"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    {results.impacts.reductionEmission2030}
-                  </div>
-                  <p className="results-legend b3">Entre 2020 et 2030</p>
-
-                  <p className="results-title b4">Émissions annuelles</p>
-                  <div
-                    className="results-figure b5 flex-item flex-column"
-                    style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
-                  >
-                    <p>{results.impacts.emissionMoy}</p>
-                    <p className="figure-unit">MtCO2</p>
-                  </div>
-                  <p className="results-legend b6">Entre 2020 et 2030</p>
-
-                  <p className="results-title b7">Empreinte carbone</p>
-                  <div
-                    className="results-figure b8 flex-item"
-                    style={{ backgroundColor: "#b0e0e6" }}
-                  >
-                    {results.impacts.empreinteFr}t
-                  </div>
-                  <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
-                </div>
-                <div id="results-button" className="flex-item">
-                  <Link
-                    to={{ pathname: "/results", state: { results: results } }}
-                  >
-                    <button className="blue-btn">Résultats complets</button>
-                  </Link>
-                </div>
-              </div>
-              <div id="results-top-box" className="flex-item flex-column">
-                <h1>Ma projection mondiale</h1>
-              </div>
-            </section>
-            <div id="results-impacts-box" className="flex-item">
-              <p className="results-title n1">Températures</p>
-              <div
-                className="results-figure n2 flex-item"
-                style={{ backgroundImage: tempColor(), color: "white" }}
-              >
-                +{results.impacts.temperature}°C
-              </div>
-              <p className="results-legend n3">
-                Hausse moy. mondiale / 2100 (de{" "}
-                {results.impacts.temperatureRange})
-              </p>
-              <p className="results-title n4">Scénario GIEC</p>
-              <div
-                className="results-figure n5 flex-item"
-                style={{ backgroundColor: "#e9e7ec" }}
-              >
-                {results.impacts.RCP}
-              </div>
-              <p className="results-legend n6">
-                Scénario GIEC de vos mesures (
-                <a
-                  href="https://leclimatchange.fr/les-elements-scientifiques/"
-                  target="_blank"
-                  style={{ fontWeight: "bold", color: "#DB7093" }}
-                >
-                  Plus d'infos
-                </a>
-                )
-              </p>
-              <p className="results-title n7">Empreinte carbone</p>
-              <div
-                className="results-figure n8 flex-item"
-                style={{ backgroundColor: "#b0e0e6" }}
-              >
-                {results.impacts.empreinteMonde}t
-              </div>
-              <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
-            </div>
-          </>
         )}
+        {!timerElapsed && (
+          <Timer start={startTimer} onElapsed={() => setTimerElapsed(true)} />
+        )}
+        {timerElapsed && <ResultsSimple results={results} />}
+        {timerElapsed && <ScoreBoard results={results} />}
       </div>
     </>
   ) : (
@@ -640,4 +443,159 @@ const Simulator = (props) => {
     </div>
   );
 };
+
+const Timer = ({ start, onElapsed }) => {
+  const [timeRemaining, setTimeRemaining] = useState(5);
+
+  useEffect(() => {
+    let timerId = null;
+
+    if (start) {
+      if (timeRemaining > 0) {
+        timerId = setInterval(() => {
+          setTimeRemaining((prevTime) => prevTime - 1);
+        }, 1000);
+      } else {
+        console.log("WTF");
+        onElapsed();
+      }
+    }
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, [start, timeRemaining, onElapsed]);
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60)
+      .toString()
+      .padStart(2, "0");
+    const seconds = (time % 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  };
+
+  return (
+    <div>
+      {!start && (
+        <p>Le chronomètre sera déclenché dès la première mesure prise !</p>
+      )}
+      <p style={{fontSize: '76px'}}>{formatTime(timeRemaining)}</p>
+    </div>
+  );
+};
+
+const ResultsSimple = ({ results }) => {
+  function tempColor() {
+    return results.impacts.temperature < 1.5
+      ? "linear-gradient(to right, #7FFFD4 , #77D9B5)"
+      : results.impacts.temperature >= 1.5 && results.impacts.temperature < 2
+      ? "linear-gradient(to right, #F2F230 , #FFC53A)"
+      : results.impacts.temperature >= 2 && results.impacts.temperature < 3
+      ? "linear-gradient(to right, #FFB8B8 , #DB7093)"
+      : "linear-gradient(to right, #DA8FFF , #663399)";
+  }
+  return (
+    <section className="sim-results-box flex-item flex-column">
+      <div id="results-top-box" className="flex-item flex-column">
+        <h1>Ma projection mondiale</h1>
+        <div id="results-impacts-box" className="flex-item">
+          <p className="results-title n1">Températures</p>
+          <div
+            className="results-figure n2 flex-item"
+            style={{ backgroundImage: tempColor(), color: "white" }}
+          >
+            +{results.impacts.temperature}°C
+          </div>
+          <p className="results-legend n3">
+            Hausse moy. mondiale / 2100 (de {results.impacts.temperatureRange})
+          </p>
+          <p className="results-title n4">Scénario GIEC</p>
+          <div
+            className="results-figure n5 flex-item"
+            style={{ backgroundColor: "#e9e7ec" }}
+          >
+            {results.impacts.RCP}
+          </div>
+          <p className="results-legend n6">
+            Scénario GIEC de vos mesures (
+            <a
+              href="https://leclimatchange.fr/les-elements-scientifiques/"
+              target="_blank"
+              style={{ fontWeight: "bold", color: "#DB7093" }}
+            >
+              Plus d'infos
+            </a>
+            )
+          </p>
+          <p className="results-title n7">Empreinte carbone</p>
+          <div
+            className="results-figure n8 flex-item"
+            style={{ backgroundColor: "#b0e0e6" }}
+          >
+            {results.impacts.empreinteMonde}t
+          </div>
+          <p className="results-legend n9">tCO2e / an / hab. en 2030</p>
+        </div>
+      </div>
+
+      <div id="results-bottom-box" className="flex-item flex-column">
+        <div id="results-emissions" className="flex-item flex-column">
+          <h1>Ma projection française</h1>
+          <div id="results-impacts-box2" className="flex-item">
+            <p className="results-title b1">Évolution émissions</p>
+            <div
+              className="results-figure b2 flex-item"
+              style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
+            >
+              {results.impacts.reductionEmission2030}
+            </div>
+            <p className="results-legend b3">Entre 2020 et 2030</p>
+
+            <p className="results-title b4">Émissions annuelles</p>
+            <div
+              className="results-figure b5 flex-item flex-column"
+              style={{ backgroundColor: "#40E0D0", color: "#163E59" }}
+            >
+              <p>{results.impacts.emissionMoy}</p>
+              <p className="figure-unit">MtCO2</p>
+            </div>
+            <p className="results-legend b6">Entre 2020 et 2030</p>
+
+            <p className="results-title b7">Empreinte carbone</p>
+            <div
+              className="results-figure b8 flex-item"
+              style={{ backgroundColor: "#b0e0e6" }}
+            >
+              {results.impacts.empreinteFr}t
+            </div>
+            <p className="results-legend b9">tCO2e / an / hab. en 2030</p>
+          </div>
+        </div>
+
+        <div id="results-emissions-charts-container">
+          <div className="chart g1">
+            <AreaChart
+              datas={results.emiSecteurGnl}
+              xOffset={0}
+              yOffset={-150}
+            />
+          </div>
+          <p className="g2">Emissions Totales</p>
+
+          <div className="chart g3">
+            <Sunburst datas={results.emiSecteurPie.graph} />
+          </div>
+          <p className="g4">Par Secteur / 2030</p>
+        </div>
+
+        <div id="results-button" className="flex-item">
+          <Link to={{ pathname: "/results", state: { results: results } }}>
+            <button className="blue-btn">Résultats complets</button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default Simulator;

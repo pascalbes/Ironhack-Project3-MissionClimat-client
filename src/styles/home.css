@@ -29,14 +29,14 @@
 }
 
 .hero-mission{
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: 10rem;
+    line-height: 10rem;
     font-family: 'Fugaz One', cursive;
 }
 
 .hero-temp{
-    font-size: 6rem;
-    line-height: 6rem;
+    font-size: 12rem;
+    line-height: 12rem;
     font-family: 'Fugaz One', cursive;
     background: var(--backgreen);
     background-clip: text;

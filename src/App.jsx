@@ -5,7 +5,7 @@ import api from "./api/APIHandler";
 import { useBeforeunload } from "react-beforeunload";
 
 /// PAGES
-import Home from "./views/Home";
+import Home, {Onboarding} from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact.jsx";
 import Contribuer from "./views/Contribuer.jsx";
@@ -14,6 +14,9 @@ import Simulator from "./views/Simulator";
 import Results from "./views/Results";
 import Licenses from "./views/Licenses";
 import NotFound from "./views/NotFound";
+import Header from "./components/partials/Header";
+
+import styled from "@emotion/styled";
 
 /// STYLES
 import "./styles/app.css";
@@ -60,6 +63,10 @@ function App() {
         <Switch>
           {/* BASIC */}
           <Route exact path="/" component={Home} />
+          <Route exact path="/onboarding" component={Onboarding} />
+
+
+
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/contribuer" component={Contribuer} />
@@ -88,5 +95,7 @@ function App() {
     </>
   );
 }
+
+
 
 export default App;
