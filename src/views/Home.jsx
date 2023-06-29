@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import api from "../api/APIHandler";
 import emissions2020 from "../components/game/emission2020";
 import Sunburst from "../components/simulateur/sunburstChart";
+import { Indicator } from "./SimulatorMission";
 
 import "../styles/home.css";
 import "../styles/footer.css";
@@ -98,8 +99,8 @@ const OnboardingContainer = styled.div`
   gap: 32px;
   > div {
     display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
   p {
     font-size: 36px;
@@ -129,11 +130,14 @@ export const Onboarding = () => {
     <Layout>
       <OnboardingContainer>
         {step === 1 && <OnboardingPart1 onNext={() => setStep(2)} />}
-        {step === 2 && <OnboardingPart2 />}
+        {step === 2 && <OnboardingPart2 onNext={() => setStep(3)} />}
+        {step === 3 && <OnboardingPart3 />}
       </OnboardingContainer>
     </Layout>
   );
 };
+
+const typingSpeed = 30;
 
 const OnboardingPart1 = ({ onNext }) => {
   const [typedText1, setTypedText1] = useState("");
@@ -141,10 +145,9 @@ const OnboardingPart1 = ({ onNext }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTextFullyTyped, setIsTextFullyTyped] = useState(false);
   const text = [
-    "Félicitations, vous avez été tiré au sort parmi l'ensemble des français.",
-    "Vous êtes chargé de la politique climat.",
+    "Félicitations, la Convention Citoyenne vous a choisi !",
+    "Vous prenez les rênes de la politique climatique nationale.",
   ];
-  const typingSpeed = 50; // Adjust typing speed in milliseconds
 
   useEffect(() => {
     let currentText = "";
@@ -172,19 +175,68 @@ const OnboardingPart1 = ({ onNext }) => {
   return (
     <>
       <div>
-        <p>{typedText1}</p>
-        <p>{typedText2}</p>
+        <p style={{ visibility: typedText1.length > 0 ? "visible" : "hidden" }}>
+          {typedText1 || "-"}
+        </p>
+        <p style={{ visibility: typedText2.length > 0 ? "visible" : "hidden" }}>
+          {typedText2 || "-"}
+        </p>
       </div>
-      {isTextFullyTyped && (
-        <button className="green-btn" onClick={onNext}>
-          Lettre de mission
-        </button>
-      )}
+      <button
+        className="green-btn"
+        onClick={onNext}
+        style={{ visibility: isTextFullyTyped ? "visible" : "hidden" }}
+      >
+        Lettre de mission
+      </button>
     </>
   );
 };
 
-const OnboardingPart2 = () => {
+const Onboarding2 = styled.div`
+  .arrow-container {
+    position: relative;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent white;
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .indicator_box {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 16px 0 32px;
+    > p {
+      margin-top: 18px;
+    }
+    .results-title {
+      font-size: 16px;
+    }
+    .results-figure {
+      width: 6em;
+      height: 4rem;
+      font-size: 24px;
+    }
+    .figure-unit {
+      font-size: 16px;
+    }
+  }
+`;
+
+const OnboardingPart2 = ({ onNext }) => {
   const [typedText1, setTypedText1] = useState("");
   const [typedText2, setTypedText2] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -193,7 +245,77 @@ const OnboardingPart2 = () => {
     "Vous devez proposer un plan climat pour la France, pour 2030.",
     "Votre mission, si vous l'acceptez, est de réduire les émissions de 50%.",
   ];
-  const typingSpeed = 50; // Adjust typing speed in milliseconds
+
+  useEffect(() => {
+    let currentText = "";
+    const typeNextCharacter = () => {
+      if (currentIndex > 1) {
+        setTimeout(() => {
+          setIsTextFullyTyped(true);
+        }, 1000);
+      } else {
+        const currentLine = text[currentIndex];
+        if (currentText.length < currentLine.length) {
+          currentText += currentLine[currentText.length];
+          currentIndex === 0
+            ? setTypedText1(currentText)
+            : setTypedText2(currentText);
+          setTimeout(typeNextCharacter, typingSpeed);
+        } else {
+          setCurrentIndex(currentIndex + 1);
+        }
+      }
+    };
+    typeNextCharacter();
+  }, [currentIndex]);
+  return (
+    <Onboarding2>
+      <div>
+        <p style={{ visibility: typedText1.length > 0 ? "visible" : "hidden" }}>
+          {typedText1 || "-"}
+        </p>
+        <p style={{ visibility: typedText2.length > 0 ? "visible" : "hidden" }}>
+          {typedText2 || "-"}
+        </p>
+      </div>
+      <div style={{ visibility: isTextFullyTyped ? "visible" : "hidden" }}>
+        <div className="indicator_box">
+          <Indicator
+            title="Émissions 2020"
+            text="750"
+            unit="MtCO2"
+            //subtitle="Incluent les émissions importées"
+            backgroundColor="#40E0D0"
+            color="#163E59"
+          />
+          <p>></p>
+          <Indicator
+            title="Objectif 2030"
+            text="375"
+            unit="MtCO2"
+            subtitle=""
+            color="white"
+            backgroundImage="linear-gradient(to right, rgb(218, 143, 255), rgb(102, 51, 153))"
+          />
+        </div>
+        <button className="green-btn" onClick={() => onNext()}>
+          Mission acceptée
+        </button>
+      </div>
+    </Onboarding2>
+  );
+};
+
+const OnboardingPart3 = () => {
+  const [typedText1, setTypedText1] = useState("");
+  const [typedText2, setTypedText2] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTextFullyTyped, setIsTextFullyTyped] = useState(false);
+  const text = [
+    "Un indice pour vous aider,",
+    "la répartition des émissions en 2020 :",
+    // "Votre mission, si vous l'acceptez, est de réduire les émissions de 50%.",
+  ]; 
 
   const legendData = pieLegend(emissions2020);
 
@@ -222,29 +344,31 @@ const OnboardingPart2 = () => {
   return (
     <>
       <div>
-        <p>{typedText1}</p>
-        <p>{typedText2}</p>
+        <p style={{ visibility: typedText1.length > 0 ? "visible" : "hidden" }}>
+          {typedText1 || "-"}
+        </p>
+        <p style={{ visibility: typedText2.length > 0 ? "visible" : "hidden" }}>
+          {typedText2 || "-"}
+        </p>
       </div>
-      {isTextFullyTyped && (
-        <>
-          <div className="footer">
-            <div className="sunburst_container">
-              <Sunburst datas={emissions2020} />
-            </div>
-            <Legend data={legendData} />
+      <div style={{ visibility: isTextFullyTyped ? "visible" : "hidden" }}>
+        <div className="footer">
+          <div className="sunburst_container">
+            <Sunburst datas={emissions2020} />
           </div>
-          <Link to="/simulator">
-            <button className="green-btn">Accepter la mission</button>
-          </Link>
-        </>
-      )}
+          <Legend data={legendData} />
+        </div>
+        <Link to="/simulator">
+          <button className="green-btn">Go</button>
+        </Link>
+      </div>
     </>
   );
 };
 
 const Legend = ({ data }) => {
   return (
-    <div className="res-chart-legend flex-item" style={{width: "400px"}}>
+    <div className="res-chart-legend flex-item" style={{ width: "400px" }}>
       {data.map((data, i) => (
         <div key={i} className="flex-item">
           <div
