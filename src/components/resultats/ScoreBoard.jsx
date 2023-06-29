@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
+  width: calc(60% - 10px);
+  margin-left: 10px;
   background-color: white;
   padding: 16px;
   display: flex;
@@ -26,7 +28,11 @@ const Container = styled.div`
     justify-content: space-between;
     input {
       flex: 2;
+      font-family: "Circular Std";
       height: 40px;
+      font-size: 24px;
+      line-height: 24px;
+      color: #163e59;
     }
     button {
       flex: 1;
@@ -34,7 +40,21 @@ const Container = styled.div`
     }
   }
   .user_score {
-    color: red;
+    animation: blink 2s infinite;
+    @keyframes blink {
+      0% {
+        background-color: #bddbef;
+        color: #163e59;
+      }
+      50% {
+        background-color: #6baedb;
+        color: #163e59;
+      }
+      100% {
+        background-color: #bddbef;
+        color: #163e59;
+      }
+    }
   }
 `;
 
@@ -55,13 +75,18 @@ const Table = styled.table`
   }
 
   tbody tr:nth-of-type(even) {
-    background-color: #f9f9f9;
+    background-color: #eff6fb;
   }
 `;
 
 const ScoreBoard = ({ results }) => {
   const [scores, setScores] = useState([]);
   const [isScoreAdded, setIsScoreAdded] = useState(false);
+  const nameInputRef = useRef(null);
+
+  useEffect(() => {
+    nameInputRef.current.focus();
+  }, []);
 
   const emissions = getEmissions(results);
   const reduction = 1 - emissions / 750;
@@ -111,7 +136,7 @@ const ScoreBoard = ({ results }) => {
       <h1>Mon Score</h1>
       <div>{getRanking()}</div>
       <div className="input_container">
-        <input id="name-input" label="Name" variant="outlined" />
+        <input id="name-input" label="Name" ref={nameInputRef} />
         <button
           className="blue-btn"
           onClick={handleAddScore}
@@ -136,13 +161,13 @@ const ScoreBoard = ({ results }) => {
               key={index}
               className={
                 score.emissions === emissions && score.name.length === 0
-                  ? "user_score"
+                  ? "user_score blink-animation"
                   : ""
               }
             >
               <td>{index + 1}</td>
               <td>{score.name}</td>
-              <td>{Math.round(score.emissions)} MtCO2eq</td>
+              <td>{Math.round(score.emissions).toLocaleString()} MtCO2eq</td>
               <td>{Math.round(score.reduction * 1000) / 10} %</td>
             </tr>
           ))}
@@ -152,7 +177,7 @@ const ScoreBoard = ({ results }) => {
   );
 };
 
-const getEmissions = (results) => {
+export const getEmissions = (results) => {
   const emissions2030 = results.emiSecteurGnl.data.data[10];
   return Object.values(emissions2030).reduce((total, value) => {
     if (value !== "2030") {

@@ -28,8 +28,8 @@ const simResultsAreaChart = ({datas, xOffset, yOffset}) => {
       <ResponsiveContainer height= "100%" width="100%">
       <AreaChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" stroke="white"/>
-        <YAxis stroke="white"/>
+        <XAxis dataKey="name" stroke="#163e59" tick={{fontSize: 10}}/>
+        <YAxis stroke="#163e59" tick={{fontSize: 10}} width={30}/>
          <Tooltip
            content={e => toolTipContent(e)}
            position={{ x: xOffset, y: yOffset}}

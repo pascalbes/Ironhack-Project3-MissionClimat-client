@@ -1,0 +1,38 @@
+{
+  "data02": [
+    { "name": "Construction et rénovation", "value": 18, "color": "#6495ED" },
+    {
+      "name": "Chauffage résidentiel (hors électricité et chauffage urbain)",
+      "value": 39.1,
+      "color": "#4169E1"
+    },
+    { "name": "Tertiaire", "value": 19.6, "color": "#87CEFA" },
+    { "name": "Construction de véhicules", "value": 18, "color": "#FFB8B8" },
+    { "name": "Transports de personnes", "value": 79.5, "color": "#DB7093" },
+    { "name": "Transports de marchandises", "value": 49.2, "color": "#FF1493" },
+    { "name": "Vols internationaux", "value": 34.9, "color": "#FF69B4" },
+    { "name": "Utilisation des terres", "value": 34.1, "color": "#7FFFD4" },
+    { "name": "Consommation de viande", "value": 38.7, "color": "#77D9B5" },
+    { "name": "Importations agricoles", "value": 38.7, "color": "#465A6D" },
+    { "name": "Biens informatiques", "value": 53.1, "color": "#9400D3" },
+    { "name": "Biens textiles", "value": 38, "color": "#DA8FFF" },
+    { "name": "Autres biens manufacturés", "value": 22.3, "color": "#663399" },
+    {
+      "name": "Services (dont services publics)",
+      "value": 107.4,
+      "color": "#9370DB"
+    },
+    { "name": "Industrie de l'énergie", "value": 100.9, "color": "#163E59" }
+  ],
+  "data01": [
+    { "name": "Bâtiments", "value": 76.7, "color": "#87CEFA" },
+    { "name": "Transports", "value": 181.6, "color": "#DB7093" },
+    {
+      "name": "Agriculture et alimentation",
+      "value": 111.50000000000001,
+      "color": "#7FFFD4"
+    },
+    { "name": "Biens et services", "value": 220.8, "color": "#663399" },
+    { "name": "Énergie", "value": 100.9, "color": "#1087A1" }
+  ]
+}

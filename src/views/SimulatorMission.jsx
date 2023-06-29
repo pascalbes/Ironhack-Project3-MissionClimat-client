@@ -101,7 +101,7 @@ const IndicatorContainer = styled.div`
   }
 `;
 
-const Indicator = ({
+export const Indicator = ({
   unit,
   title,
   text,
@@ -137,15 +137,15 @@ const TimerContainer = styled.div`
   }
   p:last-of-type {
     padding: 6px 12px;
-    line-height: 98px;
-    font-size: 98px;
+    line-height: 78px;
+    font-size: 78px;
     color: white;
     background-color: #db7093;
   }
 `;
 
 const Timer = ({ start, onElapsed }) => {
-  const [timeRemaining, setTimeRemaining] = useState(5);
+  const [timeRemaining, setTimeRemaining] = useState(180);
 
   useEffect(() => {
     let timerId = null;
