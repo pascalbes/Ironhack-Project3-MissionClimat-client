@@ -5,6 +5,7 @@ import "./../styles/simulator.css";
 import "./../styles/app.css";
 import { Helmet } from "react-helmet";
 import ScoreBoard from "../components/resultats/ScoreBoard";
+import SimulatorMission from "./SimulatorMission";
 
 import jsonFile from "../ressources/initialDatas.json";
 import { Link } from "react-router-dom";
@@ -423,7 +424,7 @@ const Simulator = (props) => {
           </section>
         )}
         {!timerElapsed && (
-          <Timer start={startTimer} onElapsed={() => setTimerElapsed(true)} />
+          <SimulatorMission start={startTimer} onElapsed={() => setTimerElapsed(true)} results={results}/>
         )}
         {timerElapsed && <ResultsSimple results={results} />}
         {timerElapsed && <ScoreBoard results={results} />}
@@ -444,45 +445,7 @@ const Simulator = (props) => {
   );
 };
 
-const Timer = ({ start, onElapsed }) => {
-  const [timeRemaining, setTimeRemaining] = useState(5);
 
-  useEffect(() => {
-    let timerId = null;
-
-    if (start) {
-      if (timeRemaining > 0) {
-        timerId = setInterval(() => {
-          setTimeRemaining((prevTime) => prevTime - 1);
-        }, 1000);
-      } else {
-        console.log("WTF");
-        onElapsed();
-      }
-    }
-
-    return () => {
-      clearInterval(timerId);
-    };
-  }, [start, timeRemaining, onElapsed]);
-
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60)
-      .toString()
-      .padStart(2, "0");
-    const seconds = (time % 60).toString().padStart(2, "0");
-    return `${minutes}:${seconds}`;
-  };
-
-  return (
-    <div>
-      {!start && (
-        <p>Le chronomètre sera déclenché dès la première mesure prise !</p>
-      )}
-      <p style={{fontSize: '76px'}}>{formatTime(timeRemaining)}</p>
-    </div>
-  );
-};
 
 const ResultsSimple = ({ results }) => {
   function tempColor() {

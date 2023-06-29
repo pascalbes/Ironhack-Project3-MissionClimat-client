@@ -16,8 +16,6 @@ import Licenses from "./views/Licenses";
 import NotFound from "./views/NotFound";
 import Header from "./components/partials/Header";
 
-import styled from "@emotion/styled";
-
 /// STYLES
 import "./styles/app.css";
 import "./styles/reset.css";
