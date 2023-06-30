@@ -434,10 +434,10 @@ const Simulator = (props) => {
     <div id="loader">
       <Loader type="BallTriangle" color="white" height={100} width={100} />
       <div className="hidden">||</div>
-      <h3 style={{ color: "#7fffd4" }}>Vous avez 3 minutes pour remplir votre mission.</h3>
-      {/* <h4 className="light-text">
-        L'attente ne devrait pas durer plus de 5 secondes.
-      </h4> */}
+      <h3 style={{ color: "#7fffd4" }}>Vous avez 3 minutes pour remplir votre mission</h3>
+      <h4 className="light-text">
+        (dans un instant)
+      </h4>
     </div>
   );
 };

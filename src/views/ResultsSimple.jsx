@@ -76,7 +76,11 @@ const ResultsSimple = ({ results }) => {
       : "linear-gradient(to right, #DA8FFF , #663399)";
   }
 
-  const emissions2030Height = getHeight(reduction);
+  const height = getHeight(reduction);
+  const emissions2020Height = height < 100 ? "100%" : `${Math.round(100*100/height)}%`;
+  const emissions2030Height = height < 100 ? height + "%" : "100%";
+
+  console.log(emissions2020Height, emissions2030Height)
 
   return (
     <Container>
@@ -101,7 +105,7 @@ const ResultsSimple = ({ results }) => {
         <p>Evolution 2020 > 2030</p>
       </div>
       <div className="result_sunburst_container">
-        <div>
+        <div style={{height: emissions2020Height}}>
           <Sunburst datas={emissions2020} />
           <p>Répartition des émissions 2020</p>
         </div>
@@ -118,7 +122,7 @@ const getHeight = (reduction) => {
     const s1 = Math.PI / 4; // d1 = 1
     const s2 = s1 * (1-reduction);
     const d2 = 2 * Math.sqrt(s2 / Math.PI);
-    const height = Math.round(d2*100).toString() + '%';
+    const height = Math.round(d2*100);
     return height;
 }
 

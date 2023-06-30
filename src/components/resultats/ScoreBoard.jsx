@@ -58,10 +58,16 @@ const Container = styled.div`
   }
 `;
 
+const ScrollableTableContainer = styled.div`
+  flex: 1;
+  overflow: auto;
+  width: 100%;
+`;
+
 const Table = styled.table`
   width: 100%;
+  height: 100%
   border-collapse: collapse;
-
   th {
     font-weight: bold;
     background-color: #163e59;
@@ -83,6 +89,7 @@ const ScoreBoard = ({ results }) => {
   const [scores, setScores] = useState([]);
   const [isScoreAdded, setIsScoreAdded] = useState(false);
   const nameInputRef = useRef(null);
+  const userScoreRef = useRef(null);
 
   useEffect(() => {
     nameInputRef.current.focus();
@@ -96,6 +103,16 @@ const ScoreBoard = ({ results }) => {
   const sortedScores = [...finalScores].sort(
     (a, b) => a.emissions - b.emissions
   );
+
+  useEffect(() => {
+    if (userScoreRef.current) {
+      setTimeout(() => {
+        userScoreRef.current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 500);
+    }
+  }, [userScoreRef]);
 
   useEffect(() => {
     const storedScores = localStorage.getItem("scores");
@@ -125,7 +142,7 @@ const ScoreBoard = ({ results }) => {
       (score) => score.emissions === emissions
     );
     return index >= 0
-      ? `Congratulations, you are ranked ${index + 1} among the ${
+      ? `Félicitations, vous vous êtes classé ${index + 1} parmi ${
           finalScores.length
         } participants.`
       : "";
@@ -133,10 +150,15 @@ const ScoreBoard = ({ results }) => {
 
   return (
     <Container>
-      <h1>Mon Score</h1>
+      <h1>Mon Classement</h1>
       <div>{getRanking()}</div>
       <div className="input_container">
-        <input id="name-input" label="Name" ref={nameInputRef} />
+        <input
+          id="name-input"
+          label="Name"
+          ref={nameInputRef}
+          placeholder="Entrez votre nom, pour la postérité..."
+        />
         <button
           className="blue-btn"
           onClick={handleAddScore}
@@ -145,34 +167,40 @@ const ScoreBoard = ({ results }) => {
           Add
         </button>
       </div>
-
-      <Table>
-        <thead>
-          <tr>
-            <th>Rang</th>
-            <th>Nom</th>
-            <th>Emissions</th>
-            <th>Réduction</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedScores.map((score, index) => (
-            <tr
-              key={index}
-              className={
-                score.emissions === emissions && score.name.length === 0
-                  ? "user_score blink-animation"
-                  : ""
-              }
-            >
-              <td>{index + 1}</td>
-              <td>{score.name}</td>
-              <td>{Math.round(score.emissions).toLocaleString()} MtCO2eq</td>
-              <td>{Math.round(score.reduction * 1000) / 10} %</td>
+      <ScrollableTableContainer>
+        <Table>
+          <thead>
+            <tr>
+              <th>Rang</th>
+              <th>Nom</th>
+              <th>Emissions</th>
+              <th>Réduction</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {sortedScores.map((score, index) => (
+              <tr
+                key={index}
+                ref={
+                  score.emissions === emissions && score.name.length === 0
+                    ? userScoreRef
+                    : null
+                }
+                className={
+                  score.emissions === emissions && score.name.length === 0
+                    ? "user_score blink-animation"
+                    : ""
+                }
+              >
+                <td>{index + 1}</td>
+                <td>{score.name}</td>
+                <td>{Math.round(score.emissions).toLocaleString()} MtCO2eq</td>
+                <td>{Math.round(score.reduction * 1000) / 10} %</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </ScrollableTableContainer>
     </Container>
   );
 };

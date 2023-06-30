@@ -25,7 +25,10 @@ const Header = ({location}) => {
             <div className="header-left flex-item">
                 <Link className="header-link flex-item" to="/"><img src={handleLogo()} alt="Home logo" className="header-logo"/>
                 {location.pathname !=="/" && <h4>mission climat</h4>}</Link>
+                
             </div>
+            <Link className="header-link flex-item" to="/simulator">
+                <h4>Simulateur</h4></Link>
         </header>
     )
 }
